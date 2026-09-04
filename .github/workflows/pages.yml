@@ -6,6 +6,9 @@ on:
       - main
     paths:
       - index.html
+      - dashboard.html
+      - current.json
+      - history/**
       - .github/workflows/pages.yml
   workflow_dispatch:
 
