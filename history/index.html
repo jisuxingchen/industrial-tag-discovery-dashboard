@@ -1,0 +1,12 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ITDP Dashboard History</title>
+<style>
+:root{--bg:#07101c;--panel:#0f1d31;--line:#263b59;--text:#edf5ff;--muted:#93a7c4;--blue:#72adff;--green:#35d7a1}*{box-sizing:border-box}body{margin:0;background:linear-gradient(180deg,#07101c,#0a1625);color:var(--text);font:14px/1.6 Inter,system-ui,-apple-system,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif}.wrap{max-width:1050px;margin:auto;padding:28px}.head{display:flex;justify-content:space-between;gap:20px;align-items:center;margin-bottom:18px}.title{font-size:28px;font-weight:850}.sub{color:var(--muted)}a{color:#9dc9ff;text-decoration:none}.btn{display:inline-block;padding:9px 12px;border:1px solid var(--line);border-radius:10px;background:#10233b}.timeline{position:relative;padding-left:28px}.timeline:before{content:"";position:absolute;left:8px;top:8px;bottom:8px;width:2px;background:var(--line)}.item{position:relative;border:1px solid var(--line);background:linear-gradient(145deg,#13243c,#0b1727);border-radius:15px;padding:16px 18px;margin:12px 0}.item:before{content:"";position:absolute;left:-25px;top:22px;width:12px;height:12px;border-radius:50%;background:var(--green);box-shadow:0 0 0 4px #0a1625}.time{font-weight:800}.note{color:var(--muted);margin:4px 0 10px}.meta{font-size:12px;color:var(--muted)}.empty{padding:18px;border:1px dashed var(--line);border-radius:12px;color:var(--muted)}
+</style>
+</head><body><div class="wrap"><div class="head"><div><div class="title">ITDP 看板历史版本</div><div class="sub">按生成时间回顾项目当时的状态、问题、Gate 与重点 Review 内容。</div></div><a class="btn" href="../">← 返回当前看板</a></div><div id="timeline" class="timeline"><div class="empty">正在读取历史版本…</div></div></div>
+<script>
+fetch('./manifest.json',{cache:'no-store'}).then(r=>r.json()).then(data=>{const el=document.getElementById('timeline');const arr=(data.snapshots||[]).slice().sort((a,b)=>b.generated_at.localeCompare(a.generated_at));if(!arr.length){el.innerHTML='<div class="empty">暂无历史版本。</div>';return;}el.innerHTML=arr.map(x=>`<div class="item"><div class="time">${x.display_time}</div><div class="note">${x.note||'项目看板快照'}</div><a class="btn" href="../${x.path.replace(/^history\//,'')}">打开此版本</a><div class="meta">Version: ${x.version}${x.source_commit?` · Source commit: ${x.source_commit.slice(0,8)}`:''}</div></div>`).join('');}).catch(()=>document.getElementById('timeline').innerHTML='<div class="empty">历史清单读取失败，请稍后刷新。</div>');
+</script></body></html>
