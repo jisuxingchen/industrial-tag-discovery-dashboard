@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-09-04T22:29:28+08:00",
-  "display_time": "2026-09-04 22:29",
-  "version": "2026-09-04_22-29",
-  "note": "Phase 0 Product Review 完成，PDX-001 已批准，正式产品事实源已统一，进入 Phase 0/0.5 Closing",
+  "generated_at": "2026-09-04T23:04:37+08:00",
+  "display_time": "2026-09-04 23:04",
+  "version": "2026-09-04_23-04",
+  "note": "Phase 0.5 Harness runtime 验证 PASS；最新 PR HEAD CI Run #76 success；PR #1 技术门禁全绿，仅待 Product Owner merge approval",
   "dashboard_path": "dashboard.html"
 }
