@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-09-05T21:24:00+08:00",
-  "display_time": "2026-09-05 21:24",
-  "version": "2026-09-05_21-24",
-  "note": "EP-201 closed after PR #17 merge and main CI #249 success；EP-202 started in Issue #18 / Draft PR #19；P2-202-S1 Import envelope & provenance Technical PASS / CI #258 success；P2-202-S2 CSV generic reader boundary Ready；Stage B real/de-identified sample Gate remains active",
+  "generated_at": "2026-09-05T23:20:00+08:00",
+  "display_time": "2026-09-05 23:20",
+  "version": "2026-09-05_23-20",
+  "note": "EP-202 S8 product baseline approved；RP-202-A/RP-202-B approved；P-202-01..12 accepted non-blocking；F-202-11 Project isolation closed / CI #282；F-202-12 generalized variable-format handling closed / ADR-0009 / CI #285；PR #19 remains Draft/not merged；Final Merge Gate preparation in progress",
   "dashboard_path": "dashboard.html"
 }
