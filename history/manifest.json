@@ -1,6 +1,14 @@
 {
   "snapshots": [
     {
+      "version": "2026-09-05_10-15",
+      "generated_at": "2026-09-05T10:15:01+08:00",
+      "display_time": "2026-09-05 10:15",
+      "note": "Dashboard 增加过程缩写解释与任务/子任务级类甘特；GOV-006 发布中；Phase 1 P1-S1/P1-S2 Done，P1-S3 Next",
+      "path": "history/2026-09-05_10-15/index.html",
+      "source_commit": "0a1e69a4a6252f666bcdb9571884cbdaf2ec5c6a"
+    },
+    {
       "version": "2026-09-05_09-48",
       "generated_at": "2026-09-05T09:48:39+08:00",
       "display_time": "2026-09-05 09:48",

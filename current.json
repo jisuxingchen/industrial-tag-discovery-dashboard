@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-09-05T10:15:01+08:00",
-  "display_time": "2026-09-05 10:15",
-  "version": "2026-09-05_10-15",
-  "note": "Dashboard 增加 PR/EP/RFI/PDX/ADR/GOV/CI/DoD 等过程缩写解释，并把阶段路线细化到任务/子任务；Phase 1 P1-S1/P1-S2 Done，P1-S3 Next；PR #5 Draft；CI Run #108 success",
+  "generated_at": "2026-09-05T10:23:41+08:00",
+  "display_time": "2026-09-05 10:23",
+  "version": "2026-09-05_10-23",
+  "note": "GOV-006 完成：看板增加 PR/EP/RFI/PDX/ADR/GOV/CI/DoD 等过程缩写解释，并将阶段路线细化到 ROADMAP/BACKLOG 正式任务与 Phase 1 P1-S1～P1-S5 子任务；P1-S1/P1-S2 Done，P1-S3 Next",
   "dashboard_path": "dashboard.html"
 }
