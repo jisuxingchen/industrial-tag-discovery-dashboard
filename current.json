@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-09-05T10:23:41+08:00",
-  "display_time": "2026-09-05 10:23",
-  "version": "2026-09-05_10-23",
-  "note": "GOV-006 完成：看板增加 PR/EP/RFI/PDX/ADR/GOV/CI/DoD 等过程缩写解释，并将阶段路线细化到 ROADMAP/BACKLOG 正式任务与 Phase 1 P1-S1～P1-S5 子任务；P1-S1/P1-S2 Done，P1-S3 Next",
+  "generated_at": "2026-09-05T10:35:39+08:00",
+  "display_time": "2026-09-05 10:35",
+  "version": "2026-09-05_10-35",
+  "note": "Dashboard 类甘特改为 Project 式紧凑任务树：Phase→主任务→缩进子任务；默认仅展开当前 Phase 1，右侧只显示状态，避免单个 Phase 被任务内容撑高",
   "dashboard_path": "dashboard.html"
 }
