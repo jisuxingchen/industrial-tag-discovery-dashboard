@@ -1,6 +1,14 @@
 {
   "snapshots": [
     {
+      "version": "2026-09-05_23-20",
+      "generated_at": "2026-09-05T23:20:00+08:00",
+      "display_time": "2026-09-05 23:20",
+      "note": "EP-202 S8 product baseline approved；RP-202-A/RP-202-B approved；P-202-01..12 accepted non-blocking；F-202-11 Project isolation closed / CI #282；F-202-12 generalized variable-format handling closed / ADR-0009 / CI #285；PR #19 remains Draft/not merged；Final Merge Gate preparation in progress",
+      "path": "history/2026-09-05_23-20/index.html",
+      "source_commit": "e981037ad669a07c39bc3c9c57b165061a9c5d74"
+    },
+    {
       "version": "2026-09-05_21-24",
       "generated_at": "2026-09-05T21:24:00+08:00",
       "display_time": "2026-09-05 21:24",
