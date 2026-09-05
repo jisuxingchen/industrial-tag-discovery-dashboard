@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-09-05T23:20:00+08:00",
-  "display_time": "2026-09-05 23:20",
-  "version": "2026-09-05_23-20",
-  "note": "EP-202 S8 product baseline approved；RP-202-A/RP-202-B approved；P-202-01..12 accepted non-blocking；F-202-11 Project isolation closed / CI #282；F-202-12 generalized variable-format handling closed / ADR-0009 / CI #285；PR #19 remains Draft/not merged；Final Merge Gate preparation in progress",
+  "generated_at": "2026-09-06T00:22:00+08:00",
+  "display_time": "2026-09-06 00:22",
+  "version": "2026-09-06_00-22",
+  "note": "EP-202 DONE/CLOSED/MERGED；PR #19 merge 0bbe2ba6；main CI #296 SUCCESS；EP-203 started in Issue #20 / Draft PR #21；initial EP-203 CI #297 SUCCESS；P2-203-S1 DeviceType contract In Progress；RP-203-A remains the next product semantics review point",
   "dashboard_path": "dashboard.html"
 }
