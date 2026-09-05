@@ -1,6 +1,14 @@
 {
   "snapshots": [
     {
+      "version": "2026-09-05_14-11",
+      "generated_at": "2026-09-05T14:11:58+08:00",
+      "display_time": "2026-09-05 14:11",
+      "note": "P1-S1～S5 全部完成；P1-S5 CI #162 success；Phase 1 / EP-101 Final Technical Review PASS；PR #5 保持 Draft，下一 Gate 为 synchronized latest-head CI + Product Owner Merge Approval",
+      "path": "history/2026-09-05_14-11/index.html",
+      "source_commit": "817255f1ee9ed250c32252017177ec5b91ecc3f0"
+    },
+    {
       "version": "2026-09-05_13-35",
       "generated_at": "2026-09-05T13:35:54+08:00",
       "display_time": "2026-09-05 13:35",
