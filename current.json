@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-09-05T10:35:39+08:00",
-  "display_time": "2026-09-05 10:35",
-  "version": "2026-09-05_10-35",
-  "note": "Dashboard 类甘特改为 Project 式紧凑任务树：Phase→主任务→缩进子任务；默认仅展开当前 Phase 1，右侧只显示状态，避免单个 Phase 被任务内容撑高",
+  "generated_at": "2026-09-05T10:58:08+08:00",
+  "display_time": "2026-09-05 10:58",
+  "version": "2026-09-05_10-58",
+  "note": "P1-S3 Append-only Audit / Versioning 已完成并通过 CI #115；P1-S4 Traceability & Actor Ownership 成为 Next；Project 式紧凑任务树保持不变",
   "dashboard_path": "dashboard.html"
 }
