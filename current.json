@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-09-05T16:36:00+08:00",
-  "display_time": "2026-09-05 16:36",
-  "version": "2026-09-05_16-36",
-  "note": "Phase 1 与 GOV-008 已完成；PR #9 MERGED；Issue #8 CLOSED；main CI #183 success；Dashboard Pages #39 success；GOV-009 采用 GitHub-tracked lifecycle；Phase 2 保持 Proposed",
+  "generated_at": "2026-09-05T19:10:00+08:00",
+  "display_time": "2026-09-05 19:10",
+  "version": "2026-09-05_19-10",
+  "note": "PDX-002 effective；Phase 2 In Progress；P2-S0 Technical/Product Review PASS；PR #15 final HEAD CI #204 success；PO merge approval received；EP-201 not started until PR #15 merge + post-merge main CI",
   "dashboard_path": "dashboard.html"
 }

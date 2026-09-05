@@ -1,6 +1,14 @@
 {
   "snapshots": [
     {
+      "version": "2026-09-05_16-36",
+      "generated_at": "2026-09-05T16:36:00+08:00",
+      "display_time": "2026-09-05 16:36",
+      "note": "Phase 1 与 GOV-008 已完成；PR #9 MERGED；Issue #8 CLOSED；main CI #183 success；Dashboard Pages #39 success；GOV-009 采用 GitHub-tracked lifecycle；Phase 2 保持 Proposed",
+      "path": "history/2026-09-05_16-36/index.html",
+      "source_commit": "87bb7982ae67f3419ba222ca9fa53a1cef83aa56"
+    },
+    {
       "version": "2026-09-05_16-09",
       "generated_at": "2026-09-05T16:09:12+08:00",
       "display_time": "2026-09-05 16:09",
