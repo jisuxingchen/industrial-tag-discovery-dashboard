@@ -1,6 +1,14 @@
 {
   "snapshots": [
     {
+      "version": "2026-09-05_13-35",
+      "generated_at": "2026-09-05T13:35:54+08:00",
+      "display_time": "2026-09-05 13:35",
+      "note": "P1-S4 Final Review PASS；S4-F01～F06 全部关闭；CI #143 success；P1-S5 L0 Acceptance Scenarios / Fake Adapter = Next / Ready",
+      "path": "history/2026-09-05_13-35/index.html",
+      "source_commit": "2ae03b8aba79acbb8b76f03a427d755a78adab58"
+    },
+    {
       "version": "2026-09-05_11-43",
       "generated_at": "2026-09-05T11:43:06+08:00",
       "display_time": "2026-09-05 11:43",
