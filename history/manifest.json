@@ -1,6 +1,14 @@
 {
   "snapshots": [
     {
+      "version": "2026-09-05_19-10",
+      "generated_at": "2026-09-05T19:10:00+08:00",
+      "display_time": "2026-09-05 19:10",
+      "note": "PDX-002 effective；Phase 2 In Progress；P2-S0 Technical/Product Review PASS；PR #15 final HEAD CI #204 success；PO merge approval received；EP-201 not started until PR #15 merge + post-merge main CI",
+      "path": "history/2026-09-05_19-10/index.html",
+      "source_commit": "b260930a171f288050e757f3277b519ae3b78d08"
+    },
+    {
       "version": "2026-09-05_16-36",
       "generated_at": "2026-09-05T16:36:00+08:00",
       "display_time": "2026-09-05 16:36",
