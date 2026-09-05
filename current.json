@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-09-05T16:09:12+08:00",
-  "display_time": "2026-09-05 16:09",
-  "version": "2026-09-05_16-09",
-  "note": "Phase 1 / EP-101 与 GOV-007 已完成；PR #7 MERGED；Issue #6 CLOSED；CI #180 / main CI #181 success；GOV-008 PR #9 Review；Phase 2 保持 Proposed",
+  "generated_at": "2026-09-05T16:36:00+08:00",
+  "display_time": "2026-09-05 16:36",
+  "version": "2026-09-05_16-36",
+  "note": "Phase 1 与 GOV-008 已完成；PR #9 MERGED；Issue #8 CLOSED；main CI #183 success；Dashboard Pages #39 success；GOV-009 采用 GitHub-tracked lifecycle；Phase 2 保持 Proposed",
   "dashboard_path": "dashboard.html"
 }
