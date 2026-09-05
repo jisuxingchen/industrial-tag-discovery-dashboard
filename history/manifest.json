@@ -1,6 +1,14 @@
 {
   "snapshots": [
     {
+      "version": "2026-09-05_15-20",
+      "generated_at": "2026-09-05T15:20:56+08:00",
+      "display_time": "2026-09-05 15:20",
+      "note": "Phase 1 / EP-101 已完成并合并；PR #5 MERGED；Issue #2 CLOSED；main CI #179 success；Phase 2 保持 Proposed；GOV-007 进行 post-merge closeout sync",
+      "path": "history/2026-09-05_15-20/index.html",
+      "source_commit": "fbd10f1601b7465b1608ac933543f2a370a04b57"
+    },
+    {
       "version": "2026-09-05_14-11",
       "generated_at": "2026-09-05T14:11:58+08:00",
       "display_time": "2026-09-05 14:11",
