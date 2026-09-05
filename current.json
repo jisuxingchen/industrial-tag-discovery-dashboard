@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-09-04T23:04:37+08:00",
-  "display_time": "2026-09-04 23:04",
-  "version": "2026-09-04_23-04",
-  "note": "Phase 0.5 Harness runtime 验证 PASS；最新 PR HEAD CI Run #76 success；PR #1 技术门禁全绿，仅待 Product Owner merge approval",
+  "generated_at": "2026-09-05T08:16:50+08:00",
+  "display_time": "2026-09-05 08:16",
+  "version": "2026-09-05_08-16",
+  "note": "PR #1 已获 Product Owner 批准并合并；Phase 0/0.5 基线完成，EP-101 Issue #2 已创建，Phase 1 Ready；Testing / Simulation Strategy 已纳入正式路线",
   "dashboard_path": "dashboard.html"
 }
