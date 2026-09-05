@@ -1,6 +1,14 @@
 {
   "snapshots": [
     {
+      "version": "2026-09-05_11-43",
+      "generated_at": "2026-09-05T11:43:06+08:00",
+      "display_time": "2026-09-05 11:43",
+      "note": "P1-S3 已关闭；P1-S4 Traceability & Actor Ownership 正式启动并处于 In Progress；Project 式紧凑任务树保持不变",
+      "path": "history/2026-09-05_11-43/index.html",
+      "source_commit": "6b9e85fff635f096f0c03712599422553632db32"
+    },
+    {
       "version": "2026-09-05_10-58",
       "generated_at": "2026-09-05T10:58:08+08:00",
       "display_time": "2026-09-05 10:58",
