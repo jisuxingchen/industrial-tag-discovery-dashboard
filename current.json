@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-09-05T08:16:50+08:00",
-  "display_time": "2026-09-05 08:16",
-  "version": "2026-09-05_08-16",
-  "note": "PR #1 已获 Product Owner 批准并合并；Phase 0/0.5 基线完成，EP-101 Issue #2 已创建，Phase 1 Ready；Testing / Simulation Strategy 已纳入正式路线",
+  "generated_at": "2026-09-05T09:48:39+08:00",
+  "display_time": "2026-09-05 09:48",
+  "version": "2026-09-05_09-48",
+  "note": "Phase 1 / EP-101 已由 Product Owner 正式启动；Draft PR #5 已创建，P1-S1 Stable Identity & foundational invariants 已开始，Initial CI Run #89 success",
   "dashboard_path": "dashboard.html"
 }
