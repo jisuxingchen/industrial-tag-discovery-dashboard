@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-09-05T10:58:08+08:00",
-  "display_time": "2026-09-05 10:58",
-  "version": "2026-09-05_10-58",
-  "note": "P1-S3 Append-only Audit / Versioning 已完成并通过 CI #115；P1-S4 Traceability & Actor Ownership 成为 Next；Project 式紧凑任务树保持不变",
+  "generated_at": "2026-09-05T11:43:06+08:00",
+  "display_time": "2026-09-05 11:43",
+  "version": "2026-09-05_11-43",
+  "note": "P1-S3 已关闭；P1-S4 Traceability & Actor Ownership 正式启动，首轮 Actor ownership / DeliveredTagTrace / Customer Acceptance 合同实现已通过 CI #129；Project 式紧凑任务树保持不变",
   "dashboard_path": "dashboard.html"
 }
