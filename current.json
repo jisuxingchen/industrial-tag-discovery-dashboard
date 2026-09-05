@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-09-05T19:10:00+08:00",
-  "display_time": "2026-09-05 19:10",
-  "version": "2026-09-05_19-10",
-  "note": "PDX-002 effective；Phase 2 In Progress；P2-S0 Technical/Product Review PASS；PR #15 final HEAD CI #204 success；PO merge approval received；EP-201 not started until PR #15 merge + post-merge main CI",
+  "generated_at": "2026-09-05T20:54:00+08:00",
+  "display_time": "2026-09-05 20:54",
+  "version": "2026-09-05_20-54",
+  "note": "Phase 2 In Progress；EP-201 S1-S4 complete on PR #17 branch；RP-201-A/B/C approved；Final Technical Review PASS；PR #17 HEAD 1a6bf6c7 / CI #248 success；PR #17 merge pending Product Owner approval；EP-202 not started",
   "dashboard_path": "dashboard.html"
 }
