@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-09-05T20:54:00+08:00",
-  "display_time": "2026-09-05 20:54",
-  "version": "2026-09-05_20-54",
-  "note": "Phase 2 In Progress；EP-201 S1-S4 complete on PR #17 branch；RP-201-A/B/C approved；Final Technical Review PASS；PR #17 HEAD 1a6bf6c7 / CI #248 success；PR #17 merge pending Product Owner approval；EP-202 not started",
+  "generated_at": "2026-09-05T21:24:00+08:00",
+  "display_time": "2026-09-05 21:24",
+  "version": "2026-09-05_21-24",
+  "note": "EP-201 closed after PR #17 merge and main CI #249 success；EP-202 started in Issue #18 / Draft PR #19；P2-202-S1 Import envelope & provenance Technical PASS / CI #258 success；P2-202-S2 CSV generic reader boundary Ready；Stage B real/de-identified sample Gate remains active",
   "dashboard_path": "dashboard.html"
 }
