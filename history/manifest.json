@@ -1,6 +1,14 @@
 {
   "snapshots": [
     {
+      "version": "2026-09-05_09-48",
+      "generated_at": "2026-09-05T09:48:39+08:00",
+      "display_time": "2026-09-05 09:48",
+      "note": "Phase 1 / EP-101 正式启动；Draft PR #5 创建；P1-S1 开始实施；Initial CI Run #89 success",
+      "path": "history/2026-09-05_09-48/index.html",
+      "source_commit": "9c51cdb97142fa5a54829319145ab0b58ee43a94"
+    },
+    {
       "version": "2026-09-05_08-16",
       "generated_at": "2026-09-05T08:16:50+08:00",
       "display_time": "2026-09-05 08:16",

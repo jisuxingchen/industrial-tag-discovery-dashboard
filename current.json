@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-09-05T09:48:39+08:00",
-  "display_time": "2026-09-05 09:48",
-  "version": "2026-09-05_09-48",
-  "note": "Phase 1 / EP-101 已由 Product Owner 正式启动；Draft PR #5 已创建，P1-S1 Stable Identity & foundational invariants 已开始，Initial CI Run #89 success",
+  "generated_at": "2026-09-05T10:15:01+08:00",
+  "display_time": "2026-09-05 10:15",
+  "version": "2026-09-05_10-15",
+  "note": "Dashboard 增加 PR/EP/RFI/PDX/ADR/GOV/CI/DoD 等过程缩写解释，并把阶段路线细化到任务/子任务；Phase 1 P1-S1/P1-S2 Done，P1-S3 Next；PR #5 Draft；CI Run #108 success",
   "dashboard_path": "dashboard.html"
 }
