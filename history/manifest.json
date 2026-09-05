@@ -1,6 +1,14 @@
 {
   "snapshots": [
     {
+      "version": "2026-09-05_10-35",
+      "generated_at": "2026-09-05T10:35:39+08:00",
+      "display_time": "2026-09-05 10:35",
+      "note": "Project 式紧凑任务树首次发布：Phase→主任务→缩进子任务，右侧只显示状态；P1-S1/P1-S2 Done，P1-S3 Next",
+      "path": "history/2026-09-05_10-35/index.html",
+      "source_commit": "09f55a1dce41265e0dd1aaa624d2409073aa44ae"
+    },
+    {
       "version": "2026-09-05_10-23",
       "generated_at": "2026-09-05T10:23:41+08:00",
       "display_time": "2026-09-05 10:23",
