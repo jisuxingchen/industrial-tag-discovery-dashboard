@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-09-06T00:22:00+08:00",
-  "display_time": "2026-09-06 00:22",
-  "version": "2026-09-06_00-22",
-  "note": "EP-202 DONE/CLOSED/MERGED；PR #19 merge 0bbe2ba6；main CI #296 SUCCESS；EP-203 started in Issue #20 / Draft PR #21；initial EP-203 CI #297 SUCCESS；P2-203-S1 DeviceType contract In Progress；RP-203-A remains the next product semantics review point",
+  "generated_at": "2026-09-06T09:24:00+08:00",
+  "display_time": "2026-09-06 09:24",
+  "version": "2026-09-06_09-24",
+  "note": "EP-203 DONE/CLOSED/MERGED；PR #21 merge 23ae4db5；main CI #335 SUCCESS；Issue #20 closed；EP-204 authorized to start and will be driven toward final review under existing Phase 2 gates",
   "dashboard_path": "dashboard.html"
 }
