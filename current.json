@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-09-06T09:24:00+08:00",
-  "display_time": "2026-09-06 09:24",
-  "version": "2026-09-06_09-24",
-  "note": "EP-203 DONE/CLOSED/MERGED；PR #21 merge 23ae4db5；main CI #335 SUCCESS；Issue #20 closed；EP-204 authorized to start and will be driven toward final review under existing Phase 2 gates",
+  "generated_at": "2026-09-06T10:49:00+08:00",
+  "display_time": "2026-09-06 10:49",
+  "version": "2026-09-06_10-49",
+  "note": "EP-201..204 DONE/CLOSED/MERGED；P2-FTR Technical PASS and PO APPROVED as PASS WITH ACCEPTED DEFERRED ITEMS；PDX-001 still binding；PR #25 HEAD c117299e / CI #376 SUCCESS；PR #25 Ready for Review but NOT MERGED；current Gate = Phase 2 Closure / PR #25 Merge Approval；Phase 3 not started",
   "dashboard_path": "dashboard.html"
 }
