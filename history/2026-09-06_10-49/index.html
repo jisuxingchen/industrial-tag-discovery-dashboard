@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ITDP 项目看板</title>
+<style>
+:root{--bg:#07111e;--p:#0e1d31;--l:#29415f;--t:#edf5ff;--m:#96aac7;--g:#39d8a2;--a:#ffc95d;--b:#78b3ff;--r:#ff8d78;--v:#c69cff}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 10% -15%,#1c4778 0,transparent 27%),linear-gradient(180deg,#07101c,#081624 48%,#07101c);color:var(--t);font:14px/1.55 system-ui,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif}.w{max-width:1500px;margin:auto;padding:22px}.hero,.c{background:linear-gradient(145deg,#14263f,#0a1626);border:1px solid var(--l);border-radius:18px}.hero{padding:24px;display:flex;justify-content:space-between;gap:20px}.title{font-size:30px;font-weight:850}.sub,.muted{color:var(--m)}.chips,.actions{display:flex;gap:8px;flex-wrap:wrap}.chips{margin-top:14px}.chip,.btn{padding:6px 10px;border:1px solid var(--l);border-radius:999px;background:#10243d}.ok{color:var(--g)}.warn{color:var(--a)}.info{color:var(--b)}.violet{color:var(--v)}.btn{color:#e6f0ff;text-decoration:none;border-radius:10px;font-weight:750}.grid{display:grid;grid-template-columns:repeat(12,1fr);gap:14px;margin-top:14px}.c{padding:17px}.s3{grid-column:span 3}.s4{grid-column:span 4}.s5{grid-column:span 5}.s7{grid-column:span 7}.s8{grid-column:span 8}.s12{grid-column:span 12}.k{font-size:26px;font-weight:900}.box{padding:12px 14px;border-left:4px solid var(--b);background:#0d2038;border-radius:9px}.box.okb{border-color:var(--g);background:#0d2a22}.box.warnb{border-color:var(--a);background:#2a2414}.box.vb{border-color:var(--v);background:#211936}h2{font-size:16px;margin:0 0 11px}.pw{overflow:auto;border:1px solid var(--l);border-radius:12px}table{width:100%;border-collapse:collapse}.pt{min-width:1350px}.pt th,.pt td{height:34px;padding:5px 7px;border-right:1px solid var(--l);border-bottom:1px solid var(--l)}.pt th{background:#091626;color:var(--m)}.pt th:first-child{text-align:left;min-width:560px}.task{white-space:nowrap}.i1{padding-left:30px!important}.i2{padding-left:58px!important}.wbs{display:inline-block;min-width:112px;color:#9fc2ec;font:11px ui-monospace,monospace}.st{display:block;max-width:112px;margin:auto;text-align:center;border-radius:7px;padding:3px;font-size:10px;font-weight:900}.done,.approved{background:#165642;color:#dffff3}.ready{background:#3d4c78;color:#e1e8ff}.progress{background:#174b78;color:#dceeff}.review,.pending{background:#6a541c;color:#fff3bf}.proposed{background:#203d61;color:#c8dcf6}.gl th,.gl td{padding:8px;border-bottom:1px solid var(--l);text-align:left}.gl td:first-child{font-weight:850;color:#cfe3ff}.defer{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.defer div{padding:10px 12px;background:#0c1d31;border:1px solid var(--l);border-radius:10px}code{color:#d8e8ff}abbr{cursor:help;text-decoration:underline dotted #7fa6d5;text-underline-offset:3px}footer{color:var(--m);font-size:12px;padding:18px 2px}@media(max-width:900px){.hero{flex-direction:column}.s3,.s4,.s5,.s7,.s8{grid-column:span 12}.defer{grid-template-columns:1fr}}
+</style>
+</head>
+<body><div class="w">
+<section class="hero">
+<div>
+<div class="muted">PROJECT CONTROL CENTER · 2026-09-06 10:49</div>
+<div class="title">ITDP 项目看板</div>
+<div class="sub">Phase 2 · <abbr title="Phase 2 Final Technical / Product Review">P2-FTR</abbr> Approved · Final Close Gate · <abbr title="Pull Request">PR</abbr> #25 Merge Pending</div>
+<div class="chips">
+<span class="chip ok">EP-201~204 DONE</span>
+<span class="chip ok">P2-FTR APPROVED</span>
+<span class="chip ok"><abbr title="Continuous Integration">CI</abbr> #376 PASS</span>
+<span class="chip info">PR #25 READY</span>
+<span class="chip warn">MERGE NOT AUTHORIZED</span>
+<span class="chip violet"><abbr title="Product Decision Gate 001">PDX-001</abbr> STILL BINDING</span>
+</div>
+</div>
+<div class="actions">
+<a class="btn" href="https://github.com/jisuxingchen/industrial-tag-discovery/pull/25">PR #25</a>
+<a class="btn" href="https://github.com/jisuxingchen/industrial-tag-discovery/issues/24">P2-FTR Issue #24</a>
+<a class="btn" href="./history/">历史版本</a>
+</div>
+</section>
+
+<section class="grid">
+<div class="c s3"><div class="k ok">#376 ✓</div><div class="muted">PO approval-synchronized CI</div></div>
+<div class="c s3"><div class="k ok">FTR ✓</div><div class="muted">Technical + Product approved</div></div>
+<div class="c s3"><div class="k info">READY</div><div class="muted">PR #25 · review state</div></div>
+<div class="c s3"><div class="k warn">CLOSE</div><div class="muted">separate PO merge gate pending</div></div>
+
+<div class="c s8"><h2>当前事实</h2><div class="box okb"><b>Phase 2 的 EP-201、EP-202、EP-203、EP-204 均已完成、合并并关闭。</b><br><abbr title="Phase 2 Final Technical / Product Review">P2-FTR</abbr> 已由 Product Owner 批准为 <b>PASS WITH ACCEPTED DEFERRED ITEMS</b>。PR #25 当前 HEAD <code>c117299e...</code>，对应 CI #376 SUCCESS，并已切换为 Ready for Review。</div></div>
+<div class="c s4"><h2>Product Owner Inbox</h2><div class="box warnb"><b>下一步只剩一个独立 Gate：</b><br><b>Phase 2 Closure / PR #25 Merge Approval</b>。本次 P2-FTR 批准不等于 merge 授权，Phase 3 也不会自动启动。</div></div>
+
+<div class="c s7"><h2>P2-FTR 最终结论</h2><div class="box">Technical Review = <b>PASS</b><br>Product Review = <b>APPROVED</b><br>High/Critical open findings = <b>0</b><br>Cross-Epic regression = CI #363 PASS<br>Never Write / no Phase 3 boundary regression = CI #364 PASS<br>Approval-synchronized final review HEAD = CI #376 PASS</div></div>
+<div class="c s5"><h2>Phase 2 尚未 Done 的原因</h2><div class="box warnb">Definition of Done 的技术/产品内容已经满足，但治理收口仍要求：<br>1. Product Owner 单独批准 PR #25 merge / Phase 2 closure；<br>2. merge 后 main CI SUCCESS；<br>3. Issue #24 closeout。<br>在此之前 Phase 2 = Final Close Gate。</div></div>
+
+<div class="c s7"><h2>PDX-001 仍然有效</h2><div class="box vb">Phase 2 关闭也不意味着跨项目模型已经被冻结。仍需 <b>2–3 个真实项目</b> 后，才能正式冻结：全局业务字段/模板、DeviceType taxonomy、DiscoveryGroup/ranking policy、Readiness/Risk policy 与完整工程工作流。</div></div>
+<div class="c s5"><h2>延期项</h2><div class="defer"><div><b>P-202-01～12</b><br><span class="muted">Accepted / Non-blocking / Not Done</span></div><div><b>P-204-01～06</b><br><span class="muted">Accepted / Non-blocking / Not Done</span></div></div></div>
+
+<div class="c s7"><h2>Phase 2 已交付能力链</h2><div class="box">Project / optional hierarchy → DataRequirement / InvestigationItem → generalized import / provenance / enrichment → DeviceType / DiscoveryGroup / Representative Device → Method Plan / Actionable Readiness / qualitative Risk & Workload。</div></div>
+<div class="c s5"><h2>硬边界</h2><div class="box">Unknown stays Unknown · No Silent Overwrite · Human-in-the-loop · Explainable · Project Isolation · Simulation First · Append-only audit · <b>Never Write</b>。Phase 2 没有生产级 Passive/Active Discovery、协议 Driver、PLC read/write/control。</div></div>
+
+<div class="c s12"><h2>阶段路线 · Microsoft Project 风格</h2><div class="pw"><table class="pt"><thead><tr><th>Phase / Task Tree</th><th>0</th><th>0.5</th><th>1</th><th>GOV</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th><th>9</th><th>10</th><th>11</th></tr></thead><tbody id="pb"></tbody></table></div></div>
+
+<div class="c s12"><h2>术语</h2><table class="gl"><tr><th>术语</th><th>解释</th></tr>
+<tr><td>P2-FTR</td><td>Phase 2 Final Technical / Product Review；Phase 2 最终技术/产品审核。</td></tr>
+<tr><td>PR</td><td>Pull Request；分支变更进入 main 前的审核与合并载体。</td></tr>
+<tr><td>CI</td><td>Continuous Integration；GitHub Actions 的 Restore / Build / Test 自动验证。</td></tr>
+<tr><td>PDX-001</td><td>2–3 个真实项目后的跨项目正式 Freeze Gate；Phase 2 关闭不会解除它。</td></tr>
+<tr><td>Deferred Item</td><td>已明确接受为非阻塞、但并未完成的未来工作；不能被标记成 Done。</td></tr>
+<tr><td>Never Write</td><td>不实现 PLC Write / Force / Download / Run-Stop / Parameter Modification。</td></tr>
+</table></div>
+</section>
+<footer>Public Dashboard is a derived snapshot. Private PROJECT_STATE / TASK_IO_MATRIX and live GitHub lifecycle evidence remain authoritative.</footer>
+</div>
+<script>
+const cols=['0','0.5','1','GOV','2','3','4','5','6','7','8','9','10','11'];
+const gs=[
+{p:'0',t:'Phase 0 · Bootstrap',s:'Done',x:[]},
+{p:'0.5',t:'Phase 0.5 · Harness Governance',s:'Done',x:[]},
+{p:'1',t:'Phase 1 · Core Workflow',s:'Done',x:[]},
+{p:'GOV',t:'Governance & Phase 2 Gate',s:'Done',x:[['PDX-002','Phase 2 Start Gate','Done',1],['P2-S0','Execution Plan & Acceptance Matrix','Done',1]]},
+{p:'2',t:'Phase 2 · Project Planning',s:'Review',x:[
+['EP-201','Project / hierarchy / requirements','Done',1],
+['EP-202','Generalized import / enrichment','Done',1],
+['EP-203','DeviceType / DiscoveryGroup / Representative','Done',1],
+['EP-204','Access planning / readiness / risk','Done',1],
+['P2-FTR','Final Technical / Product Review','Approved',1],
+['P2-FTR-E2E','Cross-Epic end-to-end regression','Done',2],
+['P2-FTR-SAFE','Never Write / Phase 3 boundary regression','Done',2],
+['PR-25','P2-FTR review PR','Ready',2],
+['P2-CLOSE','Phase 2 Closure / Merge Gate','Pending',1]
+]},
+...['3','4','5','6','7','8','9','10','11'].map(p=>({p,t:`Phase ${p}`,s:'Proposed',x:[]}))
+];
+function cl(s){return s==='Done'?'done':s==='Approved'?'approved':s==='Ready'?'ready':s==='In Progress'?'progress':s==='Review'?'review':s==='Pending'?'pending':'proposed'}
+function bg(s){return `<span class="st ${cl(s)}">${s.toUpperCase()}</span>`}
+function row(l,p,s,i=0,w=''){return `<tr><td class="task ${i?'i'+i:''}">${w?`<span class="wbs">${w}</span>`:''}${l}</td>${cols.map(c=>`<td>${c===p?bg(s):''}</td>`).join('')}</tr>`}
+pb.innerHTML=gs.map(g=>row(g.t,g.p,g.s)+g.x.map(a=>row(a[1],g.p,a[2],a[3],a[0])).join('')).join('');
+</script>
+</body></html>
