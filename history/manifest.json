@@ -1,6 +1,14 @@
 {
   "snapshots": [
     {
+      "version": "2026-09-06_09-24",
+      "generated_at": "2026-09-06T09:24:00+08:00",
+      "display_time": "2026-09-06 09:24",
+      "note": "EP-203 DONE/CLOSED/MERGED；PR #21 merge 23ae4db5；main CI #335 SUCCESS；Issue #20 closed；EP-204 authorized to start and will be driven toward final review under existing Phase 2 gates",
+      "path": "history/2026-09-06_09-24/index.html",
+      "source_commit": "cf0ee5dac04152d39e748b5e8a99dfd61b5446a0"
+    },
+    {
       "version": "2026-09-06_00-22",
       "generated_at": "2026-09-06T00:22:00+08:00",
       "display_time": "2026-09-06 00:22",
