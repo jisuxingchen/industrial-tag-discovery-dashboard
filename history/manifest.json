@@ -1,6 +1,14 @@
 {
   "snapshots": [
     {
+      "version": "2026-09-06_11-11",
+      "generated_at": "2026-09-06T11:11:00+08:00",
+      "display_time": "2026-09-06 11:11",
+      "note": "Phase 2 CLOSED/DONE；P2-FTR Issue #24 CLOSED；PR #25 merged as ff013e0d；post-merge main CI #377 SUCCESS；P2-FTR PASS WITH ACCEPTED DEFERRED ITEMS；PDX-001 still binding；P-202-01..12 and P-204-01..06 remain non-blocking Not Done；Phase 3 not started",
+      "path": "history/2026-09-06_11-11/index.html",
+      "source_commit": "0753f4a4bf31078e37084647c36cb579e4729313"
+    },
+    {
       "version": "2026-09-06_10-49",
       "generated_at": "2026-09-06T10:49:00+08:00",
       "display_time": "2026-09-06 10:49",
