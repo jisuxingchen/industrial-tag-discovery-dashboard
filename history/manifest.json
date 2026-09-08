@@ -1,6 +1,14 @@
 {
   "snapshots": [
     {
+      "version": "2026-09-07_16-28",
+      "generated_at": "2026-09-07T16:28:00+08:00",
+      "display_time": "2026-09-07 16:28",
+      "note": "PDX-003 GO approved；Phase 3 ACTIVE；P3-S0/S1/S2/S3 DONE/MERGED/CLOSED；P3-S3 PR #51 merge 37ef76dd / main CI #575 SUCCESS / Issue #50 closed；P3-S4 ACTIVE in Issue #52 / Draft PR #53 / entry CI #576 SUCCESS；PDX-001 still binding；Phase 4 Driver/real PLC communication and all Write/Control remain NOT AUTHORIZED",
+      "path": "history/2026-09-07_16-28/index.html",
+      "source_commit": "00b6f93a1128322ea72dce7ca3a10b7a92c47980"
+    },
+    {
       "version": "2026-09-06_11-11",
       "generated_at": "2026-09-06T11:11:00+08:00",
       "display_time": "2026-09-06 11:11",
