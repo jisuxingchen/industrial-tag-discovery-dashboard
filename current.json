@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-09-07T16:28:00+08:00",
-  "display_time": "2026-09-07 16:28",
-  "version": "2026-09-07_16-28",
-  "note": "PDX-003 GO approved；Phase 3 ACTIVE；P3-S0/S1/S2/S3 DONE/MERGED/CLOSED；P3-S3 PR #51 merge 37ef76dd / main CI #575 SUCCESS / Issue #50 closed；P3-S4 ACTIVE in Issue #52 / Draft PR #53 / entry CI #576 SUCCESS；PDX-001 still binding；Phase 4 Driver/real PLC communication and all Write/Control remain NOT AUTHORIZED",
+  "generated_at": "2026-09-08T08:44:00+08:00",
+  "display_time": "2026-09-08 08:44",
+  "version": "2026-09-08_08-44",
+  "note": "Phase 3 Discovery Framework DONE/MERGED/MAIN-CI-VERIFIED/CLOSED；FTR PR #56 merged as 6e818ed3；post-merge main CI #598 SUCCESS；P3-FTR #55 and parent #43 Closed/Completed；P3-S5 remains Deferred/Conditional/Not Implemented；PDX-001 still binding；Phase 4 is NOT AUTHORIZED / NOT STARTED；Never Write remains absolute",
   "dashboard_path": "dashboard.html"
 }
