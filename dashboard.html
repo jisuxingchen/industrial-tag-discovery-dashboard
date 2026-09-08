@@ -9,49 +9,51 @@
 </style></head>
 <body><div class="w">
 <section class="hero"><div>
-<div class="muted">PROJECT CONTROL CENTER · 2026-09-08 08:44</div>
+<div class="muted">PROJECT CONTROL CENTER · 2026-09-08 20:15</div>
 <div class="title">ITDP 项目看板</div>
-<div class="sub">Phase 3 Discovery Framework · DONE / MERGED / MAIN-CI VERIFIED / CLOSED</div>
+<div class="sub">Phase 3 CLOSED · Post-close P3-S5-A Generic L1 DONE</div>
 <div class="chips">
-<span class="chip ok">PHASE 3 DONE</span><span class="chip ok">PR #56 MERGED</span><span class="chip ok">main CI #598 PASS</span><span class="chip ok">#55 / #43 CLOSED</span><span class="chip violet">PDX-001 BINDING</span><span class="chip warn">P3-S5 DEFERRED</span><span class="chip warn">PHASE 4 NOT STARTED</span><span class="chip warn">NEVER WRITE</span>
+<span class="chip ok">PHASE 3 DONE</span><span class="chip ok">S5-A DONE</span><span class="chip ok">PR #60 MERGED</span><span class="chip ok">main CI #628 PASS</span><span class="chip ok">#59 CLOSED</span><span class="chip ok">L1 FAULT / STOP PASS</span><span class="chip warn">RATE-RANGE PARTIAL</span><span class="chip violet">PDX-001 BINDING</span><span class="chip warn">PHASE 4 NOT STARTED</span><span class="chip warn">NEVER WRITE</span>
 </div></div><div class="actions">
-<a class="btn" href="https://github.com/jisuxingchen/industrial-tag-discovery/pull/56">FTR PR #56</a>
-<a class="btn" href="https://github.com/jisuxingchen/industrial-tag-discovery/issues/43">Phase 3 #43</a>
+<a class="btn" href="https://github.com/jisuxingchen/industrial-tag-discovery/pull/60">S5-A PR #60</a>
+<a class="btn" href="https://github.com/jisuxingchen/industrial-tag-discovery/issues/59">S5-A #59</a>
 <a class="btn" href="./history/">历史版本</a>
 </div></section>
 
 <section class="grid">
-<div class="c s3"><div class="k ok">#598 ✓</div><div class="muted">Phase 3 final main CI</div></div>
-<div class="c s3"><div class="k ok">P3 ✓</div><div class="muted">parent #43 Closed / Completed</div></div>
-<div class="c s3"><div class="k ok">FTR ✓</div><div class="muted">PR #56 merged / #55 closed</div></div>
+<div class="c s3"><div class="k ok">#628 ✓</div><div class="muted">S5-A exact main CI</div></div>
+<div class="c s3"><div class="k ok">S5-A ✓</div><div class="muted">PR #60 merged / #59 Closed</div></div>
+<div class="c s3"><div class="k ok">L1 ✓</div><div class="muted">FAULT / STOP generic PASS</div></div>
 <div class="c s3"><div class="k warn">P4 —</div><div class="muted">Not Authorized / Not Started</div></div>
 
-<div class="c s8"><h2>当前事实</h2><div class="box okb"><b>Phase 3 Discovery Framework 已正式关闭。</b><br>FTR PR #56 已按 reviewed exact HEAD 合并，实际 merge commit 为 <code>6e818ed3...</code>；对应 main push CI #598 SUCCESS；P3-FTR Issue #55 与 Phase 3 parent Issue #43 均已 Closed / Completed。Phase 4 没有自动启动。</div></div>
-<div class="c s4"><h2>当前阶段状态</h2><div class="box"><b>等待下一次显式 Product Owner Phase Gate。</b><br>当前没有新的实施 slice，也没有 Phase 4 Driver Issue 被自动创建。下一阶段必须重新定义授权边界、输入、DoD 和安全 Gate 后才能开始。</div></div>
+<div class="c s8"><h2>当前事实</h2><div class="box okb"><b>Phase 3 仍保持正式关闭；post-close P3-S5-A 也已完成并关闭。</b><br>S5-A PR #60 最终 reviewed HEAD 为 <code>4faca0e9...</code>，final PR CI #627 SUCCESS；实际 merge commit <code>f62e12fc...</code>，对应 main push CI #628 SUCCESS，Issue #59 Closed / Completed。随后 private truth sync PR #62 merge <code>c9c69819...</code>，main CI #630 SUCCESS，Issue #61 Closed。</div></div>
+<div class="c s4"><h2>当前阶段状态</h2><div class="box"><b>当前无活动产品实施 Gate。</b><br>R0 与 S5-A 都是 Phase 3 close 之后的独立 verification extension，现已完成。任何新的 Driver、协议或真实设备工作必须重新获得 Product Owner 明确授权；Phase 4 没有自动启动。</div></div>
 
-<div class="c s7"><h2>Phase 3 已交付链路</h2><div class="box">Method Recommendation → formal DiscoveryPlan → material-change / stale gate → exact-bound DiscoverySession → deterministic Preflight → default-deny Scope → auditable authorization → explicit Start framework state → terminal outcome → versioned EvidencePackage / append-only provenance。</div></div>
-<div class="c s5"><h2>FTR 最终结论</h2><div class="box okb"><b>Architecture PASS · Industrial Safety PASS · CI Quality PASS · Technical/Product PASS</b><br>Open Critical = 0；High = 0；blocking Medium = 0；Phase3-impacting Known Defect = 0；blocking Product Decision Required = 0。</div></div>
+<div class="c s7"><h2>S5-A 最终验证边界</h2><div class="box">tests-only deterministic simulator → Application pure no-IO verification policy → existing Domain identities/invariants。验证 exact Session / Plan / Scope authorization、generic fault/STOP/budget behavior 与 provenance；没有 product execution port、没有 simulator runtime dependency，也没有真实工业 IO。</div></div>
+<div class="c s5"><h2>S5-A 最终结论</h2><div class="box okb"><b>Architecture PASS · Industrial Safety PASS · Technical PASS</b><br>Open Critical = 0；High = 0；blocking Medium = 0；blocking Product Decision Required = 0。已解决 1 High + 4 Medium，并保留 CI #613 的有效 analyzer failure 历史。</div></div>
 
-<div class="c s6"><h2>P3-S5 / L1 状态</h2><div class="box warnb"><b>Deferred / Conditional / Not Implemented。</b><br><code>P3-L1-FAULT</code>、<code>P3-L1-RATE-RANGE</code>、<code>P3-L1-STOP-ABORT</code> 没有被标记 Done。只有未来存在经过独立 ADR + Industrial Safety Review 的非生产 execution/simulator contract 时才重新激活。</div></div>
-<div class="c s6"><h2>治理与安全边界</h2><div class="box"><b>Never Write 继续是绝对边界。</b><br>当前仍不授权 vendor/protocol Driver、真实 PLC/HMI/SCADA 通信、production Passive Capture / Controlled Active Read，也不存在 Write / Force / Download / Run-Stop / 参数修改 / Control 能力。</div></div>
+<div class="c s6"><h2>P3-L1 当前状态</h2><div class="box okb"><b>Generic L1 已形成可执行证据。</b><br><code>P3-L1-FAULT</code> = generic subset PASS；<code>P3-L1-STOP-ABORT</code> = generic subset PASS；<code>P3-L1-RATE-RANGE</code> = generic bounds subset PASS。<br><br><b class="warn">Overall RATE-RANGE 仍为 PARTIAL / protocol-bound pending。</b> 当前不声称 Siemens/Mitsubishi 地址范围、协议编码/线格式、真实 reconnect 或真实设备行为已验证。</div></div>
+<div class="c s6"><h2>治理与安全边界</h2><div class="box"><b>Never Write 继续是绝对边界。</b><br>没有 product execution port；<code>IReadOnlyIndustrialAccessPort</code> 仍为 descriptor-only；不授权 vendor/protocol Driver、真实 PLC/HMI/SCADA、network/device IO、production Passive Capture / Controlled Active Read，也不存在 Write / Force / Download / PLC Run-Stop / 参数修改 / Control 能力。</div></div>
 
-<div class="c s7"><h2>仍然有效的产品约束</h2><div class="box vb"><b>PDX-001 继续有效。</b><br>跨项目 business fields / taxonomy / ranking / planning policy / full workflow 的正式 Freeze 仍需 2–3 个真实项目。Phase 3 close 不代表该 Freeze Gate 已满足。</div></div>
-<div class="c s5"><h2>Product Owner Inbox</h2><div class="box okb"><b>当前无待审批 merge。</b><br>Phase 3 已关闭。下一次需要 PO 明确批准的事项应是新的 Phase Gate（例如 Phase 4 entry），而不是自动延续当前授权。</div></div>
+<div class="c s7"><h2>仍然有效的产品约束</h2><div class="box vb"><b>PDX-001 继续有效。</b><br>跨项目 business fields / taxonomy / ranking / planning policy / full workflow 的正式 Freeze 仍需 2–3 个真实项目。S5-A generic L1 完成不代表 PDX-001 Freeze Gate 或 Phase 4 protocol evidence 已满足。</div></div>
+<div class="c s5"><h2>Product Owner Inbox</h2><div class="box okb"><b>当前无待审批 merge。</b><br>下一次产品实施应从新的显式 Gate 开始。若进入 Phase 4，需要单独定义 Driver/outward port、protocol-bound L1/L2、安全边界和 Never Write structural evolution；不会从 S5-A 自动继承实施授权。</div></div>
 
 <div class="c s12"><h2>阶段路线 · Microsoft Project 风格</h2><div class="pw"><table class="pt"><thead><tr><th>Phase / Task Tree</th><th>0</th><th>0.5</th><th>1</th><th>GOV</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th><th>9</th><th>10</th><th>11</th></tr></thead><tbody id="pb"></tbody></table></div></div>
 
-<div class="c s12"><h2>Phase 3 Gate 记录</h2><table class="gl"><tr><th>切片</th><th>状态 / Evidence</th></tr>
+<div class="c s12"><h2>Phase 3 / Post-close Gate 记录</h2><table class="gl"><tr><th>切片</th><th>状态 / Evidence</th></tr>
 <tr><td>P3-S0</td><td>Done · PR #45 · merge <code>99afbf85...</code> · main CI #515</td></tr>
 <tr><td>P3-S1</td><td>Done · PR #47 · merge <code>03de7163...</code> · main CI #531</td></tr>
 <tr><td>P3-S2</td><td>Done · PR #49 · merge <code>04048380...</code> · main CI #555</td></tr>
 <tr><td>P3-S3</td><td>Done · PR #51 · merge <code>37ef76dd...</code> · main CI #575</td></tr>
-<tr><td>P3-S4</td><td>Done · PR #53 · merge <code>1d5b7bff...</code> · main CI #588 · Issue #52 Closed</td></tr>
-<tr><td>P3-S5</td><td>Deferred / Conditional / Not Implemented · Gate #54 Closed / Not Planned</td></tr>
-<tr><td>P3-FTR</td><td>Done · PR #56 · merge <code>6e818ed3...</code> · main CI #598 · Issue #55 Closed</td></tr>
-<tr><td>Phase 3 Parent</td><td>Done / Closed · Issue #43 Closed / Completed after #598 SUCCESS</td></tr>
+<tr><td>P3-S4</td><td>Done · PR #53 · merge <code>1d5b7bff...</code> · main CI #588 · #52 Closed</td></tr>
+<tr><td>Original P3-S5 Gate</td><td>Historical Defer decision · #54 Closed / Not Planned；later re-entry is separately audited</td></tr>
+<tr><td>P3-FTR</td><td>Done · PR #56 · merge <code>6e818ed3...</code> · main CI #598 · #55 / parent #43 Closed</td></tr>
+<tr><td>P3-S5-R0</td><td>Post-close Done · PR #58 · merge <code>6e16c71c...</code> · main CI #609 · #57 Closed</td></tr>
+<tr><td>P3-S5-A</td><td>Post-close Done · PR #60 · merge <code>f62e12fc...</code> · main CI #628 · #59 Closed</td></tr>
+<tr><td>Post-close truth sync</td><td>Docs-only · PR #62 · merge <code>c9c69819...</code> · main CI #630 · #61 Closed</td></tr>
 </table></div>
 </section>
-<footer>Public Dashboard is a derived snapshot. Private GitHub repository lifecycle evidence remains authoritative. Phase 4 is not authorized by this snapshot.</footer>
+<footer>Public Dashboard is a derived snapshot. Private GitHub source-of-truth at post-close sync main <code>c9c69819...</code> / CI #630 remains authoritative. Phase 4 is not authorized by this snapshot.</footer>
 </div>
 <script>
 const cols=['0','0.5','1','GOV','2','3','4','5','6','7','8','9','10','11'];
@@ -59,9 +61,9 @@ const gs=[
 {p:'0',t:'Phase 0 · Bootstrap',s:'Done',x:[]},
 {p:'0.5',t:'Phase 0.5 · Harness Governance',s:'Done',x:[]},
 {p:'1',t:'Phase 1 · Core Workflow',s:'Done',x:[]},
-{p:'GOV',t:'Governance / Phase Gates',s:'Done',x:[['PDX-002','Phase 2 Start Gate','Done',1],['PDX-003','Phase 3 Start Gate','Done',1],['P3-CLOSE','Phase 3 Close Gate','Done',1]]},
+{p:'GOV',t:'Governance / Phase Gates',s:'Done',x:[['PDX-002','Phase 2 Start Gate','Done',1],['PDX-003','Phase 3 Start Gate','Done',1],['P3-CLOSE','Phase 3 Close Gate','Done',1],['S5-R0','Post-close S5 R0 Gate','Done',1],['S5-A','Post-close S5-A Merge Gate','Done',1]]},
 {p:'2',t:'Phase 2 · Project Planning',s:'Done',x:[['EP-201','Project / hierarchy / requirements','Done',1],['EP-202','Generalized import / enrichment','Done',1],['EP-203','DeviceType / Group / Representative','Done',1],['EP-204','Planning / readiness / risk','Done',1],['P2-FTR','Phase 2 Final Review','Done',1]]},
-{p:'3',t:'Phase 3 · Discovery Framework',s:'Done',x:[['P3-S0','Execution plan / architecture entry','Done',1],['P3-S1','Plan orchestration / stale-plan','Done',1],['P3-S2','Session lifecycle / authority','Done',1],['P3-S3','Preflight / Scope','Done',1],['P3-S4','EvidencePackage / provenance','Done',1],['P3-S5','Non-production L1 verification','Proposed',1],['P3-FTR','Phase 3 Final Review','Done',1]]},
+{p:'3',t:'Phase 3 · Discovery Framework',s:'Done',x:[['P3-S0','Execution plan / architecture entry','Done',1],['P3-S1','Plan orchestration / stale-plan','Done',1],['P3-S2','Session lifecycle / authority','Done',1],['P3-S3','Preflight / Scope','Done',1],['P3-S4','EvidencePackage / provenance','Done',1],['P3-FTR','Phase 3 Final Review','Done',1],['P3-S5-R0','Post-close L1 architecture gate','Done',1],['P3-S5-A','Generic non-production L1','Done',1]]},
 {p:'4',t:'Phase 4 · Siemens / Mitsubishi Driver Foundation',s:'Proposed',x:[]},
 ...['5','6','7','8','9','10','11'].map(p=>({p,t:`Phase ${p}`,s:'Proposed',x:[]}))
 ];
