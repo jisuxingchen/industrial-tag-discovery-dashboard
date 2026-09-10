@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-09-08T20:15:00+08:00",
-  "display_time": "2026-09-08 20:15",
-  "version": "2026-09-08_20-15",
-  "note": "Phase 3 remains DONE/CLOSED；P3-S5-R0 and P3-S5-A post-close verification extensions DONE/MERGED/MAIN-CI-VERIFIED/CLOSED；S5-A PR #60 merge f62e12fc / main CI #628 SUCCESS / Issue #59 Closed；post-close truth sync PR #62 merge c9c69819 / main CI #630 SUCCESS / Issue #61 Closed；P3-L1-FAULT generic PASS；P3-L1-STOP-ABORT generic PASS；P3-L1-RATE-RANGE generic bounds PASS but overall PARTIAL / protocol-bound pending；PDX-001 binding；Phase 4 NOT AUTHORIZED / NOT STARTED；Never Write absolute",
+  "generated_at": "2026-09-10T16:36:00+08:00",
+  "display_time": "2026-09-10 16:36",
+  "version": "2026-09-10_16-36",
+  "note": "P4-R0 DONE/MERGED/MAIN-CI-VERIFIED/CLOSED；Truth Sync PR #70 merged as 64194a0e / main CI #676 SUCCESS；P4-S1 GO APPROVED by Product Owner on 2026-09-10；Issue #65 READY / authorized to start；scope limited to generic typed read-only execution boundary + exact DriverBinding authority + Never Write guard evolution + deterministic fake/no-network verification；P4-S2/S3/S4/S5, vendor protocol, network/device IO, real PLC and all Write/Control remain NOT AUTHORIZED；PDX-001 binding",
   "dashboard_path": "dashboard.html"
 }
