@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-09-10T16:36:00+08:00",
-  "display_time": "2026-09-10 16:36",
-  "version": "2026-09-10_16-36",
-  "note": "P4-R0 DONE/MERGED/MAIN-CI-VERIFIED/CLOSED；Truth Sync PR #70 merged as 64194a0e / main CI #676 SUCCESS；P4-S1 GO APPROVED by Product Owner on 2026-09-10；Issue #65 READY / authorized to start；scope limited to generic typed read-only execution boundary + exact DriverBinding authority + Never Write guard evolution + deterministic fake/no-network verification；P4-S2/S3/S4/S5, vendor protocol, network/device IO, real PLC and all Write/Control remain NOT AUTHORIZED；PDX-001 binding",
+  "generated_at": "2026-09-11T13:04:00+08:00",
+  "display_time": "2026-09-11 13:04",
+  "version": "2026-09-11_13-04",
+  "note": "Phase 4 DONE WITH EXPLICIT EVIDENCE LIMITS；P5-R0 / P5-S1 / P5-R1 DONE/CLOSED；P5-R1 Option B selected；P6-R0 Issue #90 GO / IN PROGRESS (design-only)；PR #91 exact head 6e4cb7a7 / CI #713 SUCCESS / Main Agent Technical PASS / READY FOR PO MERGE GATE；P6-S1 PROPOSED / NOT AUTHORIZED；PDX-001 binding；Siemens/Mitsubishi real-device UNKNOWN / NOT VERIFIED；no L4 real PLC IO；P3-L1-RATE-RANGE PARTIAL / protocol-bound；Never Write absolute",
   "dashboard_path": "dashboard.html"
 }
