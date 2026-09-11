@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ITDP 项目看板</title>
+<style>
+:root{--bg:#07111e;--p:#0e1d31;--l:#29415f;--t:#edf5ff;--m:#96aac7;--g:#39d8a2;--a:#ffc95d;--b:#78b3ff;--v:#c69cff}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 10% -15%,#1c4778 0,transparent 27%),linear-gradient(180deg,#07101c,#081624 48%,#07101c);color:var(--t);font:14px/1.55 system-ui,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif}.w{max-width:1500px;margin:auto;padding:22px}.hero,.c{background:linear-gradient(145deg,#14263f,#0a1626);border:1px solid var(--l);border-radius:18px}.hero{padding:24px;display:flex;justify-content:space-between;gap:20px}.title{font-size:30px;font-weight:850}.sub,.muted{color:var(--m)}.chips,.actions{display:flex;gap:8px;flex-wrap:wrap}.chips{margin-top:14px}.chip,.btn{padding:6px 10px;border:1px solid var(--l);border-radius:999px;background:#10243d}.ok{color:var(--g)}.warn{color:var(--a)}.info{color:var(--b)}.violet{color:var(--v)}.btn{color:#e6f0ff;text-decoration:none;border-radius:10px;font-weight:750}.grid{display:grid;grid-template-columns:repeat(12,1fr);gap:14px;margin-top:14px}.c{padding:17px}.s3{grid-column:span 3}.s4{grid-column:span 4}.s5{grid-column:span 5}.s6{grid-column:span 6}.s7{grid-column:span 7}.s8{grid-column:span 8}.s12{grid-column:span 12}.k{font-size:26px;font-weight:900}.box{padding:12px 14px;border-left:4px solid var(--b);background:#0d2038;border-radius:9px}.box.okb{border-color:var(--g);background:#0d2a22}.box.warnb{border-color:var(--a);background:#2a2414}.box.vb{border-color:var(--v);background:#211936}h2{font-size:16px;margin:0 0 11px}.pw{overflow:auto;border:1px solid var(--l);border-radius:12px}table{width:100%;border-collapse:collapse}.pt{min-width:1350px}.pt th,.pt td{height:34px;padding:5px 7px;border-right:1px solid var(--l);border-bottom:1px solid var(--l)}.pt th{background:#091626;color:var(--m)}.pt th:first-child{text-align:left;min-width:580px}.task{white-space:nowrap}.i1{padding-left:30px!important}.wbs{display:inline-block;min-width:112px;color:#9fc2ec;font:11px ui-monospace,monospace}.st{display:block;max-width:112px;margin:auto;text-align:center;border-radius:7px;padding:3px;font-size:10px;font-weight:900}.done,.approved{background:#165642;color:#dffff3}.ready{background:#3d4c78;color:#e1e8ff}.progress{background:#174b78;color:#dceeff}.review,.pending{background:#6a541c;color:#fff3bf}.proposed{background:#203d61;color:#c8dcf6}.gl th,.gl td{padding:8px;border-bottom:1px solid var(--l);text-align:left}.gl td:first-child{font-weight:850;color:#cfe3ff}code{color:#d8e8ff}footer{color:var(--m);font-size:12px;padding:18px 2px}@media(max-width:900px){.hero{flex-direction:column}.s3,.s4,.s5,.s6,.s7,.s8{grid-column:span 12}}
+</style></head>
+<body><div class="w">
+<section class="hero"><div>
+<div class="muted">PROJECT CONTROL CENTER · 2026-09-10 16:36</div>
+<div class="title">ITDP 项目看板</div>
+<div class="sub">Phase 4 · P4-S1 Read-only Driver Foundation Skeleton</div>
+<div class="chips">
+<span class="chip ok">P4-R0 CLOSED</span><span class="chip ok">TRUTH SYNC #70 MERGED</span><span class="chip ok">main CI #676 PASS</span><span class="chip ok">P4-S1 GO APPROVED</span><span class="chip info">#65 READY</span><span class="chip warn">P4-S2+ NOT AUTHORIZED</span><span class="chip violet">PDX-001 BINDING</span><span class="chip warn">NEVER WRITE</span>
+</div></div><div class="actions">
+<a class="btn" href="https://github.com/jisuxingchen/industrial-tag-discovery/issues/65">P4-S1 Issue #65</a>
+<a class="btn" href="https://github.com/jisuxingchen/industrial-tag-discovery/pull/70">Truth Sync PR #70</a>
+<a class="btn" href="./history/">历史版本</a>
+</div></section>
+<section class="grid">
+<div class="c s3"><div class="k ok">#676 ✓</div><div class="muted">Truth Sync exact main CI</div></div>
+<div class="c s3"><div class="k ok">S1 GO</div><div class="muted">Product Owner Approved</div></div>
+<div class="c s3"><div class="k info">#65</div><div class="muted">READY / Authorized to Start</div></div>
+<div class="c s3"><div class="k warn">S2 —</div><div class="muted">Not Authorized</div></div>
+
+<div class="c s8"><h2>当前事实</h2><div class="box okb"><b>P4-S1 已获得 Product Owner 明确 GO 授权。</b><br>P4-R0 已通过设计、安全、隔离与 Never Write Gate；Truth Sync PR #70 已合并为 <code>64194a0e...</code>，对应 main CI #676 SUCCESS。Issue #65 现为 READY，可进入受限实施。</div></div>
+<div class="c s4"><h2>当前实施 Gate</h2><div class="box"><b>P4-S1 — READY / AUTHORIZED TO START</b><br>仅授权 generic typed read-only execution boundary、exact DriverBinding authority、Never Write structural-guard evolution，以及 deterministic fake/no-network verification。</div></div>
+
+<div class="c s6"><h2>P4-S1 允许范围</h2><div class="box okb">typed read-only execution port；immutable execution authorization/request/result；Project/Device/Plan/Session/fresh Scope exact binding；DriverBinding ref+revision+fingerprint；explicit budget/timeout/cancel；provenance；ADR-0019 + Never Write structural regression；fake/no-network tests。</div></div>
+<div class="c s6"><h2>明确禁止范围</h2><div class="box warnb"><b>仍未授权：</b> Siemens Driver、Mitsubishi Driver、vendor protocol/codec/runtime、network/socket/serial/device IO、networked simulator、real PLC/HMI/SCADA、production execution，以及任何 Write / Force / Download / PLC Run-Stop / 参数修改 / Reset / Control 能力。</div></div>
+
+<div class="c s7"><h2>安全与架构约束</h2><div class="box">Never Write 继续为绝对约束；无 raw frame/command tunnel；无 caller vendor address/endpoint override；Driver/runtime 不得修改 DiscoverySession 或制造 Engineer authority；cancel/STOP 仅终止本地 ITDP read attempt；首版不得自动 retry/reconnect；所有 Scope/Binding/identity 不匹配均 fail closed。</div></div>
+<div class="c s5"><h2>Product Owner Inbox</h2><div class="box okb"><b>当前无需新的产品决策即可启动 P4-S1。</b><br>下一次必须回到 Product Owner 的 Gate 是：P4-S1 Technical Review / Merge Authorization，以及之后独立的 P4-S2 GO / NO-GO。当前授权不外溢到后续切片。</div></div>
+
+<div class="c s7"><h2>仍然有效的产品约束</h2><div class="box vb"><b>PDX-001 继续有效。</b><br>跨项目 business fields / taxonomy / ranking / planning policy / full workflow 的正式 Freeze 仍需 2–3 个真实项目；P4-S1 不改变这一约束。</div></div>
+<div class="c s5"><h2>当前验证真相</h2><div class="box">P3-L1-FAULT 与 STOP-ABORT generic subset 已 PASS；RATE-RANGE generic bounds subset PASS，但整体仍是 <b class="warn">PARTIAL / protocol-bound pending</b>。P4-S1 完成后也不得把它误标为协议验证完成。</div></div>
+
+<div class="c s12"><h2>阶段路线 · Microsoft Project 风格</h2><div class="pw"><table class="pt"><thead><tr><th>Phase / Task Tree</th><th>0</th><th>0.5</th><th>1</th><th>GOV</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th><th>9</th><th>10</th><th>11</th></tr></thead><tbody id="pb"></tbody></table></div></div>
+
+<div class="c s12"><h2>Phase 4 Gate 记录</h2><table class="gl"><tr><th>切片</th><th>状态 / Evidence</th></tr>
+<tr><td>P4-R0</td><td>Done / Closed · Issue #63 · PR #64 merge <code>751e8ca...</code> · main CI #643 SUCCESS</td></tr>
+<tr><td>Truth Sync</td><td>Done / Merged · PR #70 merge <code>64194a0e...</code> · exact main CI #676 SUCCESS</td></tr>
+<tr><td>P4-S1</td><td><b>READY / GO APPROVED</b> · Issue #65 · generic read-only foundation only</td></tr>
+<tr><td>P4-S2</td><td>Proposed / NOT AUTHORIZED · Siemens protocol foundation requires separate GO after S1 main-close</td></tr>
+<tr><td>P4-S3</td><td>Proposed / NOT AUTHORIZED · Mitsubishi protocol foundation requires separate GO</td></tr>
+<tr><td>P4-S4</td><td>Proposed / NOT AUTHORIZED · networked simulator environment separately gated</td></tr>
+<tr><td>P4-S5</td><td>Proposed / NOT AUTHORIZED · real PLC bench separately gated</td></tr>
+</table></div>
+</section>
+<footer>Public Dashboard is a derived snapshot. Live GitHub evidence plus PROJECT_STATE and TASK_IO_MATRIX remain authoritative. Current product authorization is P4-S1 only; P4-S2+ and all real-device/write-control capabilities remain unauthorized.</footer>
+</div>
+<script>
+const cols=['0','0.5','1','GOV','2','3','4','5','6','7','8','9','10','11'];
+const gs=[
+{p:'0',t:'Phase 0 · Bootstrap',s:'Done',x:[]},
+{p:'0.5',t:'Phase 0.5 · Harness Governance',s:'Done',x:[]},
+{p:'1',t:'Phase 1 · Core Workflow',s:'Done',x:[]},
+{p:'GOV',t:'Governance / Phase Gates',s:'Done',x:[['PDX-002','Phase 2 Start Gate','Done',1],['PDX-003','Phase 3 Start Gate','Done',1],['P3-CLOSE','Phase 3 Close Gate','Done',1],['P4-R0','Phase 4 R0 Design Gate','Done',1],['P4-S1-GO','P4-S1 Product Owner Gate','Approved',1]]},
+{p:'2',t:'Phase 2 · Project Planning',s:'Done',x:[]},
+{p:'3',t:'Phase 3 · Discovery Framework',s:'Done',x:[]},
+{p:'4',t:'Phase 4 · Read-only Driver Foundation',s:'Ready',x:[['P4-R0','Driver Foundation Architecture & Safety','Done',1],['P4-S1','Generic typed read-only execution boundary','Ready',1],['P4-S2','Siemens read-only protocol foundation','Proposed',1],['P4-S3','Mitsubishi read-only protocol foundation','Proposed',1],['P4-S4','Conditional vendor simulator transport','Proposed',1],['P4-S5','Conditional real PLC bench','Proposed',1]]},
+...['5','6','7','8','9','10','11'].map(p=>({p,t:`Phase ${p}`,s:'Proposed',x:[]}))
+];
+function cl(s){return s==='Done'?'done':s==='Approved'?'approved':s==='Ready'?'ready':s==='In Progress'?'progress':s==='Review'?'review':s==='Pending'?'pending':'proposed'}
+function bg(s){return `<span class="st ${cl(s)}">${s.toUpperCase()}</span>`}
+function row(l,p,s,i=0,w=''){return `<tr><td class="task ${i?'i'+i:''}">${w?`<span class="wbs">${w}</span>`:''}${l}</td>${cols.map(c=>`<td>${c===p?bg(s):''}</td>`).join('')}</tr>`}
+pb.innerHTML=gs.map(g=>row(g.t,g.p,g.s)+g.x.map(a=>row(a[1],g.p,a[2],a[3],a[0])).join('')).join('');
+</script>
+</body></html>
