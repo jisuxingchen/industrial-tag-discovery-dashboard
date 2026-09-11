@@ -9,47 +9,47 @@
 </style></head>
 <body><div class="w">
 <section class="hero"><div>
-<div class="muted">PROJECT CONTROL CENTER · 2026-09-10 16:36</div>
+<div class="muted">PROJECT CONTROL CENTER · 2026-09-11 13:04</div>
 <div class="title">ITDP 项目看板</div>
-<div class="sub">Phase 4 · P4-S1 Read-only Driver Foundation Skeleton</div>
+<div class="sub">Phase 6 · P6-R0 Engineering Confirmation Architecture / Readiness Gate</div>
 <div class="chips">
-<span class="chip ok">P4-R0 CLOSED</span><span class="chip ok">TRUTH SYNC #70 MERGED</span><span class="chip ok">main CI #676 PASS</span><span class="chip ok">P4-S1 GO APPROVED</span><span class="chip info">#65 READY</span><span class="chip warn">P4-S2+ NOT AUTHORIZED</span><span class="chip violet">PDX-001 BINDING</span><span class="chip warn">NEVER WRITE</span>
+<span class="chip ok">PHASE 4 CLOSED</span><span class="chip ok">P5 CLOSED</span><span class="chip ok">P5-R1 OPTION B</span><span class="chip info">P6-R0 GO / IN PROGRESS</span><span class="chip ok">PR #91 TECH PASS</span><span class="chip ok">CI #713 PASS</span><span class="chip warn">P6-S1 NOT AUTHORIZED</span><span class="chip violet">PDX-001 BINDING</span><span class="chip warn">NEVER WRITE</span>
 </div></div><div class="actions">
-<a class="btn" href="https://github.com/jisuxingchen/industrial-tag-discovery/issues/65">P4-S1 Issue #65</a>
-<a class="btn" href="https://github.com/jisuxingchen/industrial-tag-discovery/pull/70">Truth Sync PR #70</a>
+<a class="btn" href="https://github.com/jisuxingchen/industrial-tag-discovery/issues/90">P6-R0 Issue #90</a>
+<a class="btn" href="https://github.com/jisuxingchen/industrial-tag-discovery/pull/91">P6-R0 PR #91</a>
 <a class="btn" href="./history/">历史版本</a>
 </div></section>
+
 <section class="grid">
-<div class="c s3"><div class="k ok">#676 ✓</div><div class="muted">Truth Sync exact main CI</div></div>
-<div class="c s3"><div class="k ok">S1 GO</div><div class="muted">Product Owner Approved</div></div>
-<div class="c s3"><div class="k info">#65</div><div class="muted">READY / Authorized to Start</div></div>
-<div class="c s3"><div class="k warn">S2 —</div><div class="muted">Not Authorized</div></div>
+<div class="c s3"><div class="k ok">#712 ✓</div><div class="muted">P5-S1 merge-commit main CI</div></div>
+<div class="c s3"><div class="k ok">#713 ✓</div><div class="muted">P6-R0 exact-head PR CI</div></div>
+<div class="c s3"><div class="k info">R0 GO</div><div class="muted">Design-only authorization</div></div>
+<div class="c s3"><div class="k warn">S1 —</div><div class="muted">Proposed / Not Authorized</div></div>
 
-<div class="c s8"><h2>当前事实</h2><div class="box okb"><b>P4-S1 已获得 Product Owner 明确 GO 授权。</b><br>P4-R0 已通过设计、安全、隔离与 Never Write Gate；Truth Sync PR #70 已合并为 <code>64194a0e...</code>，对应 main CI #676 SUCCESS。Issue #65 现为 READY，可进入受限实施。</div></div>
-<div class="c s4"><h2>当前实施 Gate</h2><div class="box"><b>P4-S1 — READY / AUTHORIZED TO START</b><br>仅授权 generic typed read-only execution boundary、exact DriverBinding authority、Never Write structural-guard evolution，以及 deterministic fake/no-network verification。</div></div>
+<div class="c s8"><h2>当前事实</h2><div class="box okb"><b>P6-R0 已获得 Product Owner 明确 GO，且 PR #91 已通过 Main Agent Technical Review。</b><br>P5-S1 PR #88 已合并为 <code>70b25ad...</code>，main CI #712 SUCCESS。P6-R0 PR #91 exact head <code>6e4cb7a7...</code>，CI #713 SUCCESS，当前状态为 <b>TECHNICAL PASS / READY FOR PO MERGE GATE / NOT MERGED</b>。</div></div>
+<div class="c s4"><h2>当前 Gate</h2><div class="box"><b>P6-R0 — READY FOR PO MERGE GATE</b><br>仅为 Engineering Confirmation architecture/design。P6-S1 仍为 Proposed / Not Authorized。</div></div>
 
-<div class="c s6"><h2>P4-S1 允许范围</h2><div class="box okb">typed read-only execution port；immutable execution authorization/request/result；Project/Device/Plan/Session/fresh Scope exact binding；DriverBinding ref+revision+fingerprint；explicit budget/timeout/cancel；provenance；ADR-0019 + Never Write structural regression；fake/no-network tests。</div></div>
-<div class="c s6"><h2>明确禁止范围</h2><div class="box warnb"><b>仍未授权：</b> Siemens Driver、Mitsubishi Driver、vendor protocol/codec/runtime、network/socket/serial/device IO、networked simulator、real PLC/HMI/SCADA、production execution，以及任何 Write / Force / Download / PLC Run-Stop / 参数修改 / Reset / Control 能力。</div></div>
+<div class="c s6"><h2>P6-R0 已定义</h2><div class="box okb">explicit Engineer decision；exact active Candidate revision；Project/Device/provenance binding；stale/superseded fail-closed；Unknown/conflict preservation；append-only decision history；Engineer correction 独立语义；ConfirmedTag no-bypass；Project isolation。</div></div>
+<div class="c s6"><h2>明确未授权</h2><div class="box warnb"><b>仍未授权：</b> P6-S1 production implementation、UI、DB migration、ML/LLM auto-confirm、network/device IO、protocol parsing、real PLC IO，以及任何 Write / Force / Download / Run-Stop / Reset / 参数配置 / Control 能力。</div></div>
 
-<div class="c s7"><h2>安全与架构约束</h2><div class="box">Never Write 继续为绝对约束；无 raw frame/command tunnel；无 caller vendor address/endpoint override；Driver/runtime 不得修改 DiscoverySession 或制造 Engineer authority；cancel/STOP 仅终止本地 ITDP read attempt；首版不得自动 retry/reconnect；所有 Scope/Binding/identity 不匹配均 fail closed。</div></div>
-<div class="c s5"><h2>Product Owner Inbox</h2><div class="box okb"><b>当前无需新的产品决策即可启动 P4-S1。</b><br>下一次必须回到 Product Owner 的 Gate 是：P4-S1 Technical Review / Merge Authorization，以及之后独立的 P4-S2 GO / NO-GO。当前授权不外溢到后续切片。</div></div>
+<div class="c s7"><h2>验证与安全真相</h2><div class="box">Siemens / Mitsubishi real-device behavior 仍为 <b class="warn">UNKNOWN / NOT VERIFIED</b>；没有发生 L4 real PLC execution。<code>P3-L1-RATE-RANGE</code> 仍为 <b class="warn">PARTIAL / protocol-bound</b>。Phase 6 confirmation 仅管理工程业务真相，不扩展工业通信能力。</div></div>
+<div class="c s5"><h2>Product Owner Inbox</h2><div class="box warnb"><b>当前需要 PO 决策：</b><br>1) PR #91 merge authorization；<br>2) P6-R0 main-close 后，是否单独批准 P6-S1 GO。<br><br>Technical PASS ≠ Merge Authorization。</div></div>
 
-<div class="c s7"><h2>仍然有效的产品约束</h2><div class="box vb"><b>PDX-001 继续有效。</b><br>跨项目 business fields / taxonomy / ranking / planning policy / full workflow 的正式 Freeze 仍需 2–3 个真实项目；P4-S1 不改变这一约束。</div></div>
-<div class="c s5"><h2>当前验证真相</h2><div class="box">P3-L1-FAULT 与 STOP-ABORT generic subset 已 PASS；RATE-RANGE generic bounds subset PASS，但整体仍是 <b class="warn">PARTIAL / protocol-bound pending</b>。P4-S1 完成后也不得把它误标为协议验证完成。</div></div>
+<div class="c s7"><h2>仍然有效的产品约束</h2><div class="box vb"><b>PDX-001 继续有效。</b><br>跨项目 business fields / taxonomy / ranking / planning policy / full workflow 的正式 Freeze 仍需 2–3 个真实项目。Phase 6 不得绕过这一约束。</div></div>
+<div class="c s5"><h2>Phase 6 关键边界</h2><div class="box">最高排名、唯一候选、阈值或后台流程均不得 auto-confirm。Unknown 不因 Confirm 自动变 Known；未解决 conflict 阻止 plain Confirm；ConfirmedTag 必须由合法 Engineer Confirm decision 驱动，禁止 bypass。</div></div>
 
 <div class="c s12"><h2>阶段路线 · Microsoft Project 风格</h2><div class="pw"><table class="pt"><thead><tr><th>Phase / Task Tree</th><th>0</th><th>0.5</th><th>1</th><th>GOV</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th><th>9</th><th>10</th><th>11</th></tr></thead><tbody id="pb"></tbody></table></div></div>
 
-<div class="c s12"><h2>Phase 4 Gate 记录</h2><table class="gl"><tr><th>切片</th><th>状态 / Evidence</th></tr>
-<tr><td>P4-R0</td><td>Done / Closed · Issue #63 · PR #64 merge <code>751e8ca...</code> · main CI #643 SUCCESS</td></tr>
-<tr><td>Truth Sync</td><td>Done / Merged · PR #70 merge <code>64194a0e...</code> · exact main CI #676 SUCCESS</td></tr>
-<tr><td>P4-S1</td><td><b>READY / GO APPROVED</b> · Issue #65 · generic read-only foundation only</td></tr>
-<tr><td>P4-S2</td><td>Proposed / NOT AUTHORIZED · Siemens protocol foundation requires separate GO after S1 main-close</td></tr>
-<tr><td>P4-S3</td><td>Proposed / NOT AUTHORIZED · Mitsubishi protocol foundation requires separate GO</td></tr>
-<tr><td>P4-S4</td><td>Proposed / NOT AUTHORIZED · networked simulator environment separately gated</td></tr>
-<tr><td>P4-S5</td><td>Proposed / NOT AUTHORIZED · real PLC bench separately gated</td></tr>
+<div class="c s12"><h2>Phase 5 / 6 Gate 记录</h2><table class="gl"><tr><th>Track</th><th>状态 / Evidence</th></tr>
+<tr><td>P5-R0</td><td>Done / Closed · Issue #85 · PR #86 · main CI #708 SUCCESS</td></tr>
+<tr><td>P5-S1</td><td>Done / Closed · Issue #87 · PR #88 merge <code>70b25ad...</code> · main CI #712 SUCCESS</td></tr>
+<tr><td>P5-R1</td><td>Done / Closed · Issue #89 · OPTION B — open Phase 6 architecture/readiness Gate</td></tr>
+<tr><td>P6-R0</td><td><b>GO / IN PROGRESS · TECHNICAL PASS</b> · Issue #90 · PR #91 · exact-head CI #713 SUCCESS · waiting PO merge authorization</td></tr>
+<tr><td>P6-S1</td><td>Proposed / NOT AUTHORIZED · Engineering Confirmation Domain/Application Foundation</td></tr>
 </table></div>
 </section>
-<footer>Public Dashboard is a derived snapshot. Live GitHub evidence plus PROJECT_STATE and TASK_IO_MATRIX remain authoritative. Current product authorization is P4-S1 only; P4-S2+ and all real-device/write-control capabilities remain unauthorized.</footer>
+
+<footer>Public Dashboard is a derived snapshot. Live GitHub evidence plus PROJECT_STATE and TASK_IO_MATRIX remain authoritative. Current authorization is P6-R0 design-only; P6-S1 and all industrial write/control capabilities remain unauthorized.</footer>
 </div>
 <script>
 const cols=['0','0.5','1','GOV','2','3','4','5','6','7','8','9','10','11'];
@@ -57,15 +57,17 @@ const gs=[
 {p:'0',t:'Phase 0 · Bootstrap',s:'Done',x:[]},
 {p:'0.5',t:'Phase 0.5 · Harness Governance',s:'Done',x:[]},
 {p:'1',t:'Phase 1 · Core Workflow',s:'Done',x:[]},
-{p:'GOV',t:'Governance / Phase Gates',s:'Done',x:[['PDX-002','Phase 2 Start Gate','Done',1],['PDX-003','Phase 3 Start Gate','Done',1],['P3-CLOSE','Phase 3 Close Gate','Done',1],['P4-R0','Phase 4 R0 Design Gate','Done',1],['P4-S1-GO','P4-S1 Product Owner Gate','Approved',1]]},
+{p:'GOV',t:'Governance / Phase Gates',s:'Done',x:[['PDX-002','Phase 2 Start Gate','Done',1],['PDX-003','Phase 3 Start Gate','Done',1],['P4-R0','Phase 4 R0 Design Gate','Done',1],['P5-R0','Phase 5 Candidate Identification Design Gate','Done',1],['P5-R1','Phase 5 Exit / Phase 6 Readiness Decision','Done',1],['P6-R0-GO','P6-R0 Product Owner Gate','Approved',1]]},
 {p:'2',t:'Phase 2 · Project Planning',s:'Done',x:[]},
 {p:'3',t:'Phase 3 · Discovery Framework',s:'Done',x:[]},
-{p:'4',t:'Phase 4 · Read-only Driver Foundation',s:'Ready',x:[['P4-R0','Driver Foundation Architecture & Safety','Done',1],['P4-S1','Generic typed read-only execution boundary','Ready',1],['P4-S2','Siemens read-only protocol foundation','Proposed',1],['P4-S3','Mitsubishi read-only protocol foundation','Proposed',1],['P4-S4','Conditional vendor simulator transport','Proposed',1],['P4-S5','Conditional real PLC bench','Proposed',1]]},
-...['5','6','7','8','9','10','11'].map(p=>({p,t:`Phase ${p}`,s:'Proposed',x:[]}))
+{p:'4',t:'Phase 4 · Read-only Driver Foundation',s:'Done',x:[['P4-R0','Driver Foundation Architecture & Safety','Done',1],['P4-S1','Generic typed read-only execution boundary','Done',1],['P4-S2','Siemens read-only foundation','Done',1],['P4-S3','Mitsubishi read-only foundation','Done',1],['P4-S4','Unified simulator evidence','Done',1],['P4-S5','Named real-bench preflight foundation','Done',1],['P4-FTR','Phase 4 Final Technical Review','Done',1]]},
+{p:'5',t:'Phase 5 · Candidate Identification',s:'Done',x:[['P5-R0','Candidate Identification Architecture','Done',1],['P5-S1','Domain/Application Foundation','Done',1],['P5-R1','Continuation / Exit Decision','Done',1]]},
+{p:'6',t:'Phase 6 · Engineering Confirmation',s:'In Progress',x:[['P6-R0','Engineering Confirmation Architecture','Review',1],['P6-S1','Domain/Application Foundation','Proposed',1]]},
+...['7','8','9','10','11'].map(p=>({p,t:'Phase '+p,s:'Proposed',x:[]}))
 ];
 function cl(s){return s==='Done'?'done':s==='Approved'?'approved':s==='Ready'?'ready':s==='In Progress'?'progress':s==='Review'?'review':s==='Pending'?'pending':'proposed'}
-function bg(s){return `<span class="st ${cl(s)}">${s.toUpperCase()}</span>`}
-function row(l,p,s,i=0,w=''){return `<tr><td class="task ${i?'i'+i:''}">${w?`<span class="wbs">${w}</span>`:''}${l}</td>${cols.map(c=>`<td>${c===p?bg(s):''}</td>`).join('')}</tr>`}
+function bg(s){return '<span class="st '+cl(s)+'">'+s.toUpperCase()+'</span>'}
+function row(l,p,s,i=0,w=''){return '<tr><td class="task '+(i?'i'+i:'')+'">'+(w?'<span class="wbs">'+w+'</span>':'')+l+'</td>'+cols.map(c=>'<td>'+(c===p?bg(s):'')+'</td>').join('')+'</tr>'}
 pb.innerHTML=gs.map(g=>row(g.t,g.p,g.s)+g.x.map(a=>row(a[1],g.p,a[2],a[3],a[0])).join('')).join('');
 </script>
 </body></html>
