@@ -9,11 +9,11 @@
 </style></head>
 <body><div class="w">
 <section class="hero"><div>
-<div class="muted">PROJECT CONTROL CENTER · 2026-09-11 13:04</div>
+<div class="muted">PROJECT CONTROL CENTER · 2026-09-11 13:12</div>
 <div class="title">ITDP 项目看板</div>
 <div class="sub">Phase 6 · P6-R0 Engineering Confirmation Architecture / Readiness Gate</div>
 <div class="chips">
-<span class="chip ok">PHASE 4 CLOSED</span><span class="chip ok">P5 CLOSED</span><span class="chip ok">P5-R1 OPTION B</span><span class="chip info">P6-R0 GO / IN PROGRESS</span><span class="chip ok">PR #91 TECH PASS</span><span class="chip ok">CI #713 PASS</span><span class="chip warn">P6-S1 NOT AUTHORIZED</span><span class="chip violet">PDX-001 BINDING</span><span class="chip warn">NEVER WRITE</span>
+<span class="chip ok">PHASE 4 CLOSED</span><span class="chip ok">P5 CLOSED</span><span class="chip ok">P5-R1 OPTION B</span><span class="chip info">P6-R0 CLOSED</span><span class="chip ok">PR #91 MERGED</span><span class="chip ok">main CI #714 PASS</span><span class="chip warn">P6-S1 NOT AUTHORIZED</span><span class="chip violet">PDX-001 BINDING</span><span class="chip warn">NEVER WRITE</span>
 </div></div><div class="actions">
 <a class="btn" href="https://github.com/jisuxingchen/industrial-tag-discovery/issues/90">P6-R0 Issue #90</a>
 <a class="btn" href="https://github.com/jisuxingchen/industrial-tag-discovery/pull/91">P6-R0 PR #91</a>
@@ -27,7 +27,7 @@
 <div class="c s3"><div class="k warn">S1 —</div><div class="muted">Proposed / Not Authorized</div></div>
 
 <div class="c s8"><h2>当前事实</h2><div class="box okb"><b>P6-R0 已获得 Product Owner 明确 GO，且 PR #91 已通过 Main Agent Technical Review。</b><br>P5-S1 PR #88 已合并为 <code>70b25ad...</code>，main CI #712 SUCCESS。P6-R0 PR #91 exact head <code>6e4cb7a7...</code>，CI #713 SUCCESS，当前状态为 <b>TECHNICAL PASS / READY FOR PO MERGE GATE / NOT MERGED</b>。</div></div>
-<div class="c s4"><h2>当前 Gate</h2><div class="box"><b>P6-R0 — READY FOR PO MERGE GATE</b><br>仅为 Engineering Confirmation architecture/design。P6-S1 仍为 Proposed / Not Authorized。</div></div>
+<div class="c s4"><h2>当前 Gate</h2><div class="box"><b>P6-R0 — DONE / MAIN-CI VERIFIED / CLOSED</b><br>仅为 Engineering Confirmation architecture/design。P6-S1 仍为 Proposed / Not Authorized。</div></div>
 
 <div class="c s6"><h2>P6-R0 已定义</h2><div class="box okb">explicit Engineer decision；exact active Candidate revision；Project/Device/provenance binding；stale/superseded fail-closed；Unknown/conflict preservation；append-only decision history；Engineer correction 独立语义；ConfirmedTag no-bypass；Project isolation。</div></div>
 <div class="c s6"><h2>明确未授权</h2><div class="box warnb"><b>仍未授权：</b> P6-S1 production implementation、UI、DB migration、ML/LLM auto-confirm、network/device IO、protocol parsing、real PLC IO，以及任何 Write / Force / Download / Run-Stop / Reset / 参数配置 / Control 能力。</div></div>
@@ -44,7 +44,7 @@
 <tr><td>P5-R0</td><td>Done / Closed · Issue #85 · PR #86 · main CI #708 SUCCESS</td></tr>
 <tr><td>P5-S1</td><td>Done / Closed · Issue #87 · PR #88 merge <code>70b25ad...</code> · main CI #712 SUCCESS</td></tr>
 <tr><td>P5-R1</td><td>Done / Closed · Issue #89 · OPTION B — open Phase 6 architecture/readiness Gate</td></tr>
-<tr><td>P6-R0</td><td><b>GO / IN PROGRESS · TECHNICAL PASS</b> · Issue #90 · PR #91 · exact-head CI #713 SUCCESS · waiting PO merge authorization</td></tr>
+<tr><td>P6-R0</td><td><b>DONE / MERGED / MAIN-CI VERIFIED / CLOSED</b> · Issue #90 · PR #91 · PR #91 merged as <code>566b9baa...</code> · main CI #714 SUCCESS</td></tr>
 <tr><td>P6-S1</td><td>Proposed / NOT AUTHORIZED · Engineering Confirmation Domain/Application Foundation</td></tr>
 </table></div>
 </section>
@@ -62,7 +62,7 @@ const gs=[
 {p:'3',t:'Phase 3 · Discovery Framework',s:'Done',x:[]},
 {p:'4',t:'Phase 4 · Read-only Driver Foundation',s:'Done',x:[['P4-R0','Driver Foundation Architecture & Safety','Done',1],['P4-S1','Generic typed read-only execution boundary','Done',1],['P4-S2','Siemens read-only foundation','Done',1],['P4-S3','Mitsubishi read-only foundation','Done',1],['P4-S4','Unified simulator evidence','Done',1],['P4-S5','Named real-bench preflight foundation','Done',1],['P4-FTR','Phase 4 Final Technical Review','Done',1]]},
 {p:'5',t:'Phase 5 · Candidate Identification',s:'Done',x:[['P5-R0','Candidate Identification Architecture','Done',1],['P5-S1','Domain/Application Foundation','Done',1],['P5-R1','Continuation / Exit Decision','Done',1]]},
-{p:'6',t:'Phase 6 · Engineering Confirmation',s:'In Progress',x:[['P6-R0','Engineering Confirmation Architecture','Review',1],['P6-S1','Domain/Application Foundation','Proposed',1]]},
+{p:'6',t:'Phase 6 · Engineering Confirmation',s:'Ready',x:[['P6-R0','Engineering Confirmation Architecture','Done',1],['P6-S1','Domain/Application Foundation','Proposed',1]]},
 ...['7','8','9','10','11'].map(p=>({p,t:'Phase '+p,s:'Proposed',x:[]}))
 ];
 function cl(s){return s==='Done'?'done':s==='Approved'?'approved':s==='Ready'?'ready':s==='In Progress'?'progress':s==='Review'?'review':s==='Pending'?'pending':'proposed'}
