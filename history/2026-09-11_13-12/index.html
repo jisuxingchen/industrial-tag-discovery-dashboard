@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ITDP 项目看板</title>
+<style>
+:root{--bg:#07111e;--p:#0e1d31;--l:#29415f;--t:#edf5ff;--m:#96aac7;--g:#39d8a2;--a:#ffc95d;--b:#78b3ff;--v:#c69cff}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 10% -15%,#1c4778 0,transparent 27%),linear-gradient(180deg,#07101c,#081624 48%,#07101c);color:var(--t);font:14px/1.55 system-ui,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif}.w{max-width:1500px;margin:auto;padding:22px}.hero,.c{background:linear-gradient(145deg,#14263f,#0a1626);border:1px solid var(--l);border-radius:18px}.hero{padding:24px;display:flex;justify-content:space-between;gap:20px}.title{font-size:30px;font-weight:850}.sub,.muted{color:var(--m)}.chips,.actions{display:flex;gap:8px;flex-wrap:wrap}.chips{margin-top:14px}.chip,.btn{padding:6px 10px;border:1px solid var(--l);border-radius:999px;background:#10243d}.ok{color:var(--g)}.warn{color:var(--a)}.info{color:var(--b)}.violet{color:var(--v)}.btn{color:#e6f0ff;text-decoration:none;border-radius:10px;font-weight:750}.grid{display:grid;grid-template-columns:repeat(12,1fr);gap:14px;margin-top:14px}.c{padding:17px}.s3{grid-column:span 3}.s4{grid-column:span 4}.s5{grid-column:span 5}.s6{grid-column:span 6}.s7{grid-column:span 7}.s8{grid-column:span 8}.s12{grid-column:span 12}.k{font-size:26px;font-weight:900}.box{padding:12px 14px;border-left:4px solid var(--b);background:#0d2038;border-radius:9px}.box.okb{border-color:var(--g);background:#0d2a22}.box.warnb{border-color:var(--a);background:#2a2414}.box.vb{border-color:var(--v);background:#211936}h2{font-size:16px;margin:0 0 11px}.pw{overflow:auto;border:1px solid var(--l);border-radius:12px}table{width:100%;border-collapse:collapse}.pt{min-width:1350px}.pt th,.pt td{height:34px;padding:5px 7px;border-right:1px solid var(--l);border-bottom:1px solid var(--l)}.pt th{background:#091626;color:var(--m)}.pt th:first-child{text-align:left;min-width:580px}.task{white-space:nowrap}.i1{padding-left:30px!important}.wbs{display:inline-block;min-width:112px;color:#9fc2ec;font:11px ui-monospace,monospace}.st{display:block;max-width:112px;margin:auto;text-align:center;border-radius:7px;padding:3px;font-size:10px;font-weight:900}.done,.approved{background:#165642;color:#dffff3}.ready{background:#3d4c78;color:#e1e8ff}.progress{background:#174b78;color:#dceeff}.review,.pending{background:#6a541c;color:#fff3bf}.proposed{background:#203d61;color:#c8dcf6}.gl th,.gl td{padding:8px;border-bottom:1px solid var(--l);text-align:left}.gl td:first-child{font-weight:850;color:#cfe3ff}code{color:#d8e8ff}footer{color:var(--m);font-size:12px;padding:18px 2px}@media(max-width:900px){.hero{flex-direction:column}.s3,.s4,.s5,.s6,.s7,.s8{grid-column:span 12}}
+</style></head>
+<body><div class="w">
+<section class="hero"><div>
+<div class="muted">PROJECT CONTROL CENTER · 2026-09-11 13:12</div>
+<div class="title">ITDP 项目看板</div>
+<div class="sub">Phase 6 · P6-R0 Engineering Confirmation Architecture / Readiness Gate</div>
+<div class="chips">
+<span class="chip ok">PHASE 4 CLOSED</span><span class="chip ok">P5 CLOSED</span><span class="chip ok">P5-R1 OPTION B</span><span class="chip info">P6-R0 CLOSED</span><span class="chip ok">PR #91 MERGED</span><span class="chip ok">main CI #714 PASS</span><span class="chip warn">P6-S1 NOT AUTHORIZED</span><span class="chip violet">PDX-001 BINDING</span><span class="chip warn">NEVER WRITE</span>
+</div></div><div class="actions">
+<a class="btn" href="https://github.com/jisuxingchen/industrial-tag-discovery/issues/90">P6-R0 Issue #90</a>
+<a class="btn" href="https://github.com/jisuxingchen/industrial-tag-discovery/pull/91">P6-R0 PR #91</a>
+<a class="btn" href="./history/">历史版本</a>
+</div></section>
+
+<section class="grid">
+<div class="c s3"><div class="k ok">#712 ✓</div><div class="muted">P5-S1 merge-commit main CI</div></div>
+<div class="c s3"><div class="k ok">#713 ✓</div><div class="muted">P6-R0 exact-head PR CI</div></div>
+<div class="c s3"><div class="k info">R0 GO</div><div class="muted">Design-only authorization</div></div>
+<div class="c s3"><div class="k warn">S1 —</div><div class="muted">Proposed / Not Authorized</div></div>
+
+<div class="c s8"><h2>当前事实</h2><div class="box okb"><b>P6-R0 已获得 Product Owner 明确 GO，且 PR #91 已通过 Main Agent Technical Review。</b><br>P5-S1 PR #88 已合并为 <code>70b25ad...</code>，main CI #712 SUCCESS。P6-R0 PR #91 exact head <code>6e4cb7a7...</code>，CI #713 SUCCESS，当前状态为 <b>TECHNICAL PASS / READY FOR PO MERGE GATE / NOT MERGED</b>。</div></div>
+<div class="c s4"><h2>当前 Gate</h2><div class="box"><b>P6-R0 — DONE / MAIN-CI VERIFIED / CLOSED</b><br>仅为 Engineering Confirmation architecture/design。P6-S1 仍为 Proposed / Not Authorized。</div></div>
+
+<div class="c s6"><h2>P6-R0 已定义</h2><div class="box okb">explicit Engineer decision；exact active Candidate revision；Project/Device/provenance binding；stale/superseded fail-closed；Unknown/conflict preservation；append-only decision history；Engineer correction 独立语义；ConfirmedTag no-bypass；Project isolation。</div></div>
+<div class="c s6"><h2>明确未授权</h2><div class="box warnb"><b>仍未授权：</b> P6-S1 production implementation、UI、DB migration、ML/LLM auto-confirm、network/device IO、protocol parsing、real PLC IO，以及任何 Write / Force / Download / Run-Stop / Reset / 参数配置 / Control 能力。</div></div>
+
+<div class="c s7"><h2>验证与安全真相</h2><div class="box">Siemens / Mitsubishi real-device behavior 仍为 <b class="warn">UNKNOWN / NOT VERIFIED</b>；没有发生 L4 real PLC execution。<code>P3-L1-RATE-RANGE</code> 仍为 <b class="warn">PARTIAL / protocol-bound</b>。Phase 6 confirmation 仅管理工程业务真相，不扩展工业通信能力。</div></div>
+<div class="c s5"><h2>Product Owner Inbox</h2><div class="box warnb"><b>当前需要 PO 决策：</b><br>1) PR #91 merge authorization；<br>2) P6-R0 main-close 后，是否单独批准 P6-S1 GO。<br><br>Technical PASS ≠ Merge Authorization。</div></div>
+
+<div class="c s7"><h2>仍然有效的产品约束</h2><div class="box vb"><b>PDX-001 继续有效。</b><br>跨项目 business fields / taxonomy / ranking / planning policy / full workflow 的正式 Freeze 仍需 2–3 个真实项目。Phase 6 不得绕过这一约束。</div></div>
+<div class="c s5"><h2>Phase 6 关键边界</h2><div class="box">最高排名、唯一候选、阈值或后台流程均不得 auto-confirm。Unknown 不因 Confirm 自动变 Known；未解决 conflict 阻止 plain Confirm；ConfirmedTag 必须由合法 Engineer Confirm decision 驱动，禁止 bypass。</div></div>
+
+<div class="c s12"><h2>阶段路线 · Microsoft Project 风格</h2><div class="pw"><table class="pt"><thead><tr><th>Phase / Task Tree</th><th>0</th><th>0.5</th><th>1</th><th>GOV</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th><th>9</th><th>10</th><th>11</th></tr></thead><tbody id="pb"></tbody></table></div></div>
+
+<div class="c s12"><h2>Phase 5 / 6 Gate 记录</h2><table class="gl"><tr><th>Track</th><th>状态 / Evidence</th></tr>
+<tr><td>P5-R0</td><td>Done / Closed · Issue #85 · PR #86 · main CI #708 SUCCESS</td></tr>
+<tr><td>P5-S1</td><td>Done / Closed · Issue #87 · PR #88 merge <code>70b25ad...</code> · main CI #712 SUCCESS</td></tr>
+<tr><td>P5-R1</td><td>Done / Closed · Issue #89 · OPTION B — open Phase 6 architecture/readiness Gate</td></tr>
+<tr><td>P6-R0</td><td><b>DONE / MERGED / MAIN-CI VERIFIED / CLOSED</b> · Issue #90 · PR #91 · PR #91 merged as <code>566b9baa...</code> · main CI #714 SUCCESS</td></tr>
+<tr><td>P6-S1</td><td>Proposed / NOT AUTHORIZED · Engineering Confirmation Domain/Application Foundation</td></tr>
+</table></div>
+</section>
+
+<footer>Public Dashboard is a derived snapshot. Live GitHub evidence plus PROJECT_STATE and TASK_IO_MATRIX remain authoritative. Current authorization is P6-R0 design-only; P6-S1 and all industrial write/control capabilities remain unauthorized.</footer>
+</div>
+<script>
+const cols=['0','0.5','1','GOV','2','3','4','5','6','7','8','9','10','11'];
+const gs=[
+{p:'0',t:'Phase 0 · Bootstrap',s:'Done',x:[]},
+{p:'0.5',t:'Phase 0.5 · Harness Governance',s:'Done',x:[]},
+{p:'1',t:'Phase 1 · Core Workflow',s:'Done',x:[]},
+{p:'GOV',t:'Governance / Phase Gates',s:'Done',x:[['PDX-002','Phase 2 Start Gate','Done',1],['PDX-003','Phase 3 Start Gate','Done',1],['P4-R0','Phase 4 R0 Design Gate','Done',1],['P5-R0','Phase 5 Candidate Identification Design Gate','Done',1],['P5-R1','Phase 5 Exit / Phase 6 Readiness Decision','Done',1],['P6-R0-GO','P6-R0 Product Owner Gate','Approved',1]]},
+{p:'2',t:'Phase 2 · Project Planning',s:'Done',x:[]},
+{p:'3',t:'Phase 3 · Discovery Framework',s:'Done',x:[]},
+{p:'4',t:'Phase 4 · Read-only Driver Foundation',s:'Done',x:[['P4-R0','Driver Foundation Architecture & Safety','Done',1],['P4-S1','Generic typed read-only execution boundary','Done',1],['P4-S2','Siemens read-only foundation','Done',1],['P4-S3','Mitsubishi read-only foundation','Done',1],['P4-S4','Unified simulator evidence','Done',1],['P4-S5','Named real-bench preflight foundation','Done',1],['P4-FTR','Phase 4 Final Technical Review','Done',1]]},
+{p:'5',t:'Phase 5 · Candidate Identification',s:'Done',x:[['P5-R0','Candidate Identification Architecture','Done',1],['P5-S1','Domain/Application Foundation','Done',1],['P5-R1','Continuation / Exit Decision','Done',1]]},
+{p:'6',t:'Phase 6 · Engineering Confirmation',s:'Ready',x:[['P6-R0','Engineering Confirmation Architecture','Done',1],['P6-S1','Domain/Application Foundation','Proposed',1]]},
+...['7','8','9','10','11'].map(p=>({p,t:'Phase '+p,s:'Proposed',x:[]}))
+];
+function cl(s){return s==='Done'?'done':s==='Approved'?'approved':s==='Ready'?'ready':s==='In Progress'?'progress':s==='Review'?'review':s==='Pending'?'pending':'proposed'}
+function bg(s){return '<span class="st '+cl(s)+'">'+s.toUpperCase()+'</span>'}
+function row(l,p,s,i=0,w=''){return '<tr><td class="task '+(i?'i'+i:'')+'">'+(w?'<span class="wbs">'+w+'</span>':'')+l+'</td>'+cols.map(c=>'<td>'+(c===p?bg(s):'')+'</td>').join('')+'</tr>'}
+pb.innerHTML=gs.map(g=>row(g.t,g.p,g.s)+g.x.map(a=>row(a[1],g.p,a[2],a[3],a[0])).join('')).join('');
+</script>
+</body></html>
