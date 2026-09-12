@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-09-11T13:12:00+08:00",
-  "display_time": "2026-09-11 13:12",
-  "version": "2026-09-11_13-12",
-  "note": "Phase 4 DONE WITH EXPLICIT EVIDENCE LIMITS；P5-R0 / P5-S1 / P5-R1 DONE/CLOSED；P6-R0 DONE / MERGED / MAIN-CI VERIFIED / CLOSED；PR #91 merge 566b9baa / exact main CI #714 SUCCESS；P6-S1 PROPOSED / NOT AUTHORIZED；PDX-001 binding；Siemens/Mitsubishi real-device UNKNOWN / NOT VERIFIED；no L4 real PLC IO；P3-L1-RATE-RANGE PARTIAL / protocol-bound；Never Write absolute",
+  "generated_at": "2026-09-12T13:56:00+08:00",
+  "display_time": "2026-09-12 13:56",
+  "version": "2026-09-12_13-56",
+  "note": "P8-R0 / P8-S1 DONE / MERGED / MAIN-CI VERIFIED / CLOSED；P8-R1 OPTION C CLOSED；Phase 9 HOLD / NOT OPENED；current product hinge = 2–3 real-project evidence under PDX-001；Truth Sync PR #112 merge c5e91844 / exact main CI #738 SUCCESS；Siemens/Mitsubishi real-device UNKNOWN / NOT VERIFIED；no L4 real PLC IO；P3-L1-RATE-RANGE PARTIAL / protocol-bound；Never Write absolute",
   "dashboard_path": "dashboard.html"
 }
