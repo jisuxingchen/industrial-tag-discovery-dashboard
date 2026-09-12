@@ -1,6 +1,14 @@
 {
   "snapshots": [
     {
+      "version": "2026-09-11_13-12",
+      "generated_at": "2026-09-11T13:12:00+08:00",
+      "display_time": "2026-09-11 13:12",
+      "note": "Phase 4 DONE WITH EXPLICIT EVIDENCE LIMITS；P5-R0 / P5-S1 / P5-R1 DONE/CLOSED；P6-R0 DONE / MERGED / MAIN-CI VERIFIED / CLOSED；PR #91 merge 566b9baa / exact main CI #714 SUCCESS；P6-S1 PROPOSED / NOT AUTHORIZED；PDX-001 binding；Siemens/Mitsubishi real-device UNKNOWN / NOT VERIFIED；no L4 real PLC IO；P3-L1-RATE-RANGE PARTIAL / protocol-bound；Never Write absolute",
+      "path": "history/2026-09-11_13-12/index.html",
+      "source_commit": "c75469c122041efb86e906971d05f73a10eb2308"
+    },
+    {
       "version": "2026-09-10_16-36",
       "generated_at": "2026-09-10T16:36:00+08:00",
       "display_time": "2026-09-10 16:36",
