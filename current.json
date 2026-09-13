@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-09-12T13:56:00+08:00",
-  "display_time": "2026-09-12 13:56",
-  "version": "2026-09-12_13-56",
-  "note": "P8-R0 / P8-S1 DONE / MERGED / MAIN-CI VERIFIED / CLOSED；P8-R1 OPTION C CLOSED；Phase 9 HOLD / NOT OPENED；current product hinge = 2–3 real-project evidence under PDX-001；Truth Sync PR #112 merge c5e91844 / exact main CI #738 SUCCESS；Siemens/Mitsubishi real-device UNKNOWN / NOT VERIFIED；no L4 real PLC IO；P3-L1-RATE-RANGE PARTIAL / protocol-bound；Never Write absolute",
+  "generated_at": "2026-09-13T09:49:00+08:00",
+  "display_time": "2026-09-13 09:49",
+  "version": "2026-09-13_09-49",
+  "note": "PDRIFT-R0 DONE / MERGED / MAIN-CI VERIFIED / CLOSED；PR #137 merge 02062740 / exact main CI #764 SUCCESS；Stable Workflow / Adaptive Discovery Strategy restored；PDX-001 = Cross-project Freeze Gate, not global development stop；RP-01 calibration track active but not a development gate；Recovery slices designed / NOT AUTHORIZED；Phase 9 HOLD；Never Write absolute",
   "dashboard_path": "dashboard.html"
 }
