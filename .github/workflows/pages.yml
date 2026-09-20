@@ -8,6 +8,7 @@ on:
       - index.html
       - dashboard.html
       - current.json
+      - progress.json
       - history/**
       - .github/workflows/pages.yml
   workflow_dispatch:
