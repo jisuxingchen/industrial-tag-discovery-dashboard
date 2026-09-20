@@ -1,16 +1,16 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-20T15:12:00+08:00",
+  "updatedAt": "2026-09-20T17:55:00+08:00",
   "dataPolicy": {
     "rule": "Dashboard status must stay subordinate to repository truth. Percentages are project-control visualization only and MUST NOT upgrade documentary/simulation evidence into field verification, satisfy PDX-001, authorize real-device execution, or open Phase 9."
   },
   "project": {
     "name": "Industrial Tag Discovery Platform (ITDP)",
     "customer": "Platform / multi-project product development",
-    "phase": "Recovery R2–R8 complete · RP-01 calibration active · Phase 9 HOLD",
+    "phase": "RP-01 offline acceptance at PO Gate · field calibration pending · Phase 9 HOLD",
     "status": "in_progress",
-    "statusLabel": "RECOVERY COMPLETE / FIELD CALIBRATION ACTIVE",
-    "currentGate": "PDX-001 CROSS-PROJECT FREEZE — NOT SATISFIED",
+    "statusLabel": "RP01-A1 REVIEW PASS / AWAITING PO GATE",
+    "currentGate": "RP01-A1 PO-KEY-GATE — PR #187",
     "authoritativeRequirement": "docs/project/PROJECT_STATE.md",
     "repository": "jisuxingchen/industrial-tag-discovery"
   },
@@ -665,8 +665,45 @@
         },
         {
           "id": "R6.4",
+          "name": "RP-01 A1 Offline Acceptance Run",
+          "weight": 10,
+          "status": "in_progress",
+          "progress": 90,
+          "note": "Exact-head CI + Final Review PASS; awaiting PO merge approval. Control estimate only.",
+          "detail": {
+            "objective": "Prove the current RP-01 documentary snapshot can traverse the macro lifecycle to an explicit unresolved Delivery outcome without fabricating evidence or confirmation truth.",
+            "workDone": [
+              "Created Issue #186 and PR #187.",
+              "Added executable acceptance tests composing the R6 documentary baseline with the R8 Delivery boundary.",
+              "Proved five requested requirement slots remain explicit as BlockedAcceptedFollowUp with owner/reason/disposition and no ConfirmedTag.",
+              "Exact-head CI #892 SUCCESS; Main Agent Final Review PASS."
+            ],
+            "result": "Implementation is complete and technically green; merge is intentionally stopped at PO-KEY-GATE.",
+            "completionNote": "90% is a project-control estimate only. This is OFFLINE / DOCUMENTARY acceptance, not field verification.",
+            "outputs": [
+              {
+                "label": "RP01-A1 acceptance report",
+                "path": "docs/project/evidence/RP01_A1_OFFLINE_ACCEPTANCE_RUN.md",
+                "kind": "file"
+              },
+              {
+                "label": "RP01-A1 executable tests",
+                "path": "tests/unit/RP01_A1_OfflineAcceptanceRunTests.cs",
+                "kind": "file"
+              }
+            ],
+            "issues": [
+              186
+            ],
+            "prs": [
+              187
+            ]
+          }
+        },
+        {
+          "id": "R6.5",
           "name": "RP-01 field verification",
-          "weight": 20,
+          "weight": 10,
           "status": "not_started",
           "progress": 0,
           "detail": {
@@ -690,7 +727,7 @@
           }
         },
         {
-          "id": "R6.5",
+          "id": "R6.6",
           "name": "RP-02 identification & evidence",
           "weight": 10,
           "status": "not_started",
@@ -711,7 +748,7 @@
           }
         },
         {
-          "id": "R6.6",
+          "id": "R6.7",
           "name": "RP-03 identification & evidence",
           "weight": 10,
           "status": "not_started",
@@ -822,9 +859,9 @@
       "name": "RP-01 / PDX-001 Calibration Track",
       "subtitle": "Real-project Acceptance Oracle",
       "status": "in_progress",
-      "maturity": 38,
+      "maturity": 45,
       "objective": "Use real-project evidence to calibrate the detailed workflow and eventually decide whether cross-project concepts can be frozen.",
-      "basis": "#115 OPEN; E0 complete; E1 preparation complete; documentary collection partial; field verification not started; RP-02/RP-03 not identified.",
+      "basis": "#115 OPEN; E0 complete; E1 preparation complete; documentary collection partial; RP01-A1 exact-head CI + Final Review PASS at PR #187; field verification not started; RP-02/RP-03 not identified.",
       "boundary": "Calibration does not itself authorize active PLC/network execution and does not block all software development.",
       "dimensions": [
         {
@@ -844,7 +881,7 @@
           "progress": 0
         }
       ],
-      "next": "Collect non-invasive RP-01 field evidence; separately gate any active read; identify RP-02/RP-03 when suitable."
+      "next": "PO decision on PR #187; then continue non-invasive RP-01 field calibration; separately gate any active read; identify RP-02/RP-03 when suitable."
     }
   },
   "gates": [
@@ -1005,6 +1042,12 @@
   ],
   "recentProgress": [
     {
+      "ref": "PR #187",
+      "title": "RP01-A1 Offline Acceptance Run — exact-head CI #892 + Final Review PASS; awaiting PO merge",
+      "status": "in_progress",
+      "date": "2026-09-20"
+    },
+    {
       "ref": "PR #184",
       "title": "R8 truth closeout — Recovery R2–R8 sequence complete",
       "status": "completed",
@@ -1038,32 +1081,40 @@
   "nextActions": [
     {
       "priority": 1,
-      "title": "Continue RP-01 non-invasive field evidence collection under #115",
+      "title": "PO decision: merge RP01-A1 PR #187",
       "status": "ready",
-      "owner": "PO / Engineering",
-      "issue": 115,
-      "note": "Use the prepared field checklist/intake. Do not treat documentary rows as field-verified truth."
+      "owner": "PO",
+      "issue": 186,
+      "note": "Exact-head CI #892 and Main Agent Final Review are PASS. No field execution is authorized by this merge."
     },
     {
       "priority": 2,
+      "title": "After RP01-A1 merge, continue RP-01 non-invasive field calibration under #115",
+      "status": "not_started",
+      "owner": "PO / Engineering",
+      "issue": 115,
+      "note": "Use the prepared field checklist/intake. Documentary rows remain NOT FIELD VERIFIED."
+    },
+    {
+      "priority": 3,
       "title": "If active PLC/network verification becomes necessary, open a separate bounded Read-Only Field Execution Gate",
       "status": "not_started",
       "owner": "PO / Main Agent",
       "note": "Never Write remains absolute; no active execution is currently authorized."
     },
     {
-      "priority": 3,
+      "priority": 4,
       "title": "Identify RP-02 and, if needed, RP-03 for cross-project calibration",
       "status": "not_started",
       "owner": "PO / Product",
       "note": "PDX-001 needs 2–3 real projects before universal freeze."
     },
     {
-      "priority": 4,
+      "priority": 5,
       "title": "Keep Phase 9 HOLD until a later explicit Gate",
       "status": "on_hold",
       "owner": "PO / Main Agent",
-      "note": "Do not mechanically create an R9/Phase 9 implementation track."
+      "note": "Do not mechanically create a Phase 9 implementation track."
     }
   ]
 }
