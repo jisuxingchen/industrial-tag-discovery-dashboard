@@ -1,0 +1,1069 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-09-20T15:12:00+08:00",
+  "dataPolicy": {
+    "rule": "Dashboard status must stay subordinate to repository truth. Percentages are project-control visualization only and MUST NOT upgrade documentary/simulation evidence into field verification, satisfy PDX-001, authorize real-device execution, or open Phase 9."
+  },
+  "project": {
+    "name": "Industrial Tag Discovery Platform (ITDP)",
+    "customer": "Platform / multi-project product development",
+    "phase": "Recovery R2–R8 complete · RP-01 calibration active · Phase 9 HOLD",
+    "status": "in_progress",
+    "statusLabel": "RECOVERY COMPLETE / FIELD CALIBRATION ACTIVE",
+    "currentGate": "PDX-001 CROSS-PROJECT FREEZE — NOT SATISFIED",
+    "authoritativeRequirement": "docs/project/PROJECT_STATE.md",
+    "repository": "jisuxingchen/industrial-tag-discovery"
+  },
+  "wbs": [
+    {
+      "id": "R0",
+      "name": "Product Direction & Governance",
+      "weight": 10,
+      "status": "completed",
+      "children": [
+        {
+          "id": "R0.1",
+          "name": "PDRIFT product-direction realignment",
+          "weight": 55,
+          "status": "completed",
+          "progress": 100,
+          "note": "PDX-001 corrected to Cross-project Freeze Gate; not a global development stop.",
+          "detail": {
+            "objective": "Restore ITDP product direction, capability boundaries and evidence semantics after Phase 8.",
+            "workDone": [
+              "Separated Development Gates, Field Execution Gates and the cross-project Freeze Gate.",
+              "Restored the binding macro lifecycle: Discovery → Identification → Confirmation → Delivery → Reuse.",
+              "Defined the bounded R1–R8 Recovery sequence without opening Phase 9."
+            ],
+            "result": "Product direction and gate semantics are main-closed and authoritative.",
+            "completionNote": "100% for the realignment artifact. This does not satisfy PDX-001 or authorize field execution.",
+            "outputs": [
+              {
+                "label": "PDRIFT-R0 realignment",
+                "path": "docs/project/PDRIFT_R0_PRODUCT_DIRECTION_REALIGNMENT.md",
+                "kind": "file"
+              },
+              {
+                "label": "Project State",
+                "path": "docs/project/PROJECT_STATE.md",
+                "kind": "file"
+              }
+            ],
+            "issues": [
+              136
+            ],
+            "prs": [
+              137
+            ]
+          }
+        },
+        {
+          "id": "R0.2",
+          "name": "Risk-tiered merge governance",
+          "weight": 45,
+          "status": "completed",
+          "progress": 100,
+          "note": "AUTO-LOW-RISK standing authority; PO-KEY-GATE remains explicit.",
+          "detail": {
+            "objective": "Allow small bounded changes to move quickly while preserving explicit PO control over key architecture/product/safety boundaries.",
+            "workDone": [
+              "Established AUTO-LOW-RISK and PO-KEY-GATE classifications.",
+              "Kept exact-head CI, Main Agent Final Review and exact merge-commit main CI mandatory."
+            ],
+            "result": "Risk-tiered merge governance is active.",
+            "completionNote": "100% governance foundation; ambiguity still defaults to PO-KEY-GATE.",
+            "outputs": [
+              {
+                "label": "Project State",
+                "path": "docs/project/PROJECT_STATE.md",
+                "kind": "file"
+              },
+              {
+                "label": "Task I/O Matrix",
+                "path": "docs/project/TASK_IO_MATRIX.md",
+                "kind": "file"
+              }
+            ],
+            "issues": [
+              177
+            ],
+            "prs": [
+              178
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "R1",
+      "name": "Adaptive Discovery & Evidence Foundation",
+      "weight": 15,
+      "status": "completed",
+      "children": [
+        {
+          "id": "R1.1",
+          "name": "Adaptive Discovery Strategy",
+          "weight": 35,
+          "status": "completed",
+          "progress": 100,
+          "detail": {
+            "objective": "Derive a vendor/protocol-neutral discovery plan from facts, unknowns, requirements and method capabilities.",
+            "workDone": [
+              "Implemented bounded adaptive planning with availability, primary method, alternatives, switch conditions and explainability."
+            ],
+            "result": "R1 main-closed; GAP-001 recovery slice complete.",
+            "completionNote": "100% for offline planning capability; no real-device execution is implied.",
+            "outputs": [
+              {
+                "label": "Backlog recovery truth",
+                "path": "BACKLOG.md",
+                "kind": "file"
+              }
+            ],
+            "issues": [
+              138
+            ],
+            "prs": [
+              139
+            ]
+          }
+        },
+        {
+          "id": "R1.2",
+          "name": "Canonical Evidence Ingestion (R2A)",
+          "weight": 40,
+          "status": "completed",
+          "progress": 100,
+          "detail": {
+            "objective": "Create one canonical normalization/admission boundary for evidence under exact DiscoverySession authority.",
+            "workDone": [
+              "Added Known/Unknown/conflict/provenance/environment preservation and terminal-session package creation/revision guards."
+            ],
+            "result": "All Recovery evidence producers share the canonical R2A admission path.",
+            "completionNote": "100% for the bounded offline ingestion substrate; it is not a replacement evidence authority.",
+            "outputs": [
+              {
+                "label": "Task I/O Matrix",
+                "path": "docs/project/TASK_IO_MATRIX.md",
+                "kind": "file"
+              }
+            ],
+            "issues": [
+              147
+            ],
+            "prs": [
+              148
+            ]
+          }
+        },
+        {
+          "id": "R1.3",
+          "name": "Offline Evidence Replay (R3A)",
+          "weight": 25,
+          "status": "completed",
+          "progress": 100,
+          "detail": {
+            "objective": "Provide deterministic authorized/de-identified replay fixtures for simulation-first development.",
+            "workDone": [
+              "Implemented immutable replay fixtures, deterministic sequencing/replay clock and R2A-admitted observations."
+            ],
+            "result": "Replay substrate is main-closed and reusable by Passive/Active Read simulation paths.",
+            "completionNote": "100% for L0/L1/L3 replay substrate; simulation/replay is not real-device validation.",
+            "outputs": [
+              {
+                "label": "Backlog recovery truth",
+                "path": "BACKLOG.md",
+                "kind": "file"
+              }
+            ],
+            "issues": [
+              150
+            ],
+            "prs": [
+              151
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "R2",
+      "name": "Evidence Acquisition Methods",
+      "weight": 15,
+      "status": "completed",
+      "children": [
+        {
+          "id": "R2.1",
+          "name": "Existing System / HMI Evidence Adapter",
+          "weight": 34,
+          "status": "completed",
+          "progress": 100,
+          "detail": {
+            "objective": "Recover existing-system/HMI evidence without inventing a parallel evidence authority.",
+            "workDone": [
+              "Implemented the offline adapter producer and routed admitted observations through R2A."
+            ],
+            "result": "R2 main-closed.",
+            "completionNote": "100% for offline adapter behavior; live system connection remains separately gated.",
+            "outputs": [
+              {
+                "label": "Adapters",
+                "path": "adapters",
+                "kind": "folder"
+              }
+            ],
+            "issues": [
+              153
+            ],
+            "prs": [
+              164
+            ]
+          }
+        },
+        {
+          "id": "R2.2",
+          "name": "Passive Capture — replay-first / zero transmit",
+          "weight": 33,
+          "status": "completed",
+          "progress": 100,
+          "detail": {
+            "objective": "Model passive request/response evidence while preserving a zero-transmit development boundary.",
+            "workDone": [
+              "Implemented replay-only passive observations and request/response relation evidence."
+            ],
+            "result": "R3 main-closed.",
+            "completionNote": "100% for replay-first passive capture; no live capture/transmit claim.",
+            "outputs": [
+              {
+                "label": "Discovery implementation",
+                "path": "discovery",
+                "kind": "folder"
+              }
+            ],
+            "issues": [
+              154
+            ],
+            "prs": [
+              165
+            ]
+          }
+        },
+        {
+          "id": "R2.3",
+          "name": "Controlled Active Read Discovery",
+          "weight": 33,
+          "status": "completed",
+          "progress": 100,
+          "detail": {
+            "objective": "Provide explicit-step controlled read-only discovery under simulation-first safety policy.",
+            "workDone": [
+              "Implemented L0/L1 policy over the existing read-only safety spine."
+            ],
+            "result": "R4 main-closed.",
+            "completionNote": "100% for bounded simulation-first capability; real PLC/network execution is still NOT AUTHORIZED.",
+            "outputs": [
+              {
+                "label": "Discovery implementation",
+                "path": "discovery",
+                "kind": "folder"
+              }
+            ],
+            "issues": [
+              155
+            ],
+            "prs": [
+              166
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "R3",
+      "name": "Identification Intelligence",
+      "weight": 15,
+      "status": "completed",
+      "children": [
+        {
+          "id": "R3.1",
+          "name": "DataTypeInference",
+          "weight": 25,
+          "status": "completed",
+          "progress": 100,
+          "detail": {
+            "objective": "Produce deterministic typed candidate proposals from normalized evidence.",
+            "workDone": [
+              "Implemented evidence-bounded candidate proposal generation with explicit Unknown/conflict handling."
+            ],
+            "result": "R5A main-closed.",
+            "completionNote": "100% proposal capability; candidate proposal is not engineer confirmation.",
+            "outputs": [
+              {
+                "label": "Core application",
+                "path": "core/application",
+                "kind": "folder"
+              }
+            ],
+            "issues": [
+              156
+            ],
+            "prs": [
+              167
+            ]
+          }
+        },
+        {
+          "id": "R3.2",
+          "name": "PatternAnalysis",
+          "weight": 25,
+          "status": "completed",
+          "progress": 100,
+          "detail": {
+            "objective": "Add deterministic bounded sample/time-order pattern findings as candidate evidence.",
+            "workDone": [
+              "Implemented bounded pattern findings without claiming calibrated accuracy or process guarantees."
+            ],
+            "result": "R5B main-closed.",
+            "completionNote": "100% bounded analytical capability.",
+            "outputs": [
+              {
+                "label": "Core application",
+                "path": "core/application",
+                "kind": "folder"
+              }
+            ],
+            "issues": [
+              157
+            ],
+            "prs": [
+              170
+            ]
+          }
+        },
+        {
+          "id": "R3.3",
+          "name": "EventCorrelation",
+          "weight": 25,
+          "status": "completed",
+          "progress": 100,
+          "detail": {
+            "objective": "Associate manual/field events with observations using bounded temporal evidence.",
+            "workDone": [
+              "Implemented temporal-association findings without causal inference or confirmation authority."
+            ],
+            "result": "R5C main-closed.",
+            "completionNote": "100% bounded correlation capability.",
+            "outputs": [
+              {
+                "label": "Core application",
+                "path": "core/application",
+                "kind": "folder"
+              }
+            ],
+            "issues": [
+              158
+            ],
+            "prs": [
+              173
+            ]
+          }
+        },
+        {
+          "id": "R3.4",
+          "name": "TemplateMatching",
+          "weight": 25,
+          "status": "completed",
+          "progress": 100,
+          "detail": {
+            "objective": "Use project-local device knowledge as advisory match/missing/Unknown/conflict factors.",
+            "workDone": [
+              "Implemented project-local template matching while deferring universal template freeze under PDX-001."
+            ],
+            "result": "R5D main-closed.",
+            "completionNote": "100% project-local capability; no universal cross-project template freeze.",
+            "outputs": [
+              {
+                "label": "Core application",
+                "path": "core/application",
+                "kind": "folder"
+              }
+            ],
+            "issues": [
+              159
+            ],
+            "prs": [
+              171
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "R4",
+      "name": "Acceptance, Persistence & Field Workflow",
+      "weight": 15,
+      "status": "completed",
+      "children": [
+        {
+          "id": "R4.1",
+          "name": "RP-01 End-to-End Acceptance Scenario",
+          "weight": 34,
+          "status": "completed",
+          "progress": 100,
+          "detail": {
+            "objective": "Compile an executable documentary-input uncertainty scenario for the real-project Acceptance Oracle.",
+            "workDone": [
+              "Connected R1–R5 behavior into an RP-01 documentary scenario and calibration baseline."
+            ],
+            "result": "R6 main-closed.",
+            "completionNote": "100% executable documentary scenario; documentary evidence is not field verification.",
+            "outputs": [
+              {
+                "label": "RP-01 evidence",
+                "path": "docs/project/evidence",
+                "kind": "folder"
+              }
+            ],
+            "issues": [
+              160
+            ],
+            "prs": [
+              175,
+              176
+            ]
+          }
+        },
+        {
+          "id": "R4.2",
+          "name": "Local Persistence / Restart",
+          "weight": 33,
+          "status": "completed",
+          "progress": 100,
+          "detail": {
+            "objective": "Provide durable single-machine offline history and restart semantics.",
+            "workDone": [
+              "Implemented append-only local persistence/checkpoints over SQLite with optimistic sequence checks."
+            ],
+            "result": "R7A main-closed.",
+            "completionNote": "100% single-machine/offline persistence; no cloud/multi-node semantics.",
+            "outputs": [
+              {
+                "label": "Persistence adapter",
+                "path": "adapters",
+                "kind": "folder"
+              }
+            ],
+            "issues": [
+              161
+            ],
+            "prs": [
+              179
+            ]
+          }
+        },
+        {
+          "id": "R4.3",
+          "name": "Thin Field UI",
+          "weight": 33,
+          "status": "completed",
+          "progress": 100,
+          "detail": {
+            "objective": "Expose the real application workflow through a minimal engineer-facing local UI.",
+            "workDone": [
+              "Implemented local CLI workflow for survey/input → plan → session → evidence → candidate → explicit confirmation."
+            ],
+            "result": "R7B main-closed.",
+            "completionNote": "100% local/offline CLI slice; no Driver/network/Active Read/control affordance.",
+            "outputs": [
+              {
+                "label": "Field UI",
+                "path": "ui/field",
+                "kind": "folder"
+              }
+            ],
+            "issues": [
+              162
+            ],
+            "prs": [
+              181
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "R5",
+      "name": "Versioned Delivery Slice",
+      "weight": 10,
+      "status": "completed",
+      "children": [
+        {
+          "id": "R5.1",
+          "name": "DeliveryPackage authority & lifecycle",
+          "weight": 55,
+          "status": "completed",
+          "progress": 100,
+          "detail": {
+            "objective": "Turn confirmed tags and requirement fulfillment into a versioned, frozen delivery authority.",
+            "workDone": [
+              "Added exact in-scope requirement coverage and fresh ConfirmedTag authority checks.",
+              "Separated TechnicalComplete from customer acceptance and froze content at Issued/later states."
+            ],
+            "result": "R8 DeliveryPackage lifecycle is main-closed.",
+            "completionNote": "100% bounded delivery slice; no live deployment into customer systems.",
+            "outputs": [
+              {
+                "label": "Delivery contracts",
+                "path": "core/domain/DeliveryContracts.cs",
+                "kind": "file"
+              },
+              {
+                "label": "Delivery orchestration",
+                "path": "core/application/DeliveryOrchestration.cs",
+                "kind": "file"
+              }
+            ],
+            "issues": [
+              163
+            ],
+            "prs": [
+              183
+            ]
+          }
+        },
+        {
+          "id": "R5.2",
+          "name": "Deterministic canonical CSV export & history",
+          "weight": 45,
+          "status": "completed",
+          "progress": 100,
+          "detail": {
+            "objective": "Provide one deterministic formal export profile and append-only delivery history.",
+            "workDone": [
+              "Added `itdp.delivery.canonical-csv:v1` export for Issued/frozen packages and DeliveryPackageHistory persistence."
+            ],
+            "result": "Same exact package revision + profile yields stable bytes and SHA-256.",
+            "completionNote": "100% for the bounded canonical export; it is not SCADA/OPC/MES/PI deployment.",
+            "outputs": [
+              {
+                "label": "R8 ADR",
+                "path": "docs/decisions/ADR-0032-r8-delivery-vertical-slice.md",
+                "kind": "file"
+              },
+              {
+                "label": "R8 tests",
+                "path": "tests/unit/PDRIFT_R8_DeliveryTests.cs",
+                "kind": "file"
+              }
+            ],
+            "issues": [
+              163
+            ],
+            "prs": [
+              183,
+              184
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "R6",
+      "name": "Real-Project Calibration / Acceptance Oracle",
+      "weight": 15,
+      "status": "in_progress",
+      "children": [
+        {
+          "id": "R6.1",
+          "name": "RP-01 Rudong E0 baseline",
+          "weight": 20,
+          "status": "completed",
+          "progress": 100,
+          "detail": {
+            "objective": "Establish Real Project #1 baseline and separate Known facts from Unknowns.",
+            "workDone": [
+              "Created phase-fit baseline, project-local evidence boundaries and E1/E2 evidence checklist."
+            ],
+            "result": "RP-01 E0 is CLOSED / MAIN-CI VERIFIED.",
+            "completionNote": "100% baseline only; one real project cannot satisfy PDX-001.",
+            "outputs": [
+              {
+                "label": "RP-01 evidence folder",
+                "path": "docs/project/evidence",
+                "kind": "folder"
+              }
+            ],
+            "issues": [
+              113
+            ],
+            "prs": [
+              114
+            ]
+          }
+        },
+        {
+          "id": "R6.2",
+          "name": "RP-01 E1 evidence preparation",
+          "weight": 20,
+          "status": "completed",
+          "progress": 100,
+          "detail": {
+            "objective": "Prepare non-invasive site-survey evidence collection and explicit active-verification boundary.",
+            "workDone": [
+              "Prepared site survey plan, evidence records, acceptance matrix, field checklist and scope-delta intake."
+            ],
+            "result": "E1 PREPARATION DONE / MAIN-CI VERIFIED.",
+            "completionNote": "100% preparation; collection/acceptance remains open.",
+            "outputs": [
+              {
+                "label": "RP-01 evidence folder",
+                "path": "docs/project/evidence",
+                "kind": "folder"
+              }
+            ],
+            "issues": [
+              115
+            ],
+            "prs": [
+              116,
+              127
+            ]
+          }
+        },
+        {
+          "id": "R6.3",
+          "name": "RP-01 E1 documentary collection",
+          "weight": 20,
+          "status": "in_progress",
+          "progress": 50,
+          "note": "Project-control estimate only; not a field-verification percentage.",
+          "detail": {
+            "objective": "Collect and reconcile documentary row-level evidence before/alongside field survey.",
+            "workDone": [
+              "Recovered 12 source-recovered rows for HT1 / HK-01 / 中心抽.",
+              "Recorded 18 local-copy-corroborated rows for HT6 / KT / BF-01.",
+              "Prepared real-site evidence intake and scope-delta record."
+            ],
+            "result": "30 documentary row-level records exist; E1 documentary collection remains PARTIAL / ACTIVE.",
+            "completionNote": "50% is a dashboard control estimate only. E1 ACCEPTANCE is NOT SATISFIED and no field truth is upgraded.",
+            "outputs": [
+              {
+                "label": "RP-01 evidence folder",
+                "path": "docs/project/evidence",
+                "kind": "folder"
+              }
+            ],
+            "issues": [
+              115
+            ],
+            "prs": [
+              120,
+              122,
+              125
+            ]
+          }
+        },
+        {
+          "id": "R6.4",
+          "name": "RP-01 field verification",
+          "weight": 20,
+          "status": "not_started",
+          "progress": 0,
+          "detail": {
+            "objective": "Verify selected evidence non-invasively on the real site under separately authorized boundaries.",
+            "workDone": [],
+            "result": "FIELD VERIFICATION NOT STARTED.",
+            "completionNote": "0%. No active PLC/network read has been authorized or performed.",
+            "outputs": [
+              {
+                "label": "Field verification checklist",
+                "path": "docs/project/evidence",
+                "kind": "folder"
+              }
+            ],
+            "issues": [
+              115
+            ],
+            "prs": [
+              127
+            ]
+          }
+        },
+        {
+          "id": "R6.5",
+          "name": "RP-02 identification & evidence",
+          "weight": 10,
+          "status": "not_started",
+          "progress": 0,
+          "detail": {
+            "objective": "Select a second real project to test cross-project variance and product assumptions.",
+            "workDone": [],
+            "result": "RP-02 NOT IDENTIFIED.",
+            "completionNote": "0%; no project is selected, so no evidence may be fabricated.",
+            "outputs": [
+              {
+                "label": "Future RP-02 evidence pack",
+                "planned": true
+              }
+            ],
+            "issues": [],
+            "prs": []
+          }
+        },
+        {
+          "id": "R6.6",
+          "name": "RP-03 identification & evidence",
+          "weight": 10,
+          "status": "not_started",
+          "progress": 0,
+          "detail": {
+            "objective": "Select a third real project if needed to reach the approved 2–3 project freeze evidence basis.",
+            "workDone": [],
+            "result": "RP-03 NOT IDENTIFIED.",
+            "completionNote": "0%; no project is selected.",
+            "outputs": [
+              {
+                "label": "Future RP-03 evidence pack",
+                "planned": true
+              }
+            ],
+            "issues": [],
+            "prs": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "R7",
+      "name": "Cross-Project Freeze & Phase 9",
+      "weight": 5,
+      "status": "on_hold",
+      "children": [
+        {
+          "id": "R7.1",
+          "name": "PDX-001 cross-project freeze",
+          "weight": 60,
+          "status": "on_hold",
+          "progress": 0,
+          "detail": {
+            "objective": "Freeze cross-project business fields, taxonomy, ranking/planning policy and detailed full workflow only after 2–3 real-project evidence.",
+            "workDone": [
+              "Approved the freeze rule and selected RP-01 as the first Acceptance Oracle."
+            ],
+            "result": "PDX-001 STILL BINDING / NOT SATISFIED.",
+            "completionNote": "0% freeze completion. Existing implementation can continue only through separately authorized bounded Gates.",
+            "outputs": [
+              {
+                "label": "Project State",
+                "path": "docs/project/PROJECT_STATE.md",
+                "kind": "file"
+              }
+            ],
+            "issues": [
+              115
+            ],
+            "prs": []
+          }
+        },
+        {
+          "id": "R7.2",
+          "name": "Phase 9 distributed / multi-node work",
+          "weight": 40,
+          "status": "on_hold",
+          "progress": 0,
+          "detail": {
+            "objective": "Open distributed/multi-node architecture only after a later explicit Gate supported by real-project evidence.",
+            "workDone": [],
+            "result": "PHASE 9 HOLD / NOT OPENED.",
+            "completionNote": "0%; no Phase 9 Gate is currently open.",
+            "outputs": [
+              {
+                "label": "Future Phase 9 Gate package",
+                "planned": true
+              }
+            ],
+            "issues": [],
+            "prs": []
+          }
+        }
+      ]
+    }
+  ],
+  "tracks": {
+    "development": {
+      "name": "Development / Recovery Track",
+      "subtitle": "Bounded product capability recovery",
+      "status": "completed",
+      "maturity": 100,
+      "objective": "Close identified product-direction gaps through separately authorized bounded Recovery slices.",
+      "basis": "R1–R8 capability chain is DONE / MERGED / MAIN-CI VERIFIED / CLOSED; exact R8 main CI #889 passed 766/766 tests.",
+      "boundary": "Completion is software/product capability truth only. It does not equal real-device validation, PDX-001 satisfaction or Phase 9 authorization.",
+      "dimensions": [
+        {
+          "name": "Discovery & Evidence",
+          "progress": 100
+        },
+        {
+          "name": "Identification",
+          "progress": 100
+        },
+        {
+          "name": "Persistence / UI",
+          "progress": 100
+        },
+        {
+          "name": "Delivery",
+          "progress": 100
+        }
+      ],
+      "next": "No further Recovery implementation Gate is open. New product work requires a separately bounded Gate."
+    },
+    "field": {
+      "name": "RP-01 / PDX-001 Calibration Track",
+      "subtitle": "Real-project Acceptance Oracle",
+      "status": "in_progress",
+      "maturity": 38,
+      "objective": "Use real-project evidence to calibrate the detailed workflow and eventually decide whether cross-project concepts can be frozen.",
+      "basis": "#115 OPEN; E0 complete; E1 preparation complete; documentary collection partial; field verification not started; RP-02/RP-03 not identified.",
+      "boundary": "Calibration does not itself authorize active PLC/network execution and does not block all software development.",
+      "dimensions": [
+        {
+          "name": "RP-01 Baseline",
+          "progress": 100
+        },
+        {
+          "name": "Documentary Evidence",
+          "progress": 50
+        },
+        {
+          "name": "Field Verification",
+          "progress": 0
+        },
+        {
+          "name": "Multi-project Evidence",
+          "progress": 0
+        }
+      ],
+      "next": "Collect non-invasive RP-01 field evidence; separately gate any active read; identify RP-02/RP-03 when suitable."
+    }
+  },
+  "gates": [
+    {
+      "title": "Recovery R2–R8 Development Gate",
+      "question": "Are the bounded Recovery slices main-closed with exact CI and review evidence?",
+      "status": "completed",
+      "statusLabel": "CLOSED",
+      "trackingIssue": 163,
+      "currentRequirement": "R2–R8 are DONE / MERGED / MAIN-CI VERIFIED / CLOSED; no further Recovery implementation Gate is open.",
+      "requiredInputs": [
+        "Per-slice authorization",
+        "Exact-head CI",
+        "Main Agent Final Review",
+        "Merge authorization by risk class",
+        "Exact merge-commit main CI"
+      ],
+      "blocks": [
+        "None inside the completed Recovery sequence"
+      ]
+    },
+    {
+      "title": "PDX-001 Cross-Project Freeze Gate",
+      "question": "Do 2–3 real projects support freezing cross-project business fields, taxonomy, ranking/planning policy and detailed workflow?",
+      "status": "on_hold",
+      "statusLabel": "NOT SATISFIED",
+      "trackingIssue": 115,
+      "currentRequirement": "RP-01 is only Real Project #1; field verification has not started; RP-02/RP-03 are not identified.",
+      "requiredInputs": [
+        "2–3 real-project evidence sets",
+        "Workflow variance evidence",
+        "Operator/restart semantics evidence",
+        "Knowledge applicability evidence",
+        "Cross-project ranking/planning evidence"
+      ],
+      "blocks": [
+        "Universal cross-project freeze",
+        "Detailed full-workflow freeze",
+        "Phase 9 readiness decision"
+      ]
+    },
+    {
+      "title": "Real Device / Customer Network Execution Gate",
+      "question": "Has a bounded real-device execution Gate been explicitly authorized?",
+      "status": "blocked",
+      "statusLabel": "NOT AUTHORIZED",
+      "currentRequirement": "Real PLC/customer-network execution remains separately gated. Never Write is absolute.",
+      "requiredInputs": [
+        "Explicit bounded Field Execution Gate",
+        "Exact device/network scope",
+        "Read-only method and stop conditions",
+        "Authorization/evidence handling"
+      ],
+      "blocks": [
+        "Active PLC/network read",
+        "Customer production-network access",
+        "Protocol expansion on real assets",
+        "Any Write / Force / Download / Run-Stop / parameter or control mutation"
+      ]
+    },
+    {
+      "title": "Phase 9 Gate",
+      "question": "Has Phase 9 distributed/multi-node work been explicitly opened after real-project evidence?",
+      "status": "on_hold",
+      "statusLabel": "HOLD / NOT OPENED",
+      "currentRequirement": "P8-R1 selected OPTION C: hold before Phase 9 until later evidence and explicit Gate.",
+      "requiredInputs": [
+        "PDX-001 evidence maturity",
+        "Explicit PO Gate",
+        "Architecture/readiness review"
+      ],
+      "blocks": [
+        "Distributed/multi-node implementation",
+        "Universal workflow/business-field assumptions"
+      ]
+    }
+  ],
+  "decisions": [
+    {
+      "id": "D-01",
+      "decision": "Never Write is absolute: no PLC Write / Force / Download / Run-Stop / reset / parameter/config/network/control mutation.",
+      "status": "locked"
+    },
+    {
+      "id": "D-02",
+      "decision": "PDX-001 is a Cross-project Freeze Gate, not a global software-development stop.",
+      "status": "locked"
+    },
+    {
+      "id": "D-03",
+      "decision": "Macro lifecycle Discovery → Identification → Confirmation → Delivery → Reuse is binding.",
+      "status": "locked"
+    },
+    {
+      "id": "D-04",
+      "decision": "Detailed full workflow remains provisional until PDX-001 is satisfied.",
+      "status": "locked"
+    },
+    {
+      "id": "D-05",
+      "decision": "Simulation / Replay / Golden Fixture does not equal real-device validation.",
+      "status": "locked"
+    },
+    {
+      "id": "D-06",
+      "decision": "Risk-tiered merge governance: AUTO-LOW-RISK may auto-merge after checks; PO-KEY-GATE needs explicit PO approval.",
+      "status": "locked"
+    },
+    {
+      "id": "D-07",
+      "decision": "Phase 9 remains HOLD / NOT OPENED.",
+      "status": "locked"
+    }
+  ],
+  "milestones": [
+    {
+      "id": "M0",
+      "name": "Product Direction Realigned",
+      "status": "completed",
+      "date": null
+    },
+    {
+      "id": "M1",
+      "name": "Recovery R1–R5 Complete",
+      "status": "completed",
+      "date": null
+    },
+    {
+      "id": "M2",
+      "name": "R7 Persistence + Thin Field UI Complete",
+      "status": "completed",
+      "date": "2026-09-15"
+    },
+    {
+      "id": "M3",
+      "name": "R8 Delivery Slice Main-Closed",
+      "status": "completed",
+      "date": "2026-09-15"
+    },
+    {
+      "id": "M4",
+      "name": "RP-01 Field Verification",
+      "status": "not_started",
+      "date": null
+    },
+    {
+      "id": "M5",
+      "name": "PDX-001 Freeze Evidence Ready",
+      "status": "on_hold",
+      "date": null
+    },
+    {
+      "id": "M6",
+      "name": "Phase 9 Gate",
+      "status": "on_hold",
+      "date": null
+    }
+  ],
+  "recentProgress": [
+    {
+      "ref": "PR #184",
+      "title": "R8 truth closeout — Recovery R2–R8 sequence complete",
+      "status": "completed",
+      "date": "2026-09-15"
+    },
+    {
+      "ref": "PR #183",
+      "title": "Versioned DeliveryPackage + deterministic export",
+      "status": "completed",
+      "date": "2026-09-15"
+    },
+    {
+      "ref": "PR #181",
+      "title": "Thin Field UI",
+      "status": "completed",
+      "date": "2026-09-15"
+    },
+    {
+      "ref": "PR #179",
+      "title": "Local Persistence / Restart",
+      "status": "completed",
+      "date": "2026-09-15"
+    },
+    {
+      "ref": "Issue #115",
+      "title": "RP-01 E1 documentary collection active; field verification not started",
+      "status": "in_progress",
+      "date": "TBD / Gate-dependent"
+    }
+  ],
+  "nextActions": [
+    {
+      "priority": 1,
+      "title": "Continue RP-01 non-invasive field evidence collection under #115",
+      "status": "ready",
+      "owner": "PO / Engineering",
+      "issue": 115,
+      "note": "Use the prepared field checklist/intake. Do not treat documentary rows as field-verified truth."
+    },
+    {
+      "priority": 2,
+      "title": "If active PLC/network verification becomes necessary, open a separate bounded Read-Only Field Execution Gate",
+      "status": "not_started",
+      "owner": "PO / Main Agent",
+      "note": "Never Write remains absolute; no active execution is currently authorized."
+    },
+    {
+      "priority": 3,
+      "title": "Identify RP-02 and, if needed, RP-03 for cross-project calibration",
+      "status": "not_started",
+      "owner": "PO / Product",
+      "note": "PDX-001 needs 2–3 real projects before universal freeze."
+    },
+    {
+      "priority": 4,
+      "title": "Keep Phase 9 HOLD until a later explicit Gate",
+      "status": "on_hold",
+      "owner": "PO / Main Agent",
+      "note": "Do not mechanically create an R9/Phase 9 implementation track."
+    }
+  ]
+}
