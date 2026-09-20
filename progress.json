@@ -1,16 +1,16 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-20T18:08:00+08:00",
+  "updatedAt": "2026-09-20T18:24:00+08:00",
   "dataPolicy": {
     "rule": "Dashboard status must stay subordinate to repository truth. Percentages are project-control visualization only and MUST NOT upgrade documentary/simulation evidence into field verification, satisfy PDX-001, authorize real-device execution, or open Phase 9."
   },
   "project": {
     "name": "Industrial Tag Discovery Platform (ITDP)",
     "customer": "Platform / multi-project product development",
-    "phase": "RP01-A1 main-closed · RP-01 non-invasive field calibration next · Phase 9 HOLD",
+    "phase": "RP01-F1 field pack ready · awaiting non-invasive site evidence · Phase 9 HOLD",
     "status": "in_progress",
-    "statusLabel": "RP01-A1 CLOSED / FIELD CALIBRATION NEXT",
-    "currentGate": "RP-01 NON-INVASIVE FIELD CALIBRATION — #115 OPEN",
+    "statusLabel": "FIELD PACK READY / FIELD EVIDENCE REQUIRED",
+    "currentGate": "RP-01 E1 NON-INVASIVE FIELD EVIDENCE COLLECTION — #115 OPEN",
     "authoritativeRequirement": "docs/project/PROJECT_STATE.md",
     "repository": "jisuxingchen/industrial-tag-discovery"
   },
@@ -709,21 +709,32 @@
           "progress": 0,
           "detail": {
             "objective": "Verify selected evidence non-invasively on the real site under separately authorized boundaries.",
-            "workDone": [],
-            "result": "FIELD VERIFICATION NOT STARTED.",
-            "completionNote": "0%. No active PLC/network read has been authorized or performed.",
+            "workDone": [
+              "RP01-F1 non-invasive field calibration pack main-closed.",
+              "12-row prefilled evidence manifest prepared for HT1 + HK-01 + 中心抽.",
+              "Evidence naming, minimum evidence set, scope-delta handling and STOP/escalation rules are ready."
+            ],
+            "result": "SESSION READINESS COMPLETE / FIELD VERIFICATION NOT STARTED.",
+            "completionNote": "0% field verification. Readiness artifacts are complete, but no real site observation has been ingested.",
             "outputs": [
               {
-                "label": "Field verification checklist",
-                "path": "docs/project/evidence",
-                "kind": "folder"
+                "label": "RP01-F1 field calibration pack",
+                "path": "docs/project/evidence/RP01_F1_FIELD_CALIBRATION_PACK.md",
+                "kind": "file"
+              },
+              {
+                "label": "12-row field evidence manifest",
+                "path": "docs/project/evidence/RP01_E1_FIELD_EVIDENCE_MANIFEST.csv",
+                "kind": "file"
               }
             ],
             "issues": [
-              115
+              115,
+              189
             ],
             "prs": [
-              127
+              190,
+              191
             ]
           }
         },
@@ -862,7 +873,7 @@
       "status": "in_progress",
       "maturity": 47,
       "objective": "Use real-project evidence to calibrate the detailed workflow and eventually decide whether cross-project concepts can be frozen.",
-      "basis": "#115 OPEN; E0 complete; E1 preparation complete; documentary collection partial; RP01-A1 DONE / MERGED / MAIN-CI VERIFIED / CLOSED; field verification not started; RP-02/RP-03 not identified.",
+      "basis": "#115 OPEN; E0 complete; E1 preparation complete; documentary collection partial; RP01-A1 closed; RP01-F1 field-session pack + 12-row manifest DONE / MERGED / MAIN-CI VERIFIED; field verification not started; RP-02/RP-03 not identified.",
       "boundary": "Calibration does not itself authorize active PLC/network execution and does not block all software development.",
       "dimensions": [
         {
@@ -882,7 +893,7 @@
           "progress": 0
         }
       ],
-      "next": "Continue RP-01 non-invasive field calibration under #115; separately gate any active read; identify RP-02/RP-03 when suitable."
+      "next": "Obtain real non-invasive RP-01 site evidence using the prepared 12-row manifest. Stop and open a separate Gate if any unresolved item requires active PLC/network communication."
     }
   },
   "gates": [
@@ -1043,6 +1054,12 @@
   ],
   "recentProgress": [
     {
+      "ref": "PR #190 / #191",
+      "title": "RP01-F1 non-invasive field calibration pack + truth closeout main-closed; CI #897 / #899 SUCCESS",
+      "status": "completed",
+      "date": "2026-09-20"
+    },
+    {
       "ref": "PR #187 / #188",
       "title": "RP01-A1 Offline Acceptance Run main-closed; merge CI #893 + truth closeout CI #895 SUCCESS",
       "status": "completed",
@@ -1071,43 +1088,45 @@
       "title": "Thin Field UI",
       "status": "completed",
       "date": "2026-09-15"
-    },
-    {
-      "ref": "PR #179",
-      "title": "Local Persistence / Restart",
-      "status": "completed",
-      "date": "2026-09-15"
     }
   ],
   "nextActions": [
     {
       "priority": 1,
-      "title": "Continue RP-01 non-invasive field calibration under #115",
+      "title": "Collect / provide RP-01 non-invasive site evidence for HT1 + HK-01 + 中心抽",
       "status": "ready",
-      "owner": "PO / Engineering",
+      "owner": "PO / Site Engineering",
       "issue": 115,
-      "note": "Use the prepared field checklist/intake. Documentary rows remain NOT FIELD VERIFIED."
+      "note": "Use the 12-row field evidence manifest. Photos, supplied documents/exports, offline engineering files and attributable statements are allowed. No PLC/network action."
     },
     {
       "priority": 2,
-      "title": "If active PLC/network verification becomes necessary, open a separate bounded Read-Only Field Execution Gate",
-      "status": "not_started",
-      "owner": "PO / Main Agent",
-      "note": "Never Write remains absolute; no active execution is currently authorized."
+      "title": "Recover the exact original workbook for #133 if available",
+      "status": "blocked",
+      "owner": "PO / Project Files",
+      "issue": 133,
+      "note": "Needed only to upgrade the 18 HT6 / KT / BF-01 rows from LOCAL-COPY-CORROBORATED to SOURCE-RECOVERED. Current Library search did not find the required xlsx."
     },
     {
       "priority": 3,
+      "title": "If any unresolved item requires PLC/network communication, stop and open a separate Active Read-Only Verification Gate",
+      "status": "not_started",
+      "owner": "PO / Main Agent",
+      "note": "Active Read remains NOT AUTHORIZED. Never Write remains absolute."
+    },
+    {
+      "priority": 4,
       "title": "Identify RP-02 and, if needed, RP-03 for cross-project calibration",
       "status": "not_started",
       "owner": "PO / Product",
       "note": "PDX-001 needs 2–3 real projects before universal freeze."
     },
     {
-      "priority": 4,
+      "priority": 5,
       "title": "Keep Phase 9 HOLD until a later explicit Gate",
       "status": "on_hold",
       "owner": "PO / Main Agent",
-      "note": "Do not mechanically create a Phase 9 implementation track."
+      "note": "Do not open distributed/multi-node work."
     }
   ]
 }
