@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ITDP 项目看板</title>
+<style>
+:root{--bg:#07111e;--p:#0e1d31;--l:#29415f;--t:#edf5ff;--m:#96aac7;--g:#39d8a2;--a:#ffc95d;--b:#78b3ff;--v:#c69cff;--r:#ff8d8d}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 10% -15%,#1c4778 0,transparent 27%),linear-gradient(180deg,#07101c,#081624 48%,#07101c);color:var(--t);font:14px/1.55 system-ui,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif}.w{max-width:1500px;margin:auto;padding:22px}.hero,.c{background:linear-gradient(145deg,#14263f,#0a1626);border:1px solid var(--l);border-radius:18px}.hero{padding:24px;display:flex;justify-content:space-between;gap:20px}.title{font-size:30px;font-weight:850}.sub,.muted{color:var(--m)}.chips,.actions{display:flex;gap:8px;flex-wrap:wrap}.chips{margin-top:14px}.chip,.btn{padding:6px 10px;border:1px solid var(--l);border-radius:999px;background:#10243d}.ok{color:var(--g)}.warn{color:var(--a)}.info{color:var(--b)}.violet{color:var(--v)}.danger{color:var(--r)}.btn{color:#e6f0ff;text-decoration:none;border-radius:10px;font-weight:750}.grid{display:grid;grid-template-columns:repeat(12,1fr);gap:14px;margin-top:14px}.c{padding:17px}.s3{grid-column:span 3}.s4{grid-column:span 4}.s5{grid-column:span 5}.s6{grid-column:span 6}.s7{grid-column:span 7}.s8{grid-column:span 8}.s12{grid-column:span 12}.k{font-size:26px;font-weight:900}.box{padding:12px 14px;border-left:4px solid var(--b);background:#0d2038;border-radius:9px}.box.okb{border-color:var(--g);background:#0d2a22}.box.warnb{border-color:var(--a);background:#2a2414}.box.vb{border-color:var(--v);background:#211936}.box.dangerb{border-color:var(--r);background:#2b1719}h2{font-size:16px;margin:0 0 11px}.pw{overflow:auto;border:1px solid var(--l);border-radius:12px}table{width:100%;border-collapse:collapse}.pt{min-width:1150px}.pt th,.pt td{padding:8px;border-right:1px solid var(--l);border-bottom:1px solid var(--l)}.pt th{background:#091626;color:var(--m);text-align:left}.st{display:inline-block;border-radius:7px;padding:3px 7px;font-size:10px;font-weight:900}.done{background:#165642;color:#dffff3}.hold{background:#6a541c;color:#fff3bf}.req{background:#3d4c78;color:#e1e8ff}.blocked{background:#5e2930;color:#ffdfe2}code{color:#d8e8ff}footer{color:var(--m);font-size:12px;padding:18px 2px}ul{margin:8px 0 0 20px;padding:0}@media(max-width:900px){.hero{flex-direction:column}.s3,.s4,.s5,.s6,.s7,.s8{grid-column:span 12}}
+</style></head>
+<body><div class="w">
+<section class="hero"><div>
+<div class="muted">PROJECT CONTROL CENTER · 2026-09-13 09:49 +08:00</div>
+<div class="title">ITDP 项目看板</div>
+<div class="sub">Product Drift corrected · PDRIFT-R0 closed · Stable Workflow / Adaptive Discovery Strategy</div>
+<div class="chips">
+<span class="chip ok">PDRIFT-R0 CLOSED</span>
+<span class="chip ok">PR #137 / CI #764 PASS</span>
+<span class="chip info">STABLE WORKFLOW</span>
+<span class="chip violet">ADAPTIVE DISCOVERY</span>
+<span class="chip violet">PDX-001 FREEZE GATE</span>
+<span class="chip warn">PHASE 9 HOLD</span>
+<span class="chip warn">NEVER WRITE</span>
+</div></div><div class="actions">
+<a class="btn" href="https://github.com/jisuxingchen/industrial-tag-discovery/issues/136">PDRIFT-R0 #136</a>
+<a class="btn" href="https://github.com/jisuxingchen/industrial-tag-discovery/pull/137">PR #137</a>
+<a class="btn" href="https://github.com/jisuxingchen/industrial-tag-discovery/issues/115">RP-01 E1 #115</a>
+<a class="btn" href="./history/">历史版本</a>
+</div></section>
+
+<section class="grid">
+<div class="c s3"><div class="k ok">#763 ✓</div><div class="muted">PDRIFT-R0 exact-head PR CI</div></div>
+<div class="c s3"><div class="k ok">#764 ✓</div><div class="muted">PDRIFT-R0 merge-commit main CI</div></div>
+<div class="c s3"><div class="k ok">0 / 0 / 0</div><div class="muted">Critical / High / blocking Medium</div></div>
+<div class="c s3"><div class="k warn">HOLD</div><div class="muted">Phase 9 remains not opened</div></div>
+
+<div class="c s8"><h2>当前权威事实</h2><div class="box okb"><b>PDRIFT-R0 已完成方向纠偏并 main-close。</b><br>
+PR #137 已合并为 <code>0206274005d2d5d7cee24777d5e0147749898c2a</code>，exact main CI #764 SUCCESS，Issue #136 CLOSED。产品主线恢复为 <b>Stable Workflow / Adaptive Discovery Strategy</b>：宏观 lifecycle backbone 绑定，详细 full workflow 继续由真实项目校准，尚未 universal freeze。</div></div>
+
+<div class="c s4"><h2>当前开发 / Recovery Gate</h2><div class="box warnb"><b>当前没有已授权的 Recovery implementation Gate。</b><br>
+PDRIFT-R1 Adaptive Discovery Strategy 是推荐的第一条实现 slice，但目前仍为 <b>PROPOSED / NOT AUTHORIZED</b>。R2A、R2、R3A、R3、R4、R5A–D、R6、R7、R8 同样只是已设计、未授权。</div></div>
+
+<div class="c s6"><h2>固定什么，灵活什么</h2><div class="box">
+<b>Macro lifecycle backbone — binding：</b><br>
+Discovery → Identification → Confirmation → Delivery → Reuse。<br><br>
+<b>Detailed full workflow — provisional：</b><br>
+exact substeps、optional stages、method ordering、operator/field variants、restart/recovery、业务字段、ranking/planning policy、knowledge applicability 等仍需 2–3 个真实项目校准。</div></div>
+
+<div class="c s6"><h2>PDX-001 的正确含义</h2><div class="box vb"><b>PDX-001 = Cross-project Freeze Gate，不是 Global Development Stop Gate。</b><br>
+它阻止的是 universal taxonomy / ranking / planning policy / detailed full-workflow freeze；它不阻止通过独立、bounded、PO-authorized Gate 继续开发离线/仿真/回放能力。</div></div>
+
+<div class="c s6"><h2>RP-01 real-project calibration track</h2><div class="box">
+RP-01 继续作为 <b>Acceptance Oracle / calibration track</b>，不是全局开发 Gate。E1 documentary collection 仍 ACTIVE；field verification <b class="warn">NOT STARTED</b>；E1 acceptance <b class="warn">NOT SATISFIED</b>；#115 保持 OPEN。RP-02 / RP-03 仍 <b>NOT IDENTIFIED</b>。</div></div>
+
+<div class="c s6"><h2>能力审计后的主要缺口</h2><div class="box warnb">
+<ul>
+<li>Adaptive Discovery Strategy：有 planning foundation，缺 facts/constraints → strategy inference。</li>
+<li>Existing System / HMI：planning-only。</li>
+<li>Passive Capture：planning-only。</li>
+<li>Controlled Active Read：安全骨架较强，但无 product execution-port implementation / discovery runtime。</li>
+<li>Candidate management 已实现；Candidate generation 的 DataTypeInference / PatternAnalysis / EventCorrelation / TemplateMatching 仍是 documented target。</li>
+<li>Evidence ingestion 与 offline replay/golden substrate 尚未实现。</li>
+</ul></div></div>
+
+<div class="c s7"><h2>Recovery sequence — 已设计，未授权</h2><div class="box okb">
+<b>推荐起点：</b> PDRIFT-R1 Adaptive Discovery Strategy。<br><br>
+后续设计序列：<br>
+<code>R1</code> Adaptive Discovery Strategy → <code>R2A</code> Canonical Evidence Ingestion → <code>R2</code> Existing System/HMI + <code>R3A</code> Replay → <code>R3</code> Passive Capture / <code>R4</code> Active Read simulation → <code>R5A–D</code> Identification Engines → <code>R6</code> RP-01 acceptance harness → <code>R7</code> Persistence/UI → <code>R8</code> Delivery.<br><br>
+每条 slice 必须单独获得 Product Owner GO。</div></div>
+
+<div class="c s5"><h2>Evidence authority chain</h2><div class="box">
+未来所有 evidence producer 必须复用同一 authority：<br><br>
+<code>Source Adapter Payload</code><br>
+→ R2A normalize + exact DiscoverySession binding<br>
+→ Session-scoped evidence / EvidenceTraceRef<br>
+→ terminal DiscoverySession<br>
+→ EvidencePackage<br>
+→ Identification Engine<br><br>
+CaptureTask 可以是 optional；<b>DiscoverySession 不可绕过。</b></div></div>
+
+<div class="c s12"><h2>阶段与 Recovery 路线</h2><div class="pw"><table class="pt">
+<thead><tr><th>阶段 / Track</th><th>状态</th><th>当前事实</th></tr></thead>
+<tbody>
+<tr><td>Phase 0 / 0.5 / 1 / 2</td><td><span class="st done">DONE</span></td><td>Repository / domain / planning foundations closed</td></tr>
+<tr><td>Phase 3 — Discovery Framework</td><td><span class="st done">DONE</span></td><td>Plan / Session / Preflight+Scope / EvidencePackage authority foundations closed</td></tr>
+<tr><td>Phase 4 — Driver Foundation</td><td><span class="st done">DONE*</span></td><td>Done with explicit evidence limits; real-device behavior remains NOT VERIFIED</td></tr>
+<tr><td>Phase 5 — Candidate Identification</td><td><span class="st done">FOUNDATION DONE</span></td><td>Candidate management / provenance / lineage implemented; generation engines still missing</td></tr>
+<tr><td>Phase 6 — Engineering Confirmation</td><td><span class="st done">FOUNDATION DONE</span></td><td>Explicit Engineer confirmation / ConfirmedTag authority implemented</td></tr>
+<tr><td>Phase 7 — Device Knowledge</td><td><span class="st done">FOUNDATION DONE</span></td><td>Evidence-scoped knowledge foundation; cross-project freeze still PDX-001-limited</td></tr>
+<tr><td>Phase 8 — Single-machine Field Mode</td><td><span class="st done">FOUNDATION DONE</span></td><td>Authority-safe orchestration foundation; not yet a usable full field product</td></tr>
+<tr><td>PDRIFT-R0 — Product Direction Realignment</td><td><span class="st done">DONE</span></td><td>PR #137 merged / main CI #764 SUCCESS / Issue #136 CLOSED</td></tr>
+<tr><td>PDRIFT-R1 — Adaptive Discovery Strategy</td><td><span class="st req">PROPOSED</span></td><td>Recommended first recovery implementation slice; NOT AUTHORIZED</td></tr>
+<tr><td>PDRIFT-R2A / R2 / R3A / R3 / R4 / R5A–D / R6 / R7 / R8</td><td><span class="st req">DESIGNED</span></td><td>Recovery sequence defined; no implementation authorization yet</td></tr>
+<tr><td>PDX-001 real-project calibration</td><td><span class="st req">ACTIVE</span></td><td>Acceptance/calibration track only; not a global development gate</td></tr>
+<tr><td>Phase 9 — Multi-node Centralized Mode</td><td><span class="st hold">HOLD</span></td><td>Architecture/readiness Gate NOT OPENED</td></tr>
+</tbody></table></div></div>
+
+<div class="c s6"><h2>当前明确不授权</h2><div class="box dangerb"><b>仍未授权：</b>
+任何 Recovery implementation slice、Phase 9、真实客户/生产网络访问、real PLC/HMI IO、live Passive Capture、production Active Read、第三方工业 runtime 扩展，以及任何 PLC Write / Force / Download / Run-Stop / Reset / 参数配置 / Control 能力。</div></div>
+
+<div class="c s6"><h2>治理边界</h2><div class="box">
+Technical PASS ≠ merge authorization；每个 Recovery slice 需要独立 Product Owner GO。<br>
+Simulation / replay PASS ≠ real-device validation；documentary evidence ≠ field verification。<br>
+<b class="warn">Never Write absolute.</b>
+</div></div>
+</section>
+
+<footer>
+Derived dashboard only. Authoritative truth remains in the private repository and live GitHub lifecycle evidence. PDRIFT-R0 source truth: PR #137 merge <code>0206274005d2d5d7cee24777d5e0147749898c2a</code> / exact main CI #764 SUCCESS / Issue #136 CLOSED.
+</footer>
+</div></body></html>
