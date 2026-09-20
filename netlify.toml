@@ -1,5 +1,5 @@
 [build]
-  # Routine dashboard status updates change only progress.json.
+  # Routine dashboard status updates and prototype-only releases should not require a Netlify production deploy.
   # dashboard.html reads live progress from GitHub raw, so a Netlify production deploy is unnecessary.
   # Netlify ignore semantics: exit 0 = skip build/deploy, exit 1 = continue.
-  ignore = "git diff --quiet \"$CACHED_COMMIT_REF\" \"$COMMIT_REF\" -- . ':(exclude)progress.json'"
+  ignore = "git diff --quiet \"$CACHED_COMMIT_REF\" \"$COMMIT_REF\" -- . ':(exclude)progress.json' ':(exclude)prototype/**'"
