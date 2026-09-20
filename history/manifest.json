@@ -1,6 +1,14 @@
 {
   "snapshots": [
     {
+      "version": "2026-09-20_15-12",
+      "generated_at": "2026-09-20T15:12:00+08:00",
+      "display_time": "2026-09-20 15:12",
+      "note": "ANOW-style JSON-driven control board migration；R2–R8 Recovery sequence DONE / MERGED / MAIN-CI VERIFIED / CLOSED；RP-01 #115 OPEN；field verification NOT STARTED；PDX-001 NOT SATISFIED；Phase 9 HOLD / NOT OPENED；real PLC/customer-network execution NOT AUTHORIZED；Never Write absolute",
+      "path": "history/2026-09-20_15-12/index.html",
+      "source_commit": "78b136c06e8816d7246c64688963e975e5dd465a"
+    },
+    {
       "version": "2026-09-13_09-49",
       "generated_at": "2026-09-13T09:49:00+08:00",
       "display_time": "2026-09-13 09:49",

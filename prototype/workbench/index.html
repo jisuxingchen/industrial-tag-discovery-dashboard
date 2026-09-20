@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ITDP Product Workbench — Prototype</title>
+  <meta name="description" content="Clickable ITDP Product Workbench Prototype. Fixture data only. No industrial IO." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app" id="app">
+    <header class="topbar">
+      <div class="topbar-brand">
+        <button type="button" class="project-menu-btn" data-action="open-project-hub" aria-haspopup="dialog">Project ▾</button>
+        <span class="brand-name">ITDP</span>
+        <span class="brand-divider"></span>
+        <span class="brand-sub">Product Workbench</span>
+        <span class="brand-proto">PROTOTYPE</span>
+      </div>
+
+      <div class="topbar-context" id="topbar-context" aria-live="polite">
+        <span class="context-item"><span class="context-key">Project</span><span class="context-val" id="ctx-project">—</span></span>
+        <span class="context-item"><span class="context-key">Area</span><span class="context-val" id="ctx-area">—</span></span>
+        <span class="context-item"><span class="context-key">Line</span><span class="context-val" id="ctx-line">—</span></span>
+        <span class="context-item"><span class="context-key">Device</span><span class="context-val" id="ctx-device">—</span></span>
+        <span class="context-item"><span class="context-key">Device state</span><span class="context-val" id="ctx-state">—</span></span>
+        <span class="context-item context-readiness"><span class="context-key">Actionable Readiness</span><span class="context-val" id="ctx-readiness">—</span></span>
+      </div>
+
+      <div class="topbar-warnings" aria-label="Global prototype warnings">
+        <span class="warn warn-proto">PROTOTYPE</span>
+        <span class="warn warn-fixture">FIXTURE DATA</span>
+        <span class="warn warn-io">NO INDUSTRIAL IO</span>
+      </div>
+    </header>
+
+    <div class="layout">
+      <aside class="navigator" aria-label="Project navigator and scenarios">
+        <div class="nav-heading">
+          <span class="nav-title">Project Navigator</span>
+          <span class="nav-fixture-tag">fixture</span>
+        </div>
+        <div id="project-tree" class="project-tree"></div>
+
+        <div class="nav-section">
+          <div class="nav-section-title">Demo Scenario <span class="demo-controls-tag">Demo Controls</span></div>
+          <div class="nav-section-note">Demo-only fixture input. In production, Project facts + Device facts + Evidence drive the Strategy Engine. Engineers do not choose Scenario A/B/C/D in production.</div>
+          <div id="scenario-buttons" class="scenario-buttons"></div>
+        </div>
+
+        <div class="nav-section">
+          <div class="nav-section-title">Internal Capability Status</div>
+          <div class="nav-section-note">Internal development / prototype status. Display only. Not part of the normal engineer workflow.</div>
+          <div id="capability-map" class="capability-map"></div>
+        </div>
+      </aside>
+
+      <main class="workspace">
+        <nav class="workflow-tabs" id="workflow-tabs" aria-label="Workflow stages"></nav>
+
+        <div class="stage-toolbar">
+          <div class="stage-title-wrap">
+            <h1 class="stage-title" id="stage-title">Overview</h1>
+            <span class="stage-subtitle" id="stage-subtitle"></span>
+          </div>
+          <div class="stage-actions">
+            <button type="button" class="btn btn-secondary" data-action="close-project-workspace">Close Project Workspace</button>
+            <button type="button" class="btn btn-secondary" data-action="reset-fixture">Reset Fixture</button>
+            <button type="button" class="btn btn-primary" data-action="next-stage">Next →</button>
+          </div>
+        </div>
+
+        <section class="workspace-body" id="workspace-body" aria-live="polite"></section>
+      </main>
+    </div>
+
+    <footer class="statusbar" id="statusbar">
+      <span class="status-item"><span class="status-key">Status</span><span class="status-val" id="status-stage">Overview</span></span>
+      <span class="status-item"><span class="status-key">Provenance</span><span class="status-val">Fixture snapshot — not domain truth</span></span>
+      <span class="status-item"><span class="status-key">Data</span><span class="status-val">FIXTURE DATA</span></span>
+      <span class="status-item"><span class="status-key">Industrial IO</span><span class="status-val status-io">NO INDUSTRIAL IO</span></span>
+    </footer>
+  </div>
+
+  <div class="project-hub" id="project-hub" hidden></div>
+
+  <div class="drawer-backdrop" id="drawer-backdrop" hidden></div>
+  <aside class="drawer" id="drawer" role="dialog" aria-modal="true" aria-label="Detail panel" aria-hidden="true">
+    <header class="drawer-header">
+      <h2 class="drawer-title" id="drawer-title">Detail</h2>
+      <button type="button" class="drawer-close" data-action="close-drawer" aria-label="Close detail panel">×</button>
+    </header>
+    <div class="drawer-body" id="drawer-body"></div>
+  </aside>
+
+  <script src="fixtures.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

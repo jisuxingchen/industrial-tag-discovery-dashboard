@@ -1,8 +1,9 @@
 {
-  "generated_at": "2026-09-20T15:12:00+08:00",
-  "display_time": "2026-09-20 15:12",
-  "version": "2026-09-20_15-12",
-  "note": "ANOW-style JSON-driven control board migration；R2–R8 Recovery sequence DONE / MERGED / MAIN-CI VERIFIED / CLOSED；RP-01 #115 OPEN；field verification NOT STARTED；PDX-001 NOT SATISFIED；Phase 9 HOLD / NOT OPENED；real PLC/customer-network execution NOT AUTHORIZED；Never Write absolute",
+  "generated_at": "2026-09-20T16:38:00+08:00",
+  "display_time": "2026-09-20 16:38",
+  "version": "2026-09-20_16-38",
+  "note": "Published ITDP clickable Product Workbench prototype at /prototype/workbench/ and added a top-level 产品原型 link；dashboard project-control content remains unchanged；R2–R8 complete；#115 OPEN；field verification NOT STARTED；PDX-001 NOT SATISFIED；Phase 9 HOLD；Never Write absolute",
   "dashboard_path": "dashboard.html",
-  "data_path": "progress.json"
+  "data_path": "progress.json",
+  "prototype_path": "prototype/workbench/"
 }
