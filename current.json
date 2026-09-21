@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-09-21T23:25:00+08:00",
-  "display_time": "2026-09-21 23:25",
-  "version": "2026-09-21_23-25",
-  "note": "ITD Engineer Workflow V1 完整 10-step + cross-cutting Gap Inventory 已通过 PR #235 / exact main CI #974 并关闭 #234；R2–R8、D4-A、UX0.2 均已 main-closed；当前无开放实现 PR，仅 #115 长期 RP-01 / PDX-001 校准轨道保持 OPEN；下一步推荐 V1-A — Project / Device / Requirement Workspace & Persistence，实施尚未打开，等待 PO 明确授权；Active Read NOT AUTHORIZED；PDX-001 NOT SATISFIED；Phase 9 HOLD；Never Write absolute",
+  "generated_at": "2026-09-21T23:46:00+08:00",
+  "display_time": "2026-09-21 23:46",
+  "version": "2026-09-21_23-46",
+  "note": "Workflow V1-A pre-implementation design 已通过 PR #237 / exact main CI #976 并关闭 #236；推荐实施 Gate 为 V1-A1 — Local Project Workspace + Hierarchy/Device + Requirement Persistence；实施尚未授权。主仓库当前无开放 PR，仅 #115 RP-01 / PDX-001 长期校准轨道保持 OPEN；Active Read NOT AUTHORIZED；PDX-001 NOT SATISFIED；Phase 9 HOLD；Never Write absolute",
   "dashboard_path": "dashboard.html",
   "data_path": "progress.json",
   "prototype_path": "prototype/workbench/"

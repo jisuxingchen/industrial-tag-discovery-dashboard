@@ -1,16 +1,16 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-21T23:25:00+08:00",
+  "updatedAt": "2026-09-21T23:46:00+08:00",
   "dataPolicy": {
     "rule": "Dashboard status must stay subordinate to repository truth. Percentages are project-control visualization only and MUST NOT upgrade documentary/simulation evidence into field verification, satisfy PDX-001, authorize real-device execution, or open Phase 9."
   },
   "project": {
     "name": "Industrial Tag Discovery Platform (ITDP)",
     "customer": "Platform / multi-project product development",
-    "phase": "ITD Engineer Workflow V1 gap inventory main-closed · V1-A recommended · only #115 calibration track remains open",
+    "phase": "Workflow V1-A pre-implementation design main-closed · V1-A1 recommended · only #115 calibration track remains open",
     "status": "in_progress",
-    "statusLabel": "WORKFLOW V1 DESIGN COMPLETE / V1-A PENDING PO GATE",
-    "currentGate": "V1-A implementation NOT OPENED · recommended: Project / Device / Requirement Workspace & Persistence",
+    "statusLabel": "V1-A DESIGN COMPLETE / V1-A1 PENDING PO AUTHORIZATION",
+    "currentGate": "V1-A1 implementation NOT AUTHORIZED · Local Project Workspace + Hierarchy/Device + Requirement Persistence",
     "authoritativeRequirement": "docs/project/PROJECT_STATE.md",
     "repository": "jisuxingchen/industrial-tag-discovery"
   },
@@ -1146,6 +1146,12 @@
   ],
   "recentProgress": [
     {
+      "ref": "PR #237 · Issue #236",
+      "title": "Workflow V1-A pre-implementation design main-closed; exact-head CI #975 / exact main CI #976 SUCCESS; V1-A1 implementation Gate recommended",
+      "status": "completed",
+      "date": "2026-09-21"
+    },
+    {
       "ref": "PR #235 · Issue #234",
       "title": "ITD Engineer Workflow V1 complete 10-step + cross-cutting gap inventory main-closed; exact-head CI #973 / exact main CI #974 SUCCESS; V1-A recommended",
       "status": "completed",
@@ -1174,35 +1180,29 @@
       "title": "RP01-D2 two real-evidence calibration fixtures (HK-01 single-pack + HT6) main-closed; exact main CI #942 SUCCESS",
       "status": "completed",
       "date": "2026-09-21"
-    },
-    {
-      "ref": "PR #204 · Issue #201",
-      "title": "RP01-F3 site-photo evidence extraction main-closed; 137 active JPGs persistently indexed, 7 field-visual-identity records, exact main CI #933 SUCCESS",
-      "status": "completed",
-      "date": "2026-09-21"
     }
   ],
   "nextActions": [
     {
       "priority": 1,
-      "title": "PO decision: open V1-A — Project / Device / Requirement Workspace & Persistence",
+      "title": "PO decision: authorize V1-A1 implementation",
       "status": "ready",
       "owner": "PO",
-      "note": "Gap inventory is complete and main-CI verified. V1-A is the recommended first bounded implementation Gate; no implementation has started yet."
+      "note": "Recommended scope: local Project workspace manifest/open/create, manual hierarchy/Device management, manual + reviewed CSV/XLSX DataRequirement intake, persistence/restart, current .NET Field CLI integration. No Strategy/Evidence/Candidate/Delivery in this slice."
     },
     {
       "priority": 2,
-      "title": "Implement V1-A persistent Project / Device / Requirement intake",
+      "title": "Implement V1-A1 after explicit PO authorization",
       "status": "not_started",
       "owner": "Main Agent",
-      "note": "After explicit PO authorization: local Project manifest/catalog, persisted hierarchy/device registry, DataRequirement CRUD/import, restart-safe selected context, minimal engineer surface."
+      "note": "Reuse ProjectId / ProjectHierarchy / DeviceId / DataRequirement and existing single-Project SQLite store. Do not create a second Project/Device model."
     },
     {
       "priority": 3,
-      "title": "Then open V1-B — Known/Unknown / Investigation / D4-A-R1 Strategy / Plan",
+      "title": "Then design/open V1-B Known/Unknown / Investigation / D4-A-R1 Strategy / Plan",
       "status": "not_started",
       "owner": "PO / Main Agent",
-      "note": "Replace the current R7B hard-coded EngineeringFileImport product path with evidence-driven D4-A + R1 and explicit Engineer Plan acceptance."
+      "note": "V1-B replaces the recovery CLI's fixed EngineeringFileImport route with evidence-driven Strategy and explicit Engineer Plan acceptance."
     },
     {
       "priority": 4,
@@ -1210,7 +1210,7 @@
       "status": "in_progress",
       "owner": "PO / Site Engineering / Main Agent",
       "issue": 115,
-      "note": "Runs in parallel; E1 acceptance remains NOT SATISFIED and does not block Workflow V1 product development."
+      "note": "Parallel calibration track; E1 acceptance remains NOT SATISFIED and does not block Workflow V1 product integration."
     },
     {
       "priority": 5,
