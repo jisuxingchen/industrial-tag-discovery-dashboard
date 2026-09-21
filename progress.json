@@ -1,16 +1,16 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-21T23:46:00+08:00",
+  "updatedAt": "2026-09-21T23:45:00+08:00",
   "dataPolicy": {
     "rule": "Dashboard status must stay subordinate to repository truth. Percentages are project-control visualization only and MUST NOT upgrade documentary/simulation evidence into field verification, satisfy PDX-001, authorize real-device execution, or open Phase 9."
   },
   "project": {
     "name": "Industrial Tag Discovery Platform (ITDP)",
     "customer": "Platform / multi-project product development",
-    "phase": "Workflow V1-A pre-implementation design main-closed · V1-A1 recommended · only #115 calibration track remains open",
+    "phase": "Workflow V1-A design main-closed · implementation Gate #238 awaiting PO authorization",
     "status": "in_progress",
-    "statusLabel": "V1-A DESIGN COMPLETE / V1-A1 PENDING PO AUTHORIZATION",
-    "currentGate": "V1-A1 implementation NOT AUTHORIZED · Local Project Workspace + Hierarchy/Device + Requirement Persistence",
+    "statusLabel": "V1-A1 #238 PENDING PO GATE",
+    "currentGate": "Issue #238 — Workflow V1-A1 implementation NOT AUTHORIZED",
     "authoritativeRequirement": "docs/project/PROJECT_STATE.md",
     "repository": "jisuxingchen/industrial-tag-discovery"
   },
@@ -1146,8 +1146,8 @@
   ],
   "recentProgress": [
     {
-      "ref": "PR #237 · Issue #236",
-      "title": "Workflow V1-A pre-implementation design main-closed; exact-head CI #975 / exact main CI #976 SUCCESS; V1-A1 implementation Gate recommended",
+      "ref": "PR #237 · Issue #236 / Gate #238",
+      "title": "Workflow V1-A pre-implementation design main-closed; exact-head CI #975 / exact main CI #976 SUCCESS; implementation Gate #238 created and awaiting PO authorization",
       "status": "completed",
       "date": "2026-09-21"
     },
@@ -1185,10 +1185,11 @@
   "nextActions": [
     {
       "priority": 1,
-      "title": "PO decision: authorize V1-A1 implementation",
+      "title": "PO decision: authorize Workflow V1-A1 implementation",
       "status": "ready",
       "owner": "PO",
-      "note": "Recommended scope: local Project workspace manifest/open/create, manual hierarchy/Device management, manual + reviewed CSV/XLSX DataRequirement intake, persistence/restart, current .NET Field CLI integration. No Strategy/Evidence/Candidate/Delivery in this slice."
+      "issue": 238,
+      "note": "Approve #238 to begin Local Project / Device / Requirement Workspace & Persistence implementation. Design #236 is main-CI verified via #976."
     },
     {
       "priority": 2,
