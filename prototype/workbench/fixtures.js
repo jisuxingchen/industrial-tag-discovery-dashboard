@@ -822,6 +822,7 @@ window.WORKBENCH_FIXTURES = (function () {
     { id: "Identification",    label: "Identification Engines",         slice: "R5",   status: "DONE", detail: "R5A–D bounded Proposal engines." },
     { id: "Rp01E2E",           label: "RP01 Acceptance",                slice: "R6",   status: "DONE", detail: "Documentary/offline acceptance + real-evidence calibration." },
     { id: "PersistenceUi",     label: "Persistence / Thin Field UI",    slice: "R7",   status: "DONE", detail: "Local restart semantics + offline CLI foundation." },
+    { id: "V1A1Workspace",      label: "Project / Device / Requirement Workspace", slice: "V1-A1", status: "DONE", detail: "Local workspace + hierarchy/Device + Requirement persistence/import composed into the engineer front door." },
     { id: "Delivery",          label: "Delivery Package / Export",      slice: "R8",   status: "DONE", detail: "Versioned DeliveryPackage + deterministic offline export." },
     { id: "EvidenceStrategy",  label: "Evidence → Strategy Projection", slice: "D4-A", status: "DONE", detail: "Canonical evidence conservatively projected into R1 facts." }
   ];
@@ -906,19 +907,19 @@ window.WORKBENCH_FIXTURES = (function () {
   var CAPABILITY_MAP_NOTE = "Repository capability truth for product judgment. DONE does not mean live customer-network authorization or field validation.";
 
   /* Per-stage action model. Status vocabulary:
-     PROTOTYPE ACTION | FOUNDATION EXISTS | FUTURE | BLOCKED. */
+     PROTOTYPE ACTION | CLI IMPLEMENTED | FOUNDATION EXISTS | FUTURE | BLOCKED. */
   var STAGE_ACTIONS = {
     overview: [
       { id: "project-settings", label: "Project Settings", status: "PROTOTYPE ACTION", hint: "Open the prototype project settings drawer." },
       { id: "edit-device", label: "Edit Device", status: "PROTOTYPE ACTION", hint: "Edit the selected device's prototype-only identity." },
-      { id: "add-device", label: "Add Device", status: "PROTOTYPE ACTION", hint: "Add a temporary in-memory device." },
+      { id: "add-device", label: "Add Device", status: "CLI IMPLEMENTED", hint: "V1-A1 implements manual Device creation in the .NET Field CLI. This browser action remains prototype-only/in-memory." },
       { id: "open-investigations", label: "Open Investigations", status: "FOUNDATION EXISTS", hint: "Review the current investigation items for the selected scenario." },
       { id: "continue-discovery", label: "Continue Discovery", status: "FOUNDATION EXISTS", hint: "Navigate to the Discovery Strategy stage." }
     ],
     requirements: [
-      { id: "add-requirement", label: "Add Requirement", status: "PROTOTYPE ACTION", hint: "Add a temporary in-memory data requirement." },
+      { id: "add-requirement", label: "Add Requirement", status: "CLI IMPLEMENTED", hint: "V1-A1 implements manual DataRequirement creation in the .NET Field CLI. This browser action remains prototype-only/in-memory." },
       { id: "edit-requirement", label: "Edit Requirement", status: "PROTOTYPE ACTION", hint: "Edit a prototype requirement's meaning or type." },
-      { id: "import-requirement-list", label: "Import Requirement List", status: "FUTURE", hint: "Future capability. No file is read in this prototype.", future: true },
+      { id: "import-requirement-list", label: "Import Requirement List", status: "CLI IMPLEMENTED", hint: "V1-A1 supports CSV/XLSX preview then explicit engineer --commit in the .NET Field CLI. This static browser prototype reads no file." },
       { id: "classify-requirement", label: "Classify Requirement", status: "PROTOTYPE ACTION", hint: "Set a prototype requirement type (Direct / Derived / Contextual / Unknown)." },
       { id: "assign-to-device", label: "Assign to Device", status: "PROTOTYPE ACTION", hint: "Assign a requirement to the selected device (prototype-only)." }
     ],
@@ -966,9 +967,10 @@ window.WORKBENCH_FIXTURES = (function () {
   /* Explanatory content for FUTURE actions (Future Action Drawer). */
   var FUTURE_ACTION_DETAILS = {
     "import-requirement-list": {
-      slice: "R7A (import UX)",
-      what: "Read a requirement list document and create draft DataRequirement items under a Project.",
-      exists: "DataRequirement foundation exists. No file is read in this prototype."
+      slice: "V1-A1",
+      status: "DONE / CLI IMPLEMENTED",
+      what: "Preview a CSV/XLSX requirement list for the selected Device and mint DataRequirement authority only after explicit engineer commit.",
+      exists: "V1-A1 is merged and main-CI verified in the .NET Field CLI. The static browser prototype still reads no file and creates no authority."
     },
     "import-engineering-file": {
       slice: "R2A + source-specific adapter",
