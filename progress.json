@@ -1,16 +1,16 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-21T23:45:00+08:00",
+  "updatedAt": "2026-09-22T00:53:36+08:00",
   "dataPolicy": {
     "rule": "Dashboard status must stay subordinate to repository truth. Percentages are project-control visualization only and MUST NOT upgrade documentary/simulation evidence into field verification, satisfy PDX-001, authorize real-device execution, or open Phase 9."
   },
   "project": {
     "name": "Industrial Tag Discovery Platform (ITDP)",
     "customer": "Platform / multi-project product development",
-    "phase": "Workflow V1-A design main-closed · implementation Gate #238 awaiting PO authorization",
+    "phase": "Workflow V1-A1 main-closed · V1-B pre-implementation design next",
     "status": "in_progress",
-    "statusLabel": "V1-A1 #238 PENDING PO GATE",
-    "currentGate": "Issue #238 — Workflow V1-A1 implementation NOT AUTHORIZED",
+    "statusLabel": "V1-A1 DONE · V1-B DESIGN NEXT",
+    "currentGate": "V1-B pre-implementation design only — implementation NOT AUTHORIZED",
     "authoritativeRequirement": "docs/project/PROJECT_STATE.md",
     "repository": "jisuxingchen/industrial-tag-discovery"
   },
@@ -990,12 +990,28 @@
   },
   "gates": [
     {
+      "title": "Workflow V1-B Implementation Gate",
+      "question": "Has the V1-B pre-implementation design been completed and separately authorized by the Product Owner?",
+      "status": "blocked",
+      "statusLabel": "NOT AUTHORIZED",
+      "currentRequirement": "Complete the V1-B pre-implementation design first. A separate explicit PO implementation GO is required before production code changes.",
+      "requiredInputs": [
+        "V1-B pre-implementation design on main",
+        "Exact design CI / review evidence",
+        "Explicit PO implementation authorization"
+      ],
+      "blocks": [
+        "V1-B production implementation",
+        "Implicit R7B fixed-route replacement before design approval"
+      ]
+    },
+    {
       "title": "Recovery R2–R8 Development Gate",
       "question": "Are the bounded Recovery slices main-closed with exact CI and review evidence?",
       "status": "completed",
       "statusLabel": "CLOSED",
       "trackingIssue": 163,
-      "currentRequirement": "R2–R8 Recovery, D4-A integration and UX0.2 calibration prototype are DONE / MERGED / MAIN-CI VERIFIED / CLOSED. No implementation Gate is currently open; Workflow V1 starts with gap inventory/design, not implicit implementation.",
+      "currentRequirement": "R2–R8 Recovery, D4-A and UX0.2 are main-closed. Workflow V1-A1 is also DONE / MERGED / MAIN-CI VERIFIED / CLOSED through #238/#239/#240. Next bounded step is V1-B pre-implementation design only; V1-B implementation is NOT AUTHORIZED.",
       "requiredInputs": [
         "Per-slice authorization",
         "Exact-head CI",
@@ -1142,9 +1158,21 @@
       "name": "Phase 9 Gate",
       "status": "on_hold",
       "date": null
+    },
+    {
+      "id": "M7",
+      "name": "Workflow V1-A1 Main-Closed",
+      "status": "completed",
+      "date": "2026-09-22"
     }
   ],
   "recentProgress": [
+    {
+      "ref": "PR #239 / #240 · Issue #238",
+      "title": "Workflow V1-A1 implementation main-closed: #239 exact-head CI #985 SUCCESS / merge 9fd3d79e / exact main CI #986 SUCCESS; truth closeout #240 exact-head CI #987 / merge 93d80b46 / exact main CI #988 SUCCESS; #238 CLOSED",
+      "status": "completed",
+      "date": "2026-09-22"
+    },
     {
       "ref": "PR #237 · Issue #236 / Gate #238",
       "title": "Workflow V1-A pre-implementation design main-closed; exact-head CI #975 / exact main CI #976 SUCCESS; implementation Gate #238 created and awaiting PO authorization",
@@ -1185,43 +1213,35 @@
   "nextActions": [
     {
       "priority": 1,
-      "title": "PO decision: authorize Workflow V1-A1 implementation",
+      "title": "Prepare V1-B pre-implementation design",
       "status": "ready",
-      "owner": "PO",
-      "issue": 238,
-      "note": "Approve #238 to begin Local Project / Device / Requirement Workspace & Persistence implementation. Design #236 is main-CI verified via #976."
+      "owner": "Main Agent",
+      "note": "Design Known/Unknown → Investigation → canonical facts → D4-A → R1 Adaptive Strategy → Recommendation → Draft DiscoveryPlan → Engineer Accept Plan. Design only; no V1-B production implementation."
     },
     {
       "priority": 2,
-      "title": "Implement V1-A1 after explicit PO authorization",
+      "title": "PO review V1-B design and decide implementation authorization",
       "status": "not_started",
-      "owner": "Main Agent",
-      "note": "Reuse ProjectId / ProjectHierarchy / DeviceId / DataRequirement and existing single-Project SQLite store. Do not create a second Project/Device model."
+      "owner": "PO",
+      "note": "V1-B implementation remains NOT AUTHORIZED until the completed design is reviewed and the PO gives a separate explicit implementation GO."
     },
     {
       "priority": 3,
-      "title": "Then design/open V1-B Known/Unknown / Investigation / D4-A-R1 Strategy / Plan",
-      "status": "not_started",
-      "owner": "PO / Main Agent",
-      "note": "V1-B replaces the recovery CLI's fixed EngineeringFileImport route with evidence-driven Strategy and explicit Engineer Plan acceptance."
-    },
-    {
-      "priority": 4,
       "title": "Continue RP-01 / PDX-001 real-project calibration under #115",
       "status": "in_progress",
       "owner": "PO / Site Engineering / Main Agent",
       "issue": 115,
-      "note": "Parallel calibration track; E1 acceptance remains NOT SATISFIED and does not block Workflow V1 product integration."
+      "note": "Parallel calibration track; E1 acceptance remains NOT SATISFIED and does not block bounded Workflow V1 product integration."
     },
     {
-      "priority": 5,
+      "priority": 4,
       "title": "Keep real PLC/customer-network execution behind a separate Field Execution Gate",
       "status": "blocked",
       "owner": "PO / Main Agent",
       "note": "Active Read remains NOT AUTHORIZED. Never Write absolute."
     },
     {
-      "priority": 6,
+      "priority": 5,
       "title": "Identify RP-02 and, if needed, RP-03",
       "status": "not_started",
       "owner": "PO / Product",

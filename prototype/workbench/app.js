@@ -202,6 +202,7 @@
     var s = String(status || "").toUpperCase();
     var cls = "action-status action-status-prototype";
     if (s.indexOf("FUTURE") >= 0) cls = "action-status action-status-future";
+    else if (s.indexOf("IMPLEMENTED") >= 0) cls = "action-status action-status-foundation";
     else if (s.indexOf("FOUNDATION") >= 0) cls = "action-status action-status-foundation";
     else if (s.indexOf("BLOCKED") >= 0) cls = "action-status action-status-blocked";
     return '<span class="' + cls + '">' + esc(status) + "</span>";
@@ -272,21 +273,21 @@
       '  <div>' +
       '    <h2 class="hub-section-title">Recent Projects</h2>' +
       '    <div class="project-cards">' + recent + "</div>" +
-      '    <p class="small muted">Clicking a project opens its prototype workspace. Switching Project resets prototype-only unsaved workspace state. No real file, no database, no storage is read or written.</p>' +
+      '    <p class="small muted">Clicking a project opens its prototype workspace. Switching Project resets prototype-only unsaved workspace state. <strong>Repository truth:</strong> V1-A1 now implements local Project/Device/Requirement persistence in the .NET Field CLI; this browser prototype itself still reads/writes no real file or database.</p>' +
       "  </div>" +
 
       '  <div>' +
       '    <div class="hub-panel">' +
       '      <h3>Project Shell Actions</h3>' +
-      '      <div class="shell-action-row" data-action="new-project" tabindex="0" role="button"><span class="sa-label">New Project</span>' + actionStatusChip("PROTOTYPE ACTION") + "</div>" +
-      '      <div class="shell-action-row" data-action="open-project-list" tabindex="0" role="button"><span class="sa-label">Open Project</span>' + actionStatusChip("PROTOTYPE ACTION") + "</div>" +
+      '      <div class="shell-action-row" data-action="new-project" tabindex="0" role="button"><span class="sa-label">New Project</span>' + actionStatusChip("CLI IMPLEMENTED") + "</div>" +
+      '      <div class="shell-action-row" data-action="open-project-list" tabindex="0" role="button"><span class="sa-label">Open Project</span>' + actionStatusChip("CLI IMPLEMENTED") + "</div>" +
       '      <div class="shell-action-row" data-action="open-project-settings" tabindex="0" role="button"><span class="sa-label">Project Settings</span>' + actionStatusChip("PROTOTYPE ACTION") + "</div>" +
-      '      <div class="shell-action-row" data-action="archive-project" tabindex="0" role="button"><span class="sa-label">Archive / Close Project</span>' + actionStatusChip("PROTOTYPE ACTION") + "</div>" +
+      '      <div class="shell-action-row" data-action="archive-project" tabindex="0" role="button"><span class="sa-label">Archive / Close Project</span>' + actionStatusChip("CLI IMPLEMENTED") + "</div>" +
       "    </div>" +
 
       '    <div class="hub-panel">' +
       '      <h3>Save Semantics</h3>' +
-      '      <p class="small muted"><strong>Project metadata auto-save</strong> (future R7A) <strong>≠ Engineer Accept DiscoveryPlan ≠ Engineer Confirm Candidate ≠ Issue / Publish DeliveryPackage.</strong> Engineering authority is always an explicit action.</p>' +
+      '      <p class="small muted"><strong>V1-A1 local workspace persistence exists in the .NET Field CLI; this web prototype remains in-memory.</strong> Workspace persistence <strong>≠ Engineer Accept DiscoveryPlan ≠ Engineer Confirm Candidate ≠ Issue / Publish DeliveryPackage.</strong> Engineering authority remains an explicit action.</p>' +
       "    </div>" +
 
       '    <div class="hub-panel">' +
