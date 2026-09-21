@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-09-20T16:38:00+08:00",
-  "display_time": "2026-09-20 16:38",
-  "version": "2026-09-20_16-38",
-  "note": "Published ITDP clickable Product Workbench prototype at /prototype/workbench/ and added a top-level 产品原型 link；dashboard project-control content remains unchanged；R2–R8 complete；#115 OPEN；field verification NOT STARTED；PDX-001 NOT SATISFIED；Phase 9 HOLD；Never Write absolute",
+  "generated_at": "2026-09-21T22:47:00+08:00",
+  "display_time": "2026-09-21 22:47",
+  "version": "2026-09-21_22-47",
+  "note": "R2–R8 Recovery、RP01-D2/D3/D4-A 与 UX0.2 已全部 main-CI verified / closed；公开 Product Workbench 已同步 UX0.2；主仓库当前无开放 PR，仅 #115 RP-01 / PDX-001 长期真实项目校准轨道保持 OPEN；下一阶段先完成 10-step gap inventory，再定义并串联 ITD Engineer Workflow V1；Active Read NOT AUTHORIZED；PDX-001 NOT SATISFIED；Phase 9 HOLD；Never Write absolute",
   "dashboard_path": "dashboard.html",
   "data_path": "progress.json",
   "prototype_path": "prototype/workbench/"
