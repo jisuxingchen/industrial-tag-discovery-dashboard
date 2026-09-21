@@ -1,16 +1,17 @@
 /* ==========================================================================
-   fixtures.js — pre-authored UX fixture snapshots for the PDRIFT-UX0 Product
-   Workbench Prototype.
+   fixtures.js — pre-authored UX / product-calibration snapshots for the
+   PDRIFT-UX0.2 Product Workbench Prototype.
 
    IMPORTANT
    ---------
-   * All data in this file is FIXTURE data. Nothing comes from a real project,
-     device, or network.
-   * The prototype does NOT implement AdaptiveDiscoveryStrategyEngine.
-     Scenario switching selects pre-authored UX fixture snapshots aligned to
-     the accepted R1 behavior.
-   * No prototype state is persisted anywhere, and no Domain truth is created,
-     read, or changed by this prototype.
+   * This file is still prototype data. The browser never executes production
+     Domain/Application code and performs no industrial IO.
+   * Capability labels reflect repository truth after R2–R8 and RP01-D4-A.
+   * RP01 calibration cases summarize retained repository evidence and accepted
+     semantics; runtime EvidenceIds are not invented or persisted here.
+   * Scenario switching remains a demo control. It selects pre-authored R1-
+     aligned snapshots; the real AdaptiveDiscoveryStrategyEngine is implemented
+     in the repository but is not executed by this static prototype.
    ========================================================================== */
 
 window.WORKBENCH_FIXTURES = (function () {
@@ -96,6 +97,15 @@ window.WORKBENCH_FIXTURES = (function () {
               children: [
                 { id: "plc-03", label: "PLC-03", icon: "D" }
               ]
+            },
+            {
+              id: "rp01-calibration-line",
+              label: "RP01 Calibration Cases",
+              icon: "L",
+              children: [
+                { id: "rp01-hk01-single-pack", label: "HK-01 Single Pack", icon: "D" },
+                { id: "rp01-ht6-002", label: "HT6 Embossing / Pressure", icon: "D" }
+              ]
             }
           ]
         }
@@ -138,6 +148,26 @@ window.WORKBENCH_FIXTURES = (function () {
       area: "Area 6",
       line: "Demo Tissue Line",
       deviceState: "Identified — fixture"
+    },
+    "rp01-hk01-single-pack": {
+      id: "rp01-hk01-single-pack",
+      label: "HK-01 Single Pack / RD6-DBJ-HK01",
+      controller: "Mitsubishi MELSEC FX3U / FX3U-128M",
+      vendor: "Mitsubishi (controller evidence)",
+      protocol: "UNKNOWN",
+      area: "Area 6",
+      line: "RP01 Calibration Cases",
+      deviceState: "Field identity evidenced — calibration"
+    },
+    "rp01-ht6-002": {
+      id: "rp01-ht6-002",
+      label: "HT6 Embossing / Pressure / RP01-HT6-002",
+      controller: "Inovance GL10 / GL10-RTU-ECTA context",
+      vendor: "Inovance (controller evidence)",
+      protocol: "UNKNOWN",
+      area: "Area 6",
+      line: "RP01 Calibration Cases",
+      deviceState: "Documentary + field identity evidenced — calibration"
     }
   };
 
@@ -183,6 +213,60 @@ window.WORKBENCH_FIXTURES = (function () {
           deviceState: "Identified — fixture"
         }
       }
+    }
+  };
+
+  /* RP01 product-calibration cases. These repository-backed summaries are
+     used to judge product placement. They do not invent runtime EvidenceIds. */
+  var CALIBRATION_CASES = {
+    "rp01-hk01-single-pack": {
+      label: "HK-01 Single Pack / RD6-DBJ-HK01",
+      basis: "Retained field-photo evidence RP01-FPHOTO-0002..0007; D2/D3/D4-A acceptance fixture.",
+      environment: "L3ReplayGoldenFixture",
+      binding: "Project + Device + exact Plan revision + Session",
+      package: "EvidencePackage revision assembled from exact R2A-admitted records",
+      deviceIdentity: "Present — RD6-DBJ-HK01",
+      controllerIdentity: "Present — Mitsubishi MELSEC FX3U / FX3U-128M",
+      facts: [
+        { observation: "field.equipment.identity", fact: "DeviceIdentity", state: "Present", evidence: "RP01-FPHOTO-0002", note: "Field identity evidence; scope-delta device is not force-mapped to a documentary row." },
+        { observation: "field.controller.family-marking / model-marking", fact: "ControllerIdentity", state: "Present", evidence: "RP01-FPHOTO-0006/0007", note: "Controller context only; no protocol/address inference." },
+        { observation: "discovery.protocol-identification", fact: "ProtocolIdentification", state: "Unknown", evidence: "canonical Unknown evidence", note: "Controller family/model does not prove a usable acquisition protocol." },
+        { observation: "discovery.address-identification", fact: "AddressIdentification", state: "Unknown", evidence: "canonical Unknown evidence", note: "No verified tag/address identity." },
+        { observation: "discovery.ethernet-path", fact: "EthernetPath", state: "Unknown", evidence: "canonical Unknown evidence", note: "No usable/reachable Ethernet path established." }
+      ],
+      governance: [
+        { fact: "ActiveReadAuthorization", state: "Absent", note: "Explicit RP01 governance truth; never projected from equipment evidence." },
+        { fact: "PassiveObservationPoint", state: "Unknown", note: "Historical photos do not authorize a future passive observation point." },
+        { fact: "FieldAccess", state: "Unknown", note: "Historical evidence does not establish current field-access authorization." }
+      ],
+      investigations: ["ProtocolIdentification", "AddressIdentification", "EthernetPath"],
+      unmappedContext: ["motion-controller cabinet context"],
+      path: ["R3A replay", "R2A canonical evidence", "D4-A project-local projection", "R1 Adaptive Strategy", "DiscoveryPlan recommendation", "Engineer Plan acceptance"]
+    },
+    "rp01-ht6-002": {
+      label: "HT6 Embossing / Pressure / RP01-HT6-002",
+      basis: "Archived documentary row + RP01-FPHOTO-0134/0135; D2/D3/D4-A acceptance fixture.",
+      environment: "L3ReplayGoldenFixture",
+      binding: "Project + Device + exact Plan revision + Session",
+      package: "EvidencePackage revision assembled from exact R2A-admitted records",
+      deviceIdentity: "Present — RP01-HT6-002",
+      controllerIdentity: "Present — Inovance GL10 / GL10-RTU-ECTA context",
+      facts: [
+        { observation: "field.equipment.identity", fact: "DeviceIdentity", state: "Present", evidence: "RP01-FPHOTO-0134/0135 + documentary row", note: "Equipment identity is evidence-backed." },
+        { observation: "documentary.controller.model / field.controller.family-marking", fact: "ControllerIdentity", state: "Present", evidence: "documentary row + RP01-FPHOTO-0134/0135", note: "Documentary + field controller context; no protocol inference." },
+        { observation: "discovery.protocol-identification", fact: "ProtocolIdentification", state: "Unknown", evidence: "canonical Unknown evidence", note: "Visible EtherCAT context is not promoted to a usable acquisition protocol." },
+        { observation: "discovery.address-identification", fact: "AddressIdentification", state: "Unknown", evidence: "canonical Unknown evidence", note: "No verified tag/address identity." },
+        { observation: "discovery.ethernet-path", fact: "EthernetPath", state: "Unknown", evidence: "canonical Unknown evidence", note: "Visible cabling does not establish an ITD-reachable/permitted path." },
+        { observation: "engineering.address-table", fact: "EngineeringAddressTable", state: "Unknown", evidence: "canonical Unknown evidence", note: "Documentary notes do not prove an available address table." }
+      ],
+      governance: [
+        { fact: "ActiveReadAuthorization", state: "Absent", note: "Explicit RP01 governance truth; never projected from controller/port evidence." },
+        { fact: "PassiveObservationPoint", state: "Unknown", note: "Field photos do not authorize a future passive observation point." },
+        { fact: "FieldAccess", state: "Unknown", note: "Current access authorization is not established." }
+      ],
+      investigations: ["ProtocolIdentification", "AddressIdentification", "EthernetPath", "EngineeringAddressTable"],
+      unmappedContext: ["field.protocol-marking.context = EtherCAT marking/cabling"],
+      path: ["R3A replay", "R2A canonical evidence", "D4-A project-local projection", "R1 Adaptive Strategy", "DiscoveryPlan recommendation", "Engineer Plan acceptance"]
     }
   };
 
@@ -607,18 +691,17 @@ window.WORKBENCH_FIXTURES = (function () {
     }
   ];
 
-  /* Fixture Evidence cards — the future landing point of R2A. No device identity
-     is hardcoded here; the UI derives Project / Area / Line / Device from the
-     current selected device at render time. */
+  /* Fixture Evidence cards — visualization of the implemented R2A authority shape.
+     The browser does not execute ingestion; no runtime EvidenceId is fabricated. */
   var EVIDENCE = [
     {
       id: "EV-001",
       type: "Engineering Project Export",
       provenance: "Fixture — simulated engineering export",
       observedTime: "2026-09-13 08:10 (fixture)",
-      planRevision: "— (R2A not implemented)",
-      session: "— (R2A not implemented)",
-      limitation: "Raw source payload cannot yet be ingested; card is fixture only.",
+      planRevision: "prototype snapshot — runtime-bound in R2A",
+      session: "prototype snapshot — runtime-bound in R2A",
+      limitation: "R2A canonical ingestion is implemented; this static card is not itself admitted evidence.",
       classification: "Fixture"
     },
     {
@@ -626,9 +709,9 @@ window.WORKBENCH_FIXTURES = (function () {
       type: "HMI Tag Export",
       provenance: "Fixture — simulated existing-system tag export",
       observedTime: "2026-09-13 08:22 (fixture)",
-      planRevision: "— (R2A not implemented)",
-      session: "— (R2A not implemented)",
-      limitation: "Existing System / HMI adapter is FUTURE; card is fixture only.",
+      planRevision: "prototype snapshot — runtime-bound in R2A",
+      session: "prototype snapshot — runtime-bound in R2A",
+      limitation: "R2 Existing System / HMI evidence path is implemented; this card remains prototype-only.",
       classification: "Fixture"
     },
     {
@@ -636,8 +719,8 @@ window.WORKBENCH_FIXTURES = (function () {
       type: "Engineer Observation",
       provenance: "Fixture — simulated engineer field note",
       observedTime: "2026-09-13 09:05 (fixture)",
-      planRevision: "— (R2A not implemented)",
-      session: "— (R2A not implemented)",
+      planRevision: "prototype snapshot — runtime-bound in R2A",
+      session: "prototype snapshot — runtime-bound in R2A",
       limitation: "Manual notes are a valid evidence class; card is fixture only.",
       classification: "Fixture"
     },
@@ -646,9 +729,9 @@ window.WORKBENCH_FIXTURES = (function () {
       type: "Protocol Observation",
       provenance: "Fixture — simulated protocol observation",
       observedTime: "2026-09-13 09:31 (fixture)",
-      planRevision: "— (R2A not implemented)",
-      session: "— (R2A not implemented)",
-      limitation: "Passive Capture runtime is FUTURE; card is fixture only.",
+      planRevision: "prototype snapshot — runtime-bound in R2A",
+      session: "prototype snapshot — runtime-bound in R2A",
+      limitation: "R3 replay-first passive evidence is implemented; this card remains prototype-only.",
       classification: "Fixture"
     },
     {
@@ -656,14 +739,14 @@ window.WORKBENCH_FIXTURES = (function () {
       type: "Manual Field Note",
       provenance: "Fixture — simulated manual field note",
       observedTime: "2026-09-13 09:48 (fixture)",
-      planRevision: "— (R2A not implemented)",
-      session: "— (R2A not implemented)",
+      planRevision: "prototype snapshot — runtime-bound in R2A",
+      session: "prototype snapshot — runtime-bound in R2A",
       limitation: "Manual supplement evidence; card is fixture only.",
       classification: "Fixture"
     }
   ];
 
-  /* Future R2A authority path (display clarification only — not an R2A implementation). */
+  /* Implemented canonical authority path, rendered here as a non-executing prototype explanation. */
   var EVIDENCE_AUTHORITY_PATH = [
     { label: "Source Adapter Payload" },
     { label: "R2A Normalize + Admission" },
@@ -699,52 +782,54 @@ window.WORKBENCH_FIXTURES = (function () {
     }
   ];
 
-  /* Future identification engines — R5 work, not implemented. */
+  /* Implemented bounded identification engines. The static prototype does not execute them. */
   var ENGINES = [
     {
       id: "DataTypeInference",
       label: "DataTypeInference",
-      status: "FUTURE",
-      contribution: "Infer candidate datatype from normalized evidence patterns (future R5)."
+      status: "DONE",
+      contribution: "Bounded deterministic type inference from exact normalized evidence; Proposal only."
     },
     {
       id: "PatternAnalysis",
       label: "PatternAnalysis",
-      status: "FUTURE",
-      contribution: "Detect recurring value/change patterns across session-bound evidence (future R5)."
+      status: "DONE",
+      contribution: "Bounded pattern findings over exact session-bound evidence; Proposal only."
     },
     {
       id: "EventCorrelation",
       label: "EventCorrelation",
-      status: "FUTURE",
-      contribution: "Correlate observed events with production activity (future R5)."
+      status: "DONE",
+      contribution: "Bounded temporal association findings; no causal inference."
     },
     {
       id: "TemplateMatching",
       label: "TemplateMatching",
-      status: "FUTURE",
-      contribution: "Match evidence against reusable device knowledge templates (future R5)."
+      status: "DONE",
+      contribution: "Project-local template matching; advisory only, no universal template authority."
     }
   ];
 
-  /* Capability map — which slices are DONE vs FUTURE. */
+  /* Capability map — repository truth reflected in UX0.2. DONE does not imply
+     live customer-network authorization or field validation. */
   var CAPABILITY_MAP = [
-    { id: "Strategy",            label: "Strategy",            slice: "R1",  status: "DONE"   },
-    { id: "EvidenceIngestion",   label: "Evidence Ingestion",  slice: "R2A", status: "FUTURE" },
-    { id: "ExistingHmi",         label: "Existing HMI",        slice: "R2",  status: "FUTURE" },
-    { id: "Replay",              label: "Replay",              slice: "R3A", status: "FUTURE" },
-    { id: "PassiveCapture",      label: "Passive Capture",     slice: "R3",  status: "FUTURE" },
-    { id: "ActiveRead",          label: "Active Read",         slice: "R4",  status: "FUTURE" },
-    { id: "Identification",      label: "Identification",      slice: "R5",  status: "FUTURE" },
-    { id: "Rp01E2E",             label: "RP-01 E2E",           slice: "R6",  status: "FUTURE" },
-    { id: "PersistenceUi",       label: "Persistence / UI",    slice: "R7",  status: "FUTURE" },
-    { id: "Delivery",            label: "Delivery",            slice: "R8",  status: "FUTURE" }
+    { id: "Strategy",          label: "Adaptive Strategy",              slice: "R1",   status: "DONE", detail: "Vendor/protocol-neutral strategy + readiness." },
+    { id: "EvidenceIngestion", label: "Canonical Evidence",             slice: "R2A",  status: "DONE", detail: "Exact Session-bound normalization/admission + EvidencePackage." },
+    { id: "ExistingHmi",       label: "Existing System / HMI Evidence", slice: "R2",   status: "DONE", detail: "Offline existing-system evidence path." },
+    { id: "Replay",            label: "Offline Replay",                 slice: "R3A",  status: "DONE", detail: "L0/L1/L3 replay/golden-fixture substrate." },
+    { id: "PassiveCapture",    label: "Passive Evidence",               slice: "R3",   status: "DONE", detail: "Replay-first passive relation evidence; zero transmit." },
+    { id: "ActiveRead",        label: "Controlled Active Read",         slice: "R4",   status: "DONE", detail: "Safety/orchestration exists; RP01 field execution NOT AUTHORIZED." },
+    { id: "Identification",    label: "Identification Engines",         slice: "R5",   status: "DONE", detail: "R5A–D bounded Proposal engines." },
+    { id: "Rp01E2E",           label: "RP01 Acceptance",                slice: "R6",   status: "DONE", detail: "Documentary/offline acceptance + real-evidence calibration." },
+    { id: "PersistenceUi",     label: "Persistence / Thin Field UI",    slice: "R7",   status: "DONE", detail: "Local restart semantics + offline CLI foundation." },
+    { id: "Delivery",          label: "Delivery Package / Export",      slice: "R8",   status: "DONE", detail: "Versioned DeliveryPackage + deterministic offline export." },
+    { id: "EvidenceStrategy",  label: "Evidence → Strategy Projection", slice: "D4-A", status: "DONE", detail: "Canonical evidence conservatively projected into R1 facts." }
   ];
 
   /* Delivery preview — exporter is NOT implemented. */
   var DELIVERY = {
-    banner: "Delivery Exporter NOT IMPLEMENTED",
-    note: "This is a presentation preview only. No exporter exists and no target system is contacted.",
+    banner: "Delivery capability implemented — prototype does not execute it",
+    note: "R8 versioned DeliveryPackage and deterministic offline export exist in the repository. This static prototype only previews placement and never contacts a target system.",
     targets: ["SCADA", "OPC", "PI", "MES"],
     preview: [
       {
@@ -798,7 +883,7 @@ window.WORKBENCH_FIXTURES = (function () {
       description: "Fixture project for the ITDP product workbench prototype.",
       targets: ["SCADA", "OPC", "PI", "MES"],
       areas: ["Area 5", "Area 6"],
-      lines: ["HT1 Line", "Demo Packaging Line", "Demo Tissue Line"]
+      lines: ["HT1 Line", "Demo Packaging Line", "Demo Tissue Line", "RP01 Calibration Cases"]
     },
     {
       id: "demo-packaging",
@@ -818,7 +903,7 @@ window.WORKBENCH_FIXTURES = (function () {
   var DEMO_SCENARIO_NOTE = "Demo-only fixture input. In production, Project facts + Device facts + Evidence drive the Strategy Engine. Engineers do not choose Scenario A/B/C/D in production.";
 
   /* Clarifies that the capability map is internal / display only. */
-  var CAPABILITY_MAP_NOTE = "Internal development / prototype status. Display only. Not part of the normal engineer workflow.";
+  var CAPABILITY_MAP_NOTE = "Repository capability truth for product judgment. DONE does not mean live customer-network authorization or field validation.";
 
   /* Per-stage action model. Status vocabulary:
      PROTOTYPE ACTION | FOUNDATION EXISTS | FUTURE | BLOCKED. */
@@ -840,19 +925,19 @@ window.WORKBENCH_FIXTURES = (function () {
     strategy: [
       { id: "inspect-why", label: "Inspect Why", status: "FOUNDATION EXISTS", hint: "Open the Primary route rationale, policy basis, and alternatives." },
       { id: "resolve-unknowns", label: "Resolve Unknowns", status: "FOUNDATION EXISTS", hint: "Focus the Investigation Items." },
-      { id: "re-evaluate-strategy", label: "Re-evaluate Strategy", status: "PROTOTYPE ACTION", hint: "Re-display the current pre-authored Scenario Snapshot. No AdaptiveDiscoveryStrategyEngine is executed here." },
+      { id: "re-evaluate-strategy", label: "Re-evaluate Strategy", status: "PROTOTYPE ACTION", hint: "The real R1 engine exists; this static prototype only re-displays a snapshot and does not execute Domain code." },
       { id: "create-discovery-plan", label: "Create Discovery Plan", status: "FOUNDATION EXISTS", hint: "Formal DiscoveryPlan exists in the Domain foundation. This prototype does not create authoritative Plan revisions." }
     ],
     evidence: [
       { id: "add-evidence", label: "Add Evidence", status: "PROTOTYPE ACTION", hint: "Open the Add Evidence chooser (blueprint only)." },
       { id: "add-engineer-observation", label: "Add Engineer Observation", status: "PROTOTYPE ACTION", hint: "Add a prototype-only evidence card. Fixture / Prototype only, not admitted through R2A." },
-      { id: "import-engineering-file", label: "Import Engineering File", status: "FUTURE", hint: "Future capability. No file is read in this prototype.", future: true },
-      { id: "add-hmi-export", label: "Add HMI Export", status: "FUTURE", hint: "Future capability. No import is performed in this prototype.", future: true },
+      { id: "import-engineering-file", label: "Import Engineering File", status: "FOUNDATION EXISTS", hint: "R2A canonical ingestion exists; a concrete engineering-file parser is adapter-specific and this prototype reads no file." },
+      { id: "add-hmi-export", label: "Add HMI Export", status: "FOUNDATION EXISTS", hint: "R2 existing-system evidence path exists; this prototype performs no import." },
       { id: "review-session-binding", label: "Review Session Binding", status: "FOUNDATION EXISTS", hint: "Show DiscoverySessionPlanBinding (Project + Device + exact Plan revision + Session)." },
       { id: "inspect-provenance", label: "Inspect Provenance", status: "FOUNDATION EXISTS", hint: "Open an evidence card's provenance." }
     ],
     candidates: [
-      { id: "run-identification", label: "Run Identification", status: "FUTURE", hint: "Future R5 engines. No candidate is generated in this prototype.", future: true },
+      { id: "run-identification", label: "Run Identification", status: "FOUNDATION EXISTS", hint: "R5A–D engines exist; this static prototype does not execute them." },
       { id: "compare-candidates", label: "Compare Candidates", status: "PROTOTYPE ACTION", hint: "Compare Candidate #1 / #2 side by side." },
       { id: "view-evidence", label: "View Evidence", status: "FOUNDATION EXISTS", hint: "Open the evidence behind the selected candidate." },
       { id: "request-more-evidence", label: "Request More Evidence", status: "PROTOTYPE ACTION", hint: "Mark the selected candidate as Needs More Evidence (prototype-only) and jump to Evidence." },
@@ -867,7 +952,7 @@ window.WORKBENCH_FIXTURES = (function () {
       { id: "preview-delivery", label: "Preview Delivery", status: "PROTOTYPE ACTION", hint: "Show the fixture delivery preview." },
       { id: "validate-delivery", label: "Validate Delivery", status: "PROTOTYPE ACTION", hint: "Show a fixture validation checklist preview." },
       { id: "create-delivery-package", label: "Create Delivery Package", status: "FOUNDATION EXISTS", hint: "DeliveryPackage is a Domain concept; this prototype does not create a real package." },
-      { id: "export", label: "Export", status: "FUTURE", hint: "SCADA / OPC / PI / MES export is future. No file or target system is contacted.", future: true }
+      { id: "export", label: "Export", status: "FOUNDATION EXISTS", hint: "R8 deterministic offline export exists; this prototype does not execute it or contact target systems." }
     ],
     knowledge: [
       { id: "review-knowledge", label: "Review Knowledge", status: "PROTOTYPE ACTION", hint: "Review the reusable knowledge items (prototype-only)." },
@@ -886,24 +971,28 @@ window.WORKBENCH_FIXTURES = (function () {
       exists: "DataRequirement foundation exists. No file is read in this prototype."
     },
     "import-engineering-file": {
-      slice: "PDRIFT-R2 / R2A",
-      what: "Import an engineering project export and admit it through R2A into Session-scoped evidence.",
-      exists: "EvidencePackage rules exist. R2A ingestion is NOT IMPLEMENTED. No file is read."
+      slice: "R2A + source-specific adapter",
+      status: "FOUNDATION EXISTS",
+      what: "Admit an authorized source payload into exact Session-bound canonical evidence. A concrete engineering-file parser remains source-specific.",
+      exists: "R2A normalization/admission and EvidencePackage authority are implemented. This prototype reads no file."
     },
     "add-hmi-export": {
-      slice: "PDRIFT-R2",
-      what: "Consume an Existing System / HMI tag export as evidence.",
-      exists: "Existing System / HMI adapter is FUTURE. No import is performed."
+      slice: "R2",
+      status: "FOUNDATION EXISTS",
+      what: "Consume an authorized Existing System / HMI export into the canonical evidence path.",
+      exists: "R2 exists in the repository. This prototype performs no import."
     },
     "run-identification": {
-      slice: "PDRIFT-R5",
-      what: "DataTypeInference, PatternAnalysis, EventCorrelation, TemplateMatching are future R5 engines.",
-      exists: "Candidate management foundation exists; candidates are caller-supplied. No algorithm runs here."
+      slice: "R5A–R5D",
+      status: "FOUNDATION EXISTS",
+      what: "Run bounded DataTypeInference, PatternAnalysis, EventCorrelation and project-local TemplateMatching over exact evidence.",
+      exists: "All four engines are implemented and produce proposals/advisory findings only. No algorithm runs in this static prototype."
     },
     "export": {
-      slice: "PDRIFT-R8",
-      what: "Produce a delivery package export for SCADA / OPC / PI / MES targets.",
-      exists: "Delivery Exporter is NOT IMPLEMENTED. No file or target system is contacted."
+      slice: "R8",
+      status: "FOUNDATION EXISTS",
+      what: "Create/version/freeze/issue a DeliveryPackage and produce deterministic offline export.",
+      exists: "R8 is implemented. This static prototype creates no real package and contacts no target system."
     }
   };
 
@@ -913,6 +1002,7 @@ window.WORKBENCH_FIXTURES = (function () {
     ACTIONS: ACTIONS,
     PROJECT_TREE: PROJECT_TREE,
     DEVICES: DEVICES,
+    CALIBRATION_CASES: CALIBRATION_CASES,
     PROJECT_WORKSPACES: PROJECT_WORKSPACES,
     FACT_FIELDS: FACT_FIELDS,
     SCENARIOS: SCENARIOS,
