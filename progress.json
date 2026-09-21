@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-21T08:24:00+08:00",
+  "updatedAt": "2026-09-21T09:29:00+08:00",
   "dataPolicy": {
     "rule": "Dashboard status must stay subordinate to repository truth. Percentages are project-control visualization only and MUST NOT upgrade documentary/simulation evidence into field verification, satisfy PDX-001, authorize real-device execution, or open Phase 9."
   },
@@ -900,7 +900,7 @@
       "status": "in_progress",
       "maturity": 55,
       "objective": "Use real-project evidence to calibrate the detailed workflow and eventually decide whether cross-project concepts can be frozen.",
-      "basis": "#115 OPEN; pre-field package complete; 139 real-site JPGs committed and persistently indexed under RP01-F3; PR #204 exact-head CI #915 + Main Agent Final Review PASS; proposed field findings include HK01多包机 identity confirmation, HT6压花机/切割机 corroboration and HK01 wider-scope delta. Main truth upgrade awaits explicit PO merge approval.",
+      "basis": "#115 OPEN; pre-field package complete; 139 real-site JPGs committed and persistently indexed under RP01-F3; PR #204 exact-head CI #924 SUCCESS + Main Agent Final Review PASS; proposed field findings include HK01多包机 identity confirmation, HT6压花机/切割机 corroboration and HK01 wider-scope delta. Duplicate PRs #205/#206/#207 are closed as superseded; main truth upgrade awaits explicit PO merge approval.",
       "boundary": "Calibration does not itself authorize active PLC/network execution and does not block all software development.",
       "dimensions": [
         {
@@ -1082,7 +1082,7 @@
   "recentProgress": [
     {
       "ref": "PR #204 / Issue #201",
-      "title": "RP01-F3 — 139 site photos indexed; field findings reviewed; exact-head CI #915 + Final Review PASS; awaiting PO merge",
+      "title": "RP01-F3 — 139 site photos indexed; canonical PR #204 exact-head CI #924 SUCCESS + Final Review PASS; #205/#206/#207 closed as superseded; awaiting PO merge",
       "status": "in_progress",
       "date": "2026-09-21"
     },
@@ -1124,7 +1124,7 @@
       "status": "ready",
       "owner": "PO",
       "issue": 201,
-      "note": "PR advances real-project field truth from NOT STARTED to STARTED / PARTIAL. Exact-head CI #915 and Final Review PASS."
+      "note": "PR advances real-project field truth from NOT STARTED to STARTED / PARTIAL. Exact-head CI #924 SUCCESS and Final Review PASS; duplicate PRs #205/#206/#207 are closed."
     },
     {
       "priority": 2,
