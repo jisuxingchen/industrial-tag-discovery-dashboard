@@ -1,16 +1,16 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-21T23:25:00+08:00",
+  "updatedAt": "2026-09-21T23:45:00+08:00",
   "dataPolicy": {
     "rule": "Dashboard status must stay subordinate to repository truth. Percentages are project-control visualization only and MUST NOT upgrade documentary/simulation evidence into field verification, satisfy PDX-001, authorize real-device execution, or open Phase 9."
   },
   "project": {
     "name": "Industrial Tag Discovery Platform (ITDP)",
     "customer": "Platform / multi-project product development",
-    "phase": "ITD Engineer Workflow V1 gap inventory main-closed · V1-A recommended · only #115 calibration track remains open",
+    "phase": "Workflow V1-A design main-closed · implementation Gate #238 awaiting PO authorization",
     "status": "in_progress",
-    "statusLabel": "WORKFLOW V1 DESIGN COMPLETE / V1-A PENDING PO GATE",
-    "currentGate": "V1-A implementation NOT OPENED · recommended: Project / Device / Requirement Workspace & Persistence",
+    "statusLabel": "V1-A1 #238 PENDING PO GATE",
+    "currentGate": "Issue #238 — Workflow V1-A1 implementation NOT AUTHORIZED",
     "authoritativeRequirement": "docs/project/PROJECT_STATE.md",
     "repository": "jisuxingchen/industrial-tag-discovery"
   },
@@ -1146,6 +1146,12 @@
   ],
   "recentProgress": [
     {
+      "ref": "PR #237 · Issue #236 / Gate #238",
+      "title": "Workflow V1-A pre-implementation design main-closed; exact-head CI #975 / exact main CI #976 SUCCESS; implementation Gate #238 created and awaiting PO authorization",
+      "status": "completed",
+      "date": "2026-09-21"
+    },
+    {
       "ref": "PR #235 · Issue #234",
       "title": "ITD Engineer Workflow V1 complete 10-step + cross-cutting gap inventory main-closed; exact-head CI #973 / exact main CI #974 SUCCESS; V1-A recommended",
       "status": "completed",
@@ -1174,21 +1180,16 @@
       "title": "RP01-D2 two real-evidence calibration fixtures (HK-01 single-pack + HT6) main-closed; exact main CI #942 SUCCESS",
       "status": "completed",
       "date": "2026-09-21"
-    },
-    {
-      "ref": "PR #204 · Issue #201",
-      "title": "RP01-F3 site-photo evidence extraction main-closed; 137 active JPGs persistently indexed, 7 field-visual-identity records, exact main CI #933 SUCCESS",
-      "status": "completed",
-      "date": "2026-09-21"
     }
   ],
   "nextActions": [
     {
       "priority": 1,
-      "title": "PO decision: open V1-A — Project / Device / Requirement Workspace & Persistence",
+      "title": "PO decision: authorize Workflow V1-A1 implementation",
       "status": "ready",
       "owner": "PO",
-      "note": "Gap inventory is complete and main-CI verified. V1-A is the recommended first bounded implementation Gate; no implementation has started yet."
+      "issue": 238,
+      "note": "Approve #238 to begin Local Project / Device / Requirement Workspace & Persistence implementation. Design #236 is main-CI verified via #976."
     },
     {
       "priority": 2,
