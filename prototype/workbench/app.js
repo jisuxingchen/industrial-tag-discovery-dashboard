@@ -1,13 +1,14 @@
 /* ==========================================================================
-   app.js — PDRIFT-UX0 Product Workbench Prototype.
+   app.js — PDRIFT-UX0.2 Current-State Product Calibration Prototype.
    Vanilla JavaScript renderer for the fixture snapshots in fixtures.js.
 
    IMPORTANT
    ---------
    * This is prototype-only UI state. Nothing is persisted and no Domain truth
      is created or changed.
-   * The prototype does NOT implement AdaptiveDiscoveryStrategyEngine. Scenario
-     switching selects pre-authored UX fixture snapshots aligned to R1.
+   * The real AdaptiveDiscoveryStrategyEngine and D4-A projection are implemented
+     in the repository. This static prototype does not execute Domain/Application
+     code; Scenario switching still selects pre-authored R1-aligned snapshots.
    * The prototype performs zero network activity and never touches real
      industrial equipment.
    ========================================================================== */
@@ -81,6 +82,12 @@
     if (devs[state.deviceId]) return devs[state.deviceId];
     var first = Object.keys(devs)[0];
     return first ? devs[first] : null;
+  }
+
+  function calibrationCase() {
+    return FX.CALIBRATION_CASES && FX.CALIBRATION_CASES[state.deviceId]
+      ? FX.CALIBRATION_CASES[state.deviceId]
+      : null;
   }
 
   function findRequirement(id) {
@@ -218,15 +225,16 @@
 
   function futureActionDrawer(actionId, label) {
     var d = FX.FUTURE_ACTION_DETAILS[actionId] || {};
+    var status = d.status || "FUTURE";
     openDrawer(label,
       '<div class="kv">' +
-      '  <span class="k">Status</span><span class="v">' + chip("FUTURE") + "</span>" +
-      '  <span class="k">Planned slice</span><span class="v">' + esc(d.slice || "future") + "</span>" +
-      '  <span class="k">What it will do</span><span class="v">' + esc(d.what || "Future capability.") + "</span>" +
+      '  <span class="k">Repository status</span><span class="v">' + chip(status) + "</span>" +
+      '  <span class="k">Slice / boundary</span><span class="v">' + esc(d.slice || "future") + "</span>" +
+      '  <span class="k">Product intent</span><span class="v">' + esc(d.what || "Future capability.") + "</span>" +
       '  <span class="k">What exists today</span><span class="v">' + esc(d.exists || "Foundation only.") + "</span>" +
       "</div>" +
       '<div class="divider"></div>' +
-      '<p class="small muted">No action was executed.</p>');
+      '<p class="small muted">This static prototype did not execute the capability.</p>');
   }
 
   function renderShell() {
@@ -640,8 +648,8 @@
 
   function openReevaluateStrategy() {
     openDrawer("Re-evaluate Strategy",
-      '<div class="banner banner-info"><strong>No AdaptiveDiscoveryStrategyEngine is executed here.</strong></div>' +
-      '<p class="small muted">This prototype re-displays the current pre-authored Scenario Snapshot. It never re-derives strategy.</p>' +
+      '<div class="banner banner-info"><strong>R1 + D4-A are implemented in the repository.</strong></div>' +
+      '<p class="small muted">This static prototype re-displays the current pre-authored Scenario Snapshot; it does not execute production Domain/Application code or re-derive strategy in the browser.</p>' +
       '<button type="button" class="btn btn-secondary" data-action="close-drawer">Re-display Snapshot</button>');
   }
 
@@ -654,11 +662,11 @@
 
   function openAddEvidence() {
     openDrawer("Add Evidence",
-      '<p class="small muted">Blueprint only — this is the future R2A ingestion landing point.</p>' +
+      '<p class="small muted">R2A canonical ingestion and bounded source paths exist in the repository. This static prototype only demonstrates placement and does not admit evidence.</p>' +
       '<div class="pill-list">' +
-      '  <span class="chip chip-future">Engineering File</span>' +
-      '  <span class="chip chip-future">HMI Export</span>' +
-      '  <span class="chip chip-future">Protocol Observation</span>' +
+      '  <span class="chip chip-available">Engineering Evidence path</span>' +
+      '  <span class="chip chip-available">Existing System / HMI path</span>' +
+      '  <span class="chip chip-available">Replay / Passive evidence path</span>' +
       '  <span class="chip chip-available">Engineer Observation (prototype)</span>' +
       "</div>" +
       '<div class="divider"></div>' +
@@ -682,9 +690,9 @@
       type: "Engineer Observation",
       provenance: "Prototype — engineer observation (in-memory, not admitted through R2A)",
       observedTime: "now (prototype)",
-      planRevision: "— (R2A not implemented)",
-      session: "— (R2A not implemented)",
-      limitation: "Prototype-only evidence card; R2A ingestion is NOT IMPLEMENTED.",
+      planRevision: "prototype-only — no authoritative Plan revision created",
+      session: "prototype-only — no DiscoverySession created",
+      limitation: "Prototype-only evidence card; R2A ingestion exists in the repository but is not executed by this static prototype.",
       classification: "Fixture"
     });
     closeDrawer();
@@ -700,8 +708,8 @@
       '  <span class="k">DiscoverySessionPlanBinding</span><span class="v mono">Project + Device + exact Plan revision + Session</span>' +
       '  <span class="k">Project</span><span class="v">' + esc(currentProjectName()) + "</span>" +
       '  <span class="k">Device</span><span class="v">' + esc(d.label) + "</span>" +
-      '  <span class="k">exact Plan revision</span><span class="v">— R2A not implemented</span>' +
-      '  <span class="k">Session</span><span class="v">— R2A not implemented</span>' +
+      '  <span class="k">exact Plan revision</span><span class="v">implemented authority concept — no runtime revision created by this prototype</span>' +
+      '  <span class="k">Session</span><span class="v">implemented authority concept — no runtime Session created by this prototype</span>' +
       "</div>");
   }
 
@@ -751,7 +759,7 @@
       '<div class="kv">' +
       '  <span class="k">Candidate</span><span class="v">' + esc(c.label) + "</span>" +
       '  <span class="k">Evidence</span><span class="v mono">' + esc(c.evidence.join(", ")) + "</span>" +
-      '  <span class="k">Note</span><span class="v muted">Evidence is fixture-only; R2A ingestion is NOT IMPLEMENTED.</span>' +
+      '  <span class="k">Note</span><span class="v muted">Evidence is fixture-only in this browser; R2A canonical ingestion exists in the repository.</span>' +
       "</div>");
   }
 
@@ -921,8 +929,10 @@
     var host = $("capability-map");
     host.innerHTML = FX.CAPABILITY_MAP.map(function (c) {
       return (
-        '<div class="cap-row">' +
-        '  <span class="cap-name">' + esc(c.label) + "</span>" +
+        '<div class="cap-row" title="' + esc(c.detail || "") + '">' +
+        '  <span class="cap-name">' + esc(c.label) +
+        (c.detail ? '<span class="cap-detail">' + esc(c.detail) + "</span>" : "") +
+        "</span>" +
         '  <span class="cap-slice">' + esc(c.slice) + "</span>" +
         chip(c.status) +
         "</div>"
@@ -966,10 +976,10 @@
       case "overview":     content = renderOverview(); subtitle = "Device summary and current state"; break;
       case "requirements": content = renderRequirements(); subtitle = "Data requirements and known / unknown facts"; break;
       case "strategy":     content = renderStrategy(); subtitle = "Primary / Alternative / Supplementary routes"; break;
-      case "evidence":     content = renderEvidence(); subtitle = "Future R2A landing point — fixture only"; break;
-      case "candidates":   content = renderCandidates(); subtitle = "Fixture candidates — engines not implemented"; break;
+      case "evidence":     content = renderEvidence(); subtitle = "Canonical Evidence / provenance / EvidencePackage placement"; break;
+      case "candidates":   content = renderCandidates(); subtitle = "Implemented R5 engines — static prototype proposal view"; break;
       case "confirmation": content = renderConfirmation(); subtitle = "Engineer confirmation workspace — prototype-only"; break;
-      case "delivery":     content = renderDelivery(); subtitle = "Delivery preview — exporter not implemented"; break;
+      case "delivery":     content = renderDelivery(); subtitle = "R8 DeliveryPackage / deterministic export placement"; break;
       case "knowledge":    content = renderKnowledge(); subtitle = "Device knowledge reuse preview"; break;
       default:             content = renderOverview();
     }
@@ -980,6 +990,92 @@
   }
 
   /* ----------------------------------------------------------------- stages */
+
+  function renderCalibrationSummary() {
+    var cc = calibrationCase();
+    if (!cc) return "";
+
+    var factRows = cc.facts.map(function (x) {
+      return (
+        "<tr>" +
+        "  <td class='mono'>" + esc(x.fact) + "</td>" +
+        "  <td>" + chip(x.state) + "</td>" +
+        "  <td class='mono'>" + esc(x.observation) + "</td>" +
+        "  <td class='small'>" + esc(x.evidence) + "</td>" +
+        "  <td class='muted small'>" + esc(x.note) + "</td>" +
+        "</tr>"
+      );
+    }).join("");
+
+    var governance = cc.governance.map(function (x) {
+      return '<div class="trace-step governance-step"><strong>' + esc(x.fact) + "</strong> " + chip(x.state) +
+        '<div class="small muted">' + esc(x.note) + "</div></div>";
+    }).join("");
+
+    return (
+      '<div class="banner banner-info"><strong>RP01 calibration view.</strong> This selected device is backed by retained repository evidence used in D2/D3/D4-A. The browser still shows a product prototype; it does not create runtime EvidenceIds or field truth.</div>' +
+      '<div class="panel calibration-panel">' +
+      '  <h2 class="panel-title">Calibration Truth <span class="chip chip-available">REPOSITORY-BACKED</span></h2>' +
+      '  <div class="grid grid-2">' +
+      '    <div class="kv">' +
+      '      <span class="k">Case</span><span class="v">' + esc(cc.label) + "</span>" +
+      '      <span class="k">DeviceIdentity</span><span class="v">' + esc(cc.deviceIdentity) + "</span>" +
+      '      <span class="k">ControllerIdentity</span><span class="v">' + esc(cc.controllerIdentity) + "</span>" +
+      '      <span class="k">Verification environment</span><span class="v mono">' + esc(cc.environment) + "</span>" +
+      '      <span class="k">Canonical binding</span><span class="v">' + esc(cc.binding) + "</span>" +
+      '      <span class="k">EvidencePackage</span><span class="v">' + esc(cc.package) + "</span>" +
+      "    </div>" +
+      '    <div><div class="small muted"><strong>Evidence basis</strong></div><p class="small">' + esc(cc.basis) + "</p>" +
+      '<div class="small muted"><strong>Explicit governance / access truth</strong></div>' + governance + "</div>" +
+      "  </div>" +
+      '  <div class="divider"></div>' +
+      '  <table class="data"><thead><tr><th>Strategy Fact</th><th>State</th><th>Canonical Observation</th><th>Evidence Basis</th><th>Why</th></tr></thead><tbody>' + factRows + "</tbody></table>" +
+      "</div>"
+    );
+  }
+
+  function renderCalibrationStrategyTrace() {
+    var cc = calibrationCase();
+    if (!cc) return "";
+
+    var steps = cc.path.map(function (step, i) {
+      return '<div class="trace-step"><span class="trace-index">' + esc(String(i + 1)) + "</span><strong>" + esc(step) + "</strong></div>";
+    }).join('<div class="flow-arrow">→</div>');
+
+    var investigations = cc.investigations.map(function (x) { return chip("Unknown") + " " + esc(x); }).join("<br />");
+    var unmapped = cc.unmappedContext.map(function (x) { return '<span class="chip chip-unknown">UNMAPPED</span> ' + esc(x); }).join("<br />");
+
+    return (
+      '<div class="panel calibration-panel">' +
+      '  <h2 class="panel-title">Evidence → Strategy Trace <span class="panel-title-note">D4-A product placement</span></h2>' +
+      '  <div class="trace-flow">' + steps + "</div>" +
+      '  <div class="grid grid-2 trace-notes">' +
+      '    <div><div class="small muted"><strong>Open investigations preserved</strong></div>' + investigations + "</div>" +
+      '    <div><div class="small muted"><strong>Context intentionally not promoted</strong></div>' + unmapped + "</div>" +
+      "  </div>" +
+      '  <p class="small muted">D4-A maps only exact project-local canonical observation shapes. It does not infer Protocol / Address / Path from Controller/model/port markings. Strategy recommendation still requires the existing formal DiscoveryPlan handoff and explicit Engineer acceptance.</p>' +
+      "</div>"
+    );
+  }
+
+  function renderCalibrationEvidence() {
+    var cc = calibrationCase();
+    if (!cc) return "";
+
+    return (
+      '<div class="panel calibration-panel">' +
+      '  <h2 class="panel-title">Canonical EvidencePackage Placement <span class="panel-title-note">calibration case</span></h2>' +
+      '  <div class="kv">' +
+      '    <span class="k">Case</span><span class="v">' + esc(cc.label) + "</span>" +
+      '    <span class="k">Verification</span><span class="v mono">' + esc(cc.environment) + "</span>" +
+      '    <span class="k">Binding</span><span class="v">' + esc(cc.binding) + "</span>" +
+      '    <span class="k">Package</span><span class="v">' + esc(cc.package) + "</span>" +
+      '    <span class="k">Runtime EvidenceId</span><span class="v muted">generated only during real R2A admission — not invented by this prototype</span>' +
+      '    <span class="k">Source basis</span><span class="v">' + esc(cc.basis) + "</span>" +
+      "  </div>" +
+      "</div>"
+    );
+  }
 
   function renderOverview() {
     var d = device();
@@ -1011,7 +1107,10 @@
     var openInvestigations = st.investigations.length;
     var confirmedTags = 0;
 
+    var calibration = renderCalibrationSummary();
+
     return (
+      calibration +
       '<div class="banner banner-info"><strong>Single fact source.</strong> ' +
       "Identity comes from the selected device; Current Discovery Facts come from the selected scenario snapshot — the same source used by Requirements and Discovery Strategy.</div>" +
 
@@ -1119,7 +1218,7 @@
       '    <span class="k">Prerequisites</span><span class="v">' + esc(prereq) + "</span>" +
       '    <span class="k">Rationale</span><span class="v">' + esc(method.why || "—") + "</span>" +
       (method.blocker ? '    <span class="k">Blocker</span><span class="v">' + esc(method.blocker) + "</span>" : "") +
-      '    <span class="k">Evidence refs</span><span class="v muted">fixture — none bound (R2A not implemented)</span>' +
+      '    <span class="k">Evidence refs</span><span class="v muted">Scenario snapshot in this static UI; RP01 calibration views show the canonical Evidence → Fact placement now implemented by D4-A.</span>' +
       '    <span class="k">Switch condition</span><span class="v">' + esc(method.switchCondition || "—") + "</span>" +
       '    <span class="k">Policy basis</span><span class="v">' + esc(method.policyBasis || "Project-local provisional strategy (fixture).") + "</span>" +
       "  </div>" +
@@ -1169,10 +1268,13 @@
       );
     }).join("");
 
+    var calibration = renderCalibrationStrategyTrace();
+
     return (
       banner +
-      '<div class="banner banner-info"><strong>Fixture snapshot.</strong> The prototype does not implement ' +
-      "AdaptiveDiscoveryStrategyEngine. Scenario switching selects pre-authored UX fixture snapshots aligned to the accepted R1 behavior.</div>" +
+      calibration +
+      '<div class="banner banner-info"><strong>R1 is implemented; this browser remains a snapshot.</strong> ' +
+      "Scenario switching selects pre-authored UX fixtures. For RP01 calibration devices, the trace above shows how implemented D4-A places canonical evidence before R1 without executing production code in the browser.</div>" +
 
       '<div class="panel">' +
       '  <h2 class="panel-title">Primary Route</h2>' +
@@ -1237,19 +1339,21 @@
       );
     }).join("");
 
+    var calibration = renderCalibrationEvidence();
+
     return (
-      '<div class="banner banner-future"><strong>R2A NOT IMPLEMENTED.</strong> Evidence ingestion is a future R2A slice. ' +
-      "This screen shows the intended authority path and fixture-only evidence cards.</div>" +
+      '<div class="banner banner-info"><strong>R2A canonical Evidence is implemented.</strong> This static screen explains the authority path and shows fixture cards; it does not ingest files or create runtime EvidenceIds.</div>' +
+      calibration +
 
       '<div class="panel">' +
-      '  <h2 class="panel-title">Future Authority Path ' + fixtureChip() + "</h2>" +
+      '  <h2 class="panel-title">Canonical Authority Path <span class="chip chip-available">IMPLEMENTED</span></h2>' +
       '  <div class="grid grid-3">' + flow + "</div>" +
       "</div>" +
 
       '<div class="panel">' +
       '  <h2 class="panel-title">Evidence Cards ' + fixtureChip() + ' <span class="panel-title-note">click a card for full provenance</span></h2>' +
       cards +
-      '  <p class="small muted">There is no "Import real file" action and no file parsing in this prototype.</p>' +
+      '  <p class="small muted">The repository has canonical evidence ingestion and bounded source paths; this static prototype performs no file parsing, network IO, or evidence admission.</p>' +
       "</div>"
     );
   }
@@ -1290,14 +1394,14 @@
     }).join("");
 
     return (
-      '<div class="banner banner-future"><strong>Candidate Generation Engines NOT IMPLEMENTED.</strong> ' +
-      "The system did not infer the candidates below; they are pre-authored fixture candidates.</div>" +
+      '<div class="banner banner-info"><strong>R5A–R5D identification engines are implemented.</strong> ' +
+      "This static prototype does not execute them, so the cards below remain pre-authored Proposal fixtures rather than runtime engine output.</div>" +
 
       '<div class="panel">' +
       '  <h2 class="panel-title">Foundation Status</h2>' +
       '  <div class="pill-list">' +
       '    <span class="chip chip-available">Candidate Management Foundation = AVAILABLE</span>' +
-      '    <span class="chip chip-future">Candidate Generation = FUTURE R5</span>' +
+      '    <span class="chip chip-available">Candidate Generation = R5A–R5D DONE</span>' +
       "  </div>" +
       "</div>" +
 
@@ -1307,9 +1411,9 @@
       "</div>" +
 
       '<div class="panel">' +
-      '  <h2 class="panel-title">Identification Engines <span class="panel-title-note">placeholder — no algorithm implemented</span></h2>' +
+      '  <h2 class="panel-title">Identification Engines <span class="panel-title-note">implemented in repository; not executed by static prototype</span></h2>' +
       engines +
-      '  <p class="small muted">Each engine is FUTURE R5 work. Clicking only shows what it will eventually contribute.</p>' +
+      '  <p class="small muted">Each engine is bounded to Proposal/advisory output. Clicking explains its contribution; no engine runs in this browser.</p>' +
       "</div>"
     );
   }
@@ -1385,11 +1489,11 @@
     }).join(" ");
 
     var mapping = state.deliveryPreviewed
-      ? '<div class="panel"><h2 class="panel-title">Target Mapping Placeholders ' + fixtureChip() + '</h2><div class="pill-list">' + targets + '</div><p class="small muted">No exporter exists; these are presentation placeholders only.</p></div>'
+      ? '<div class="panel"><h2 class="panel-title">Target Mapping Preview ' + fixtureChip() + '</h2><div class="pill-list">' + targets + '</div><p class="small muted">R8 export exists, but target-specific deployment/mapping remains outside this static prototype and no target system is contacted.</p></div>'
       : "";
 
     return (
-      '<div class="banner banner-future"><strong>' + esc(delivery.banner) + ".</strong> " + esc(delivery.note) + "</div>" +
+      '<div class="banner banner-info"><strong>' + esc(delivery.banner) + ".</strong> " + esc(delivery.note) + "</div>" +
 
       '<div class="panel">' +
       '  <h2 class="panel-title">Delivery Preview ' + fixtureChip() + ' <span class="panel-title-note">context: ' + esc(d.line) + " / " + esc(d.label) + "</span></h2>" +
@@ -1397,7 +1501,7 @@
       "    <thead><tr><th>Tag</th><th>Address</th><th>Type</th><th>Unit</th><th>Source</th><th>Status</th></tr></thead>" +
       "    <tbody>" + rows + "</tbody>" +
       "  </table>" +
-      '  <p class="small muted">Only a presentation preview is available. There is no "Export to PI" / "Send to OPC" action in this prototype.</p>' +
+      '  <p class="small muted">R8 deterministic offline export exists in the repository. This static prototype does not create/issue a real DeliveryPackage or contact SCADA / OPC / PI / MES.</p>' +
       mapping +
       "</div>"
     );
@@ -1418,7 +1522,7 @@
     }).join("");
 
     return (
-      '<div class="banner banner-info"><strong>Future Device Knowledge Reuse.</strong> Reusable knowledge is project-local and ' +
+      '<div class="banner banner-info"><strong>Device Knowledge foundation exists.</strong> Reusable knowledge remains project-local and ' +
       "evidence-scoped until PDX-001 is satisfied. Universal cross-project freeze is NOT available.</div>" +
 
       '<div class="panel">' +
@@ -1597,10 +1701,10 @@
           openDrawer("Identification Engine", '<div class="kv">' +
             '  <span class="k">Engine</span><span class="v mono">' + esc(eng.label) + "</span>" +
             '  <span class="k">Status</span><span class="v">' + chip(eng.status) + "</span>" +
-            '  <span class="k">What this engine will eventually contribute</span><span class="v">' + esc(eng.contribution) + "</span>" +
+            '  <span class="k">Bounded contribution</span><span class="v">' + esc(eng.contribution) + "</span>" +
             "</div>" +
             '<div class="divider"></div>' +
-            '<p class="small muted">No algorithm is implemented. This placeholder only describes future R5 work.</p>');
+            '<p class="small muted">The engine is implemented in the repository, but no algorithm executes inside this static prototype.</p>');
         }
         break;
       }

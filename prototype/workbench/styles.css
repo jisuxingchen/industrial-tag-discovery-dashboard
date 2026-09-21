@@ -847,3 +847,72 @@ table.data tr:hover td { background: #f7f9fb; }
 /* Selected requirement row highlight */
 table.data tr.req-selected td { background: var(--accent-soft); }
 table.data tr.req-selected:hover td { background: var(--accent-soft); }
+
+
+/* -------------------------------------------------------------- UX0.2 */
+/* Current-state product calibration surfaces. These are prototype presentation
+   only; they do not imply browser execution of Domain/Application capability. */
+.cap-detail {
+  display: block;
+  margin-top: 2px;
+  font-size: 9.5px;
+  line-height: 1.25;
+  font-weight: 500;
+  color: var(--ink-muted);
+}
+
+.calibration-panel {
+  border-left: 4px solid var(--accent);
+}
+
+.trace-flow {
+  display: flex;
+  align-items: stretch;
+  gap: 6px;
+  overflow-x: auto;
+  padding: 4px 0 10px;
+}
+
+.trace-step {
+  min-width: 150px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--panel-alt);
+  padding: 8px 10px;
+  font-size: 11px;
+  line-height: 1.35;
+}
+
+.trace-step.governance-step {
+  min-width: 0;
+  margin-top: 6px;
+  background: var(--warn-bg);
+  border-color: #f0d9a8;
+}
+
+.trace-index {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  margin-right: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: #fff;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 800;
+}
+
+.trace-notes {
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px solid var(--border);
+}
+
+@media (max-width: 880px) {
+  .trace-flow { flex-direction: column; }
+  .trace-flow .flow-arrow { transform: rotate(90deg); }
+  .trace-step { min-width: 0; }
+}
