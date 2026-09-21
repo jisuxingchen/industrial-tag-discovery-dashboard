@@ -1,16 +1,16 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-21T12:55:00+08:00",
+  "updatedAt": "2026-09-21T22:47:00+08:00",
   "dataPolicy": {
     "rule": "Dashboard status must stay subordinate to repository truth. Percentages are project-control visualization only and MUST NOT upgrade documentary/simulation evidence into field verification, satisfy PDX-001, authorize real-device execution, or open Phase 9."
   },
   "project": {
     "name": "Industrial Tag Discovery Platform (ITDP)",
     "customer": "Platform / multi-project product development",
-    "phase": "RP01-F3 real-site photo evidence reviewed · canonical PR #204 awaiting PO merge · Phase 9 HOLD",
+    "phase": "Recovery R2–R8 + D4-A + UX0.2 main-closed · only #115 calibration track remains open · preparing ITD Engineer Workflow V1",
     "status": "in_progress",
-    "statusLabel": "RP01-F3 FINAL REVIEW PASS / AWAITING PO GATE",
-    "currentGate": "RP01-F3 FIELD TRUTH PO-KEY-GATE — PR #204",
+    "statusLabel": "FOUNDATION CLOSED / WORKFLOW V1 PREPARATION",
+    "currentGate": "No open implementation Gate · next: complete gap inventory + define ITD Engineer Workflow V1",
     "authoritativeRequirement": "docs/project/PROJECT_STATE.md",
     "repository": "jisuxingchen/industrial-tag-discovery"
   },
@@ -181,6 +181,39 @@
             ],
             "prs": [
               151
+            ]
+          }
+        },
+        {
+          "id": "R1.4",
+          "name": "Canonical Evidence → Adaptive Strategy Projection (D4-A)",
+          "weight": 15,
+          "status": "completed",
+          "progress": 100,
+          "note": "Exact-package/project-local projection; governance/access facts remain explicit.",
+          "detail": {
+            "objective": "Connect canonical R2A evidence to the existing R1 Adaptive Strategy without inventing a second evidence or taxonomy authority.",
+            "workDone": [
+              "Implemented exact EvidencePackage-bound project-local projection rules.",
+              "Preserved DeviceIdentity / ControllerIdentity / Protocol / Address / Path separation and explicit Unknown.",
+              "Kept ActiveReadAuthorization / PassiveObservationPoint / FieldAccess as explicit governance/access truth."
+            ],
+            "result": "D4-A main-closed; RP01 HK-01 / HT6 now run R3A → R2A → D4-A → R1 without the former manual fact bridge.",
+            "completionNote": "100% for bounded Application integration; raw DeviceProfile projection and production UI integration remain deferred.",
+            "outputs": [
+              {
+                "label": "D4-A orchestration",
+                "path": "core/application/AdaptiveDiscoveryStrategyOrchestration.cs",
+                "kind": "file"
+              }
+            ],
+            "issues": [
+              226
+            ],
+            "prs": [
+              228,
+              229,
+              230
             ]
           }
         }
@@ -486,6 +519,38 @@
             ],
             "prs": [
               181
+            ]
+          }
+        },
+        {
+          "id": "R4.4",
+          "name": "Current-State Product Workbench (UX0.2)",
+          "weight": 15,
+          "status": "completed",
+          "progress": 100,
+          "note": "Current product-judgment prototype; not production UI.",
+          "detail": {
+            "objective": "Refresh the clickable workbench to reflect current repository capabilities and real RP01 calibration semantics.",
+            "workDone": [
+              "Added HK-01 and HT6 calibration devices and Device/Controller/Protocol/Address/Path/Authorization separation.",
+              "Added canonical EvidencePackage placement, D4-A Evidence→Strategy trace and Investigation/Unknown detail.",
+              "Updated R1–R8 + D4-A capability truth and published the same baseline to the public dashboard Pages site."
+            ],
+            "result": "UX0.2 is the current product-prototype baseline and is available at /prototype/workbench/.",
+            "completionNote": "100% prototype baseline only; no production UI framework decision and no browser execution of Domain/Application capability.",
+            "outputs": [
+              {
+                "label": "Product Workbench",
+                "path": "prototype/workbench/",
+                "kind": "folder"
+              }
+            ],
+            "issues": [
+              231
+            ],
+            "prs": [
+              232,
+              233
             ]
           }
         }
@@ -930,7 +995,7 @@
       "status": "completed",
       "statusLabel": "CLOSED",
       "trackingIssue": 163,
-      "currentRequirement": "R2–R8 are DONE / MERGED / MAIN-CI VERIFIED / CLOSED; no further Recovery implementation Gate is open.",
+      "currentRequirement": "R2–R8 Recovery, D4-A integration and UX0.2 calibration prototype are DONE / MERGED / MAIN-CI VERIFIED / CLOSED. No implementation Gate is currently open; Workflow V1 starts with gap inventory/design, not implicit implementation.",
       "requiredInputs": [
         "Per-slice authorization",
         "Exact-head CI",
@@ -948,7 +1013,7 @@
       "status": "on_hold",
       "statusLabel": "NOT SATISFIED",
       "trackingIssue": 115,
-      "currentRequirement": "RP-01 is only Real Project #1; field verification has not started; RP-02/RP-03 are not identified.",
+      "currentRequirement": "RP-01 is still Real Project #1. Real-site photo evidence and bounded calibration exist, but E1 acceptance is NOT SATISFIED; RP-02/RP-03 are not identified. PDX-001 remains a cross-project Freeze Gate, not a product-development stop.",
       "requiredInputs": [
         "2–3 real-project evidence sets",
         "Workflow variance evidence",
@@ -1081,80 +1146,85 @@
   ],
   "recentProgress": [
     {
-      "ref": "PR #204 / Issue #201",
-      "title": "RP01-F3 canonical — 139 site photos indexed; amended exact HEAD dd86c1d…; CI #929 SUCCESS + Final Review PASS; awaiting PO merge",
-      "status": "in_progress",
+      "ref": "PR #232 / #233 · Dashboard PR #30",
+      "title": "UX0.2 Current-State Product Workbench main-closed (CI #970/#972) and published to GitHub Pages; HK-01/HT6 calibration + D4-A Evidence→Strategy trace visible",
+      "status": "completed",
       "date": "2026-09-21"
     },
     {
-      "ref": "PR #199 / #200",
-      "title": "RP01-F2 — 127 representative equipment × requirement evidence items main-closed; CI #909 / #911 SUCCESS",
+      "ref": "PR #228 / #229 / #230 · Issue #226",
+      "title": "RP01-D4-A canonical Evidence → Adaptive Strategy projection main-closed; implementation CI #960/#961 and lifecycle CI #963/#965 SUCCESS",
       "status": "completed",
-      "date": "2026-09-20"
+      "date": "2026-09-21"
     },
     {
-      "ref": "PR #196 / #197",
-      "title": "RP01-D1 — 23 Rudong OEE/collection metric families ingested from PO-supplied workbook; CI #905 / #907 SUCCESS",
+      "ref": "PR #221 · Issue #217",
+      "title": "RP01-D3 restored DeviceIdentity / ControllerIdentity semantic separation; exact main CI #949 SUCCESS",
       "status": "completed",
-      "date": "2026-09-20"
+      "date": "2026-09-21"
     },
     {
-      "ref": "PR #193 / #194",
-      "title": "Two PO-supplied Excel source files archived; #133 provenance gap closed; CI #901 / #903 SUCCESS",
+      "ref": "PR #216 · Issue #215",
+      "title": "RP01-D2 two real-evidence calibration fixtures (HK-01 single-pack + HT6) main-closed; exact main CI #942 SUCCESS",
       "status": "completed",
-      "date": "2026-09-20"
+      "date": "2026-09-21"
     },
     {
-      "ref": "PR #190 / #191",
-      "title": "RP01-F1 non-invasive field calibration pack + 12-row equipment manifest main-closed; CI #897 / #899 SUCCESS",
+      "ref": "PR #204 · Issue #201",
+      "title": "RP01-F3 site-photo evidence extraction main-closed; 137 active JPGs persistently indexed, 7 field-visual-identity records, exact main CI #933 SUCCESS",
       "status": "completed",
-      "date": "2026-09-20"
+      "date": "2026-09-21"
     },
     {
-      "ref": "PR #187 / #188",
-      "title": "RP01-A1 Offline Acceptance Run main-closed; CI #893 / #895 SUCCESS",
+      "ref": "PR #183 · Issue #163",
+      "title": "R8 DeliveryPackage + deterministic offline export remains main-closed; recovery sequence R2–R8 complete",
       "status": "completed",
-      "date": "2026-09-20"
+      "date": "2026-09-15"
     }
   ],
   "nextActions": [
     {
       "priority": 1,
-      "title": "PO decision: merge canonical RP01-F3 PR #204",
+      "title": "Complete full gap inventory against the 10-step user workflow",
       "status": "ready",
-      "owner": "PO",
-      "issue": 201,
-      "note": "Exact HEAD dd86c1d…; exact-head CI #929 SUCCESS; Main Agent Final Review PASS. This merge advances real-project field truth to STARTED / PARTIAL."
+      "owner": "Main Agent / PO",
+      "note": "For each step: what is implemented, what is only foundation/prototype, what product/UI/orchestration/adapter/validation work is still missing. Do not start implementation before the inventory is reviewed."
     },
     {
       "priority": 2,
-      "title": "After merge, exact-main-CI verify and close RP01-F3 truth / update #115",
+      "title": "Define ITD Engineer Workflow V1 end-to-end product path",
       "status": "not_started",
-      "owner": "Main Agent",
-      "issue": 201,
-      "note": "Then update dashboard Field Verification from 0 to a control-progress value while preserving E1 acceptance NOT SATISFIED."
+      "owner": "Main Agent / PO",
+      "note": "Target chain: Project → Device → Requirement → Known/Unknown → D4-A/R1 Strategy → Plan → Evidence → R5 Candidate → Confirmation → R8 Delivery; Knowledge remains evidence-scoped/project-local."
     },
     {
       "priority": 3,
-      "title": "Continue non-invasive evidence collection for HT1 / HK01折叠机 / 中心抽",
+      "title": "Open bounded Workflow V1 integration Gates after design review",
       "status": "not_started",
-      "owner": "PO / Site Engineering",
-      "issue": 115,
-      "note": "Reuse the persistent 139-photo index; reopen raw photos only for a genuinely new claim."
+      "owner": "PO / Main Agent",
+      "note": "Likely seams include Requirement-driven workflow, D4-A/R1 into engineer UI, Investigation workspace, R5A–D orchestration, Confirmation→RequirementFulfillment→R8 Delivery, and product-grade project/device/evidence UX."
     },
     {
       "priority": 4,
-      "title": "If any unresolved item requires PLC/network communication, stop and open a separate Active Read-Only Verification Gate",
-      "status": "not_started",
+      "title": "Continue RP-01 / PDX-001 real-project calibration under #115",
+      "status": "in_progress",
+      "owner": "PO / Site Engineering / Main Agent",
+      "issue": 115,
+      "note": "E1 acceptance remains NOT SATISFIED. Unknown is valid truth; customer-project completeness is not a prerequisite for Workflow V1 product development."
+    },
+    {
+      "priority": 5,
+      "title": "Keep real PLC/customer-network execution behind a separate Field Execution Gate",
+      "status": "blocked",
       "owner": "PO / Main Agent",
       "note": "Active Read remains NOT AUTHORIZED. Never Write absolute."
     },
     {
-      "priority": 5,
-      "title": "Identify RP-02 and, if needed, RP-03",
+      "priority": 6,
+      "title": "Identify RP-02 and, if needed, RP-03 for cross-project calibration",
       "status": "not_started",
       "owner": "PO / Product",
-      "note": "PDX-001 still requires cross-project calibration before freeze."
+      "note": "Required before PDX-001 can freeze cross-project workflow/business fields/taxonomy/ranking/planning policy."
     }
   ]
 }
