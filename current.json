@@ -1,9 +1,13 @@
 {
-  "generated_at": "2026-09-22T00:53:36+08:00",
-  "display_time": "2026-09-22 00:53",
-  "version": "2026-09-22_00-53",
-  "note": "Workflow V1-A1 已完成实现、PO-KEY-GATE 合并与 truth closeout：PR #239 reviewed HEAD 189d6605 / exact-head CI #985 SUCCESS / merge 9fd3d79e / exact main CI #986 SUCCESS；truth closeout PR #240 / exact-head CI #987 / merge 93d80b46 / exact main CI #988 SUCCESS；Issue #238 CLOSED。下一步仅进入 V1-B pre-implementation design，V1-B implementation NOT AUTHORIZED；#115 RP-01 / PDX-001 校准继续 OPEN；Active Read/customer-network execution NOT AUTHORIZED；PDX-001 NOT SATISFIED；Phase 9 HOLD；Never Write absolute",
+  "generated_at": "2026-09-23T19:34:00+08:00",
+  "display_time": "2026-09-23 19:34",
+  "version": "2026-09-23_19-34",
+  "note": "PO mission rebaseline: overall progress is now mission-weighted (~53%) rather than inferred from historical Recovery/UI completion. APP1 #252 / PR #254 remains active and unmerged; after essential APP1 closeout the priority becomes V1-C Evidence Workspace plus a separately gated real PLC/HMI data-flow path, then V1-D Identification, V1-E Confirmation/Delivery and V1-F Knowledge. No accepted live PLC/HMI stream has traversed the canonical chain yet; real execution remains NOT AUTHORIZED; Never Write absolute.",
   "dashboard_path": "dashboard.html",
   "data_path": "progress.json",
-  "prototype_path": "prototype/workbench/"
+  "prototype_path": "prototype/workbench/",
+  "source_project_issue": 255,
+  "source_project_pr": 256,
+  "app1_pr": 254,
+  "app1_head": "bdb5c3ebf58bb9764862d62b401c6e0c97539586"
 }

@@ -1,6 +1,14 @@
 {
   "snapshots": [
     {
+      "version": "2026-09-22_00-53",
+      "generated_at": "2026-09-22T00:53:36+08:00",
+      "display_time": "2026-09-22 00:53",
+      "note": "Workflow V1-A1 已完成实现、PO-KEY-GATE 合并与 truth closeout：PR #239 reviewed HEAD 189d6605 / exact-head CI #985 SUCCESS / merge 9fd3d79e / exact main CI #986 SUCCESS；truth closeout PR #240 / exact-head CI #987 / merge 93d80b46 / exact main CI #988 SUCCESS；Issue #238 CLOSED。下一步仅进入 V1-B pre-implementation design，V1-B implementation NOT AUTHORIZED；#115 RP-01 / PDX-001 校准继续 OPEN；Active Read/customer-network execution NOT AUTHORIZED；PDX-001 NOT SATISFIED；Phase 9 HOLD；Never Write absolute",
+      "path": "history/2026-09-22_00-53/index.html",
+      "source_commit": "d20b0eca24dc0ff2933b7065ca434c232150da67"
+    },
+    {
       "version": "2026-09-21_23-45",
       "generated_at": "2026-09-21T23:45:00+08:00",
       "display_time": "2026-09-21 23:45",
