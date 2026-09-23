@@ -1,17 +1,17 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-22T00:53:36+08:00",
+  "updatedAt": "2026-09-23T19:34:00+08:00",
   "dataPolicy": {
     "rule": "Dashboard status must stay subordinate to repository truth. Percentages are project-control visualization only and MUST NOT upgrade documentary/simulation evidence into field verification, satisfy PDX-001, authorize real-device execution, or open Phase 9."
   },
   "project": {
     "name": "Industrial Tag Discovery Platform (ITDP)",
     "customer": "Platform / multi-project product development",
-    "phase": "Workflow V1-A1 main-closed · V1-B pre-implementation design next",
+    "phase": "APP1 closeout → V1-C Evidence → Real Data Flow Pilot → V1-D / V1-E / V1-F",
     "status": "in_progress",
-    "statusLabel": "V1-A1 DONE · V1-B DESIGN NEXT",
-    "currentGate": "V1-B pre-implementation design only — implementation NOT AUTHORIZED",
-    "authoritativeRequirement": "docs/project/PROJECT_STATE.md",
+    "statusLabel": "MISSION REBASELINED · APP1 CLOSEOUT ACTIVE",
+    "currentGate": "APP1 #252 / PR #254 closeout; V1-C + real PLC/HMI data-flow path are next planned slices",
+    "authoritativeRequirement": "docs/project/PROJECT_STATE.md + PO decision Issue #255 (truth-sync PR #256 pending)",
     "repository": "jisuxingchen/industrial-tag-discovery"
   },
   "wbs": [
@@ -931,109 +931,185 @@
     }
   ],
   "tracks": {
-    "development": {
-      "name": "Development / Recovery Track",
-      "subtitle": "Bounded product capability recovery",
-      "status": "completed",
-      "maturity": 100,
-      "objective": "Close identified product-direction gaps through separately authorized bounded Recovery slices.",
-      "basis": "R1–R8 capability chain is DONE / MERGED / MAIN-CI VERIFIED / CLOSED; exact R8 main CI #889 passed 766/766 tests.",
-      "boundary": "Completion is software/product capability truth only. It does not equal real-device validation, PDX-001 satisfaction or Phase 9 authorization.",
-      "dimensions": [
-        {
-          "name": "Discovery & Evidence",
-          "progress": 100
-        },
-        {
-          "name": "Identification",
-          "progress": 100
-        },
-        {
-          "name": "Persistence / UI",
-          "progress": 100
-        },
-        {
-          "name": "Delivery",
-          "progress": 100
-        }
-      ],
-      "next": "No further Recovery implementation Gate is open. New product work requires a separately bounded Gate."
-    },
-    "field": {
-      "name": "RP-01 / PDX-001 Calibration Track",
-      "subtitle": "Real-project Acceptance Oracle",
+    "workbench": {
+      "name": "Product Workbench / Workflow Track",
+      "subtitle": "Operator workflow, persistence and remote execution",
       "status": "in_progress",
-      "maturity": 55,
-      "objective": "Use real-project evidence to calibrate the detailed workflow and eventually decide whether cross-project concepts can be frozen.",
-      "basis": "#115 OPEN; pre-field package complete; 139 real-site JPGs committed and persistently indexed under RP01-F3; canonical PR #204 exact HEAD `dd86c1d...` / exact-head CI #929 SUCCESS / Main Agent Final Review PASS; field findings are bounded to HK01多包机 identity confirmation, HT6压花机 GL10/ECTA context, HT6切割机/HMI context and HK01单包机 SCOPE_WIDER delta. Superseded PRs #205/#206/#207/#208 and temporary CI PR #209 are closed. Main field truth upgrade awaits explicit PO merge approval.",
-      "boundary": "Calibration does not itself authorize active PLC/network execution and does not block all software development.",
+      "maturity": 80,
+      "objective": "Finish the minimum durable engineer workbench needed to operate the real Evidence → Identification → Confirmation path.",
+      "basis": "V1-A1 and V1-B1 are main-closed. APP1 Issue #252 / Draft PR #254 is remotely executable; exact head bdb5c3eb… / CI #1123 SUCCESS / Railway exact-head deployment SUCCESS.",
+      "boundary": "This track is not the product mission by itself. More UI polish does not compensate for missing real PLC/HMI data-flow evidence.",
       "dimensions": [
         {
-          "name": "RP-01 Baseline",
-          "progress": 100
+          "name": "Project / Device / Requirements",
+          "progress": 90
         },
         {
-          "name": "Documentary Evidence",
+          "name": "Known / Investigation / Strategy / Plans",
+          "progress": 90
+        },
+        {
+          "name": "Remote Web / Persistence",
           "progress": 85
         },
         {
-          "name": "Field Verification",
+          "name": "APP1 final closeout",
+          "progress": 55
+        }
+      ],
+      "next": "Close only essential APP1 gaps (including Project rename and final acceptance), then stop broad UI expansion and move to V1-C."
+    },
+    "evidence": {
+      "name": "Evidence / Identification Foundation Track",
+      "subtitle": "Canonical offline/replay analysis capability",
+      "status": "in_progress",
+      "maturity": 75,
+      "objective": "Turn current evidence/analysis foundations into a first-class operator workflow that can accept real sources without bypassing authority.",
+      "basis": "R2A/R3A/R2/R3/R4 plus R5A–R5D are main-closed bounded foundations; APP1 still does not expose V1-C/V1-D.",
+      "boundary": "Replay/simulation is useful development evidence but is not real-device validation.",
+      "dimensions": [
+        {
+          "name": "Canonical Evidence",
+          "progress": 85
+        },
+        {
+          "name": "Replay / Offline Sources",
+          "progress": 90
+        },
+        {
+          "name": "Identification Engines",
+          "progress": 80
+        },
+        {
+          "name": "Web Productization",
+          "progress": 45
+        }
+      ],
+      "next": "V1-C Evidence Workspace first; V1-D Identification Workspace immediately after canonical evidence is productized."
+    },
+    "realData": {
+      "name": "Real PLC / HMI Data-Flow Track",
+      "subtitle": "Original core product intent",
+      "status": "blocked",
+      "maturity": 15,
+      "objective": "Obtain one actual time-varying PLC/HMI/HMI-adjacent stream and analyze it through canonical Evidence and Identification.",
+      "basis": "Safety/protocol foundations exist, but real PLC/customer-network execution remains NOT AUTHORIZED and no accepted live stream has traversed the chain.",
+      "boundary": "Never Write absolute. Any real connection/capture requires a separate explicit bounded Field Execution Gate.",
+      "dimensions": [
+        {
+          "name": "Read-only Safety Foundation",
+          "progress": 70
+        },
+        {
+          "name": "Real Stream Authorization",
           "progress": 0
         },
         {
-          "name": "Multi-project Evidence",
+          "name": "Real Stream Acquisition",
+          "progress": 0
+        },
+        {
+          "name": "Evidence → Identification on Real Stream",
           "progress": 0
         }
       ],
-      "next": "PO decision on canonical PR #204. Until merge, authoritative main field-verification truth remains at the prior state. Active Read remains NOT AUTHORIZED."
+      "next": "Prepare RDS-1 Real Data Flow Readiness Gate: select one isolated source and the least-invasive path (existing HMI/SCADA/OPC stream, passive capture, or bounded controlled read)."
+    },
+    "calibration": {
+      "name": "RP-01 / PDX-001 Calibration Track",
+      "subtitle": "Real-project Acceptance Oracle",
+      "status": "in_progress",
+      "maturity": 30,
+      "objective": "Calibrate detailed workflow assumptions against real project evidence without confusing field photos/documentary material with dynamic PLC/HMI data.",
+      "basis": "#115 remains open; RP-01 documentary and field-photo evidence is substantial; RP-02/RP-03 remain unselected.",
+      "boundary": "PDX-001 is a cross-project Freeze Gate, not a software-development stop and not a field-execution authorization.",
+      "dimensions": [
+        {
+          "name": "RP-01 Documentary / Photo Baseline",
+          "progress": 85
+        },
+        {
+          "name": "Dynamic Data Verification",
+          "progress": 0
+        },
+        {
+          "name": "RP-02 / RP-03",
+          "progress": 0
+        },
+        {
+          "name": "Cross-project Freeze",
+          "progress": 0
+        }
+      ],
+      "next": "Continue RP-01 calibration in parallel; do not let it delay the separately gated real-data-flow pilot or V1-C/V1-D productization."
     }
   },
   "gates": [
     {
-      "title": "Workflow V1-B Implementation Gate",
-      "question": "Has the V1-B pre-implementation design been completed and separately authorized by the Product Owner?",
-      "status": "blocked",
-      "statusLabel": "NOT AUTHORIZED",
-      "currentRequirement": "Complete the V1-B pre-implementation design first. A separate explicit PO implementation GO is required before production code changes.",
+      "title": "APP1 PO-KEY-GATE",
+      "question": "Is the current Remote Engineer Web Workbench technically and visually ready to merge?",
+      "status": "in_progress",
+      "statusLabel": "ACTIVE / PR #254 DRAFT",
+      "trackingIssue": 252,
+      "currentRequirement": "Close essential product gaps only, run exact-head acceptance/manual smoke, Main Agent Technical Review, then obtain explicit PO merge authorization for PR #254.",
       "requiredInputs": [
-        "V1-B pre-implementation design on main",
-        "Exact design CI / review evidence",
-        "Explicit PO implementation authorization"
+        "Real Project rename authority and UI",
+        "Final interaction / visual consistency review",
+        "Exact-head CI + Railway exact-head preview",
+        "APP1 acceptance matrix truth",
+        "Explicit PO merge authorization"
       ],
       "blocks": [
-        "V1-B production implementation",
-        "Implicit R7B fixed-route replacement before design approval"
+        "PR #254 merge",
+        "APP1 formal closeout"
       ]
     },
     {
-      "title": "Recovery R2–R8 Development Gate",
-      "question": "Are the bounded Recovery slices main-closed with exact CI and review evidence?",
-      "status": "completed",
-      "statusLabel": "CLOSED",
-      "trackingIssue": 163,
-      "currentRequirement": "R2–R8 Recovery, D4-A and UX0.2 are main-closed. Workflow V1-A1 is also DONE / MERGED / MAIN-CI VERIFIED / CLOSED through #238/#239/#240. Next bounded step is V1-B pre-implementation design only; V1-B implementation is NOT AUTHORIZED.",
+      "title": "V1-C Evidence Workspace Gate",
+      "question": "Has APP1 closed and has a bounded V1-C implementation Gate been explicitly opened?",
+      "status": "ready",
+      "statusLabel": "NEXT PLANNED / NOT YET AUTHORIZED",
+      "currentRequirement": "V1-C is the next product slice after APP1 closeout. It must reuse canonical R2A Evidence authority and may not invent browser-side evidence truth.",
       "requiredInputs": [
-        "Per-slice authorization",
-        "Exact-head CI",
-        "Main Agent Final Review",
-        "Merge authorization by risk class",
-        "Exact merge-commit main CI"
+        "APP1 closeout baseline",
+        "V1-C bounded Issue/design",
+        "Evidence source / provenance / revision semantics",
+        "Explicit implementation authorization"
       ],
       "blocks": [
-        "None inside the completed Recovery sequence"
+        "V1-C production implementation until Gate opens"
+      ]
+    },
+    {
+      "title": "Real PLC/HMI Data Flow Field Execution Gate",
+      "question": "Has one isolated real data source and a strictly read-only method been explicitly authorized?",
+      "status": "blocked",
+      "statusLabel": "NOT AUTHORIZED",
+      "currentRequirement": "Prepare RDS-1 first. Select exact device/source/network scope, acquisition method, stop conditions and evidence handling. Planning is not execution.",
+      "requiredInputs": [
+        "One exact PLC/HMI/HMI-adjacent source",
+        "Least-invasive acquisition method",
+        "Read-only / passive safety proof",
+        "Network/device scope and stop conditions",
+        "Explicit PO Field Execution authorization"
+      ],
+      "blocks": [
+        "Live PLC/customer-network access",
+        "Live passive capture on customer network",
+        "Controlled Active Read on real equipment",
+        "Any Write / Force / Download / Run-Stop / config/control mutation"
       ]
     },
     {
       "title": "PDX-001 Cross-Project Freeze Gate",
-      "question": "Do 2–3 real projects support freezing cross-project business fields, taxonomy, ranking/planning policy and detailed workflow?",
+      "question": "Do 2–3 real projects support freezing cross-project workflow/taxonomy/ranking/planning policy?",
       "status": "on_hold",
       "statusLabel": "NOT SATISFIED",
       "trackingIssue": 115,
-      "currentRequirement": "RP-01 is still Real Project #1. Real-site photo evidence and bounded calibration exist, but E1 acceptance is NOT SATISFIED; RP-02/RP-03 are not identified. PDX-001 remains a cross-project Freeze Gate, not a product-development stop.",
+      "currentRequirement": "RP-01 exists; RP-02/RP-03 do not. Dynamic PLC/HMI stream validation is also still missing.",
       "requiredInputs": [
         "2–3 real-project evidence sets",
         "Workflow variance evidence",
-        "Operator/restart semantics evidence",
         "Knowledge applicability evidence",
         "Cross-project ranking/planning evidence"
       ],
@@ -1044,38 +1120,18 @@
       ]
     },
     {
-      "title": "Real Device / Customer Network Execution Gate",
-      "question": "Has a bounded real-device execution Gate been explicitly authorized?",
-      "status": "blocked",
-      "statusLabel": "NOT AUTHORIZED",
-      "currentRequirement": "Real PLC/customer-network execution remains separately gated. Never Write is absolute.",
-      "requiredInputs": [
-        "Explicit bounded Field Execution Gate",
-        "Exact device/network scope",
-        "Read-only method and stop conditions",
-        "Authorization/evidence handling"
-      ],
-      "blocks": [
-        "Active PLC/network read",
-        "Customer production-network access",
-        "Protocol expansion on real assets",
-        "Any Write / Force / Download / Run-Stop / parameter or control mutation"
-      ]
-    },
-    {
       "title": "Phase 9 Gate",
-      "question": "Has Phase 9 distributed/multi-node work been explicitly opened after real-project evidence?",
+      "question": "Has distributed/multi-node work been explicitly opened after real-project evidence?",
       "status": "on_hold",
       "statusLabel": "HOLD / NOT OPENED",
-      "currentRequirement": "P8-R1 selected OPTION C: hold before Phase 9 until later evidence and explicit Gate.",
+      "currentRequirement": "P8-R1 OPTION C remains binding.",
       "requiredInputs": [
         "PDX-001 evidence maturity",
         "Explicit PO Gate",
         "Architecture/readiness review"
       ],
       "blocks": [
-        "Distributed/multi-node implementation",
-        "Universal workflow/business-field assumptions"
+        "Distributed/multi-node implementation"
       ]
     }
   ],
@@ -1087,27 +1143,27 @@
     },
     {
       "id": "D-02",
-      "decision": "PDX-001 is a Cross-project Freeze Gate, not a global software-development stop.",
+      "decision": "Core mission is real PLC/HMI data-flow analysis through Evidence → Identification → Confirmation; UI/process completion alone is not product completion.",
       "status": "locked"
     },
     {
       "id": "D-03",
-      "decision": "Macro lifecycle Discovery → Identification → Confirmation → Delivery → Reuse is binding.",
+      "decision": "After APP1 closeout, priority shifts to V1-C Evidence Workspace and a separately gated real data-flow pilot.",
       "status": "locked"
     },
     {
       "id": "D-04",
-      "decision": "Detailed full workflow remains provisional until PDX-001 is satisfied.",
-      "status": "locked"
-    },
-    {
-      "id": "D-05",
       "decision": "Simulation / Replay / Golden Fixture does not equal real-device validation.",
       "status": "locked"
     },
     {
+      "id": "D-05",
+      "decision": "PDX-001 is a Cross-project Freeze Gate, not a global development stop.",
+      "status": "locked"
+    },
+    {
       "id": "D-06",
-      "decision": "Risk-tiered merge governance: AUTO-LOW-RISK may auto-merge after checks; PO-KEY-GATE needs explicit PO approval.",
+      "decision": "Macro lifecycle Discovery → Identification → Confirmation → Delivery → Reuse remains binding.",
       "status": "locked"
     },
     {
@@ -1119,54 +1175,90 @@
   "milestones": [
     {
       "id": "M0",
-      "name": "Product Direction Realigned",
+      "name": "Recovery foundations main-closed",
       "status": "completed",
-      "date": null
+      "date": "2026-09-15"
     },
     {
       "id": "M1",
-      "name": "Recovery R1–R5 Complete",
+      "name": "Workflow V1-A1 + V1-B1 main-closed",
       "status": "completed",
-      "date": null
+      "date": "2026-09-22"
     },
     {
       "id": "M2",
-      "name": "R7 Persistence + Thin Field UI Complete",
-      "status": "completed",
-      "date": "2026-09-15"
+      "name": "APP1 remote workbench closeout",
+      "status": "in_progress",
+      "date": null
     },
     {
       "id": "M3",
-      "name": "R8 Delivery Slice Main-Closed",
-      "status": "completed",
-      "date": "2026-09-15"
+      "name": "V1-C Evidence Workspace",
+      "status": "not_started",
+      "date": null
     },
     {
       "id": "M4",
-      "name": "RP-01 Field Verification",
+      "name": "RDS-1 Real Data Flow Readiness Gate",
       "status": "not_started",
       "date": null
     },
     {
       "id": "M5",
-      "name": "PDX-001 Freeze Evidence Ready",
-      "status": "on_hold",
+      "name": "First real PLC/HMI data stream through canonical Evidence",
+      "status": "blocked",
       "date": null
     },
     {
       "id": "M6",
-      "name": "Phase 9 Gate",
-      "status": "on_hold",
+      "name": "V1-D Identification Workspace",
+      "status": "not_started",
       "date": null
     },
     {
       "id": "M7",
-      "name": "Workflow V1-A1 Main-Closed",
-      "status": "completed",
-      "date": "2026-09-22"
+      "name": "V1-E Confirmation / Delivery",
+      "status": "not_started",
+      "date": null
+    },
+    {
+      "id": "M8",
+      "name": "V1-F Knowledge / Closeout",
+      "status": "not_started",
+      "date": null
+    },
+    {
+      "id": "M9",
+      "name": "PDX-001 Freeze evidence ready",
+      "status": "on_hold",
+      "date": null
+    },
+    {
+      "id": "M10",
+      "name": "Phase 9 Gate",
+      "status": "on_hold",
+      "date": null
     }
   ],
   "recentProgress": [
+    {
+      "ref": "Issue #255",
+      "title": "PO mission rebaseline: restore real PLC/HMI data-flow analysis as the core progress axis; UI/process completion no longer proxies overall project completion",
+      "status": "in_progress",
+      "date": "2026-09-23"
+    },
+    {
+      "ref": "PR #254 · Issue #252",
+      "title": "APP1 Remote Engineer Web Workbench active: exact head bdb5c3eb… / CI #1123 SUCCESS / Railway exact-head deployment SUCCESS; Draft/unmerged; node-detail mutations and preference bootstrap included",
+      "status": "in_progress",
+      "date": "2026-09-23"
+    },
+    {
+      "ref": "PR #256 · Issue #255",
+      "title": "Authoritative mission-rebaseline truth sync prepared for PROJECT_STATE / ROADMAP / TASK_IO_MATRIX; PR remains separate from APP1",
+      "status": "in_progress",
+      "date": "2026-09-23"
+    },
     {
       "ref": "PR #239 / #240 · Issue #238",
       "title": "Workflow V1-A1 implementation main-closed: #239 exact-head CI #985 SUCCESS / merge 9fd3d79e / exact main CI #986 SUCCESS; truth closeout #240 exact-head CI #987 / merge 93d80b46 / exact main CI #988 SUCCESS; #238 CLOSED",
@@ -1190,62 +1282,96 @@
       "title": "UX0.2 Current-State Product Workbench main-closed (CI #970/#972) and published to GitHub Pages; HK-01/HT6 calibration + D4-A Evidence→Strategy trace visible",
       "status": "completed",
       "date": "2026-09-21"
-    },
-    {
-      "ref": "PR #228 / #229 / #230 · Issue #226",
-      "title": "RP01-D4-A canonical Evidence → Adaptive Strategy projection main-closed; implementation CI #960/#961 and lifecycle CI #963/#965 SUCCESS",
-      "status": "completed",
-      "date": "2026-09-21"
-    },
-    {
-      "ref": "PR #221 · Issue #217",
-      "title": "RP01-D3 restored DeviceIdentity / ControllerIdentity semantic separation; exact main CI #949 SUCCESS",
-      "status": "completed",
-      "date": "2026-09-21"
-    },
-    {
-      "ref": "PR #216 · Issue #215",
-      "title": "RP01-D2 two real-evidence calibration fixtures (HK-01 single-pack + HT6) main-closed; exact main CI #942 SUCCESS",
-      "status": "completed",
-      "date": "2026-09-21"
     }
   ],
   "nextActions": [
     {
       "priority": 1,
-      "title": "Prepare V1-B pre-implementation design",
-      "status": "ready",
-      "owner": "Main Agent",
-      "note": "Design Known/Unknown → Investigation → canonical facts → D4-A → R1 Adaptive Strategy → Recommendation → Draft DiscoveryPlan → Engineer Accept Plan. Design only; no V1-B production implementation."
+      "title": "Close essential APP1 gaps and stop broad UI expansion",
+      "status": "in_progress",
+      "owner": "Main Agent / PO",
+      "issue": 252,
+      "note": "PR #254 remains Draft/unmerged. Finish Project rename authority, final consistency/manual acceptance and Technical Review; retain explicit PO merge gate."
     },
     {
       "priority": 2,
-      "title": "PO review V1-B design and decide implementation authorization",
-      "status": "not_started",
-      "owner": "PO",
-      "note": "V1-B implementation remains NOT AUTHORIZED until the completed design is reviewed and the PO gives a separate explicit implementation GO."
+      "title": "Open V1-C Evidence Workspace as the next product slice",
+      "status": "ready",
+      "owner": "PO / Main Agent",
+      "note": "Use existing R2A authority. Provide offline/HMI/tabular/manual evidence intake, provenance/conflict/Unknown review and EvidencePackage browsing/revision."
     },
     {
       "priority": 3,
-      "title": "Continue RP-01 / PDX-001 real-project calibration under #115",
-      "status": "in_progress",
-      "owner": "PO / Site Engineering / Main Agent",
-      "issue": 115,
-      "note": "Parallel calibration track; E1 acceptance remains NOT SATISFIED and does not block bounded Workflow V1 product integration."
+      "title": "Prepare RDS-1 Real Data Flow Readiness Gate",
+      "status": "ready",
+      "owner": "PO / Main Agent / Field Engineering",
+      "issue": 255,
+      "note": "Select one isolated PLC/HMI source and least-invasive acquisition path. This is planning only; no live execution is authorized yet."
     },
     {
       "priority": 4,
-      "title": "Keep real PLC/customer-network execution behind a separate Field Execution Gate",
+      "title": "Run one real PLC/HMI time-varying stream pilot after explicit authorization",
       "status": "blocked",
-      "owner": "PO / Main Agent",
-      "note": "Active Read remains NOT AUTHORIZED. Never Write absolute."
+      "owner": "PO / Field Engineering / Main Agent",
+      "note": "Target outcome: one genuine stream admitted through canonical Evidence and consumed by Identification. Never Write absolute."
     },
     {
       "priority": 5,
-      "title": "Identify RP-02 and, if needed, RP-03",
+      "title": "Productize V1-D Identification, then V1-E Confirmation/Delivery and V1-F Knowledge",
       "status": "not_started",
-      "owner": "PO / Product",
-      "note": "Required before PDX-001 can freeze cross-project workflow/business fields/taxonomy/ranking/planning policy."
+      "owner": "Main Agent / PO",
+      "note": "Do not treat existing Domain foundations as complete operator workflows."
+    },
+    {
+      "priority": 6,
+      "title": "Continue RP-01 / PDX-001 calibration and identify RP-02/RP-03",
+      "status": "in_progress",
+      "owner": "PO / Site Engineering / Product",
+      "issue": 115,
+      "note": "Parallel evidence track; it must not be confused with dynamic data-stream validation."
     }
-  ]
+  ],
+  "missionAssessment": {
+    "title": "Mission Rebaseline — core goal = real PLC/HMI data-stream analysis",
+    "overallProgress": 53,
+    "basis": "Weighted project-control estimate only. It does not upgrade simulation/replay/documentary evidence into real-device validation or authorize field execution.",
+    "warning": "UI / workflow / deployment progress is materially ahead of the real industrial data-flow objective. The next technical priority after APP1 closeout is canonical Evidence plus one genuine time-varying PLC/HMI stream.",
+    "dimensions": [
+      {
+        "name": "Product Workbench & Workflow",
+        "weight": 25,
+        "progress": 80,
+        "status": "in_progress",
+        "note": "V1-A1 + V1-B1 main-closed; APP1 #252 / PR #254 runs remotely at exact head bdb5c3eb… with CI #1123 SUCCESS, but PR remains Draft/unmerged. Essential closeout gaps include Project rename authority and final acceptance."
+      },
+      {
+        "name": "Offline Evidence & Analysis Foundation",
+        "weight": 25,
+        "progress": 75,
+        "status": "in_progress",
+        "note": "R2A/R3A/R2/R3/R4 and R5A–R5D foundations exist, but V1-C Evidence Workspace and V1-D Identification Workspace are not yet productized in APP1."
+      },
+      {
+        "name": "Real PLC/HMI Data Stream",
+        "weight": 25,
+        "progress": 15,
+        "status": "blocked",
+        "note": "Read-only safety/protocol foundations, HMI offline adapter, replay-first passive capture and simulated Active Read exist. No accepted live PLC/HMI time-varying stream has traversed the canonical product chain yet."
+      },
+      {
+        "name": "Confirmation / Delivery / Knowledge",
+        "weight": 15,
+        "progress": 45,
+        "status": "in_progress",
+        "note": "Domain/Application foundations and offline vertical slices exist. V1-E/V1-F operator workflows are still not implemented in the Web Workbench."
+      },
+      {
+        "name": "Real-project Validation",
+        "weight": 10,
+        "progress": 30,
+        "status": "in_progress",
+        "note": "RP-01 documentary + field-photo calibration is substantial, but dynamic PLC/HMI data-flow validation and RP-02/RP-03 evidence remain missing."
+      }
+    ]
+  }
 }
