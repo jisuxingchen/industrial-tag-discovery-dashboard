@@ -1,50 +1,50 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-29T20:45:00+08:00",
+  "updatedAt": "2026-09-29T21:10:00+08:00",
   "dataPolicy": {
-    "rule": "Dashboard status must stay subordinate to repository truth. Percentages are project-control visualization only and MUST NOT upgrade documentary/simulation evidence into field verification, satisfy PDX-001, authorize real-device execution, or open Phase 9."
+    "rule": "看板状态必须服从仓库真实状态。所有百分比仅用于项目控制可视化，不得把文档、仿真、回放或录制证据升级为现场验证，不得视为满足 PDX-001，不得授权真实设备执行，也不得据此开启 Phase 9。"
   },
   "project": {
-    "name": "Industrial Tag Discovery Platform (ITDP)",
-    "customer": "Platform / multi-project product development",
-    "phase": "Route B protocol generalization → passive replay stack → bounded field-readiness",
+    "name": "工业 Tag 发现平台（ITDP）",
+    "customer": "平台化 / 多项目产品开发",
+    "phase": "Route B 协议泛化 → 被动回放链路 → 有边界的现场准备",
     "status": "in_progress",
-    "statusLabel": "ROUTE B ACTIVE · PROTOCOL GENERALIZATION",
-    "currentGate": "PR #332 Technical PASS / Ready / PO-KEY-GATE; live field execution remains NOT AUTHORIZED",
-    "authoritativeRequirement": "Live GitHub Issue #323 / PR #332 + repository main truth; dashboard is derived only.",
+    "statusLabel": "ROUTE B 进行中 · 协议泛化",
+    "currentGate": "PR #332 已 Technical PASS / Ready / PO-KEY-GATE；真实现场执行仍未授权",
+    "authoritativeRequirement": "以 GitHub Issue #323 / PR #332 与主仓库 main 真实状态为准；本看板仅为派生视图。",
     "repository": "jisuxingchen/industrial-tag-discovery"
   },
   "wbs": [
     {
       "id": "R0",
-      "name": "Product Direction & Governance",
+      "name": "产品方向与治理",
       "weight": 10,
       "status": "completed",
       "children": [
         {
           "id": "R0.1",
-          "name": "PDRIFT product-direction realignment",
+          "name": "PDRIFT 产品方向纠偏",
           "weight": 55,
           "status": "completed",
           "progress": 100,
-          "note": "PDX-001 corrected to Cross-project Freeze Gate; not a global development stop.",
+          "note": "PDX-001 已纠正为跨项目冻结 Gate，不是全局开发停止条件。",
           "detail": {
-            "objective": "Restore ITDP product direction, capability boundaries and evidence semantics after Phase 8.",
+            "objective": "在 Phase 8 之后重新明确 ITDP 的产品方向、能力边界与证据语义。",
             "workDone": [
-              "Separated Development Gates, Field Execution Gates and the cross-project Freeze Gate.",
-              "Restored the binding macro lifecycle: Discovery → Identification → Confirmation → Delivery → Reuse.",
-              "Defined the bounded R1–R8 Recovery sequence without opening Phase 9."
+              "区分开发 Gate、现场执行 Gate 与跨项目冻结 Gate。",
+              "恢复宏观生命周期：Discovery → Identification → Confirmation → Delivery → Reuse。",
+              "定义有边界的 R1–R8 Recovery 序列，同时不开启 Phase 9。"
             ],
-            "result": "Product direction and gate semantics are main-closed and authoritative.",
-            "completionNote": "100% for the realignment artifact. This does not satisfy PDX-001 or authorize field execution.",
+            "result": "产品方向与 Gate 语义已合入 main，成为当前权威基线。",
+            "completionNote": "本纠偏产物已完成；这不代表 PDX-001 已满足，也不授权现场执行。",
             "outputs": [
               {
-                "label": "PDRIFT-R0 realignment",
+                "label": "PDRIFT-R0 纠偏文档",
                 "path": "docs/project/PDRIFT_R0_PRODUCT_DIRECTION_REALIGNMENT.md",
                 "kind": "file"
               },
               {
-                "label": "Project State",
+                "label": "项目状态",
                 "path": "docs/project/PROJECT_STATE.md",
                 "kind": "file"
               }
@@ -59,27 +59,27 @@
         },
         {
           "id": "R0.2",
-          "name": "Risk-tiered merge governance",
+          "name": "按风险分级的合并治理",
           "weight": 45,
           "status": "completed",
           "progress": 100,
-          "note": "AUTO-LOW-RISK standing authority; PO-KEY-GATE remains explicit.",
+          "note": "AUTO-LOW-RISK 可持续授权；PO-KEY-GATE 仍需 PO 明确批准。",
           "detail": {
-            "objective": "Allow small bounded changes to move quickly while preserving explicit PO control over key architecture/product/safety boundaries.",
+            "objective": "让小范围低风险变更快速推进，同时保留 PO 对关键架构、产品与安全边界的明确控制。",
             "workDone": [
-              "Established AUTO-LOW-RISK and PO-KEY-GATE classifications.",
-              "Kept exact-head CI, Main Agent Final Review and exact merge-commit main CI mandatory."
+              "建立 AUTO-LOW-RISK 与 PO-KEY-GATE 两类合并机制。",
+              "继续要求 exact-head CI、Main Agent 最终审查与 exact merge-commit main CI。"
             ],
-            "result": "Risk-tiered merge governance is active.",
-            "completionNote": "100% governance foundation; ambiguity still defaults to PO-KEY-GATE.",
+            "result": "按风险分级的合并治理已生效。",
+            "completionNote": "治理基础已完成；存在歧义时默认按 PO-KEY-GATE 处理。",
             "outputs": [
               {
-                "label": "Project State",
+                "label": "项目状态",
                 "path": "docs/project/PROJECT_STATE.md",
                 "kind": "file"
               },
               {
-                "label": "Task I/O Matrix",
+                "label": "任务 I/O 矩阵",
                 "path": "docs/project/TASK_IO_MATRIX.md",
                 "kind": "file"
               }
@@ -96,26 +96,26 @@
     },
     {
       "id": "R1",
-      "name": "Adaptive Discovery & Evidence Foundation",
+      "name": "自适应发现与 Evidence 基础",
       "weight": 15,
       "status": "completed",
       "children": [
         {
           "id": "R1.1",
-          "name": "Adaptive Discovery Strategy",
+          "name": "自适应发现策略",
           "weight": 35,
           "status": "completed",
           "progress": 100,
           "detail": {
-            "objective": "Derive a vendor/protocol-neutral discovery plan from facts, unknowns, requirements and method capabilities.",
+            "objective": "根据事实、未知项、需求与方法能力生成与厂商/协议无关的发现计划。",
             "workDone": [
-              "Implemented bounded adaptive planning with availability, primary method, alternatives, switch conditions and explainability."
+              "实现有边界的自适应规划，包括可用性、主方法、替代方案、切换条件与可解释性。"
             ],
-            "result": "R1 main-closed; GAP-001 recovery slice complete.",
-            "completionNote": "100% for offline planning capability; no real-device execution is implied.",
+            "result": "R1 已合入 main；GAP-001 恢复切片完成。",
+            "completionNote": "离线规划能力已完成；不代表已执行真实设备发现。",
             "outputs": [
               {
-                "label": "Backlog recovery truth",
+                "label": "Backlog 恢复真实状态",
                 "path": "BACKLOG.md",
                 "kind": "file"
               }
@@ -130,20 +130,20 @@
         },
         {
           "id": "R1.2",
-          "name": "Canonical Evidence Ingestion (R2A)",
+          "name": "Canonical Evidence 统一接入（R2A）",
           "weight": 40,
           "status": "completed",
           "progress": 100,
           "detail": {
-            "objective": "Create one canonical normalization/admission boundary for evidence under exact DiscoverySession authority.",
+            "objective": "在精确 DiscoverySession 权限下建立唯一的 Evidence 规范化与接入边界。",
             "workDone": [
-              "Added Known/Unknown/conflict/provenance/environment preservation and terminal-session package creation/revision guards."
+              "实现 Known/Unknown/冲突/来源/环境信息保留，以及终态 Session 的 EvidencePackage 创建与修订保护。"
             ],
-            "result": "All Recovery evidence producers share the canonical R2A admission path.",
-            "completionNote": "100% for the bounded offline ingestion substrate; it is not a replacement evidence authority.",
+            "result": "所有 Recovery Evidence producer 共用同一 R2A 接入路径。",
+            "completionNote": "有边界的离线接入基础已完成；它不是第二套 Evidence 权威。",
             "outputs": [
               {
-                "label": "Task I/O Matrix",
+                "label": "任务 I/O 矩阵",
                 "path": "docs/project/TASK_IO_MATRIX.md",
                 "kind": "file"
               }
@@ -158,20 +158,20 @@
         },
         {
           "id": "R1.3",
-          "name": "Offline Evidence Replay (R3A)",
+          "name": "离线 Evidence 回放（R3A）",
           "weight": 25,
           "status": "completed",
           "progress": 100,
           "detail": {
-            "objective": "Provide deterministic authorized/de-identified replay fixtures for simulation-first development.",
+            "objective": "为 simulation-first 开发提供确定性的、已授权且去标识化的回放 fixture。",
             "workDone": [
-              "Implemented immutable replay fixtures, deterministic sequencing/replay clock and R2A-admitted observations."
+              "实现不可变 replay fixture、确定性序列/回放时钟，并通过 R2A 接入 observations。"
             ],
-            "result": "Replay substrate is main-closed and reusable by Passive/Active Read simulation paths.",
-            "completionNote": "100% for L0/L1/L3 replay substrate; simulation/replay is not real-device validation.",
+            "result": "Replay 基础已合入 main，可被 Passive / Active Read 仿真路径复用。",
+            "completionNote": "L0/L1/L3 回放基础已完成；仿真/回放不等于真实设备验证。",
             "outputs": [
               {
-                "label": "Backlog recovery truth",
+                "label": "Backlog 恢复真实状态",
                 "path": "BACKLOG.md",
                 "kind": "file"
               }
@@ -186,23 +186,23 @@
         },
         {
           "id": "R1.4",
-          "name": "Canonical Evidence → Adaptive Strategy Projection (D4-A)",
+          "name": "Canonical Evidence → 自适应策略投影（D4-A）",
           "weight": 15,
           "status": "completed",
           "progress": 100,
-          "note": "Exact-package/project-local projection; governance/access facts remain explicit.",
+          "note": "严格绑定 EvidencePackage 且仅在项目本地投影；治理/访问事实保持显式。",
           "detail": {
-            "objective": "Connect canonical R2A evidence to the existing R1 Adaptive Strategy without inventing a second evidence or taxonomy authority.",
+            "objective": "把 R2A 的 canonical Evidence 接入现有 R1 Adaptive Strategy，而不是另建一套 Evidence 或 taxonomy 权威。",
             "workDone": [
-              "Implemented exact EvidencePackage-bound project-local projection rules.",
-              "Preserved DeviceIdentity / ControllerIdentity / Protocol / Address / Path separation and explicit Unknown.",
-              "Kept ActiveReadAuthorization / PassiveObservationPoint / FieldAccess as explicit governance/access truth."
+              "实现精确 EvidencePackage 绑定的项目本地投影规则。",
+              "保持 DeviceIdentity / ControllerIdentity / Protocol / Address / Path 分离并显式保留 Unknown。",
+              "将 ActiveReadAuthorization / PassiveObservationPoint / FieldAccess 继续作为明确的治理/访问事实。"
             ],
-            "result": "D4-A main-closed; RP01 HK-01 / HT6 now run R3A → R2A → D4-A → R1 without the former manual fact bridge.",
-            "completionNote": "100% for bounded Application integration; raw DeviceProfile projection and production UI integration remain deferred.",
+            "result": "D4-A 已合入 main；RP01 HK-01 / HT6 可从 R3A → R2A → D4-A → R1 运行，不再需要原来的手工事实桥接。",
+            "completionNote": "有边界的 Application 集成已完成；原始 DeviceProfile 投影与生产 UI 集成仍可后续扩展。",
             "outputs": [
               {
-                "label": "D4-A orchestration",
+                "label": "D4-A 编排",
                 "path": "core/application/AdaptiveDiscoveryStrategyOrchestration.cs",
                 "kind": "file"
               }
@@ -219,24 +219,24 @@
         },
         {
           "id": "R1.5",
-          "name": "Canonical Offline Evidence Workspace (V1-C1)",
+          "name": "Canonical 离线 Evidence 工作区（V1-C1）",
           "weight": 20,
           "status": "completed",
           "progress": 100,
-          "note": "V1-C design/rehydration/source-artifact/admission/Web/strategy bridge completed.",
+          "note": "V1-C 的设计、重建、源文件、接入、Web 工作区与策略桥接已完成。",
           "detail": {
-            "objective": "Make canonical Evidence operable, durable and restart-safe from the product without creating browser-side authority.",
+            "objective": "让 canonical Evidence 可以从产品中操作、持久化并在重启后恢复，同时不把 authority 下放到浏览器。",
             "workDone": [
-              "Validated DiscoverySession/Evidence/Package replay boundary completed.",
-              "Immutable source artifacts and .itdproject package v2 completed.",
-              "Offline HMI/SCADA/OPC tabular evidence admission completed.",
-              "Evidence Web Workspace and exact Evidence → D4-A/R1 bridge completed."
+              "完成 DiscoverySession / Evidence / Package 的有效重放边界。",
+              "完成不可变源文件与 .itdproject package v2。",
+              "完成 HMI/SCADA/OPC 表格型离线 Evidence 接入。",
+              "完成 Evidence Web Workspace 与 Evidence → D4-A/R1 精确桥接。"
             ],
-            "result": "V1-C1 is closed/completed; offline evidence can enter the canonical authority path and be reopened/reused.",
-            "completionNote": "Offline evidence productization complete; live PLC/HMI acquisition is still separately gated.",
+            "result": "V1-C1 已关闭完成；离线 Evidence 可以进入 canonical authority 路径并再次打开复用。",
+            "completionNote": "离线 Evidence 产品化已完成；真实 PLC/HMI 获取仍需单独 Gate。",
             "outputs": [
               {
-                "label": "Evidence workspace implementation",
+                "label": "Evidence 工作区实现",
                 "path": "core/application",
                 "kind": "folder"
               }
@@ -258,23 +258,23 @@
     },
     {
       "id": "R2",
-      "name": "Evidence Acquisition Methods",
+      "name": "Evidence 获取方法",
       "weight": 15,
       "status": "completed",
       "children": [
         {
           "id": "R2.1",
-          "name": "Existing System / HMI Evidence Adapter",
+          "name": "现有系统 / HMI Evidence Adapter",
           "weight": 34,
           "status": "completed",
           "progress": 100,
           "detail": {
-            "objective": "Recover existing-system/HMI evidence without inventing a parallel evidence authority.",
+            "objective": "从现有系统/HMI 恢复 Evidence，同时不建立平行 Evidence authority。",
             "workDone": [
-              "Implemented the offline adapter producer and routed admitted observations through R2A."
+              "实现离线 adapter producer，并将 observations 统一送入 R2A。"
             ],
-            "result": "R2 main-closed.",
-            "completionNote": "100% for offline adapter behavior; live system connection remains separately gated.",
+            "result": "R2 已合入 main。",
+            "completionNote": "离线 adapter 行为已完成；连接真实系统仍需单独 Gate。",
             "outputs": [
               {
                 "label": "Adapters",
@@ -292,20 +292,20 @@
         },
         {
           "id": "R2.2",
-          "name": "Passive Capture — replay-first / zero transmit",
+          "name": "Passive Capture — 回放优先 / 零发送",
           "weight": 33,
           "status": "completed",
           "progress": 100,
           "detail": {
-            "objective": "Model passive request/response evidence while preserving a zero-transmit development boundary.",
+            "objective": "在零发送开发边界下建模被动 request/response Evidence。",
             "workDone": [
-              "Implemented replay-only passive observations and request/response relation evidence."
+              "实现仅回放的 passive observations 与 request/response 关系 Evidence。"
             ],
-            "result": "R3 main-closed.",
-            "completionNote": "100% for replay-first passive capture; no live capture/transmit claim.",
+            "result": "R3 已合入 main。",
+            "completionNote": "回放优先的 passive capture 基础已完成；不代表已有 live capture 或 transmit 能力。",
             "outputs": [
               {
-                "label": "Discovery implementation",
+                "label": "Discovery 实现",
                 "path": "discovery",
                 "kind": "folder"
               }
@@ -320,20 +320,20 @@
         },
         {
           "id": "R2.3",
-          "name": "Controlled Active Read Discovery",
+          "name": "受控 Active Read Discovery",
           "weight": 33,
           "status": "completed",
           "progress": 100,
           "detail": {
-            "objective": "Provide explicit-step controlled read-only discovery under simulation-first safety policy.",
+            "objective": "在 simulation-first 安全策略下提供显式步骤的受控只读发现。",
             "workDone": [
-              "Implemented L0/L1 policy over the existing read-only safety spine."
+              "在现有只读安全骨架之上实现 L0/L1 policy。"
             ],
-            "result": "R4 main-closed.",
-            "completionNote": "100% for bounded simulation-first capability; real PLC/network execution is still NOT AUTHORIZED.",
+            "result": "R4 已合入 main。",
+            "completionNote": "有边界的仿真优先能力已完成；真实 PLC/网络执行仍未授权。",
             "outputs": [
               {
-                "label": "Discovery implementation",
+                "label": "Discovery 实现",
                 "path": "discovery",
                 "kind": "folder"
               }
@@ -350,26 +350,26 @@
     },
     {
       "id": "R3",
-      "name": "Identification Intelligence",
+      "name": "识别智能",
       "weight": 15,
       "status": "completed",
       "children": [
         {
           "id": "R3.1",
-          "name": "DataTypeInference",
+          "name": "数据类型推断（DataTypeInference）",
           "weight": 25,
           "status": "completed",
           "progress": 100,
           "detail": {
-            "objective": "Produce deterministic typed candidate proposals from normalized evidence.",
+            "objective": "从规范化 Evidence 生成确定性的类型候选提议。",
             "workDone": [
-              "Implemented evidence-bounded candidate proposal generation with explicit Unknown/conflict handling."
+              "实现受 Evidence 约束的候选生成，并显式处理 Unknown/冲突。"
             ],
-            "result": "R5A main-closed.",
-            "completionNote": "100% proposal capability; candidate proposal is not engineer confirmation.",
+            "result": "R5A 已合入 main。",
+            "completionNote": "候选提议能力已完成；候选不等于工程师确认。",
             "outputs": [
               {
-                "label": "Core application",
+                "label": "Core Application",
                 "path": "core/application",
                 "kind": "folder"
               }
@@ -384,20 +384,20 @@
         },
         {
           "id": "R3.2",
-          "name": "PatternAnalysis",
+          "name": "模式分析（PatternAnalysis）",
           "weight": 25,
           "status": "completed",
           "progress": 100,
           "detail": {
-            "objective": "Add deterministic bounded sample/time-order pattern findings as candidate evidence.",
+            "objective": "把有边界的样本/时间顺序模式发现作为候选 Evidence。",
             "workDone": [
-              "Implemented bounded pattern findings without claiming calibrated accuracy or process guarantees."
+              "实现受限模式发现，不声称已校准准确率或工艺保证。"
             ],
-            "result": "R5B main-closed.",
-            "completionNote": "100% bounded analytical capability.",
+            "result": "R5B 已合入 main。",
+            "completionNote": "有边界的分析能力已完成。",
             "outputs": [
               {
-                "label": "Core application",
+                "label": "Core Application",
                 "path": "core/application",
                 "kind": "folder"
               }
@@ -412,20 +412,20 @@
         },
         {
           "id": "R3.3",
-          "name": "EventCorrelation",
+          "name": "事件关联（EventCorrelation）",
           "weight": 25,
           "status": "completed",
           "progress": 100,
           "detail": {
-            "objective": "Associate manual/field events with observations using bounded temporal evidence.",
+            "objective": "使用有边界的时间证据，把人工/现场事件与 observations 进行关联。",
             "workDone": [
-              "Implemented temporal-association findings without causal inference or confirmation authority."
+              "实现时间关联 findings，不把相关性升级为因果关系或确认 authority。"
             ],
-            "result": "R5C main-closed.",
-            "completionNote": "100% bounded correlation capability.",
+            "result": "R5C 已合入 main。",
+            "completionNote": "有边界的关联能力已完成。",
             "outputs": [
               {
-                "label": "Core application",
+                "label": "Core Application",
                 "path": "core/application",
                 "kind": "folder"
               }
@@ -440,20 +440,20 @@
         },
         {
           "id": "R3.4",
-          "name": "TemplateMatching",
+          "name": "模板匹配（TemplateMatching）",
           "weight": 25,
           "status": "completed",
           "progress": 100,
           "detail": {
-            "objective": "Use project-local device knowledge as advisory match/missing/Unknown/conflict factors.",
+            "objective": "使用项目本地设备知识，作为 advisory 的匹配/缺失/Unknown/冲突因素。",
             "workDone": [
-              "Implemented project-local template matching while deferring universal template freeze under PDX-001."
+              "实现项目本地模板匹配；通用跨项目模板冻结继续受 PDX-001 约束。"
             ],
-            "result": "R5D main-closed.",
-            "completionNote": "100% project-local capability; no universal cross-project template freeze.",
+            "result": "R5D 已合入 main。",
+            "completionNote": "项目本地能力已完成；没有做全局跨项目模板冻结。",
             "outputs": [
               {
-                "label": "Core application",
+                "label": "Core Application",
                 "path": "core/application",
                 "kind": "folder"
               }
@@ -470,26 +470,26 @@
     },
     {
       "id": "R4",
-      "name": "Acceptance, Persistence & Field Workflow",
+      "name": "验收、持久化与现场工作流",
       "weight": 15,
       "status": "completed",
       "children": [
         {
           "id": "R4.1",
-          "name": "RP-01 End-to-End Acceptance Scenario",
+          "name": "RP-01 端到端验收场景",
           "weight": 34,
           "status": "completed",
           "progress": 100,
           "detail": {
-            "objective": "Compile an executable documentary-input uncertainty scenario for the real-project Acceptance Oracle.",
+            "objective": "为真实项目 Acceptance Oracle 编译一个可执行的文档输入不确定性场景。",
             "workDone": [
-              "Connected R1–R5 behavior into an RP-01 documentary scenario and calibration baseline."
+              "把 R1–R5 行为串联成 RP-01 文档场景与校准基线。"
             ],
-            "result": "R6 main-closed.",
-            "completionNote": "100% executable documentary scenario; documentary evidence is not field verification.",
+            "result": "R6 已合入 main。",
+            "completionNote": "可执行文档场景已完成；文档 Evidence 不等于现场验证。",
             "outputs": [
               {
-                "label": "RP-01 evidence",
+                "label": "RP-01 Evidence",
                 "path": "docs/project/evidence",
                 "kind": "folder"
               }
@@ -505,20 +505,20 @@
         },
         {
           "id": "R4.2",
-          "name": "Local Persistence / Restart",
+          "name": "本地持久化 / 重启恢复",
           "weight": 33,
           "status": "completed",
           "progress": 100,
           "detail": {
-            "objective": "Provide durable single-machine offline history and restart semantics.",
+            "objective": "提供单机离线的持久历史与重启语义。",
             "workDone": [
-              "Implemented append-only local persistence/checkpoints over SQLite with optimistic sequence checks."
+              "基于 SQLite 实现 append-only 本地持久化/检查点，并带 optimistic sequence 检查。"
             ],
-            "result": "R7A main-closed.",
-            "completionNote": "100% single-machine/offline persistence; no cloud/multi-node semantics.",
+            "result": "R7A 已合入 main。",
+            "completionNote": "单机/离线持久化已完成；不包含云端/多节点语义。",
             "outputs": [
               {
-                "label": "Persistence adapter",
+                "label": "Persistence Adapter",
                 "path": "adapters",
                 "kind": "folder"
               }
@@ -533,20 +533,20 @@
         },
         {
           "id": "R4.3",
-          "name": "Thin Field UI",
+          "name": "轻量现场 UI",
           "weight": 33,
           "status": "completed",
           "progress": 100,
           "detail": {
-            "objective": "Expose the real application workflow through a minimal engineer-facing local UI.",
+            "objective": "通过最小化的工程师本地 UI 暴露真实 Application 工作流。",
             "workDone": [
-              "Implemented local CLI workflow for survey/input → plan → session → evidence → candidate → explicit confirmation."
+              "实现本地 CLI：survey/input → plan → session → evidence → candidate → 显式确认。"
             ],
-            "result": "R7B main-closed.",
-            "completionNote": "100% local/offline CLI slice; no Driver/network/Active Read/control affordance.",
+            "result": "R7B 已合入 main。",
+            "completionNote": "本地/离线 CLI 已完成；没有 Driver/network/Active Read/control 操作入口。",
             "outputs": [
               {
-                "label": "Field UI",
+                "label": "现场 UI",
                 "path": "ui/field",
                 "kind": "folder"
               }
@@ -561,28 +561,28 @@
         },
         {
           "id": "R4.4",
-          "name": "Executable Engineer Web Workbench + downstream workflow UI",
+          "name": "可执行工程师 Web 工作台 + 下游工作流 UI",
           "weight": 15,
           "status": "completed",
           "progress": 100,
-          "note": "APP1 #252 / PR #254 and V1-UI2 #267–#272 are merged/truth-closed.",
+          "note": "APP1 #252 / PR #254 与 V1-UI2 #267–#272 已合并并完成 truth closeout。",
           "detail": {
-            "objective": "Provide a real browser-operated engineer workbench over existing Application/Domain authority.",
+            "objective": "基于既有 Application/Domain authority 提供真正可在浏览器操作的工程师工作台。",
             "workDone": [
-              "APP1 Project/Device/Requirement/Known-Unknown/Investigation/Strategy/Plan workflow merged.",
-              "Project rename, backup/export/import, diagnostics and Railway-hosted executable workbench completed.",
-              "Downstream Evidence → Identification → Confirmation → Delivery → Knowledge UI surfaces completed with capability gating."
+              "完成 APP1 的 Project/Device/Requirement/Known-Unknown/Investigation/Strategy/Plan 工作流。",
+              "完成项目重命名、备份/导出/导入、诊断以及 Railway 托管的可执行工作台。",
+              "完成 Evidence → Identification → Confirmation → Delivery → Knowledge 下游 UI，并保留 capability gating。"
             ],
-            "result": "Executable product workbench is on main; UI completion is not a substitute for real industrial data validation.",
-            "completionNote": "Product/UI slice complete. Live industrial acquisition remains separately gated.",
+            "result": "可执行产品工作台已进入 main；UI 完成不能替代真实工业数据验证。",
+            "completionNote": "产品/UI 切片已完成；真实工业数据获取仍需独立 Gate。",
             "outputs": [
               {
-                "label": "Web workbench",
+                "label": "Web 工作台",
                 "path": "ui/web",
                 "kind": "folder"
               },
               {
-                "label": "Project state",
+                "label": "项目状态",
                 "path": "docs/project/PROJECT_STATE.md",
                 "kind": "file"
               }
@@ -600,24 +600,24 @@
     },
     {
       "id": "R5",
-      "name": "Versioned Delivery Slice",
+      "name": "版本化交付",
       "weight": 10,
       "status": "completed",
       "children": [
         {
           "id": "R5.1",
-          "name": "DeliveryPackage authority & lifecycle",
+          "name": "DeliveryPackage 权威与生命周期",
           "weight": 55,
           "status": "completed",
           "progress": 100,
           "detail": {
-            "objective": "Turn confirmed tags and requirement fulfillment into a versioned, frozen delivery authority.",
+            "objective": "把已确认 Tag 与需求满足情况转化为版本化、可冻结的交付权威。",
             "workDone": [
-              "Added exact in-scope requirement coverage and fresh ConfirmedTag authority checks.",
-              "Separated TechnicalComplete from customer acceptance and froze content at Issued/later states."
+              "增加精确 in-scope 需求覆盖与最新 ConfirmedTag authority 检查。",
+              "把 TechnicalComplete 与客户验收分离，并在 Issued/后续状态冻结内容。"
             ],
-            "result": "R8 DeliveryPackage lifecycle is main-closed.",
-            "completionNote": "100% bounded delivery slice; no live deployment into customer systems.",
+            "result": "R8 DeliveryPackage 生命周期已合入 main。",
+            "completionNote": "有边界的交付切片已完成；不包含向客户系统 live deployment。",
             "outputs": [
               {
                 "label": "Delivery contracts",
@@ -625,7 +625,7 @@
                 "kind": "file"
               },
               {
-                "label": "Delivery orchestration",
+                "label": "Delivery 编排",
                 "path": "core/application/DeliveryOrchestration.cs",
                 "kind": "file"
               }
@@ -640,17 +640,17 @@
         },
         {
           "id": "R5.2",
-          "name": "Deterministic canonical CSV export & history",
+          "name": "确定性 Canonical CSV 导出与历史",
           "weight": 45,
           "status": "completed",
           "progress": 100,
           "detail": {
-            "objective": "Provide one deterministic formal export profile and append-only delivery history.",
+            "objective": "提供唯一确定性的正式导出 profile 与 append-only 交付历史。",
             "workDone": [
-              "Added `itdp.delivery.canonical-csv:v1` export for Issued/frozen packages and DeliveryPackageHistory persistence."
+              "为 Issued/冻结 package 增加 `itdp.delivery.canonical-csv:v1` 导出以及 DeliveryPackageHistory 持久化。"
             ],
-            "result": "Same exact package revision + profile yields stable bytes and SHA-256.",
-            "completionNote": "100% for the bounded canonical export; it is not SCADA/OPC/MES/PI deployment.",
+            "result": "相同 package revision + profile 产生稳定字节与 SHA-256。",
+            "completionNote": "有边界的 canonical 导出已完成；它不是 SCADA/OPC/MES/PI 部署。",
             "outputs": [
               {
                 "label": "R8 ADR",
@@ -658,7 +658,7 @@
                 "kind": "file"
               },
               {
-                "label": "R8 tests",
+                "label": "R8 测试",
                 "path": "tests/unit/PDRIFT_R8_DeliveryTests.cs",
                 "kind": "file"
               }
@@ -676,26 +676,26 @@
     },
     {
       "id": "R6",
-      "name": "Real-Project Calibration / Acceptance Oracle",
+      "name": "真实项目校准 / 验收基准",
       "weight": 15,
       "status": "in_progress",
       "children": [
         {
           "id": "R6.1",
-          "name": "RP-01 Rudong E0 baseline",
+          "name": "RP-01 如东 E0 基线",
           "weight": 20,
           "status": "completed",
           "progress": 100,
           "detail": {
-            "objective": "Establish Real Project #1 baseline and separate Known facts from Unknowns.",
+            "objective": "建立 Real Project #1 基线并区分 Known 事实与 Unknown。",
             "workDone": [
-              "Created phase-fit baseline, project-local evidence boundaries and E1/E2 evidence checklist."
+              "建立适配当前阶段的基线、项目本地 Evidence 边界以及 E1/E2 Evidence checklist。"
             ],
-            "result": "RP-01 E0 is CLOSED / MAIN-CI VERIFIED.",
-            "completionNote": "100% baseline only; one real project cannot satisfy PDX-001.",
+            "result": "RP-01 E0 已 CLOSED / MAIN-CI VERIFIED。",
+            "completionNote": "仅基线已完成；一个真实项目不能满足 PDX-001。",
             "outputs": [
               {
-                "label": "RP-01 evidence folder",
+                "label": "RP-01 Evidence 文件夹",
                 "path": "docs/project/evidence",
                 "kind": "folder"
               }
@@ -710,20 +710,20 @@
         },
         {
           "id": "R6.2",
-          "name": "RP-01 E1 evidence preparation",
+          "name": "RP-01 E1 Evidence 准备",
           "weight": 20,
           "status": "completed",
           "progress": 100,
           "detail": {
-            "objective": "Prepare non-invasive site-survey evidence collection and explicit active-verification boundary.",
+            "objective": "准备非侵入式现场调研 Evidence 收集，并明确 active verification 边界。",
             "workDone": [
-              "Prepared site survey plan, evidence records, acceptance matrix, field checklist and scope-delta intake."
+              "准备现场调研计划、Evidence 记录、Acceptance Matrix、现场 checklist 与 scope-delta intake。"
             ],
-            "result": "E1 PREPARATION DONE / MAIN-CI VERIFIED.",
-            "completionNote": "100% preparation; collection/acceptance remains open.",
+            "result": "E1 PREPARATION DONE / MAIN-CI VERIFIED。",
+            "completionNote": "准备工作完成；实际采集/验收仍开放。",
             "outputs": [
               {
-                "label": "RP-01 evidence folder",
+                "label": "RP-01 Evidence 文件夹",
                 "path": "docs/project/evidence",
                 "kind": "folder"
               }
@@ -739,23 +739,23 @@
         },
         {
           "id": "R6.3",
-          "name": "RP-01 E1 documentary collection",
+          "name": "RP-01 E1 文档 Evidence 收集",
           "weight": 20,
           "status": "in_progress",
           "progress": 50,
-          "note": "Project-control estimate only; not a field-verification percentage.",
+          "note": "仅为项目控制估算，不是现场验证百分比。",
           "detail": {
-            "objective": "Collect and reconcile documentary row-level evidence before/alongside field survey.",
+            "objective": "在现场调研前/同步阶段收集并核对文档级逐行 Evidence。",
             "workDone": [
-              "Recovered 12 source-recovered rows for HT1 / HK-01 / 中心抽.",
-              "Recorded 18 local-copy-corroborated rows for HT6 / KT / BF-01.",
-              "Prepared real-site evidence intake and scope-delta record."
+              "为 HT1 / HK-01 / 中心抽恢复 12 条源数据记录。",
+              "为 HT6 / KT / BF-01 记录 18 条本地副本佐证记录。",
+              "准备真实现场 Evidence intake 与 scope-delta 记录。"
             ],
-            "result": "30 documentary row-level records exist; E1 documentary collection remains PARTIAL / ACTIVE.",
-            "completionNote": "50% is a dashboard control estimate only. E1 ACCEPTANCE is NOT SATISFIED and no field truth is upgraded.",
+            "result": "当前已有 30 条文档级逐行记录；E1 文档收集仍为 PARTIAL / ACTIVE。",
+            "completionNote": "50% 仅为看板项目控制估算。E1 ACCEPTANCE 尚未满足，也没有把文档事实升级成现场事实。",
             "outputs": [
               {
-                "label": "RP-01 evidence folder",
+                "label": "RP-01 Evidence 文件夹",
                 "path": "docs/project/evidence",
                 "kind": "folder"
               }
@@ -772,30 +772,30 @@
         },
         {
           "id": "R6.4",
-          "name": "RP-01 A1 Offline Acceptance Run",
+          "name": "RP-01 A1 离线验收运行",
           "weight": 10,
           "status": "completed",
           "progress": 100,
-          "note": "DONE / MERGED / MAIN-CI VERIFIED / CLOSED.",
+          "note": "DONE / MERGED / MAIN-CI VERIFIED / CLOSED。",
           "detail": {
-            "objective": "Prove the current RP-01 documentary snapshot can traverse the macro lifecycle to an explicit unresolved Delivery outcome without fabricating evidence or confirmation truth.",
+            "objective": "证明当前 RP-01 文档快照可穿过宏观生命周期，最终得到明确的未解决 Delivery 结果，同时不伪造 Evidence 或确认事实。",
             "workDone": [
-              "Created Issue #186 and implemented PR #187.",
-              "Added executable acceptance tests composing the R6 documentary baseline with the R8 Delivery boundary.",
-              "Proved five requested requirement slots remain explicit as BlockedAcceptedFollowUp with owner/reason/disposition and no ConfirmedTag.",
-              "PR #187 merged as 230d541a…; exact merge-commit main CI #893 SUCCESS.",
-              "Truth-sync PR #188 merged; exact main CI #895 SUCCESS."
+              "创建 Issue #186 并实现 PR #187。",
+              "增加可执行验收测试，把 R6 文档基线与 R8 Delivery 边界组合。",
+              "证明 5 个需求位仍以 BlockedAcceptedFollowUp 显式存在，并保留 owner/reason/disposition，且没有 ConfirmedTag。",
+              "PR #187 合并为 230d541a…；exact merge-commit main CI #893 SUCCESS。",
+              "Truth-sync PR #188 合并；exact main CI #895 SUCCESS。"
             ],
-            "result": "RP01-A1 is DONE / MERGED / MAIN-CI VERIFIED / CLOSED.",
-            "completionNote": "100% for OFFLINE / DOCUMENTARY acceptance. This is still not field verification.",
+            "result": "RP01-A1 已 DONE / MERGED / MAIN-CI VERIFIED / CLOSED。",
+            "completionNote": "OFFLINE / DOCUMENTARY 验收已完成；仍不等于现场验证。",
             "outputs": [
               {
-                "label": "RP01-A1 acceptance report",
+                "label": "RP01-A1 验收报告",
                 "path": "docs/project/evidence/RP01_A1_OFFLINE_ACCEPTANCE_RUN.md",
                 "kind": "file"
               },
               {
-                "label": "RP01-A1 executable tests",
+                "label": "RP01-A1 可执行测试",
                 "path": "tests/unit/RP01_A1_OfflineAcceptanceRunTests.cs",
                 "kind": "file"
               }
@@ -810,45 +810,45 @@
         },
         {
           "id": "R6.5",
-          "name": "RP-01 field verification",
+          "name": "RP-01 现场验证",
           "weight": 10,
           "status": "not_started",
           "progress": 0,
           "detail": {
-            "objective": "Verify selected evidence non-invasively on the real site under separately authorized boundaries.",
+            "objective": "在单独授权的边界下，对选定 Evidence 在真实现场进行非侵入式验证。",
             "workDone": [
-              "RP01-F1 non-invasive field calibration pack main-closed.",
-              "12-row equipment/controller evidence manifest prepared for HT1 + HK-01 + 中心抽.",
-              "Two PO-supplied Excel sources archived in private ITD main; #133 provenance gap closed.",
-              "RP01-D1 recovered 23 project-local collection metric families across 126 Rudong rows; source classifications remain Unknown.",
-              "RP01-F2 prepared 127 representative equipment × marked-requirement evidence items: HT1 60 / HK-01 20 / 中心抽 47.",
-              "F1 pack, E1 intake and Acceptance Matrix now reference the F2 requirement evidence layer."
+              "RP01-F1 非侵入现场校准包已合入 main。",
+              "已为 HT1 + HK-01 + 中心抽准备 12 行设备/控制器 Evidence manifest。",
+              "PO 提供的两个 Excel 源文件已归档到私有 ITD main；#133 provenance gap 已关闭。",
+              "RP01-D1 从 126 行如东数据中恢复 23 类项目本地采集 metric family；源分类仍保留 Unknown。",
+              "RP01-F2 准备 127 条“代表设备 × 标记需求” Evidence：HT1 60 / HK-01 20 / 中心抽 47。",
+              "F1 pack、E1 intake 与 Acceptance Matrix 已引用 F2 需求 Evidence 层。"
             ],
-            "result": "PRE-FIELD EVIDENCE PACKAGE COMPLETE / FIELD VERIFICATION NOT STARTED.",
-            "completionNote": "0% field verification. Documentary/source preparation is substantially complete, but no real site observation has been ingested.",
+            "result": "PRE-FIELD EVIDENCE PACKAGE COMPLETE / FIELD VERIFICATION NOT STARTED。",
+            "completionNote": "现场验证仍为 0%。文档/源数据准备已较充分，但尚无真实现场 observation 被接入。",
             "outputs": [
               {
-                "label": "RP01-F1 field calibration pack",
+                "label": "RP01-F1 现场校准包",
                 "path": "docs/project/evidence/RP01_F1_FIELD_CALIBRATION_PACK.md",
                 "kind": "file"
               },
               {
-                "label": "12-row equipment evidence manifest",
+                "label": "12 行设备 Evidence manifest",
                 "path": "docs/project/evidence/RP01_E1_FIELD_EVIDENCE_MANIFEST.csv",
                 "kind": "file"
               },
               {
-                "label": "23-metric OEE requirement matrix",
+                "label": "23-metric OEE 需求矩阵",
                 "path": "docs/project/evidence/RP01_D1_OEE_REQUIREMENT_MATRIX.md",
                 "kind": "file"
               },
               {
-                "label": "127-item representative requirement evidence matrix",
+                "label": "127 项代表性需求 Evidence 矩阵",
                 "path": "docs/project/evidence/RP01_F2_REPRESENTATIVE_REQUIREMENT_EVIDENCE_MATRIX.csv",
                 "kind": "file"
               },
               {
-                "label": "PO-supplied source register",
+                "label": "PO 提供源文件登记",
                 "path": "docs/project/evidence/RP01_E1_USER_SUPPLIED_SOURCE_REGISTER.md",
                 "kind": "file"
               }
@@ -874,18 +874,18 @@
         },
         {
           "id": "R6.6",
-          "name": "RP-02 identification & evidence",
+          "name": "RP-02 项目识别与 Evidence",
           "weight": 10,
           "status": "not_started",
           "progress": 0,
           "detail": {
-            "objective": "Select a second real project to test cross-project variance and product assumptions.",
+            "objective": "选择第二个真实项目，用于测试跨项目差异和产品假设。",
             "workDone": [],
-            "result": "RP-02 NOT IDENTIFIED.",
-            "completionNote": "0%; no project is selected, so no evidence may be fabricated.",
+            "result": "RP-02 尚未识别。",
+            "completionNote": "0%；尚未选定项目，因此不得伪造 Evidence。",
             "outputs": [
               {
-                "label": "Future RP-02 evidence pack",
+                "label": "未来 RP-02 Evidence 包",
                 "planned": true
               }
             ],
@@ -895,18 +895,18 @@
         },
         {
           "id": "R6.7",
-          "name": "RP-03 identification & evidence",
+          "name": "RP-03 项目识别与 Evidence",
           "weight": 10,
           "status": "not_started",
           "progress": 0,
           "detail": {
-            "objective": "Select a third real project if needed to reach the approved 2–3 project freeze evidence basis.",
+            "objective": "如有必要选择第三个真实项目，以满足已批准的 2–3 项目冻结证据基础。",
             "workDone": [],
-            "result": "RP-03 NOT IDENTIFIED.",
-            "completionNote": "0%; no project is selected.",
+            "result": "RP-03 尚未识别。",
+            "completionNote": "0%；尚未选定项目。",
             "outputs": [
               {
-                "label": "Future RP-03 evidence pack",
+                "label": "未来 RP-03 Evidence 包",
                 "planned": true
               }
             ],
@@ -918,26 +918,26 @@
     },
     {
       "id": "R7",
-      "name": "Cross-Project Freeze & Phase 9",
+      "name": "跨项目冻结与 Phase 9",
       "weight": 5,
       "status": "on_hold",
       "children": [
         {
           "id": "R7.1",
-          "name": "PDX-001 cross-project freeze",
+          "name": "PDX-001 跨项目冻结",
           "weight": 60,
           "status": "on_hold",
           "progress": 0,
           "detail": {
-            "objective": "Freeze cross-project business fields, taxonomy, ranking/planning policy and detailed full workflow only after 2–3 real-project evidence.",
+            "objective": "仅在获得 2–3 个真实项目 Evidence 后，冻结跨项目业务字段、taxonomy、ranking/planning policy 与完整详细工作流。",
             "workDone": [
-              "Approved the freeze rule and selected RP-01 as the first Acceptance Oracle."
+              "已批准冻结规则，并选定 RP-01 作为第一个 Acceptance Oracle。"
             ],
-            "result": "PDX-001 STILL BINDING / NOT SATISFIED.",
-            "completionNote": "0% freeze completion. Existing implementation can continue only through separately authorized bounded Gates.",
+            "result": "PDX-001 仍然有效 / 尚未满足。",
+            "completionNote": "冻结完成度 0%。现有实现只能通过单独授权的 bounded Gate 继续。",
             "outputs": [
               {
-                "label": "Project State",
+                "label": "项目状态",
                 "path": "docs/project/PROJECT_STATE.md",
                 "kind": "file"
               }
@@ -950,18 +950,18 @@
         },
         {
           "id": "R7.2",
-          "name": "Phase 9 distributed / multi-node work",
+          "name": "Phase 9 分布式 / 多节点工作",
           "weight": 40,
           "status": "on_hold",
           "progress": 0,
           "detail": {
-            "objective": "Open distributed/multi-node architecture only after a later explicit Gate supported by real-project evidence.",
+            "objective": "只有在后续明确 Gate 且有真实项目 Evidence 支撑时，才开启分布式/多节点架构。",
             "workDone": [],
-            "result": "PHASE 9 HOLD / NOT OPENED.",
-            "completionNote": "0%; no Phase 9 Gate is currently open.",
+            "result": "PHASE 9 HOLD / 尚未开启。",
+            "completionNote": "0%；当前没有开启 Phase 9 Gate。",
             "outputs": [
               {
-                "label": "Future Phase 9 Gate package",
+                "label": "未来 Phase 9 Gate 包",
                 "planned": true
               }
             ],
@@ -973,29 +973,29 @@
     },
     {
       "id": "R8",
-      "name": "Route B — Passive HMI↔PLC Protocol Generalization",
+      "name": "Route B — 被动 HMI↔PLC 协议泛化",
       "weight": 15,
       "status": "in_progress",
       "children": [
         {
           "id": "R8.1",
-          "name": "Protocol-neutral Adapter / Canonical Transaction Contract",
+          "name": "协议无关 Adapter / Canonical Transaction 契约",
           "weight": 15,
           "status": "completed",
           "progress": 100,
-          "note": "Vendor semantics stop at Protocol Adapter; downstream Evidence path stays protocol-neutral.",
+          "note": "厂商语义止于 Protocol Adapter；下游 Evidence 路径保持协议无关。",
           "detail": {
-            "objective": "Freeze the generalized Route B adapter boundary.",
+            "objective": "冻结 Route B 泛化协议 Adapter 边界。",
             "workDone": [
-              "Canonical transaction/target contract defined.",
-              "Stable identity separated from response offsets.",
-              "SUPCON kept reference-only."
+              "定义 Canonical Transaction / Target 契约。",
+              "将 stable identity 与 response offset 分离。",
+              "SUPCON 保持为 reference-only。"
             ],
-            "result": "Cross-vendor core contract merged.",
-            "completionNote": "Architecture baseline complete.",
+            "result": "跨厂商 core 契约已合并。",
+            "completionNote": "架构基线完成。",
             "outputs": [
               {
-                "label": "Protocol adapter contract",
+                "label": "协议 Adapter 契约",
                 "path": "docs/project/RDS1B_R2C_PROTOCOL_ADAPTER_CANONICAL_TRANSACTION_CONTRACT.md",
                 "kind": "file"
               }
@@ -1010,27 +1010,27 @@
         },
         {
           "id": "R8.2",
-          "name": "Siemens / Mitsubishi HMI↔PLC Protocol Matrices",
+          "name": "Siemens / Mitsubishi HMI↔PLC 协议矩阵",
           "weight": 15,
           "status": "completed",
           "progress": 100,
-          "note": "Secure-vs-legacy Siemens and 1E/3E/4E Mitsubishi distinctions are explicit.",
+          "note": "Siemens Secure-vs-Legacy 与 Mitsubishi 1E/3E/4E 差异已显式化。",
           "detail": {
-            "objective": "Research real HMI↔PLC communication families before decoder implementation.",
+            "objective": "在写 decoder 前先研究真实 HMI↔PLC 通讯协议家族。",
             "workDone": [
-              "Siemens classic/legacy vs Secure PG/HMI TLS separated.",
-              "Mitsubishi MC/SLMP frame/read families mapped."
+              "区分 Siemens classic/legacy 与 Secure PG/HMI TLS。",
+              "梳理 Mitsubishi MC/SLMP frame/read family。"
             ],
-            "result": "Evidence-backed vendor protocol matrices merged.",
-            "completionNote": "Research baseline complete; field combination remains evidence-specific.",
+            "result": "有 Evidence 支撑的厂商协议矩阵已合并。",
+            "completionNote": "研究基线已完成；具体现场组合仍需 Evidence 证明。",
             "outputs": [
               {
-                "label": "Siemens matrix",
+                "label": "Siemens 协议矩阵",
                 "path": "docs/project/RDS1B_R2C_SIEMENS_HMI_PLC_PROTOCOL_MATRIX.md",
                 "kind": "file"
               },
               {
-                "label": "Mitsubishi matrix",
+                "label": "Mitsubishi 协议矩阵",
                 "path": "docs/project/RDS1B_R2C_MITSUBISHI_HMI_PLC_PROTOCOL_MATRIX.md",
                 "kind": "file"
               }
@@ -1045,23 +1045,23 @@
         },
         {
           "id": "R8.3",
-          "name": "Siemens Classic S7comm Read Var Replay Decoder",
+          "name": "Siemens Classic S7comm Read Var 回放 Decoder",
           "weight": 20,
           "status": "completed",
           "progress": 100,
-          "note": "Multi-item S7ANY + PDU-reference correlation → existing R1 Evidence path.",
+          "note": "多 item S7ANY + PDU reference correlation → 现有 R1 Evidence 路径。",
           "detail": {
-            "objective": "Validate Siemens classic plaintext Read Var against the generalized protocol pipeline.",
+            "objective": "用 Siemens classic plaintext Read Var 验证泛化协议 pipeline。",
             "workDone": [
-              "Multi-target S7ANY decoding.",
-              "I/Q/M/DB address extraction.",
-              "Per-item Unknown/error handling and mixed unsupported Job tolerance."
+              "实现多 target S7ANY 解码。",
+              "实现 I/Q/M/DB 地址提取。",
+              "实现逐 item Unknown/error 处理，并容忍混合流量中的 unsupported Job。"
             ],
-            "result": "PR #327 merged; exact-main CI verified.",
-            "completionNote": "Offline/replay validation only; no real-device claim.",
+            "result": "PR #327 已合并；exact-main CI 已验证。",
+            "completionNote": "仅为 offline/replay 验证；不声称真实设备验证。",
             "outputs": [
               {
-                "label": "Siemens replay decoder",
+                "label": "Siemens 回放 Decoder",
                 "path": "drivers/siemens/SiemensS7CommReadVarReplayDecoder.cs",
                 "kind": "file"
               }
@@ -1076,23 +1076,23 @@
         },
         {
           "id": "R8.4",
-          "name": "Siemens ISO-on-TCP TPKT/COTP Replay Framer",
+          "name": "Siemens ISO-on-TCP TPKT/COTP 回放 Framer",
           "weight": 20,
           "status": "completed",
           "progress": 100,
-          "note": "Ordered/gap-free TCP payload → TPKT/COTP → exact S7comm PDU.",
+          "note": "已排序且无 gap 的 TCP payload → TPKT/COTP → 精确 S7comm PDU。",
           "detail": {
-            "objective": "Provide the offline framing layer upstream of the Siemens decoder.",
+            "objective": "提供位于 Siemens decoder 上游的离线 framing 层。",
             "workDone": [
-              "Arbitrary chunk split/coalesced TPKT support.",
-              "Unique PduSequence separated from source chunk sequence.",
-              "End-to-end framer → #327 decoder test."
+              "支持任意 chunk 分割与 coalesced TPKT。",
+              "把唯一 PduSequence 与源 chunk sequence 分离。",
+              "完成 framer → #327 decoder 端到端测试。"
             ],
-            "result": "PR #329 merged; exact-main CI verified.",
-            "completionNote": "No pcap/NIC/TCP-sequence/live capture capability.",
+            "result": "PR #329 已合并；exact-main CI 已验证。",
+            "completionNote": "没有 pcap/NIC/TCP sequence/live capture 能力。",
             "outputs": [
               {
-                "label": "ISO-on-TCP replay framer",
+                "label": "ISO-on-TCP 回放 Framer",
                 "path": "drivers/siemens/SiemensIsoOnTcpReplayFramer.cs",
                 "kind": "file"
               }
@@ -1107,23 +1107,23 @@
         },
         {
           "id": "R8.5",
-          "name": "Mitsubishi SLMP 3E 0403 Random Read Replay Decoder",
+          "name": "Mitsubishi SLMP 3E 0403 Random Read 回放 Decoder",
           "weight": 20,
           "status": "ready",
           "progress": 90,
-          "note": "PR #332 Technical PASS / Ready; waiting explicit PO merge authorization.",
+          "note": "PR #332 已 Technical PASS / Ready；等待 PO 明确合并授权。",
           "detail": {
-            "objective": "Validate one-request/multi-noncontiguous-target generalization using Mitsubishi Random Read.",
+            "objective": "使用 Mitsubishi Random Read 验证“一次请求、多非连续 target”的协议泛化能力。",
             "workDone": [
-              "D-word non-contiguous target decoding implemented.",
-              "Request-order response mapping validated.",
-              "Stable identity and Unknown/fail-closed semantics covered."
+              "完成 D-word 非连续 target 解码。",
+              "验证按请求顺序进行 response 映射。",
+              "覆盖 stable identity 与 Unknown/fail-closed 语义。"
             ],
-            "result": "Exact-head CI #1255 SUCCESS; 1,062 tests passed; unmerged.",
-            "completionNote": "PO-KEY-GATE remains open.",
+            "result": "Exact-head CI #1255 SUCCESS；1,062 tests passed；尚未合并。",
+            "completionNote": "PO-KEY-GATE 仍开放。",
             "outputs": [
               {
-                "label": "Random Read replay decoder",
+                "label": "Random Read 回放 Decoder",
                 "path": "drivers/mitsubishi/MitsubishiSlmp3ERandomReadReplayDecoder.cs",
                 "kind": "file"
               }
@@ -1138,16 +1138,16 @@
         },
         {
           "id": "R8.6",
-          "name": "Live Passive Observation Source / Real HMI↔PLC Pilot",
+          "name": "Live Passive Observation Source / 真实 HMI↔PLC Pilot",
           "weight": 10,
           "status": "blocked",
           "progress": 0,
-          "note": "Planning/replay only. Live capture, SPAN/TAP/NIC access and customer-network execution remain NOT AUTHORIZED.",
+          "note": "目前仅规划/回放。Live capture、SPAN/TAP/NIC 访问和客户网络执行均未授权。",
           "detail": {
-            "objective": "Later feed separately authorized real passive observations into the same generalized protocol pipeline.",
+            "objective": "后续把单独授权的真实 passive observations 接入同一套泛化协议 pipeline。",
             "workDone": [],
-            "result": "Not started / not authorized.",
-            "completionNote": "Requires a separate explicit bounded Field Execution Gate.",
+            "result": "尚未开始 / 尚未授权。",
+            "completionNote": "需要单独、明确、有边界的 Field Execution Gate。",
             "outputs": [],
             "issues": [
               323,
@@ -1161,16 +1161,16 @@
   ],
   "tracks": {
     "workbench": {
-      "name": "Product Workbench / Workflow Track",
-      "subtitle": "Executable operator workflow and durable project workspace",
+      "name": "产品工作台 / 工作流控制轨",
+      "subtitle": "可执行工程师操作流程与持久化项目工作区",
       "status": "completed",
       "maturity": 95,
-      "objective": "Provide the engineer-facing workflow needed to operate canonical Evidence, Identification, Confirmation, Delivery and Knowledge.",
-      "basis": "APP1 #252 / PR #254 and downstream UI #267–#272 are merged/truth-closed; V1-C1 #261–#266 is also closed/completed.",
-      "boundary": "Product/UI completion does not prove real PLC/HMI runtime compatibility.",
+      "objective": "提供工程师使用 canonical Evidence、Identification、Confirmation、Delivery 与 Knowledge 所需的完整产品工作流。",
+      "basis": "APP1 #252 / PR #254 与下游 UI #267–#272 已合并并完成 truth closeout；V1-C1 #261–#266 也已关闭完成。",
+      "boundary": "产品/UI 完成不等于真实 PLC/HMI 运行兼容性已验证。",
       "dimensions": [
         {
-          "name": "Project / Device / Requirements",
+          "name": "项目 / 设备 / 需求",
           "progress": 100
         },
         {
@@ -1178,91 +1178,91 @@
           "progress": 100
         },
         {
-          "name": "Evidence / downstream workflow UI",
+          "name": "Evidence / 下游工作流 UI",
           "progress": 95
         },
         {
-          "name": "Durable Web / project package",
+          "name": "持久化 Web / 项目包",
           "progress": 90
         }
       ],
-      "next": "Hold broad UI expansion; prioritize Route B protocol/readiness and real-data evidence."
+      "next": "暂缓大范围 UI 扩展，优先推进 Route B 协议准备度与真实数据 Evidence。"
     },
     "evidence": {
-      "name": "Evidence / Identification Foundation Track",
-      "subtitle": "Canonical offline/replay evidence + protocol-neutral Route B inputs",
+      "name": "Evidence / Identification 基础控制轨",
+      "subtitle": "Canonical 离线/回放 Evidence + 协议无关 Route B 输入",
       "status": "in_progress",
       "maturity": 92,
-      "objective": "Keep one canonical Evidence authority while adding replay-capable protocol adapters that can later consume authorized real observations.",
-      "basis": "V1-C1 is completed. Route B protocol contract/matrices, Siemens Read Var decoder and ISO-on-TCP framer are merged. Mitsubishi 0403 PR #332 is Technical PASS / Ready.",
-      "boundary": "Replay/simulation/manual/offline evidence is not real-device validation.",
+      "objective": "保持唯一 canonical Evidence authority，同时增加可回放的协议 Adapter，为后续已授权真实 observations 做准备。",
+      "basis": "V1-C1 已完成。Route B 协议契约/矩阵、Siemens Read Var decoder 与 ISO-on-TCP framer 已合并；Mitsubishi 0403 PR #332 已 Technical PASS / Ready。",
+      "boundary": "Replay / simulation / manual / offline Evidence 不等于真实设备验证。",
       "dimensions": [
         {
-          "name": "Canonical Evidence / restart",
+          "name": "Canonical Evidence / 重启恢复",
           "progress": 100
         },
         {
-          "name": "Offline source admission",
+          "name": "离线源接入",
           "progress": 100
         },
         {
-          "name": "Protocol-neutral passive replay",
+          "name": "协议无关 passive replay",
           "progress": 85
         },
         {
-          "name": "Cross-vendor adapter coverage",
+          "name": "跨厂商 Adapter 覆盖",
           "progress": 75
         }
       ],
-      "next": "Complete #332 Gate, then continue only evidence-backed protocol variants while preserving one downstream Evidence path."
+      "next": "完成 #332 Gate 后，仅继续有 Evidence 支撑的协议变体，并保持单一的下游 Evidence 路径。"
     },
     "realData": {
-      "name": "Real PLC / HMI Data-Flow Track",
-      "subtitle": "Core mission — actual time-varying industrial communication",
+      "name": "真实 PLC / HMI 数据流控制轨",
+      "subtitle": "核心使命 — 真实、随时间变化的工业通信",
       "status": "blocked",
       "maturity": 30,
-      "objective": "Obtain one genuine PLC/HMI communication stream and drive address/value observations through canonical Evidence and Identification.",
-      "basis": "Route B replay stack now covers Siemens classic S7comm + ISO-on-TCP and Mitsubishi 3E 0401; 0403 is at PO Gate. No accepted live PLC/HMI stream has traversed the chain.",
-      "boundary": "Never Write absolute. Live capture/customer-network/Active Read require a separate explicit bounded Field Execution Gate.",
+      "objective": "获得一条真实 PLC/HMI 通信流，并把地址/值 observations 送入 canonical Evidence 与 Identification。",
+      "basis": "Route B replay stack 已覆盖 Siemens classic S7comm + ISO-on-TCP 与 Mitsubishi 3E 0401；0403 正处于 PO Gate。尚无被接受的 live PLC/HMI 流完整穿过该链路。",
+      "boundary": "Never Write 绝对约束。Live capture / 客户网络 / Active Read 必须经过独立且明确的 Field Execution Gate。",
       "dimensions": [
         {
-          "name": "Read-only / protocol safety foundation",
+          "name": "只读 / 协议安全基础",
           "progress": 85
         },
         {
-          "name": "Passive protocol replay stack",
+          "name": "Passive 协议回放链路",
           "progress": 75
         },
         {
-          "name": "Real stream authorization",
+          "name": "真实数据流授权",
           "progress": 0
         },
         {
-          "name": "Real stream acquisition",
+          "name": "真实数据流获取",
           "progress": 0
         },
         {
-          "name": "Real Evidence → Identification",
+          "name": "真实 Evidence → Identification",
           "progress": 0
         }
       ],
-      "next": "After replay coverage is sufficient, prepare one exact isolated passive observation source and a separate PO field-execution authorization."
+      "next": "当 replay 覆盖足够后，准备一个精确隔离的 passive observation source，并单独申请 PO 现场执行授权。"
     },
     "calibration": {
-      "name": "RP-01 / PDX-001 Calibration Track",
-      "subtitle": "Real-project Acceptance Oracle",
+      "name": "RP-01 / PDX-001 校准控制轨",
+      "subtitle": "真实项目 Acceptance Oracle",
       "status": "in_progress",
       "maturity": 30,
-      "objective": "Calibrate detailed workflow assumptions against real project evidence without confusing field photos/documentary material with dynamic PLC/HMI data.",
-      "basis": "#115 remains open; RP-01 documentary and field-photo evidence is substantial; RP-02/RP-03 remain unselected.",
-      "boundary": "PDX-001 is a cross-project Freeze Gate, not a software-development stop and not a field-execution authorization.",
+      "objective": "使用真实项目 Evidence 校准详细工作流假设，同时明确区分现场照片/文档材料与动态 PLC/HMI 数据。",
+      "basis": "#115 仍开放；RP-01 文档与现场照片 Evidence 已较充分；RP-02/RP-03 仍未选定。",
+      "boundary": "PDX-001 是跨项目冻结 Gate，不是软件开发停止条件，也不是现场执行授权。",
       "dimensions": [
         {
-          "name": "RP-01 Documentary / Photo Baseline",
+          "name": "RP-01 文档 / 照片基线",
           "progress": 85
         },
         {
-          "name": "Dynamic Data Verification",
+          "name": "动态数据验证",
           "progress": 0
         },
         {
@@ -1270,174 +1270,174 @@
           "progress": 0
         },
         {
-          "name": "Cross-project Freeze",
+          "name": "跨项目冻结",
           "progress": 0
         }
       ],
-      "next": "Continue RP-01 calibration in parallel; do not let it delay the separately gated real-data-flow pilot or V1-C/V1-D productization."
+      "next": "并行继续 RP-01 校准；不得让它阻塞单独 Gate 管理的真实数据流 Pilot 或 V1-C/V1-D 产品化。"
     }
   },
   "gates": [
     {
-      "title": "Mitsubishi 0403 Protocol Adapter Merge Gate",
-      "question": "May the bounded SLMP 3E 0403 Random Read replay decoder merge?",
+      "title": "Mitsubishi 0403 协议 Adapter 合并 Gate",
+      "question": "是否允许合并有边界的 SLMP 3E 0403 Random Read 回放 Decoder？",
       "status": "ready",
       "statusLabel": "TECHNICAL PASS / PR #332 READY",
       "trackingIssue": 331,
-      "currentRequirement": "Explicit PO merge authorization for PR #332. Exact-head CI #1255 SUCCESS and Main Agent Technical Review PASS are already satisfied.",
+      "currentRequirement": "PR #332 需要 PO 明确合并授权。Exact-head CI #1255 SUCCESS 与 Main Agent Technical Review PASS 已满足。",
       "requiredInputs": [
-        "Explicit PO merge authorization",
-        "No base drift before merge",
-        "Exact merge-commit main CI after merge"
+        "PO 明确合并授权",
+        "合并前 main 不发生未处理的 base drift",
+        "合并后验证 exact merge-commit main CI"
       ],
       "blocks": [
-        "PR #332 merge"
+        "PR #332 合并"
       ]
     },
     {
-      "title": "Real PLC/HMI Passive Field Execution Gate",
-      "question": "Has one exact source/network scope and a strictly passive observation method been explicitly authorized?",
+      "title": "真实 PLC/HMI 被动现场执行 Gate",
+      "question": "是否已经明确授权一个精确的数据源/网络范围和严格被动的 observation 方法？",
       "status": "blocked",
-      "statusLabel": "NOT AUTHORIZED",
+      "statusLabel": "尚未授权",
       "trackingIssue": 323,
-      "currentRequirement": "Route B replay/design work may continue. Live capture/SPAN/TAP/NIC/customer-network execution requires a separate bounded PO authorization.",
+      "currentRequirement": "Route B replay/design 工作可以继续。Live capture / SPAN / TAP / NIC / 客户网络执行必须单独获得有边界的 PO 授权。",
       "requiredInputs": [
-        "Exact PLC/HMI source",
+        "明确 PLC/HMI 数据源",
         "Passive observation point",
-        "Network scope",
-        "Stop conditions",
-        "Evidence handling",
-        "Explicit PO field authorization"
+        "网络范围",
+        "停止条件",
+        "Evidence 处理方式",
+        "PO 明确现场授权"
       ],
       "blocks": [
         "Live capture",
-        "SPAN/mirror changes",
-        "NIC/pcap on customer network",
-        "Real Active Read",
-        "Any Write/Force/Download/Run-Stop/Reset/config mutation"
+        "SPAN/mirror 修改",
+        "客户网络上的 NIC/pcap",
+        "真实 Active Read",
+        "任何 Write/Force/Download/Run-Stop/Reset/config 修改"
       ]
     },
     {
-      "title": "RDS-1A Real Recorded Dataset Pilot",
-      "question": "Has the first representative real recorded dataset been supplied and accepted for canonical analysis?",
+      "title": "RDS-1A 真实录制数据集 Pilot",
+      "question": "第一份有代表性的真实录制数据集是否已经提供并被接受用于 canonical 分析？",
       "status": "open",
-      "statusLabel": "OPEN / Issue #279",
+      "statusLabel": "开放 / Issue #279",
       "trackingIssue": 279,
-      "currentRequirement": "Use real recorded/de-identified evidence without upgrading it to live-device validation.",
+      "currentRequirement": "使用真实录制/去标识化 Evidence，但不得把它升级为 live-device validation。",
       "requiredInputs": [
-        "Representative recorded dataset",
-        "Source/provenance/authorization",
-        "Canonical ingestion",
-        "Identification analysis"
+        "代表性录制数据集",
+        "来源/溯源/授权",
+        "Canonical 接入",
+        "Identification 分析"
       ],
       "blocks": [
-        "Claiming live compatibility from recorded evidence"
+        "把录制 Evidence 声称为 live compatibility"
       ]
     },
     {
-      "title": "PDX-001 Cross-Project Freeze Gate",
-      "question": "Do 2–3 real projects support freezing cross-project workflow/taxonomy/ranking/planning policy?",
+      "title": "PDX-001 跨项目冻结 Gate",
+      "question": "是否已有 2–3 个真实项目支撑冻结跨项目 workflow / taxonomy / ranking / planning policy？",
       "status": "on_hold",
-      "statusLabel": "NOT SATISFIED",
+      "statusLabel": "尚未满足",
       "trackingIssue": 115,
-      "currentRequirement": "RP-01 exists; RP-02/RP-03 and dynamic real-data evidence remain insufficient.",
+      "currentRequirement": "RP-01 已存在；RP-02/RP-03 与动态真实数据 Evidence 仍不足。",
       "requiredInputs": [
-        "2–3 real-project evidence sets",
-        "Workflow variance evidence",
-        "Knowledge applicability evidence"
+        "2–3 个真实项目 Evidence 集",
+        "工作流差异 Evidence",
+        "Knowledge 适用性 Evidence"
       ],
       "blocks": [
-        "Universal cross-project freeze",
-        "Phase 9 readiness"
+        "通用跨项目冻结",
+        "Phase 9 准备度"
       ]
     },
     {
       "title": "Phase 9 Gate",
-      "question": "Has distributed/multi-node work been explicitly opened after real-project evidence?",
+      "question": "在真实项目 Evidence 之后，是否已明确开启分布式/多节点工作？",
       "status": "on_hold",
-      "statusLabel": "HOLD / NOT OPENED",
-      "currentRequirement": "P8-R1 OPTION C remains binding.",
+      "statusLabel": "HOLD / 尚未开启",
+      "currentRequirement": "P8-R1 OPTION C 仍然有效。",
       "requiredInputs": [
-        "PDX-001 evidence maturity",
-        "Explicit PO Gate",
-        "Architecture/readiness review"
+        "PDX-001 Evidence 成熟度",
+        "PO 明确 Gate",
+        "架构/准备度审查"
       ],
       "blocks": [
-        "Distributed/multi-node implementation"
+        "分布式/多节点实现"
       ]
     }
   ],
   "decisions": [
     {
       "id": "D-01",
-      "decision": "Never Write is absolute: no PLC Write / Force / Download / Run-Stop / reset / parameter/config/network/control mutation.",
+      "decision": "Never Write 是绝对约束：禁止 PLC Write / Force / Download / Run-Stop / reset / 参数/config/network/control 修改。",
       "status": "locked"
     },
     {
       "id": "D-02",
-      "decision": "Core mission remains real PLC/HMI data-flow analysis through Evidence → Identification → Confirmation; replay/UI completion alone is not product completion.",
+      "decision": "核心使命保持为：真实 PLC/HMI 数据流 → Evidence → Identification → Confirmation；仅完成 replay/UI 不代表产品使命完成。",
       "status": "locked"
     },
     {
       "id": "D-03",
-      "decision": "Route B uses a protocol-neutral pipeline; vendor-specific semantics terminate at Protocol Adapter boundaries.",
+      "decision": "Route B 使用协议无关 pipeline；厂商专有语义止于 Protocol Adapter 边界。",
       "status": "locked"
     },
     {
       "id": "D-04",
-      "decision": "Simulation / Replay / Golden Fixture does not equal real-device validation.",
+      "decision": "Simulation / Replay / Golden Fixture 不等于真实设备验证。",
       "status": "locked"
     },
     {
       "id": "D-05",
-      "decision": "SUPCON driver source is reference-only and does not select ITDP protocol architecture.",
+      "decision": "SUPCON driver 源码仅作为参考，不决定 ITDP 的协议架构。",
       "status": "locked"
     },
     {
       "id": "D-06",
-      "decision": "Siemens Secure PG/HMI TLS is a passive payload visibility blocker; no decryption/downgrade work is authorized.",
+      "decision": "Siemens Secure PG/HMI TLS 会阻断 passive payload 可见性；未授权任何解密或降级工作。",
       "status": "locked"
     },
     {
       "id": "D-07",
-      "decision": "PDX-001 remains a cross-project Freeze Gate; Phase 9 remains HOLD.",
+      "decision": "PDX-001 继续作为跨项目 Freeze Gate；Phase 9 保持 HOLD。",
       "status": "locked"
     }
   ],
   "milestones": [
     {
       "id": "M0",
-      "name": "Recovery foundations main-closed",
+      "name": "Recovery 基础全部合入 main",
       "status": "completed",
       "date": "2026-09-15"
     },
     {
       "id": "M1",
-      "name": "Workflow V1-A1 + V1-B1 main-closed",
+      "name": "Workflow V1-A1 + V1-B1 合入 main",
       "status": "completed",
       "date": "2026-09-22"
     },
     {
       "id": "M2",
-      "name": "APP1 remote workbench closeout",
+      "name": "APP1 远程工作台完成",
+      "status": "completed",
+      "date": "2026-09-23"
+    },
+    {
+      "id": "M3",
+      "name": "V1-C Evidence Workspace 完成",
+      "status": "completed",
+      "date": "2026-09-24"
+    },
+    {
+      "id": "M4",
+      "name": "RDS-1 真实数据流准备 Gate",
       "status": "in_progress",
       "date": null
     },
     {
-      "id": "M3",
-      "name": "V1-C Evidence Workspace",
-      "status": "not_started",
-      "date": null
-    },
-    {
-      "id": "M4",
-      "name": "RDS-1 Real Data Flow Readiness Gate",
-      "status": "not_started",
-      "date": null
-    },
-    {
       "id": "M5",
-      "name": "First real PLC/HMI data stream through canonical Evidence",
+      "name": "第一条真实 PLC/HMI 数据流进入 canonical Evidence",
       "status": "blocked",
       "date": null
     },
@@ -1461,7 +1461,7 @@
     },
     {
       "id": "M9",
-      "name": "PDX-001 Freeze evidence ready",
+      "name": "PDX-001 Freeze Evidence 准备完成",
       "status": "on_hold",
       "date": null
     },
@@ -1475,43 +1475,43 @@
   "recentProgress": [
     {
       "ref": "PR #332 · Issue #331",
-      "title": "Mitsubishi SLMP 3E 0403 Random Read replay decoder Technical PASS / Ready; CI #1255 SUCCESS; 1,062 tests passed; awaiting PO merge authorization",
+      "title": "Mitsubishi SLMP 3E 0403 Random Read 回放 Decoder 已 Technical PASS / Ready；CI #1255 SUCCESS；1,062 项测试通过；等待 PO 合并授权",
       "status": "ready",
       "date": "2026-09-29"
     },
     {
       "ref": "PR #329 · Issue #328",
-      "title": "Siemens ISO-on-TCP TPKT/COTP offline replay framer merged; exact-main CI #1254 SUCCESS; end-to-end framer → S7comm decoder composition verified",
+      "title": "Siemens ISO-on-TCP TPKT/COTP 离线回放 Framer 已合并；exact-main CI #1254 SUCCESS；已验证 Framer → S7comm Decoder 端到端组合",
       "status": "completed",
       "date": "2026-09-29"
     },
     {
       "ref": "PR #327 · Issue #326",
-      "title": "Siemens classic S7comm Read Var offline replay decoder merged; PDU-reference correlation + multi-item S7ANY + R1 Evidence path verified",
+      "title": "Siemens classic S7comm Read Var 离线回放 Decoder 已合并；PDU reference correlation + 多 item S7ANY + R1 Evidence 路径已验证",
       "status": "completed",
       "date": "2026-09-29"
     },
     {
       "ref": "PR #325 / #324 · Issue #323",
-      "title": "Cross-vendor protocol matrices and protocol-neutral Adapter/Canonical Transaction contract merged; Siemens secure-vs-legacy boundary and Mitsubishi 1E/3E/4E distinctions recorded",
+      "title": "跨厂商协议矩阵与协议无关 Adapter / Canonical Transaction 契约已合并；已明确 Siemens Secure-vs-Legacy 与 Mitsubishi 1E/3E/4E 边界",
       "status": "completed",
       "date": "2026-09-29"
     },
     {
       "ref": "Issue #330",
-      "title": "Redundant Railway gracious-strength auto-deploy disabled; restart policy NEVER; physical deletion pending connector capability; active itdp-app1 unaffected",
+      "title": "Railway 冗余 gracious-strength 已停止自动部署，restart policy=NEVER；物理删除等待 connector 能力恢复；正常 itdp-app1 未受影响",
       "status": "in_progress",
       "date": "2026-09-29"
     },
     {
       "ref": "V1-C1 #261–#266",
-      "title": "Canonical Offline Evidence Workspace, validated replay, immutable source artifacts, tabular Evidence admission, Web workspace and Evidence→Strategy bridge closed/completed",
+      "title": "Canonical 离线 Evidence 工作区、validated replay、不可变源文件、表格型 Evidence 接入、Web 工作区与 Evidence→Strategy 桥接已关闭完成",
       "status": "completed",
       "date": "2026-09-24"
     },
     {
       "ref": "APP1 #252 / PR #254 · V1-UI2 #267–#272",
-      "title": "Executable Engineer Web Workbench and downstream Evidence→Identification→Confirmation→Delivery→Knowledge UI merged/truth-closed",
+      "title": "可执行工程师 Web 工作台与 Evidence→Identification→Confirmation→Delivery→Knowledge 下游 UI 已合并并完成 truth closeout",
       "status": "completed",
       "date": "2026-09-23"
     }
@@ -1519,93 +1519,93 @@
   "nextActions": [
     {
       "priority": 1,
-      "title": "PO decision on PR #332 — Mitsubishi SLMP 0403 Random Read replay decoder",
+      "title": "PO 决策：PR #332 — Mitsubishi SLMP 0403 Random Read 回放 Decoder",
       "status": "ready",
       "owner": "PO / Main Agent",
       "issue": 331,
-      "note": "Technical PASS / Ready; exact-head CI #1255 SUCCESS. Explicit merge authorization required."
+      "note": "Technical PASS / Ready；exact-head CI #1255 SUCCESS。需要明确合并授权。"
     },
     {
       "priority": 2,
-      "title": "Continue Route B cross-vendor adapter validation after #332",
+      "title": "#332 之后继续 Route B 跨厂商 Adapter 验证",
       "status": "ready",
       "owner": "Main Agent",
       "issue": 323,
-      "note": "Prefer evidence-backed protocol variants; do not widen to live capture or Active Read implicitly."
+      "note": "优先有 Evidence 支撑的协议变体；不得隐式扩展到 live capture 或 Active Read。"
     },
     {
       "priority": 3,
-      "title": "Prepare one bounded live passive observation Gate",
+      "title": "准备一个有边界的真实 passive observation Gate",
       "status": "blocked",
-      "owner": "PO / Field Engineering / Main Agent",
+      "owner": "PO / 现场工程 / Main Agent",
       "issue": 323,
-      "note": "Define exact HMI↔PLC source, observation point, network scope, stop conditions and evidence handling before any real capture."
+      "note": "任何真实 capture 前先定义精确 HMI↔PLC 数据源、observation point、网络范围、停止条件与 Evidence 处理方式。"
     },
     {
       "priority": 4,
-      "title": "Advance RDS-1A real recorded dataset pilot",
+      "title": "推进 RDS-1A 真实录制数据集 Pilot",
       "status": "open",
       "owner": "PO / Engineering",
       "issue": 279,
-      "note": "Recorded/de-identified industrial data can improve realism while remaining distinct from live-device validation."
+      "note": "录制/去标识化工业数据可以提高真实性，但仍必须与 live-device validation 区分。"
     },
     {
       "priority": 5,
-      "title": "Physically remove redundant Railway gracious-strength service when deletion API is available",
+      "title": "Railway 删除接口可用后，物理删除冗余 gracious-strength 服务",
       "status": "open",
       "owner": "Main Agent / PO",
       "issue": 330,
-      "note": "Auto-deploy disabled via sentinel watch path and restart policy NEVER; active itdp-app1 remains SUCCESS."
+      "note": "已通过 sentinel watch path 停止自动部署，并将 restart policy 设为 NEVER；正常 itdp-app1 仍为 SUCCESS。"
     },
     {
       "priority": 6,
-      "title": "Continue RP-01 / PDX-001 calibration and identify RP-02/RP-03",
+      "title": "继续 RP-01 / PDX-001 校准并识别 RP-02/RP-03",
       "status": "in_progress",
-      "owner": "PO / Site Engineering / Product",
+      "owner": "PO / 现场工程 / Product",
       "issue": 115,
-      "note": "Parallel acceptance-oracle track; not a prerequisite for Route B replay development."
+      "note": "这是并行 Acceptance Oracle 控制轨，不是 Route B replay 开发前置条件。"
     }
   ],
   "missionAssessment": {
-    "title": "Mission Rebaseline — core goal = real PLC/HMI data-stream analysis",
+    "title": "核心目标重校准 — 目标 = 真实 PLC/HMI 数据流分析",
     "overallProgress": 69,
-    "basis": "Project-control estimate only. It reflects completed product/evidence/protocol foundations but does not upgrade replay/recorded evidence into real-device validation or authorize field execution.",
-    "warning": "Route B protocol readiness has advanced materially, but the central remaining gap is unchanged: no accepted live PLC/HMI time-varying stream has traversed the canonical Evidence → Identification chain.",
+    "basis": "仅用于项目控制估算。该数值反映已完成的产品、Evidence 与协议基础，但不得把 replay/录制 Evidence 升级为真实设备验证，也不授权现场执行。",
+    "warning": "Route B 协议准备度已经明显提升，但核心缺口仍未改变：尚无被接受的 live PLC/HMI 动态数据流完整穿过 canonical Evidence → Identification 链路。",
     "dimensions": [
       {
-        "name": "Product Workbench & Workflow",
+        "name": "产品工作台与工作流",
         "weight": 25,
         "progress": 95,
         "status": "completed",
-        "note": "APP1 and downstream workflow UI are merged/truth-closed; V1-C1 offline Evidence Workspace is also completed."
+        "note": "APP1 与下游 workflow UI 已合并并完成 truth closeout；V1-C1 离线 Evidence Workspace 也已完成。"
       },
       {
-        "name": "Offline Evidence & Protocol Foundation",
+        "name": "离线 Evidence 与协议基础",
         "weight": 25,
         "progress": 92,
         "status": "in_progress",
-        "note": "Canonical Evidence/replay/productization are mature; Siemens replay stack is merged and Mitsubishi 0403 is at PO merge gate."
+        "note": "Canonical Evidence / replay / 产品化已较成熟；Siemens replay stack 已合并，Mitsubishi 0403 正处于 PO merge gate。"
       },
       {
-        "name": "Real PLC/HMI Data Stream",
+        "name": "真实 PLC/HMI 数据流",
         "weight": 25,
         "progress": 30,
         "status": "blocked",
-        "note": "Passive protocol architecture is materially stronger, but live capture/customer-network execution is not authorized and no accepted live stream has traversed the chain."
+        "note": "Passive 协议架构已明显增强，但 live capture / 客户网络执行未授权，且尚无被接受的 live stream 穿过完整链路。"
       },
       {
         "name": "Identification / Confirmation / Delivery / Knowledge",
         "weight": 15,
         "progress": 75,
         "status": "in_progress",
-        "note": "Domain/Application foundations and downstream operator UI exist; real-stream-driven validation remains incomplete."
+        "note": "Domain/Application 基础与下游操作 UI 已存在；由真实数据流驱动的验证仍不完整。"
       },
       {
-        "name": "Real-project Validation",
+        "name": "真实项目验证",
         "weight": 10,
         "progress": 35,
         "status": "in_progress",
-        "note": "RP-01 and recorded-runtime work provide grounded evidence, but dynamic live PLC/HMI validation and RP-02/RP-03 remain incomplete."
+        "note": "RP-01 与录制 runtime 工作提供了真实依据，但动态 live PLC/HMI 验证和 RP-02/RP-03 仍未完成。"
       }
     ]
   }
