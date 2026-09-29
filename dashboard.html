@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>ITD Engineering Project Control Board</title>
+<title>ITDP 工程项目控制看板</title>
 <style>
 :root{
   --bg:#0b0f14;--panel:#111821;--panel2:#151e29;--line:#263241;--text:#e8edf3;--muted:#8fa0b3;
@@ -90,50 +90,50 @@ footer{color:var(--muted);font-size:11px;margin-top:22px;text-align:center}
     </div>
     <div class="meta">
       <div class="toolbar"><button class="btn" onclick="loadData()">刷新 JSON</button></div>
-      <div style="margin-top:7px">Last updated: <span id="updatedAt"></span></div>
-      <div>Source: dashboard/progress.json</div>
+      <div style="margin-top:7px">更新时间：<span id="updatedAt"></span></div>
+      <div>数据源：dashboard/progress.json</div>
     </div>
   </header>
 
   <section class="grid summary">
     <div class="card overall">
       <div class="ringWrap"><div id="ring" class="ring"></div><div id="overallPct" class="ringValue">0%</div></div>
-      <div><b style="font-size:19px">Mission-weighted Progress</b><div class="sub">按核心目标重新加权；UI / 流程完成度 ≠ 实际数据流完成度</div><div id="currentGateLine" style="margin-top:8px"></div></div>
+      <div><b style="font-size:19px">核心目标加权进度</b><div class="sub">按核心目标重新加权；UI / 流程完成度 ≠ 实际数据流完成度</div><div id="currentGateLine" style="margin-top:8px"></div></div>
     </div>
-    <div class="card kpi"><b id="kpiCompleted">0</b><span>Completed leaf tasks</span></div>
-    <div class="card kpi"><b id="kpiProgress">0</b><span>In progress</span></div>
-    <div class="card kpi"><b id="kpiBlocked">0</b><span>Blocked</span></div>
-    <div class="card kpi"><b id="kpiOpen">0</b><span>Open decisions / gates</span></div>
+    <div class="card kpi"><b id="kpiCompleted">0</b><span>已完成末级任务</span></div>
+    <div class="card kpi"><b id="kpiProgress">0</b><span>进行中</span></div>
+    <div class="card kpi"><b id="kpi阻塞">0</b><span>阻塞</span></div>
+    <div class="card kpi"><b id="kpiOpen">0</b><span>待决策 / 待关闭 Gate</span></div>
   </section>
 
-  <div class="sectionTitle"><h2>Mission Rebaseline</h2><small>核心目标：真实 PLC/HMI 数据流 → Evidence → Identification → Confirmation</small></div>
+  <div class="sectionTitle"><h2>核心目标重校准</h2><small>核心目标：真实 PLC/HMI 数据流 → Evidence（证据）→ Identification（识别）→ Confirmation（确认）</small></div>
   <section id="mission" class="card"></section>
 
-  <div class="sectionTitle"><h2>Historical Capability WBS</h2><small>历史能力完成 ≠ 核心使命完成；点击阶段可展开/收起</small></div>
+  <div class="sectionTitle"><h2>历史能力 WBS</h2><small>历史能力完成 ≠ 核心使命完成；点击阶段可展开/收起</small></div>
   <section id="wbs"></section>
 
-  <div class="sectionTitle"><h2>Milestones / Timeline</h2><small>未确认日期显示 TBD</small></div>
+  <div class="sectionTitle"><h2>里程碑 / 时间线</h2><small>未确认日期显示“待定 / 取决于 Gate”</small></div>
   <section class="card"><div id="timeline" class="timeline"></div></section>
 
-  <div class="sectionTitle"><h2>Parallel Control Tracks</h2><small>开发完成度 ≠ 现场验证 ≠ 跨项目冻结</small></div>
+  <div class="sectionTitle"><h2>并行控制轨</h2><small>开发完成度 ≠ 现场验证 ≠ 跨项目冻结</small></div>
   <section id="tracks" class="grid two"></section>
 
-  <div class="sectionTitle"><h2>Engineering Gates / Release State</h2><small>开发 Gate、现场执行 Gate 与跨项目 Freeze Gate 分开显示</small></div>
+  <div class="sectionTitle"><h2>工程 Gate / 发布状态</h2><small>开发 Gate、现场执行 Gate 与跨项目冻结 Gate 分开显示</small></div>
   <section id="gates" class="grid two"></section>
 
-  <div class="sectionTitle"><h2>Decisions & Next Actions</h2></div>
+  <div class="sectionTitle"><h2>关键决策与下一步行动</h2></div>
   <section class="grid tables">
-    <div class="card"><h3 style="margin-top:0">Key Decisions</h3><div id="decisions"></div></div>
-    <div class="card"><h3 style="margin-top:0">Next Actions</h3><div id="nextActions" class="list"></div></div>
+    <div class="card"><h3 style="margin-top:0">关键决策</h3><div id="decisions"></div></div>
+    <div class="card"><h3 style="margin-top:0">下一步行动</h3><div id="nextActions" class="list"></div></div>
   </section>
 
-  <div class="sectionTitle"><h2>Recent Progress</h2></div>
+  <div class="sectionTitle"><h2>近期进展</h2></div>
   <section class="card"><div id="recent" class="list"></div></section>
 
   <footer id="policy"></footer>
 </main>
 <script>
-const STATUS_LABEL={completed:"完成",in_progress:"进行中",blocked:"阻塞",not_started:"未开始",on_hold:"暂停",ready:"可开始",post_proposal:"后续阶段",locked:"LOCKED",open:"OPEN"};
+const STATUS_LABEL={completed:"完成",in_progress:"进行中",blocked:"阻塞",not_started:"未开始",on_hold:"暂停",ready:"可开始",post_proposal:"后续阶段",locked:"已锁定",open:"开放"};
 function esc(v){return String(v??"").replace(/[&<>"']/g,s=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#039;"}[s]));}
 function statusBadge(status,label){
   const s=status||"not_started";
@@ -227,9 +227,9 @@ function renderTracks(tracks){
   Object.values(tracks||{}).forEach(o=>{
     const card=document.createElement("div");card.className="card option";
     const dims=(o.dimensions||[]).map(d=>'<div class="dim"><span>'+esc(d.name)+'</span>'+bar(d.progress)+'<span class="pct">'+Math.round(d.progress)+'%</span></div>').join("");
-    card.innerHTML='<div class="optionTop"><div><h3>'+esc(o.name)+'</h3><div class="sub">'+esc(o.subtitle)+'</div><div style="margin-top:7px">'+statusBadge(o.status)+'</div></div><div><div class="maturity">'+esc(o.maturity)+'%</div><div class="sub">Track control progress</div></div></div>'+
-      '<p><b>目标：</b>'+esc(o.objective)+'</p><p><b>Current basis：</b>'+esc(o.basis)+'</p><p><b>边界：</b>'+esc(o.boundary)+'</p>'+
-      '<div style="margin:13px 0">'+dims+'</div><div class="item"><b>Next</b><div class="sub">'+esc(o.next)+'</div></div>';
+    card.innerHTML='<div class="optionTop"><div><h3>'+esc(o.name)+'</h3><div class="sub">'+esc(o.subtitle)+'</div><div style="margin-top:7px">'+statusBadge(o.status)+'</div></div><div><div class="maturity">'+esc(o.maturity)+'%</div><div class="sub">控制轨进度</div></div></div>'+
+      '<p><b>目标：</b>'+esc(o.objective)+'</p><p><b>当前依据：</b>'+esc(o.basis)+'</p><p><b>边界：</b>'+esc(o.boundary)+'</p>'+
+      '<div style="margin:13px 0">'+dims+'</div><div class="item"><b>下一步</b><div class="sub">'+esc(o.next)+'</div></div>';
     root.appendChild(card);
   });
 }
@@ -243,16 +243,16 @@ function renderGates(items){
     const blockTitle=done?"剩余后续工作（不阻塞本阶段）":"当前受限 / 未开放范围";
     const blocks=(g.blocks||[]).length?g.blocks:["无"];
     card.innerHTML='<div class="optionTop"><div><h3 style="margin:0">'+esc(g.title)+'</h3><div class="sub">'+esc(g.question)+'</div></div>'+statusBadge(g.status,issueLabel)+'</div>'+
-      '<p><b>Current basis:</b> '+esc(g.currentRequirement)+'</p><div class="grid gateGrid"><div><b>确认输入 / 关闭条件</b><ul>'+(g.requiredInputs||[]).map(x=>'<li>'+esc(x)+'</li>').join("")+'</ul></div>'+
+      '<p><b>当前要求：</b> '+esc(g.currentRequirement)+'</p><div class="grid gateGrid"><div><b>确认输入 / 关闭条件</b><ul>'+(g.requiredInputs||[]).map(x=>'<li>'+esc(x)+'</li>').join("")+'</ul></div>'+
       '<div><b>'+blockTitle+'</b><ul>'+blocks.map(x=>'<li>'+esc(x)+'</li>').join("")+'</ul></div></div>';
     root.appendChild(card);
   });
 }
 function renderTimeline(items){
-  document.getElementById("timeline").innerHTML=items.map(m=>'<div class="mile '+esc(m.status)+'"><span class="mileDot"></span><b>'+esc(m.name)+'</b><small>'+esc(m.date||"TBD / Gate-dependent")+'</small></div>').join("");
+  document.getElementById("timeline").innerHTML=items.map(m=>'<div class="mile '+esc(m.status)+'"><span class="mileDot"></span><b>'+esc(m.name)+'</b><small>'+esc(m.date||"待定 / 取决于 Gate")+'</small></div>').join("");
 }
 function renderDecisions(items){
-  document.getElementById("decisions").innerHTML='<table><thead><tr><th>ID</th><th>Decision</th><th>Status</th></tr></thead><tbody>'+
+  document.getElementById("decisions").innerHTML='<table><thead><tr><th>ID</th><th>决策</th><th>状态</th></tr></thead><tbody>'+
     items.map(d=>'<tr><td>'+esc(d.id)+'</td><td>'+esc(d.decision)+'</td><td>'+statusBadge(d.status,d.status.toUpperCase())+'</td></tr>').join("")+'</tbody></table>';
 }
 function renderNext(items){
@@ -264,12 +264,12 @@ function renderRecent(items){
 function renderMission(m){
   const root=document.getElementById("mission");
   if(!root){return;}
-  if(!m){root.innerHTML='<div class="sub">Mission assessment unavailable.</div>';return;}
+  if(!m){root.innerHTML='<div class="sub">核心目标评估暂不可用。</div>';return;}
   const dims=(m.dimensions||[]).map(d=>
-    '<div class="missionDim"><div class="missionDimTop"><b>'+esc(d.name)+'</b><span>'+Math.round(d.progress)+'% · weight '+esc(d.weight)+'%</span></div>'+
+    '<div class="missionDim"><div class="missionDimTop"><b>'+esc(d.name)+'</b><span>'+Math.round(d.progress)+'% · 权重 '+esc(d.weight)+'%</span></div>'+
     '<div class="note">'+esc(d.note||"")+'</div>'+bar(d.progress)+'</div>'
   ).join("");
-  root.innerHTML='<div class="missionIntro"><div><h3>'+esc(m.title||"Mission Rebaseline")+'</h3><div class="sub">'+esc(m.basis||"")+'</div></div><div class="missionScore">'+Math.round(m.overallProgress||0)+'%</div></div>'+
+  root.innerHTML='<div class="missionIntro"><div><h3>'+esc(m.title||"核心目标重校准")+'</h3><div class="sub">'+esc(m.basis||"")+'</div></div><div class="missionScore">'+Math.round(m.overallProgress||0)+'%</div></div>'+
     '<div class="missionWarn">'+esc(m.warning||"")+'</div><div class="missionDims">'+dims+'</div>';
 }
 function render(data){
@@ -287,7 +287,7 @@ function render(data){
   const leaves=allLeaves(data.wbs);
   document.getElementById("kpiCompleted").textContent=leaves.filter(x=>x.status==="completed").length;
   document.getElementById("kpiProgress").textContent=leaves.filter(x=>x.status==="in_progress").length;
-  document.getElementById("kpiBlocked").textContent=leaves.filter(x=>x.status==="blocked").length;
+  document.getElementById("kpi阻塞").textContent=leaves.filter(x=>x.status==="blocked").length;
   document.getElementById("kpiOpen").textContent=(data.decisions||[]).filter(x=>x.status==="open").length+(data.gates||[]).filter(x=>["blocked","on_hold","open"].includes(x.status)).length;
   renderMission(data.missionAssessment);renderWbs(data);renderTimeline(data.milestones||[]);renderTracks(data.tracks||{});renderGates(data.gates||[]);
   renderDecisions(data.decisions||[]);renderNext(data.nextActions||[]);renderRecent(data.recentProgress||[]);
