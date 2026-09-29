@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-09-29T20:45:00+08:00",
-  "display_time": "2026-09-29 20:45",
-  "version": "2026-09-29_20-45",
-  "note": "Netlify is now the single official dashboard. APP1/V1-C/downstream UI are completed; Route B protocol-generalization is active. Siemens classic S7comm Read Var + ISO-on-TCP replay path is merged; Mitsubishi SLMP 0403 Random Read PR #332 is Technical PASS / Ready and awaits explicit PO merge authorization. Live PLC/HMI capture remains NOT AUTHORIZED; Never Write absolute.",
+  "generated_at": "2026-09-29T21:10:00+08:00",
+  "display_time": "2026-09-29 21:10",
+  "version": "2026-09-29_21-10",
+  "note": "当前正式看板已统一为中文。Netlify 是唯一正式看板；APP1/V1-C/下游 UI 已完成；Route B 协议泛化正在推进。Siemens classic S7comm Read Var + ISO-on-TCP 回放链路已合并；Mitsubishi SLMP 0403 Random Read PR #332 已 Technical PASS / Ready，等待 PO 明确合并授权。真实 PLC/HMI live capture 仍未授权；Never Write 绝对约束保持不变。",
   "dashboard_path": "dashboard.html",
   "data_path": "progress.json",
   "prototype_path": "prototype/workbench/",
