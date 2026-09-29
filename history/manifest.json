@@ -1,6 +1,14 @@
 {
   "snapshots": [
     {
+      "version": "2026-09-23_19-34",
+      "generated_at": "2026-09-23T19:34:00+08:00",
+      "display_time": "2026-09-23 19:34",
+      "note": "Mission-rebaseline dashboard snapshot immediately before the 2026-09-29 Route B / Netlify-single-source update.",
+      "path": "history/2026-09-23_19-34/index.html",
+      "source_commit": "71c5ee6513d437e3859f1084e351ed5511e06ef0"
+    },
+    {
       "version": "2026-09-22_00-53",
       "generated_at": "2026-09-22T00:53:36+08:00",
       "display_time": "2026-09-22 00:53",
