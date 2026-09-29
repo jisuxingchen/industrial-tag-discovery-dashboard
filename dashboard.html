@@ -102,7 +102,7 @@ footer{color:var(--muted);font-size:11px;margin-top:22px;text-align:center}
     </div>
     <div class="card kpi"><b id="kpiCompleted">0</b><span>已完成末级任务</span></div>
     <div class="card kpi"><b id="kpiProgress">0</b><span>进行中</span></div>
-    <div class="card kpi"><b id="kpi阻塞">0</b><span>阻塞</span></div>
+    <div class="card kpi"><b id="kpiBlocked">0</b><span>阻塞</span></div>
     <div class="card kpi"><b id="kpiOpen">0</b><span>待决策 / 待关闭 Gate</span></div>
   </section>
 
@@ -253,7 +253,7 @@ function renderTimeline(items){
 }
 function renderDecisions(items){
   document.getElementById("decisions").innerHTML='<table><thead><tr><th>ID</th><th>决策</th><th>状态</th></tr></thead><tbody>'+
-    items.map(d=>'<tr><td>'+esc(d.id)+'</td><td>'+esc(d.decision)+'</td><td>'+statusBadge(d.status,d.status.toUpperCase())+'</td></tr>').join("")+'</tbody></table>';
+    items.map(d=>'<tr><td>'+esc(d.id)+'</td><td>'+esc(d.decision)+'</td><td>'+statusBadge(d.status,STATUS_LABEL[d.status]||d.status)+'</td></tr>').join("")+'</tbody></table>';
 }
 function renderNext(items){
   document.getElementById("nextActions").innerHTML=items.sort((a,b)=>a.priority-b.priority).map(a=>'<div class="item"><div class="itemTop"><b>#'+esc(a.priority)+' '+esc(a.title)+'</b>'+statusBadge(a.status)+'</div><small>'+esc(a.owner||"")+(a.issue?' · Issue #'+esc(a.issue):"")+'</small>'+(a.note?'<div class="note">'+esc(a.note)+'</div>':'')+'</div>').join("");
@@ -287,7 +287,7 @@ function render(data){
   const leaves=allLeaves(data.wbs);
   document.getElementById("kpiCompleted").textContent=leaves.filter(x=>x.status==="completed").length;
   document.getElementById("kpiProgress").textContent=leaves.filter(x=>x.status==="in_progress").length;
-  document.getElementById("kpi阻塞").textContent=leaves.filter(x=>x.status==="blocked").length;
+  document.getElementById("kpiBlocked").textContent=leaves.filter(x=>x.status==="blocked").length;
   document.getElementById("kpiOpen").textContent=(data.decisions||[]).filter(x=>x.status==="open").length+(data.gates||[]).filter(x=>["blocked","on_hold","open"].includes(x.status)).length;
   renderMission(data.missionAssessment);renderWbs(data);renderTimeline(data.milestones||[]);renderTracks(data.tracks||{});renderGates(data.gates||[]);
   renderDecisions(data.decisions||[]);renderNext(data.nextActions||[]);renderRecent(data.recentProgress||[]);
