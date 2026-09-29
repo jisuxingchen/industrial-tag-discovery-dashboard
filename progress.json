@@ -10,7 +10,7 @@
     "phase": "Route B 协议泛化 → 被动回放链路 → 有边界的现场准备",
     "status": "in_progress",
     "statusLabel": "ROUTE B 进行中 · 协议泛化",
-    "currentGate": "PR #332 已 Technical PASS / Ready / PO-KEY-GATE；真实现场执行仍未授权",
+    "currentGate": "PR #332 技术审查通过 / 已就绪 / PO-KEY-GATE；真实现场执行仍未授权",
     "authoritativeRequirement": "以 GitHub Issue #323 / PR #332 与主仓库 main 真实状态为准；本看板仅为派生视图。",
     "repository": "jisuxingchen/industrial-tag-discovery"
   },
@@ -369,7 +369,7 @@
             "completionNote": "候选提议能力已完成；候选不等于工程师确认。",
             "outputs": [
               {
-                "label": "Core Application",
+                "label": "核心应用",
                 "path": "core/application",
                 "kind": "folder"
               }
@@ -397,7 +397,7 @@
             "completionNote": "有边界的分析能力已完成。",
             "outputs": [
               {
-                "label": "Core Application",
+                "label": "核心应用",
                 "path": "core/application",
                 "kind": "folder"
               }
@@ -425,7 +425,7 @@
             "completionNote": "有边界的关联能力已完成。",
             "outputs": [
               {
-                "label": "Core Application",
+                "label": "核心应用",
                 "path": "core/application",
                 "kind": "folder"
               }
@@ -453,7 +453,7 @@
             "completionNote": "项目本地能力已完成；没有做全局跨项目模板冻结。",
             "outputs": [
               {
-                "label": "Core Application",
+                "label": "核心应用",
                 "path": "core/application",
                 "kind": "folder"
               }
@@ -518,7 +518,7 @@
             "completionNote": "单机/离线持久化已完成；不包含云端/多节点语义。",
             "outputs": [
               {
-                "label": "Persistence Adapter",
+                "label": "持久化 Adapter",
                 "path": "adapters",
                 "kind": "folder"
               }
@@ -620,7 +620,7 @@
             "completionNote": "有边界的交付切片已完成；不包含向客户系统 live deployment。",
             "outputs": [
               {
-                "label": "Delivery contracts",
+                "label": "Delivery 契约",
                 "path": "core/domain/DeliveryContracts.cs",
                 "kind": "file"
               },
@@ -1174,7 +1174,7 @@
           "progress": 100
         },
         {
-          "name": "Known / Investigation / Strategy / Plans",
+          "name": "Known / 调查 / 策略 / 计划",
           "progress": 100
         },
         {
@@ -1282,7 +1282,7 @@
       "title": "Mitsubishi 0403 协议 Adapter 合并 Gate",
       "question": "是否允许合并有边界的 SLMP 3E 0403 Random Read 回放 Decoder？",
       "status": "ready",
-      "statusLabel": "TECHNICAL PASS / PR #332 READY",
+      "statusLabel": "技术审查通过 / PR #332 已就绪",
       "trackingIssue": 331,
       "currentRequirement": "PR #332 需要 PO 明确合并授权。Exact-head CI #1255 SUCCESS 与 Main Agent Technical Review PASS 已满足。",
       "requiredInputs": [
@@ -1303,7 +1303,7 @@
       "currentRequirement": "Route B replay/design 工作可以继续。Live capture / SPAN / TAP / NIC / 客户网络执行必须单独获得有边界的 PO 授权。",
       "requiredInputs": [
         "明确 PLC/HMI 数据源",
-        "Passive observation point",
+        "被动观测点",
         "网络范围",
         "停止条件",
         "Evidence 处理方式",
@@ -1521,7 +1521,7 @@
       "priority": 1,
       "title": "PO 决策：PR #332 — Mitsubishi SLMP 0403 Random Read 回放 Decoder",
       "status": "ready",
-      "owner": "PO / Main Agent",
+      "owner": "PO / 主代理",
       "issue": 331,
       "note": "Technical PASS / Ready；exact-head CI #1255 SUCCESS。需要明确合并授权。"
     },
@@ -1529,7 +1529,7 @@
       "priority": 2,
       "title": "#332 之后继续 Route B 跨厂商 Adapter 验证",
       "status": "ready",
-      "owner": "Main Agent",
+      "owner": "主代理",
       "issue": 323,
       "note": "优先有 Evidence 支撑的协议变体；不得隐式扩展到 live capture 或 Active Read。"
     },
@@ -1537,7 +1537,7 @@
       "priority": 3,
       "title": "准备一个有边界的真实 passive observation Gate",
       "status": "blocked",
-      "owner": "PO / 现场工程 / Main Agent",
+      "owner": "PO / 现场工程 / 主代理",
       "issue": 323,
       "note": "任何真实 capture 前先定义精确 HMI↔PLC 数据源、observation point、网络范围、停止条件与 Evidence 处理方式。"
     },
@@ -1545,7 +1545,7 @@
       "priority": 4,
       "title": "推进 RDS-1A 真实录制数据集 Pilot",
       "status": "open",
-      "owner": "PO / Engineering",
+      "owner": "PO / 工程",
       "issue": 279,
       "note": "录制/去标识化工业数据可以提高真实性，但仍必须与 live-device validation 区分。"
     },
@@ -1553,7 +1553,7 @@
       "priority": 5,
       "title": "Railway 删除接口可用后，物理删除冗余 gracious-strength 服务",
       "status": "open",
-      "owner": "Main Agent / PO",
+      "owner": "主代理 / PO",
       "issue": 330,
       "note": "已通过 sentinel watch path 停止自动部署，并将 restart policy 设为 NEVER；正常 itdp-app1 仍为 SUCCESS。"
     },
@@ -1561,7 +1561,7 @@
       "priority": 6,
       "title": "继续 RP-01 / PDX-001 校准并识别 RP-02/RP-03",
       "status": "in_progress",
-      "owner": "PO / 现场工程 / Product",
+      "owner": "PO / 现场工程 / 产品",
       "issue": 115,
       "note": "这是并行 Acceptance Oracle 控制轨，不是 Route B replay 开发前置条件。"
     }
