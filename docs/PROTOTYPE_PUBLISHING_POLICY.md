@@ -1,35 +1,31 @@
 # Product Workbench Publishing Policy
 
-## Purpose
+## Single official public entry
 
-The clickable Product Workbench is developed in the private ITD repository at
-`prototype/workbench/`. The copy in this public dashboard repository is a **release mirror**, not
-the development source of truth.
+The only official ITDP dashboard/public workbench entry is:
 
-The goal is to keep the Netlify dashboard linked to the prototype without consuming a Netlify
-production-deploy credit for every prototype iteration.
+`https://industrialtagdiscovery.netlify.app/`
 
-## Publishing model
+GitHub Pages is no longer a supported dashboard or prototype deployment target.
 
-1. Routine prototype development happens only in:
-   `jisuxingchen/industrial-tag-discovery/prototype/workbench/`.
-2. Do **not** mirror every prototype commit into this repository.
-3. Sync the four static workbench files into
-   `industrial-tag-discovery-dashboard/prototype/workbench/` only at a meaningful review,
-   demo, acceptance, or release checkpoint.
-4. The Netlify dashboard shell links the Product Workbench to the GitHub Pages URL:
-   `https://jisuxingchen.github.io/industrial-tag-discovery-dashboard/prototype/workbench/`.
-5. GitHub Pages deploys when `prototype/**` changes.
-6. Netlify skips a production deploy when a commit changes only:
-   - `progress.json`; and/or
-   - `prototype/**`.
-7. Changes to the Netlify shell/navigation itself still deploy normally.
+## Source model
 
-## Result
+- Dashboard source repository: `jisuxingchen/industrial-tag-discovery-dashboard`.
+- Netlify publishes this repository.
+- `dashboard.html` reads live `progress.json` from the dashboard repository.
+- The Product Workbench is published under the same Netlify site at `prototype/workbench/`.
+- Private product development remains in `jisuxingchen/industrial-tag-discovery`; the public `prototype/workbench/` directory is only a reviewed release mirror.
 
-- project-status-only update → GitHub-hosted live data / no Netlify production deploy;
-- prototype-only release sync → GitHub Pages / no Netlify production deploy;
-- dashboard shell or navigation change → normal Netlify production deploy.
+## Publishing rules
 
-This is a publishing/cost-control rule only. It does not change ITDP product authority, field
-evidence, PDX-001, Phase 9, or Never Write semantics.
+1. Routine project-status updates may change only `progress.json`; Netlify may skip a production build because the live dashboard reads that file directly from GitHub raw.
+2. Changes to dashboard shell/navigation, `index.html`, `dashboard.html`, or Netlify configuration trigger a Netlify deploy.
+3. Changes to `prototype/workbench/**` also trigger a Netlify deploy so the single official Netlify entry always serves the current published prototype.
+4. Do not add or restore a GitHub Pages deployment workflow.
+5. Historical snapshots under `history/` are versions of the same Netlify dashboard, not independent status authorities.
+
+## Authority
+
+The dashboard is a derived visualization only. Live GitHub Issues / Pull Requests / Actions and the private repository truth remain authoritative for lifecycle, merge authorization, CI, field-execution authorization and evidence classification.
+
+Never Write remains absolute.

@@ -1,17 +1,17 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-23T19:34:00+08:00",
+  "updatedAt": "2026-09-29T20:45:00+08:00",
   "dataPolicy": {
     "rule": "Dashboard status must stay subordinate to repository truth. Percentages are project-control visualization only and MUST NOT upgrade documentary/simulation evidence into field verification, satisfy PDX-001, authorize real-device execution, or open Phase 9."
   },
   "project": {
     "name": "Industrial Tag Discovery Platform (ITDP)",
     "customer": "Platform / multi-project product development",
-    "phase": "APP1 closeout → V1-C Evidence → Real Data Flow Pilot → V1-D / V1-E / V1-F",
+    "phase": "Route B protocol generalization → passive replay stack → bounded field-readiness",
     "status": "in_progress",
-    "statusLabel": "MISSION REBASELINED · APP1 CLOSEOUT ACTIVE",
-    "currentGate": "APP1 #252 / PR #254 closeout; V1-C + real PLC/HMI data-flow path are next planned slices",
-    "authoritativeRequirement": "docs/project/PROJECT_STATE.md + PO decision Issue #255 (truth-sync PR #256 pending)",
+    "statusLabel": "ROUTE B ACTIVE · PROTOCOL GENERALIZATION",
+    "currentGate": "PR #332 Technical PASS / Ready / PO-KEY-GATE; live field execution remains NOT AUTHORIZED",
+    "authoritativeRequirement": "Live GitHub Issue #323 / PR #332 + repository main truth; dashboard is derived only.",
     "repository": "jisuxingchen/industrial-tag-discovery"
   },
   "wbs": [
@@ -215,6 +215,43 @@
               229,
               230
             ]
+          }
+        },
+        {
+          "id": "R1.5",
+          "name": "Canonical Offline Evidence Workspace (V1-C1)",
+          "weight": 20,
+          "status": "completed",
+          "progress": 100,
+          "note": "V1-C design/rehydration/source-artifact/admission/Web/strategy bridge completed.",
+          "detail": {
+            "objective": "Make canonical Evidence operable, durable and restart-safe from the product without creating browser-side authority.",
+            "workDone": [
+              "Validated DiscoverySession/Evidence/Package replay boundary completed.",
+              "Immutable source artifacts and .itdproject package v2 completed.",
+              "Offline HMI/SCADA/OPC tabular evidence admission completed.",
+              "Evidence Web Workspace and exact Evidence → D4-A/R1 bridge completed."
+            ],
+            "result": "V1-C1 is closed/completed; offline evidence can enter the canonical authority path and be reopened/reused.",
+            "completionNote": "Offline evidence productization complete; live PLC/HMI acquisition is still separately gated.",
+            "outputs": [
+              {
+                "label": "Evidence workspace implementation",
+                "path": "core/application",
+                "kind": "folder"
+              }
+            ],
+            "issues": [
+              257,
+              260,
+              261,
+              262,
+              263,
+              264,
+              265,
+              266
+            ],
+            "prs": []
           }
         }
       ]
@@ -524,33 +561,38 @@
         },
         {
           "id": "R4.4",
-          "name": "Current-State Product Workbench (UX0.2)",
+          "name": "Executable Engineer Web Workbench + downstream workflow UI",
           "weight": 15,
           "status": "completed",
           "progress": 100,
-          "note": "Current product-judgment prototype; not production UI.",
+          "note": "APP1 #252 / PR #254 and V1-UI2 #267–#272 are merged/truth-closed.",
           "detail": {
-            "objective": "Refresh the clickable workbench to reflect current repository capabilities and real RP01 calibration semantics.",
+            "objective": "Provide a real browser-operated engineer workbench over existing Application/Domain authority.",
             "workDone": [
-              "Added HK-01 and HT6 calibration devices and Device/Controller/Protocol/Address/Path/Authorization separation.",
-              "Added canonical EvidencePackage placement, D4-A Evidence→Strategy trace and Investigation/Unknown detail.",
-              "Updated R1–R8 + D4-A capability truth and published the same baseline to the public dashboard Pages site."
+              "APP1 Project/Device/Requirement/Known-Unknown/Investigation/Strategy/Plan workflow merged.",
+              "Project rename, backup/export/import, diagnostics and Railway-hosted executable workbench completed.",
+              "Downstream Evidence → Identification → Confirmation → Delivery → Knowledge UI surfaces completed with capability gating."
             ],
-            "result": "UX0.2 is the current product-prototype baseline and is available at /prototype/workbench/.",
-            "completionNote": "100% prototype baseline only; no production UI framework decision and no browser execution of Domain/Application capability.",
+            "result": "Executable product workbench is on main; UI completion is not a substitute for real industrial data validation.",
+            "completionNote": "Product/UI slice complete. Live industrial acquisition remains separately gated.",
             "outputs": [
               {
-                "label": "Product Workbench",
-                "path": "prototype/workbench/",
+                "label": "Web workbench",
+                "path": "ui/web",
                 "kind": "folder"
+              },
+              {
+                "label": "Project state",
+                "path": "docs/project/PROJECT_STATE.md",
+                "kind": "file"
               }
             ],
             "issues": [
-              231
+              252,
+              267
             ],
             "prs": [
-              232,
-              233
+              254
             ]
           }
         }
@@ -928,92 +970,283 @@
           }
         }
       ]
+    },
+    {
+      "id": "R8",
+      "name": "Route B — Passive HMI↔PLC Protocol Generalization",
+      "weight": 15,
+      "status": "in_progress",
+      "children": [
+        {
+          "id": "R8.1",
+          "name": "Protocol-neutral Adapter / Canonical Transaction Contract",
+          "weight": 15,
+          "status": "completed",
+          "progress": 100,
+          "note": "Vendor semantics stop at Protocol Adapter; downstream Evidence path stays protocol-neutral.",
+          "detail": {
+            "objective": "Freeze the generalized Route B adapter boundary.",
+            "workDone": [
+              "Canonical transaction/target contract defined.",
+              "Stable identity separated from response offsets.",
+              "SUPCON kept reference-only."
+            ],
+            "result": "Cross-vendor core contract merged.",
+            "completionNote": "Architecture baseline complete.",
+            "outputs": [
+              {
+                "label": "Protocol adapter contract",
+                "path": "docs/project/RDS1B_R2C_PROTOCOL_ADAPTER_CANONICAL_TRANSACTION_CONTRACT.md",
+                "kind": "file"
+              }
+            ],
+            "issues": [
+              323
+            ],
+            "prs": [
+              324
+            ]
+          }
+        },
+        {
+          "id": "R8.2",
+          "name": "Siemens / Mitsubishi HMI↔PLC Protocol Matrices",
+          "weight": 15,
+          "status": "completed",
+          "progress": 100,
+          "note": "Secure-vs-legacy Siemens and 1E/3E/4E Mitsubishi distinctions are explicit.",
+          "detail": {
+            "objective": "Research real HMI↔PLC communication families before decoder implementation.",
+            "workDone": [
+              "Siemens classic/legacy vs Secure PG/HMI TLS separated.",
+              "Mitsubishi MC/SLMP frame/read families mapped."
+            ],
+            "result": "Evidence-backed vendor protocol matrices merged.",
+            "completionNote": "Research baseline complete; field combination remains evidence-specific.",
+            "outputs": [
+              {
+                "label": "Siemens matrix",
+                "path": "docs/project/RDS1B_R2C_SIEMENS_HMI_PLC_PROTOCOL_MATRIX.md",
+                "kind": "file"
+              },
+              {
+                "label": "Mitsubishi matrix",
+                "path": "docs/project/RDS1B_R2C_MITSUBISHI_HMI_PLC_PROTOCOL_MATRIX.md",
+                "kind": "file"
+              }
+            ],
+            "issues": [
+              323
+            ],
+            "prs": [
+              325
+            ]
+          }
+        },
+        {
+          "id": "R8.3",
+          "name": "Siemens Classic S7comm Read Var Replay Decoder",
+          "weight": 20,
+          "status": "completed",
+          "progress": 100,
+          "note": "Multi-item S7ANY + PDU-reference correlation → existing R1 Evidence path.",
+          "detail": {
+            "objective": "Validate Siemens classic plaintext Read Var against the generalized protocol pipeline.",
+            "workDone": [
+              "Multi-target S7ANY decoding.",
+              "I/Q/M/DB address extraction.",
+              "Per-item Unknown/error handling and mixed unsupported Job tolerance."
+            ],
+            "result": "PR #327 merged; exact-main CI verified.",
+            "completionNote": "Offline/replay validation only; no real-device claim.",
+            "outputs": [
+              {
+                "label": "Siemens replay decoder",
+                "path": "drivers/siemens/SiemensS7CommReadVarReplayDecoder.cs",
+                "kind": "file"
+              }
+            ],
+            "issues": [
+              326
+            ],
+            "prs": [
+              327
+            ]
+          }
+        },
+        {
+          "id": "R8.4",
+          "name": "Siemens ISO-on-TCP TPKT/COTP Replay Framer",
+          "weight": 20,
+          "status": "completed",
+          "progress": 100,
+          "note": "Ordered/gap-free TCP payload → TPKT/COTP → exact S7comm PDU.",
+          "detail": {
+            "objective": "Provide the offline framing layer upstream of the Siemens decoder.",
+            "workDone": [
+              "Arbitrary chunk split/coalesced TPKT support.",
+              "Unique PduSequence separated from source chunk sequence.",
+              "End-to-end framer → #327 decoder test."
+            ],
+            "result": "PR #329 merged; exact-main CI verified.",
+            "completionNote": "No pcap/NIC/TCP-sequence/live capture capability.",
+            "outputs": [
+              {
+                "label": "ISO-on-TCP replay framer",
+                "path": "drivers/siemens/SiemensIsoOnTcpReplayFramer.cs",
+                "kind": "file"
+              }
+            ],
+            "issues": [
+              328
+            ],
+            "prs": [
+              329
+            ]
+          }
+        },
+        {
+          "id": "R8.5",
+          "name": "Mitsubishi SLMP 3E 0403 Random Read Replay Decoder",
+          "weight": 20,
+          "status": "ready",
+          "progress": 90,
+          "note": "PR #332 Technical PASS / Ready; waiting explicit PO merge authorization.",
+          "detail": {
+            "objective": "Validate one-request/multi-noncontiguous-target generalization using Mitsubishi Random Read.",
+            "workDone": [
+              "D-word non-contiguous target decoding implemented.",
+              "Request-order response mapping validated.",
+              "Stable identity and Unknown/fail-closed semantics covered."
+            ],
+            "result": "Exact-head CI #1255 SUCCESS; 1,062 tests passed; unmerged.",
+            "completionNote": "PO-KEY-GATE remains open.",
+            "outputs": [
+              {
+                "label": "Random Read replay decoder",
+                "path": "drivers/mitsubishi/MitsubishiSlmp3ERandomReadReplayDecoder.cs",
+                "kind": "file"
+              }
+            ],
+            "issues": [
+              331
+            ],
+            "prs": [
+              332
+            ]
+          }
+        },
+        {
+          "id": "R8.6",
+          "name": "Live Passive Observation Source / Real HMI↔PLC Pilot",
+          "weight": 10,
+          "status": "blocked",
+          "progress": 0,
+          "note": "Planning/replay only. Live capture, SPAN/TAP/NIC access and customer-network execution remain NOT AUTHORIZED.",
+          "detail": {
+            "objective": "Later feed separately authorized real passive observations into the same generalized protocol pipeline.",
+            "workDone": [],
+            "result": "Not started / not authorized.",
+            "completionNote": "Requires a separate explicit bounded Field Execution Gate.",
+            "outputs": [],
+            "issues": [
+              323,
+              255
+            ],
+            "prs": []
+          }
+        }
+      ]
     }
   ],
   "tracks": {
     "workbench": {
       "name": "Product Workbench / Workflow Track",
-      "subtitle": "Operator workflow, persistence and remote execution",
-      "status": "in_progress",
-      "maturity": 80,
-      "objective": "Finish the minimum durable engineer workbench needed to operate the real Evidence → Identification → Confirmation path.",
-      "basis": "V1-A1 and V1-B1 are main-closed. APP1 Issue #252 / Draft PR #254 is remotely executable; exact head bdb5c3eb… / CI #1123 SUCCESS / Railway exact-head deployment SUCCESS.",
-      "boundary": "This track is not the product mission by itself. More UI polish does not compensate for missing real PLC/HMI data-flow evidence.",
+      "subtitle": "Executable operator workflow and durable project workspace",
+      "status": "completed",
+      "maturity": 95,
+      "objective": "Provide the engineer-facing workflow needed to operate canonical Evidence, Identification, Confirmation, Delivery and Knowledge.",
+      "basis": "APP1 #252 / PR #254 and downstream UI #267–#272 are merged/truth-closed; V1-C1 #261–#266 is also closed/completed.",
+      "boundary": "Product/UI completion does not prove real PLC/HMI runtime compatibility.",
       "dimensions": [
         {
           "name": "Project / Device / Requirements",
-          "progress": 90
+          "progress": 100
         },
         {
           "name": "Known / Investigation / Strategy / Plans",
+          "progress": 100
+        },
+        {
+          "name": "Evidence / downstream workflow UI",
+          "progress": 95
+        },
+        {
+          "name": "Durable Web / project package",
           "progress": 90
-        },
-        {
-          "name": "Remote Web / Persistence",
-          "progress": 85
-        },
-        {
-          "name": "APP1 final closeout",
-          "progress": 55
         }
       ],
-      "next": "Close only essential APP1 gaps (including Project rename and final acceptance), then stop broad UI expansion and move to V1-C."
+      "next": "Hold broad UI expansion; prioritize Route B protocol/readiness and real-data evidence."
     },
     "evidence": {
       "name": "Evidence / Identification Foundation Track",
-      "subtitle": "Canonical offline/replay analysis capability",
+      "subtitle": "Canonical offline/replay evidence + protocol-neutral Route B inputs",
       "status": "in_progress",
-      "maturity": 75,
-      "objective": "Turn current evidence/analysis foundations into a first-class operator workflow that can accept real sources without bypassing authority.",
-      "basis": "R2A/R3A/R2/R3/R4 plus R5A–R5D are main-closed bounded foundations; APP1 still does not expose V1-C/V1-D.",
-      "boundary": "Replay/simulation is useful development evidence but is not real-device validation.",
+      "maturity": 92,
+      "objective": "Keep one canonical Evidence authority while adding replay-capable protocol adapters that can later consume authorized real observations.",
+      "basis": "V1-C1 is completed. Route B protocol contract/matrices, Siemens Read Var decoder and ISO-on-TCP framer are merged. Mitsubishi 0403 PR #332 is Technical PASS / Ready.",
+      "boundary": "Replay/simulation/manual/offline evidence is not real-device validation.",
       "dimensions": [
         {
-          "name": "Canonical Evidence",
+          "name": "Canonical Evidence / restart",
+          "progress": 100
+        },
+        {
+          "name": "Offline source admission",
+          "progress": 100
+        },
+        {
+          "name": "Protocol-neutral passive replay",
           "progress": 85
         },
         {
-          "name": "Replay / Offline Sources",
-          "progress": 90
-        },
-        {
-          "name": "Identification Engines",
-          "progress": 80
-        },
-        {
-          "name": "Web Productization",
-          "progress": 45
+          "name": "Cross-vendor adapter coverage",
+          "progress": 75
         }
       ],
-      "next": "V1-C Evidence Workspace first; V1-D Identification Workspace immediately after canonical evidence is productized."
+      "next": "Complete #332 Gate, then continue only evidence-backed protocol variants while preserving one downstream Evidence path."
     },
     "realData": {
       "name": "Real PLC / HMI Data-Flow Track",
-      "subtitle": "Original core product intent",
+      "subtitle": "Core mission — actual time-varying industrial communication",
       "status": "blocked",
-      "maturity": 15,
-      "objective": "Obtain one actual time-varying PLC/HMI/HMI-adjacent stream and analyze it through canonical Evidence and Identification.",
-      "basis": "Safety/protocol foundations exist, but real PLC/customer-network execution remains NOT AUTHORIZED and no accepted live stream has traversed the chain.",
-      "boundary": "Never Write absolute. Any real connection/capture requires a separate explicit bounded Field Execution Gate.",
+      "maturity": 30,
+      "objective": "Obtain one genuine PLC/HMI communication stream and drive address/value observations through canonical Evidence and Identification.",
+      "basis": "Route B replay stack now covers Siemens classic S7comm + ISO-on-TCP and Mitsubishi 3E 0401; 0403 is at PO Gate. No accepted live PLC/HMI stream has traversed the chain.",
+      "boundary": "Never Write absolute. Live capture/customer-network/Active Read require a separate explicit bounded Field Execution Gate.",
       "dimensions": [
         {
-          "name": "Read-only Safety Foundation",
-          "progress": 70
+          "name": "Read-only / protocol safety foundation",
+          "progress": 85
         },
         {
-          "name": "Real Stream Authorization",
+          "name": "Passive protocol replay stack",
+          "progress": 75
+        },
+        {
+          "name": "Real stream authorization",
           "progress": 0
         },
         {
-          "name": "Real Stream Acquisition",
+          "name": "Real stream acquisition",
           "progress": 0
         },
         {
-          "name": "Evidence → Identification on Real Stream",
+          "name": "Real Evidence → Identification",
           "progress": 0
         }
       ],
-      "next": "Prepare RDS-1 Real Data Flow Readiness Gate: select one isolated source and the least-invasive path (existing HMI/SCADA/OPC stream, passive capture, or bounded controlled read)."
+      "next": "After replay coverage is sufficient, prepare one exact isolated passive observation source and a separate PO field-execution authorization."
     },
     "calibration": {
       "name": "RP-01 / PDX-001 Calibration Track",
@@ -1046,58 +1279,59 @@
   },
   "gates": [
     {
-      "title": "APP1 PO-KEY-GATE",
-      "question": "Is the current Remote Engineer Web Workbench technically and visually ready to merge?",
-      "status": "in_progress",
-      "statusLabel": "ACTIVE / PR #254 DRAFT",
-      "trackingIssue": 252,
-      "currentRequirement": "Close essential product gaps only, run exact-head acceptance/manual smoke, Main Agent Technical Review, then obtain explicit PO merge authorization for PR #254.",
-      "requiredInputs": [
-        "Real Project rename authority and UI",
-        "Final interaction / visual consistency review",
-        "Exact-head CI + Railway exact-head preview",
-        "APP1 acceptance matrix truth",
-        "Explicit PO merge authorization"
-      ],
-      "blocks": [
-        "PR #254 merge",
-        "APP1 formal closeout"
-      ]
-    },
-    {
-      "title": "V1-C Evidence Workspace Gate",
-      "question": "Has APP1 closed and has a bounded V1-C implementation Gate been explicitly opened?",
+      "title": "Mitsubishi 0403 Protocol Adapter Merge Gate",
+      "question": "May the bounded SLMP 3E 0403 Random Read replay decoder merge?",
       "status": "ready",
-      "statusLabel": "NEXT PLANNED / NOT YET AUTHORIZED",
-      "currentRequirement": "V1-C is the next product slice after APP1 closeout. It must reuse canonical R2A Evidence authority and may not invent browser-side evidence truth.",
+      "statusLabel": "TECHNICAL PASS / PR #332 READY",
+      "trackingIssue": 331,
+      "currentRequirement": "Explicit PO merge authorization for PR #332. Exact-head CI #1255 SUCCESS and Main Agent Technical Review PASS are already satisfied.",
       "requiredInputs": [
-        "APP1 closeout baseline",
-        "V1-C bounded Issue/design",
-        "Evidence source / provenance / revision semantics",
-        "Explicit implementation authorization"
+        "Explicit PO merge authorization",
+        "No base drift before merge",
+        "Exact merge-commit main CI after merge"
       ],
       "blocks": [
-        "V1-C production implementation until Gate opens"
+        "PR #332 merge"
       ]
     },
     {
-      "title": "Real PLC/HMI Data Flow Field Execution Gate",
-      "question": "Has one isolated real data source and a strictly read-only method been explicitly authorized?",
+      "title": "Real PLC/HMI Passive Field Execution Gate",
+      "question": "Has one exact source/network scope and a strictly passive observation method been explicitly authorized?",
       "status": "blocked",
       "statusLabel": "NOT AUTHORIZED",
-      "currentRequirement": "Prepare RDS-1 first. Select exact device/source/network scope, acquisition method, stop conditions and evidence handling. Planning is not execution.",
+      "trackingIssue": 323,
+      "currentRequirement": "Route B replay/design work may continue. Live capture/SPAN/TAP/NIC/customer-network execution requires a separate bounded PO authorization.",
       "requiredInputs": [
-        "One exact PLC/HMI/HMI-adjacent source",
-        "Least-invasive acquisition method",
-        "Read-only / passive safety proof",
-        "Network/device scope and stop conditions",
-        "Explicit PO Field Execution authorization"
+        "Exact PLC/HMI source",
+        "Passive observation point",
+        "Network scope",
+        "Stop conditions",
+        "Evidence handling",
+        "Explicit PO field authorization"
       ],
       "blocks": [
-        "Live PLC/customer-network access",
-        "Live passive capture on customer network",
-        "Controlled Active Read on real equipment",
-        "Any Write / Force / Download / Run-Stop / config/control mutation"
+        "Live capture",
+        "SPAN/mirror changes",
+        "NIC/pcap on customer network",
+        "Real Active Read",
+        "Any Write/Force/Download/Run-Stop/Reset/config mutation"
+      ]
+    },
+    {
+      "title": "RDS-1A Real Recorded Dataset Pilot",
+      "question": "Has the first representative real recorded dataset been supplied and accepted for canonical analysis?",
+      "status": "open",
+      "statusLabel": "OPEN / Issue #279",
+      "trackingIssue": 279,
+      "currentRequirement": "Use real recorded/de-identified evidence without upgrading it to live-device validation.",
+      "requiredInputs": [
+        "Representative recorded dataset",
+        "Source/provenance/authorization",
+        "Canonical ingestion",
+        "Identification analysis"
+      ],
+      "blocks": [
+        "Claiming live compatibility from recorded evidence"
       ]
     },
     {
@@ -1106,17 +1340,15 @@
       "status": "on_hold",
       "statusLabel": "NOT SATISFIED",
       "trackingIssue": 115,
-      "currentRequirement": "RP-01 exists; RP-02/RP-03 do not. Dynamic PLC/HMI stream validation is also still missing.",
+      "currentRequirement": "RP-01 exists; RP-02/RP-03 and dynamic real-data evidence remain insufficient.",
       "requiredInputs": [
         "2–3 real-project evidence sets",
         "Workflow variance evidence",
-        "Knowledge applicability evidence",
-        "Cross-project ranking/planning evidence"
+        "Knowledge applicability evidence"
       ],
       "blocks": [
         "Universal cross-project freeze",
-        "Detailed full-workflow freeze",
-        "Phase 9 readiness decision"
+        "Phase 9 readiness"
       ]
     },
     {
@@ -1143,12 +1375,12 @@
     },
     {
       "id": "D-02",
-      "decision": "Core mission is real PLC/HMI data-flow analysis through Evidence → Identification → Confirmation; UI/process completion alone is not product completion.",
+      "decision": "Core mission remains real PLC/HMI data-flow analysis through Evidence → Identification → Confirmation; replay/UI completion alone is not product completion.",
       "status": "locked"
     },
     {
       "id": "D-03",
-      "decision": "After APP1 closeout, priority shifts to V1-C Evidence Workspace and a separately gated real data-flow pilot.",
+      "decision": "Route B uses a protocol-neutral pipeline; vendor-specific semantics terminate at Protocol Adapter boundaries.",
       "status": "locked"
     },
     {
@@ -1158,17 +1390,17 @@
     },
     {
       "id": "D-05",
-      "decision": "PDX-001 is a Cross-project Freeze Gate, not a global development stop.",
+      "decision": "SUPCON driver source is reference-only and does not select ITDP protocol architecture.",
       "status": "locked"
     },
     {
       "id": "D-06",
-      "decision": "Macro lifecycle Discovery → Identification → Confirmation → Delivery → Reuse remains binding.",
+      "decision": "Siemens Secure PG/HMI TLS is a passive payload visibility blocker; no decryption/downgrade work is authorized.",
       "status": "locked"
     },
     {
       "id": "D-07",
-      "decision": "Phase 9 remains HOLD / NOT OPENED.",
+      "decision": "PDX-001 remains a cross-project Freeze Gate; Phase 9 remains HOLD.",
       "status": "locked"
     }
   ],
@@ -1242,85 +1474,88 @@
   ],
   "recentProgress": [
     {
-      "ref": "Issue #255",
-      "title": "PO mission rebaseline: restore real PLC/HMI data-flow analysis as the core progress axis; UI/process completion no longer proxies overall project completion",
+      "ref": "PR #332 · Issue #331",
+      "title": "Mitsubishi SLMP 3E 0403 Random Read replay decoder Technical PASS / Ready; CI #1255 SUCCESS; 1,062 tests passed; awaiting PO merge authorization",
+      "status": "ready",
+      "date": "2026-09-29"
+    },
+    {
+      "ref": "PR #329 · Issue #328",
+      "title": "Siemens ISO-on-TCP TPKT/COTP offline replay framer merged; exact-main CI #1254 SUCCESS; end-to-end framer → S7comm decoder composition verified",
+      "status": "completed",
+      "date": "2026-09-29"
+    },
+    {
+      "ref": "PR #327 · Issue #326",
+      "title": "Siemens classic S7comm Read Var offline replay decoder merged; PDU-reference correlation + multi-item S7ANY + R1 Evidence path verified",
+      "status": "completed",
+      "date": "2026-09-29"
+    },
+    {
+      "ref": "PR #325 / #324 · Issue #323",
+      "title": "Cross-vendor protocol matrices and protocol-neutral Adapter/Canonical Transaction contract merged; Siemens secure-vs-legacy boundary and Mitsubishi 1E/3E/4E distinctions recorded",
+      "status": "completed",
+      "date": "2026-09-29"
+    },
+    {
+      "ref": "Issue #330",
+      "title": "Redundant Railway gracious-strength auto-deploy disabled; restart policy NEVER; physical deletion pending connector capability; active itdp-app1 unaffected",
       "status": "in_progress",
+      "date": "2026-09-29"
+    },
+    {
+      "ref": "V1-C1 #261–#266",
+      "title": "Canonical Offline Evidence Workspace, validated replay, immutable source artifacts, tabular Evidence admission, Web workspace and Evidence→Strategy bridge closed/completed",
+      "status": "completed",
+      "date": "2026-09-24"
+    },
+    {
+      "ref": "APP1 #252 / PR #254 · V1-UI2 #267–#272",
+      "title": "Executable Engineer Web Workbench and downstream Evidence→Identification→Confirmation→Delivery→Knowledge UI merged/truth-closed",
+      "status": "completed",
       "date": "2026-09-23"
-    },
-    {
-      "ref": "PR #254 · Issue #252",
-      "title": "APP1 Remote Engineer Web Workbench active: exact head bdb5c3eb… / CI #1123 SUCCESS / Railway exact-head deployment SUCCESS; Draft/unmerged; node-detail mutations and preference bootstrap included",
-      "status": "in_progress",
-      "date": "2026-09-23"
-    },
-    {
-      "ref": "PR #256 · Issue #255",
-      "title": "Authoritative mission-rebaseline truth sync prepared for PROJECT_STATE / ROADMAP / TASK_IO_MATRIX; PR remains separate from APP1",
-      "status": "in_progress",
-      "date": "2026-09-23"
-    },
-    {
-      "ref": "PR #239 / #240 · Issue #238",
-      "title": "Workflow V1-A1 implementation main-closed: #239 exact-head CI #985 SUCCESS / merge 9fd3d79e / exact main CI #986 SUCCESS; truth closeout #240 exact-head CI #987 / merge 93d80b46 / exact main CI #988 SUCCESS; #238 CLOSED",
-      "status": "completed",
-      "date": "2026-09-22"
-    },
-    {
-      "ref": "PR #237 · Issue #236 / Gate #238",
-      "title": "Workflow V1-A pre-implementation design main-closed; exact-head CI #975 / exact main CI #976 SUCCESS; implementation Gate #238 created and awaiting PO authorization",
-      "status": "completed",
-      "date": "2026-09-21"
-    },
-    {
-      "ref": "PR #235 · Issue #234",
-      "title": "ITD Engineer Workflow V1 complete 10-step + cross-cutting gap inventory main-closed; exact-head CI #973 / exact main CI #974 SUCCESS; V1-A recommended",
-      "status": "completed",
-      "date": "2026-09-21"
-    },
-    {
-      "ref": "PR #232 / #233 · Dashboard PR #30",
-      "title": "UX0.2 Current-State Product Workbench main-closed (CI #970/#972) and published to GitHub Pages; HK-01/HT6 calibration + D4-A Evidence→Strategy trace visible",
-      "status": "completed",
-      "date": "2026-09-21"
     }
   ],
   "nextActions": [
     {
       "priority": 1,
-      "title": "Close essential APP1 gaps and stop broad UI expansion",
-      "status": "in_progress",
-      "owner": "Main Agent / PO",
-      "issue": 252,
-      "note": "PR #254 remains Draft/unmerged. Finish Project rename authority, final consistency/manual acceptance and Technical Review; retain explicit PO merge gate."
+      "title": "PO decision on PR #332 — Mitsubishi SLMP 0403 Random Read replay decoder",
+      "status": "ready",
+      "owner": "PO / Main Agent",
+      "issue": 331,
+      "note": "Technical PASS / Ready; exact-head CI #1255 SUCCESS. Explicit merge authorization required."
     },
     {
       "priority": 2,
-      "title": "Open V1-C Evidence Workspace as the next product slice",
+      "title": "Continue Route B cross-vendor adapter validation after #332",
       "status": "ready",
-      "owner": "PO / Main Agent",
-      "note": "Use existing R2A authority. Provide offline/HMI/tabular/manual evidence intake, provenance/conflict/Unknown review and EvidencePackage browsing/revision."
+      "owner": "Main Agent",
+      "issue": 323,
+      "note": "Prefer evidence-backed protocol variants; do not widen to live capture or Active Read implicitly."
     },
     {
       "priority": 3,
-      "title": "Prepare RDS-1 Real Data Flow Readiness Gate",
-      "status": "ready",
-      "owner": "PO / Main Agent / Field Engineering",
-      "issue": 255,
-      "note": "Select one isolated PLC/HMI source and least-invasive acquisition path. This is planning only; no live execution is authorized yet."
+      "title": "Prepare one bounded live passive observation Gate",
+      "status": "blocked",
+      "owner": "PO / Field Engineering / Main Agent",
+      "issue": 323,
+      "note": "Define exact HMI↔PLC source, observation point, network scope, stop conditions and evidence handling before any real capture."
     },
     {
       "priority": 4,
-      "title": "Run one real PLC/HMI time-varying stream pilot after explicit authorization",
-      "status": "blocked",
-      "owner": "PO / Field Engineering / Main Agent",
-      "note": "Target outcome: one genuine stream admitted through canonical Evidence and consumed by Identification. Never Write absolute."
+      "title": "Advance RDS-1A real recorded dataset pilot",
+      "status": "open",
+      "owner": "PO / Engineering",
+      "issue": 279,
+      "note": "Recorded/de-identified industrial data can improve realism while remaining distinct from live-device validation."
     },
     {
       "priority": 5,
-      "title": "Productize V1-D Identification, then V1-E Confirmation/Delivery and V1-F Knowledge",
-      "status": "not_started",
+      "title": "Physically remove redundant Railway gracious-strength service when deletion API is available",
+      "status": "open",
       "owner": "Main Agent / PO",
-      "note": "Do not treat existing Domain foundations as complete operator workflows."
+      "issue": 330,
+      "note": "Auto-deploy disabled via sentinel watch path and restart policy NEVER; active itdp-app1 remains SUCCESS."
     },
     {
       "priority": 6,
@@ -1328,49 +1563,49 @@
       "status": "in_progress",
       "owner": "PO / Site Engineering / Product",
       "issue": 115,
-      "note": "Parallel evidence track; it must not be confused with dynamic data-stream validation."
+      "note": "Parallel acceptance-oracle track; not a prerequisite for Route B replay development."
     }
   ],
   "missionAssessment": {
     "title": "Mission Rebaseline — core goal = real PLC/HMI data-stream analysis",
-    "overallProgress": 53,
-    "basis": "Weighted project-control estimate only. It does not upgrade simulation/replay/documentary evidence into real-device validation or authorize field execution.",
-    "warning": "UI / workflow / deployment progress is materially ahead of the real industrial data-flow objective. The next technical priority after APP1 closeout is canonical Evidence plus one genuine time-varying PLC/HMI stream.",
+    "overallProgress": 69,
+    "basis": "Project-control estimate only. It reflects completed product/evidence/protocol foundations but does not upgrade replay/recorded evidence into real-device validation or authorize field execution.",
+    "warning": "Route B protocol readiness has advanced materially, but the central remaining gap is unchanged: no accepted live PLC/HMI time-varying stream has traversed the canonical Evidence → Identification chain.",
     "dimensions": [
       {
         "name": "Product Workbench & Workflow",
         "weight": 25,
-        "progress": 80,
-        "status": "in_progress",
-        "note": "V1-A1 + V1-B1 main-closed; APP1 #252 / PR #254 runs remotely at exact head bdb5c3eb… with CI #1123 SUCCESS, but PR remains Draft/unmerged. Essential closeout gaps include Project rename authority and final acceptance."
+        "progress": 95,
+        "status": "completed",
+        "note": "APP1 and downstream workflow UI are merged/truth-closed; V1-C1 offline Evidence Workspace is also completed."
       },
       {
-        "name": "Offline Evidence & Analysis Foundation",
+        "name": "Offline Evidence & Protocol Foundation",
         "weight": 25,
-        "progress": 75,
+        "progress": 92,
         "status": "in_progress",
-        "note": "R2A/R3A/R2/R3/R4 and R5A–R5D foundations exist, but V1-C Evidence Workspace and V1-D Identification Workspace are not yet productized in APP1."
+        "note": "Canonical Evidence/replay/productization are mature; Siemens replay stack is merged and Mitsubishi 0403 is at PO merge gate."
       },
       {
         "name": "Real PLC/HMI Data Stream",
         "weight": 25,
-        "progress": 15,
+        "progress": 30,
         "status": "blocked",
-        "note": "Read-only safety/protocol foundations, HMI offline adapter, replay-first passive capture and simulated Active Read exist. No accepted live PLC/HMI time-varying stream has traversed the canonical product chain yet."
+        "note": "Passive protocol architecture is materially stronger, but live capture/customer-network execution is not authorized and no accepted live stream has traversed the chain."
       },
       {
-        "name": "Confirmation / Delivery / Knowledge",
+        "name": "Identification / Confirmation / Delivery / Knowledge",
         "weight": 15,
-        "progress": 45,
+        "progress": 75,
         "status": "in_progress",
-        "note": "Domain/Application foundations and offline vertical slices exist. V1-E/V1-F operator workflows are still not implemented in the Web Workbench."
+        "note": "Domain/Application foundations and downstream operator UI exist; real-stream-driven validation remains incomplete."
       },
       {
         "name": "Real-project Validation",
         "weight": 10,
-        "progress": 30,
+        "progress": 35,
         "status": "in_progress",
-        "note": "RP-01 documentary + field-photo calibration is substantial, but dynamic PLC/HMI data-flow validation and RP-02/RP-03 evidence remain missing."
+        "note": "RP-01 and recorded-runtime work provide grounded evidence, but dynamic live PLC/HMI validation and RP-02/RP-03 remain incomplete."
       }
     ]
   }
