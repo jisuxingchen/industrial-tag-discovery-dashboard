@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-29T21:10:00+08:00",
+  "updatedAt": "2026-10-01T08:10:00+08:00",
   "dataPolicy": {
     "rule": "看板状态必须服从仓库真实状态。所有百分比仅用于项目控制可视化，不得把文档、仿真、回放或录制证据升级为现场验证，不得视为满足 PDX-001，不得授权真实设备执行，也不得据此开启 Phase 9。"
   },
@@ -10,8 +10,8 @@
     "phase": "Route B 协议泛化 → 被动回放链路 → 有边界的现场准备",
     "status": "in_progress",
     "statusLabel": "ROUTE B 进行中 · 协议泛化",
-    "currentGate": "PR #332 技术审查通过 / 已就绪 / PO-KEY-GATE；真实现场执行仍未授权",
-    "authoritativeRequirement": "以 GitHub Issue #323 / PR #332 与主仓库 main 真实状态为准；本看板仅为派生视图。",
+    "currentGate": "PR #332 已同步最新 main，fresh Technical PASS / Ready / PO-KEY-GATE；等待 PO 明确合并授权；真实现场执行仍未授权。",
+    "authoritativeRequirement": "以 GitHub Issue #323 / PR #332、fresh CI #1258 与主仓库 main `3f8d370f…` 真实状态为准；本看板仅为派生视图。",
     "repository": "jisuxingchen/industrial-tag-discovery"
   },
   "wbs": [
@@ -1111,7 +1111,7 @@
           "weight": 20,
           "status": "ready",
           "progress": 90,
-          "note": "PR #332 已 Technical PASS / Ready；等待 PO 明确合并授权。",
+          "note": "PR #332 已同步到最新 main；fresh Technical PASS / Ready；等待 PO 明确合并授权。",
           "detail": {
             "objective": "使用 Mitsubishi Random Read 验证“一次请求、多非连续 target”的协议泛化能力。",
             "workDone": [
@@ -1119,8 +1119,8 @@
               "验证按请求顺序进行 response 映射。",
               "覆盖 stable identity 与 Unknown/fail-closed 语义。"
             ],
-            "result": "Exact-head CI #1255 SUCCESS；1,062 tests passed；尚未合并。",
-            "completionNote": "PO-KEY-GATE 仍开放。",
+            "result": "Fresh exact-head CI #1258 SUCCESS；1,062 tests passed；head=69d19ba3…；3 ahead / 0 behind；尚未合并。",
+            "completionNote": "旧 CI #1255 / Technical PASS 已 superseded；当前 fresh PASS 有效。PO-KEY-GATE 仍开放。",
             "outputs": [
               {
                 "label": "Random Read 回放 Decoder",
@@ -1194,7 +1194,7 @@
       "status": "in_progress",
       "maturity": 92,
       "objective": "保持唯一 canonical Evidence authority，同时增加可回放的协议 Adapter，为后续已授权真实 observations 做准备。",
-      "basis": "V1-C1 已完成。Route B 协议契约/矩阵、Siemens Read Var decoder 与 ISO-on-TCP framer 已合并；Mitsubishi 0403 PR #332 已 Technical PASS / Ready。",
+      "basis": "V1-C1 已完成。Route B 协议契约/矩阵、Siemens Read Var decoder 与 ISO-on-TCP framer 已合并；Mitsubishi 0403 PR #332 已同步最新 main，并通过 fresh CI #1258 / fresh Technical Review。",
       "boundary": "Replay / simulation / manual / offline Evidence 不等于真实设备验证。",
       "dimensions": [
         {
@@ -1214,7 +1214,7 @@
           "progress": 75
         }
       ],
-      "next": "完成 #332 Gate 后，仅继续有 Evidence 支撑的协议变体，并保持单一的下游 Evidence 路径。"
+      "next": "PR #332 当前已回到 PO merge gate；如获明确批准，合并后再验证 exact merge-commit main CI。"
     },
     "realData": {
       "name": "真实 PLC / HMI 数据流控制轨",
@@ -1222,7 +1222,7 @@
       "status": "blocked",
       "maturity": 30,
       "objective": "获得一条真实 PLC/HMI 通信流，并把地址/值 observations 送入 canonical Evidence 与 Identification。",
-      "basis": "Route B replay stack 已覆盖 Siemens classic S7comm + ISO-on-TCP 与 Mitsubishi 3E 0401；0403 正处于 PO Gate。尚无被接受的 live PLC/HMI 流完整穿过该链路。",
+      "basis": "Route B replay stack 已覆盖 Siemens classic S7comm + ISO-on-TCP 与 Mitsubishi 3E 0401；Mitsubishi 0403 PR #332 已完成 base sync + fresh CI/review，当前处于 PO merge gate。尚无被接受的 live PLC/HMI 流完整穿过该链路。",
       "boundary": "Never Write 绝对约束。Live capture / 客户网络 / Active Read 必须经过独立且明确的 Field Execution Gate。",
       "dimensions": [
         {
@@ -1284,10 +1284,10 @@
       "status": "ready",
       "statusLabel": "技术审查通过 / PR #332 已就绪",
       "trackingIssue": 331,
-      "currentRequirement": "PR #332 需要 PO 明确合并授权。Exact-head CI #1255 SUCCESS 与 Main Agent Technical Review PASS 已满足。",
+      "currentRequirement": "PR #332 已同步到当前 main `3f8d370f…`，head=`69d19ba3…`，3 ahead / 0 behind；fresh exact-head CI #1258 SUCCESS，Main Agent fresh Technical Review PASS。现在仅等待 PO 明确合并授权。",
       "requiredInputs": [
         "PO 明确合并授权",
-        "合并前 main 不发生未处理的 base drift",
+        "合并前重新读取 PR/main，确认 head/base 未再次漂移",
         "合并后验证 exact merge-commit main CI"
       ],
       "blocks": [
@@ -1475,9 +1475,9 @@
   "recentProgress": [
     {
       "ref": "PR #332 · Issue #331",
-      "title": "Mitsubishi SLMP 3E 0403 Random Read 回放 Decoder 已 Technical PASS / Ready；CI #1255 SUCCESS；1,062 项测试通过；等待 PO 合并授权",
+      "title": "PR #332 已同步到最新 main `3f8d370f…`；新 head `69d19ba3…`；fresh CI #1258 SUCCESS；1,062 项测试通过；fresh Technical Review PASS；当前等待 PO 合并授权",
       "status": "ready",
-      "date": "2026-09-29"
+      "date": "2026-10-01"
     },
     {
       "ref": "PR #329 · Issue #328",
@@ -1523,7 +1523,7 @@
       "status": "ready",
       "owner": "PO / 主代理",
       "issue": 331,
-      "note": "Technical PASS / Ready；exact-head CI #1255 SUCCESS。需要明确合并授权。"
+      "note": "已完成 base sync；fresh exact-head CI #1258 SUCCESS；fresh Technical Review PASS。需要 PO 明确合并授权。"
     },
     {
       "priority": 2,
