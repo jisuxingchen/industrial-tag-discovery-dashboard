@@ -1,14 +1,14 @@
 {
-  "generated_at": "2026-10-01T08:10:00+08:00",
-  "display_time": "2026-10-01 08:10",
-  "version": "2026-10-01_08-10",
-  "note": "Netlify 仍是唯一正式看板。Route B 协议泛化继续推进。PR #332 已同步到最新 main，fresh exact-head CI #1258 SUCCESS，Main Agent fresh Technical Review PASS；当前状态恢复为 Technical PASS / Ready / PO-KEY-GATE，等待 PO 明确合并授权。此前 CI #1255 / Technical PASS 已 superseded。真实 PLC/HMI live capture 仍未授权；Never Write 绝对约束保持不变。",
+  "generated_at": "2026-10-01T08:35:00+08:00",
+  "display_time": "2026-10-01 08:35",
+  "version": "2026-10-01_08-35",
+  "note": "PR #332 已在 PO 明确授权后合并。merge commit `eafdf2f6…` 已通过 exact-main CI #1259（1,062 passed / 0 failed / 0 skipped）。Mitsubishi SLMP 3E 0403 Random Read 离线回放 Decoder 已进入 main。Issue #331 已关闭，Route B 总体 Issue #323 继续开放。真实 PLC/HMI live capture 仍未授权；Never Write 绝对约束保持不变。",
   "dashboard_path": "dashboard.html",
   "data_path": "progress.json",
   "prototype_path": "prototype/workbench/",
   "official_url": "https://industrialtagdiscovery.netlify.app/",
-  "source_main_commit": "3f8d370f33c072324c3213db2658a3005134970a",
+  "source_main_commit": "eafdf2f60c8a925954dd090d65987c2c96810f36",
   "active_route_b_issue": 323,
-  "active_pr": 332,
-  "active_pr_head": "69d19ba3aec367769dda496e1216b82c12679529"
+  "active_pr": null,
+  "active_pr_head": null
 }
