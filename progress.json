@@ -1521,14 +1521,6 @@
     },
     {
       "priority": 2,
-      "title": "#332 之后继续 Route B 跨厂商 Adapter 验证",
-      "status": "ready",
-      "owner": "主代理",
-      "issue": 323,
-      "note": "优先有 Evidence 支撑的协议变体；不得隐式扩展到 live capture 或 Active Read。"
-    },
-    {
-      "priority": 3,
       "title": "准备一个有边界的真实 passive observation Gate",
       "status": "blocked",
       "owner": "PO / 现场工程 / 主代理",
@@ -1536,7 +1528,7 @@
       "note": "任何真实 capture 前先定义精确 HMI↔PLC 数据源、observation point、网络范围、停止条件与 Evidence 处理方式。"
     },
     {
-      "priority": 4,
+      "priority": 3,
       "title": "推进 RDS-1A 真实录制数据集 Pilot",
       "status": "open",
       "owner": "PO / 工程",
@@ -1544,7 +1536,7 @@
       "note": "录制/去标识化工业数据可以提高真实性，但仍必须与 live-device validation 区分。"
     },
     {
-      "priority": 5,
+      "priority": 4,
       "title": "Railway 删除接口可用后，物理删除冗余 gracious-strength 服务",
       "status": "open",
       "owner": "主代理 / PO",
@@ -1552,7 +1544,7 @@
       "note": "已通过 sentinel watch path 停止自动部署，并将 restart policy 设为 NEVER；正常 itdp-app1 仍为 SUCCESS。"
     },
     {
-      "priority": 6,
+      "priority": 5,
       "title": "继续 RP-01 / PDX-001 校准并识别 RP-02/RP-03",
       "status": "in_progress",
       "owner": "PO / 现场工程 / 产品",
