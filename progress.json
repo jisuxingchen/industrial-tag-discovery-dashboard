@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-01T08:50:00+08:00",
+  "updatedAt": "2026-10-05T23:01:00+08:00",
   "dataPolicy": {
     "rule": "看板状态必须服从仓库真实状态。所有百分比仅用于项目控制可视化，不得把文档、仿真、回放或录制证据升级为现场验证，不得视为满足 PDX-001，不得授权真实设备执行，也不得据此开启 Phase 9。"
   },
@@ -10,8 +10,8 @@
     "phase": "Route B 协议泛化 → 被动回放链路 → 有边界的现场准备",
     "status": "in_progress",
     "statusLabel": "ROUTE B 进行中 · 协议泛化",
-    "currentGate": "PR #335 协议无关 offline TCP replay reassembler 已 Technical PASS / Ready / PO-KEY-GATE；等待 PO 明确合并授权。真实现场执行仍未授权。",
-    "authoritativeRequirement": "以 GitHub Issue #323 / #334、PR #335、CI #1260 与主仓库 main `eafdf2f6…` 真实状态为准；本看板仅为派生视图。",
+    "currentGate": "PR #335 已合并并通过 exact-main CI #1261；R2E Gate 已关闭。下一阶段进入 RDS-1B-R2F1 Siemens ISO-on-TCP/COTP segmentation，仍限定为 offline/replay。",
+    "authoritativeRequirement": "以 GitHub main `d6ac89d4…`、Issue #323/#334 与 exact-main CI #1261 为当前 truth；看板仅为派生视图。",
     "repository": "jisuxingchen/industrial-tag-discovery"
   },
   "wbs": [
@@ -1140,9 +1140,9 @@
           "id": "R8.6",
           "name": "协议无关离线 TCP Replay Reassembly",
           "weight": 12,
-          "status": "ready",
-          "progress": 90,
-          "note": "PR #335 Technical PASS / Ready；CI #1260 SUCCESS；等待 PO 明确合并授权。",
+          "status": "completed",
+          "progress": 100,
+          "note": "PR #335 已合并；exact-main CI #1261 SUCCESS。",
           "detail": {
             "objective": "补齐 Route B L1 transport/replay 层，使厂商 framer 不再自行承担 TCP payload 重组假设。",
             "workDone": [
@@ -1151,8 +1151,8 @@
               "conflicting overlap fail-closed；internal gap 显式化并拆分 contiguous runs。",
               "完成 gap-free run → 现有 Siemens ISO-on-TCP framer 的 byte-exact composition 测试。"
             ],
-            "result": "Exact-head CI #1260 SUCCESS；1,072 passed / 0 failed / 0 skipped；head=`32aba74a…`；3 ahead / 0 behind。",
-            "completionNote": "不解析 pcap/TCP header/raw TCP sequence wrap；没有 live capture/socket/send 能力。当前仍为 PO-KEY-GATE。",
+            "result": "Merge commit `d6ac89d4…` 已进入 main；CI #1261 SUCCESS；1,072 passed / 0 failed / 0 skipped。",
+            "completionNote": "offline/replay transport contract 已完成；不包含 pcap/TCP header/live capture/socket/send。",
             "outputs": [
               {
                 "label": "Offline TCP replay reassembler",
@@ -1226,7 +1226,7 @@
       "status": "in_progress",
       "maturity": 92,
       "objective": "保持唯一 canonical Evidence authority，同时增加可回放的协议 Adapter，为后续已授权真实 observations 做准备。",
-      "basis": "V1-C1 已完成。Route B 已合并 Siemens/Mitsubishi replay adapters；当前 PR #335 正在补协议无关 L1 offline TCP replay reassembly，CI #1260 与 Technical Review 均 PASS。",
+      "basis": "Route B 已合并协议无关 offline TCP replay reassembly、Siemens Read Var/ISO-on-TCP replay 与 Mitsubishi 0401/0403 replay slices；#335 merge-main CI #1261 已验证。",
       "boundary": "Replay / simulation / manual / offline Evidence 不等于真实设备验证。",
       "dimensions": [
         {
@@ -1246,7 +1246,7 @@
           "progress": 75
         }
       ],
-      "next": "如 PO 批准 #335，合并后验证 exact-main CI；随后再决定是否进入 COTP segmentation / 更完整 framing 语义或其他 Evidence-backed 协议变体。"
+      "next": "下一步进入 RDS-1B-R2F1 Siemens ISO-on-TCP/COTP segmentation；继续保持 replay-only 与 fail-closed 边界。"
     },
     "realData": {
       "name": "真实 PLC / HMI 数据流控制轨",
@@ -1254,7 +1254,7 @@
       "status": "blocked",
       "maturity": 30,
       "objective": "获得一条真实 PLC/HMI 通信流，并把地址/值 observations 送入 canonical Evidence 与 Identification。",
-      "basis": "协议 replay 栈已覆盖 Siemens classic S7comm + ISO-on-TCP、Mitsubishi 3E 0401/0403；协议无关 TCP replay reassembly 已到 PR #335 PO Gate。尚无被接受的 live PLC/HMI 流完整穿过该链路。",
+      "basis": "Route B replay stack 已覆盖协议无关 TCP replay reassembly、Siemens classic S7comm + ISO-on-TCP、Mitsubishi 3E 0401/0403。真实 live PLC/HMI 数据流仍未授权/未接入。",
       "boundary": "Never Write 绝对约束。Live capture / 客户网络 / Active Read 必须经过独立且明确的 Field Execution Gate。",
       "dimensions": [
         {
@@ -1313,18 +1313,12 @@
     {
       "title": "协议无关 TCP Replay Reassembly 合并 Gate",
       "question": "是否允许将 Route B 共用的 offline TCP payload reassembly 基础合入 main？",
-      "status": "ready",
-      "statusLabel": "技术审查通过 / PR #335 已就绪",
+      "status": "completed",
+      "statusLabel": "已合并 / MAIN CI VERIFIED",
       "trackingIssue": 334,
-      "currentRequirement": "PR #335 head=`32aba74a…`，base=main `eafdf2f6…`，3 ahead / 0 behind；CI #1260 SUCCESS，Main Agent Technical Review PASS。现在仅等待 PO 明确合并授权。",
-      "requiredInputs": [
-        "PO 明确合并授权",
-        "合并前重新读取 PR/main，确认 head/base 未漂移",
-        "合并后验证 exact merge-commit main CI"
-      ],
-      "blocks": [
-        "PR #335 合并"
-      ]
+      "currentRequirement": "PR #335 已合并为 `d6ac89d4…`；exact-main CI #1261 SUCCESS。该 Gate 已完成。",
+      "requiredInputs": [],
+      "blocks": []
     },
     {
       "title": "Mitsubishi 0403 协议 Adapter 合并 Gate",
@@ -1517,9 +1511,9 @@
   "recentProgress": [
     {
       "ref": "PR #335 · Issue #334",
-      "title": "协议无关 offline TCP replay reassembler 已 Technical PASS / Ready；CI #1260 SUCCESS；1,072 项测试全部通过；等待 PO 合并授权",
-      "status": "ready",
-      "date": "2026-10-01"
+      "title": "协议无关 offline TCP replay reassembler 已合并；merge `d6ac89d4…`；exact-main CI #1261 SUCCESS；1,072 项测试全部通过；Issue #334 已关闭",
+      "status": "completed",
+      "date": "2026-10-04"
     },
     {
       "ref": "PR #332 · Issue #331",
@@ -1567,22 +1561,14 @@
   "nextActions": [
     {
       "priority": 1,
-      "title": "PO 决策：PR #335 — 协议无关 offline TCP replay reassembler",
-      "status": "ready",
-      "owner": "PO / 主代理",
-      "issue": 334,
-      "note": "Technical PASS / Ready；CI #1260 SUCCESS；1,072 项测试全部通过。需要 PO 明确合并授权。"
-    },
-    {
-      "priority": 2,
-      "title": "PR #335 后选择下一项 Route B replay/framing 切片",
+      "title": "推进 RDS-1B-R2F1 — Siemens ISO-on-TCP/COTP segmentation",
       "status": "open",
       "owner": "主代理",
       "issue": 323,
-      "note": "优先考虑 COTP segmentation 或其他有 Evidence 支撑的 framing/protocol 语义；继续保持 offline/replay。"
+      "note": "基于 #335 的 offline TCP replay reassembly 输出；先做 segmentation，不扩展到 live capture、Active Read 或 Write/control。"
     },
     {
-      "priority": 3,
+      "priority": 2,
       "title": "推进 RDS-1A 真实录制数据集 Pilot",
       "status": "open",
       "owner": "PO / 工程",
@@ -1590,7 +1576,7 @@
       "note": "录制/去标识化工业数据可以提高真实性，但仍必须与 live-device validation 区分。"
     },
     {
-      "priority": 4,
+      "priority": 3,
       "title": "Railway 删除接口可用后，物理删除冗余 gracious-strength 服务",
       "status": "open",
       "owner": "主代理 / PO",
@@ -1598,7 +1584,7 @@
       "note": "已通过 sentinel watch path 停止自动部署，并将 restart policy 设为 NEVER；正常 itdp-app1 仍为 SUCCESS。"
     },
     {
-      "priority": 5,
+      "priority": 4,
       "title": "继续 RP-01 / PDX-001 校准并识别 RP-02/RP-03",
       "status": "in_progress",
       "owner": "PO / 现场工程 / 产品",
