@@ -1,14 +1,14 @@
 {
-  "generated_at": "2026-10-01T08:50:00+08:00",
-  "display_time": "2026-10-01 08:50",
-  "version": "2026-10-01_08-50",
-  "note": "Route B 继续推进到 L1 协议无关离线 TCP replay reassembly。PR #335 已 Technical PASS / Ready / PO-KEY-GATE；exact-head CI #1260 SUCCESS，1,072 passed / 0 failed / 0 skipped。该切片只处理已观测、已归一化 stream offset 的离线 payload segment；不包含 pcap、TCP header、live capture、Active Read 或任何 Write/control。",
+  "generated_at": "2026-10-05T23:01:00+08:00",
+  "display_time": "2026-10-05 23:01",
+  "version": "2026-10-05_23-01",
+  "note": "PR #335 已完成合并并通过 exact-main CI #1261。协议无关 offline TCP replay reassembler 已进入 main，merge commit `d6ac89d4…`。Issue #334 已 closed/completed，Route B #323 继续开放。下一阶段按 PO 决策进入 RDS-1B-R2F1：Siemens ISO-on-TCP/COTP segmentation；真实 live capture、Active Read 与任何 Write/control 仍未授权。",
   "dashboard_path": "dashboard.html",
   "data_path": "progress.json",
   "prototype_path": "prototype/workbench/",
   "official_url": "https://industrialtagdiscovery.netlify.app/",
-  "source_main_commit": "eafdf2f60c8a925954dd090d65987c2c96810f36",
+  "source_main_commit": "d6ac89d4a051d3b84b87d8b79884abd1203a4442",
   "active_route_b_issue": 323,
-  "active_pr": 335,
-  "active_pr_head": "32aba74a5949e072a1023dcd98d346f407dbdf89"
+  "active_pr": null,
+  "active_pr_head": null
 }
