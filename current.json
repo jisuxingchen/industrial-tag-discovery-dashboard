@@ -1,14 +1,14 @@
 {
-  "generated_at": "2026-10-05T23:01:00+08:00",
-  "display_time": "2026-10-05 23:01",
-  "version": "2026-10-05_23-01",
-  "note": "PR #335 已完成合并并通过 exact-main CI #1261。协议无关 offline TCP replay reassembler 已进入 main，merge commit `d6ac89d4…`。Issue #334 已 closed/completed，Route B #323 继续开放。下一阶段按 PO 决策进入 RDS-1B-R2F1：Siemens ISO-on-TCP/COTP segmentation；真实 live capture、Active Read 与任何 Write/control 仍未授权。",
+  "generated_at": "2026-10-05T23:30:00+08:00",
+  "display_time": "2026-10-05 23:30",
+  "version": "2026-10-05_23-30",
+  "note": "RDS-1B-R2F1 已推进到 PR #337。Siemens ISO-on-TCP framer 现支持 bounded COTP Class 0 segmented DT TSDU replay reassembly；CI #1262 SUCCESS，1,082 passed / 0 failed / 0 skipped；Main Agent Technical Review PASS。PR #337 当前 Ready / PO-KEY-GATE，等待 PO 明确合并授权。真实 live capture、Active Read 与任何 Write/control 仍未授权。",
   "dashboard_path": "dashboard.html",
   "data_path": "progress.json",
   "prototype_path": "prototype/workbench/",
   "official_url": "https://industrialtagdiscovery.netlify.app/",
   "source_main_commit": "d6ac89d4a051d3b84b87d8b79884abd1203a4442",
   "active_route_b_issue": 323,
-  "active_pr": null,
-  "active_pr_head": null
+  "active_pr": 337,
+  "active_pr_head": "8d23e0e0d0b2c56d969f5ae9ceaf9e47144e716b"
 }
