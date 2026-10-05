@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-05T23:30:00+08:00",
+  "updatedAt": "2026-10-06T00:25:00+08:00",
   "dataPolicy": {
     "rule": "看板状态必须服从仓库真实状态。所有百分比仅用于项目控制可视化，不得把文档、仿真、回放或录制证据升级为现场验证，不得视为满足 PDX-001，不得授权真实设备执行，也不得据此开启 Phase 9。"
   },
@@ -10,8 +10,8 @@
     "phase": "Route B 协议泛化 → 被动回放链路 → 有边界的现场准备",
     "status": "in_progress",
     "statusLabel": "ROUTE B 进行中 · 协议泛化",
-    "currentGate": "PR #337 Siemens COTP segmented DT replay reassembly 已 Technical PASS / Ready / PO-KEY-GATE；等待 PO 明确合并授权。",
-    "authoritativeRequirement": "以 GitHub Issue #336 / #323、PR #337、CI #1262 与 main `d6ac89d4…` 实时状态为准；本看板仅为派生视图。",
+    "currentGate": "RDS-1A #279 仅剩 AUDIT-ID-01：从 production Candidate Run 登记册记录既有 20 个完整 GUID；#338/#339 已完成并部署。Route B #323 继续开放，但真实现场执行仍未授权。",
+    "authoritativeRequirement": "当前 truth：main `e3ef71f5…`；PR #337 已合并且 CI #1264 验证；PR #339 已合并且 CI #1267 验证，并已部署 production。#279 在 exact 20 CandidateRun GUID 记录完成前保持 OPEN。",
     "repository": "jisuxingchen/industrial-tag-discovery"
   },
   "wbs": [
@@ -1172,9 +1172,9 @@
           "id": "R8.7",
           "name": "Siemens COTP Class 0 Segmented DT 回放重组",
           "weight": 10,
-          "status": "ready",
-          "progress": 90,
-          "note": "PR #337 Technical PASS / Ready；CI #1262 SUCCESS；等待 PO 明确合并授权。",
+          "status": "completed",
+          "progress": 100,
+          "note": "PR #337 已合并；exact-main CI #1264 SUCCESS。",
           "detail": {
             "objective": "在现有 ISO-on-TCP framer 内补齐 COTP Class 0 segmented DT → complete TSDU/S7comm PDU，而不引入第二套 framing authority。",
             "workDone": [
@@ -1184,8 +1184,8 @@
               "non-Data COTP 出现在 open TSDU 中时 fail-closed；segmented non-S7 仅在完整组装后跳过。",
               "完成 segmented Read Var request/response → 现有 S7comm decoder → R1 Evidence 的端到端组合测试。"
             ],
-            "result": "PR #337 head=`8d23e0e0…`；4 ahead / 0 behind；CI #1262 SUCCESS；1,082 passed / 0 failed / 0 skipped。",
-            "completionNote": "仅为 offline/replay protocol validation；不包含 pcap/TCP header/live capture/Active Read/Write-control。当前仍为 PO-KEY-GATE。",
+            "result": "Merge commit `3f8c19a7…` 已进入 main；CI #1264 SUCCESS；1,082 passed / 0 failed / 0 skipped。",
+            "completionNote": "offline/replay COTP Class 0 segmentation 已完成；不代表 live Siemens 兼容性或现场验证。",
             "outputs": [
               {
                 "label": "Siemens ISO-on-TCP / COTP replay framer",
@@ -1259,7 +1259,7 @@
       "status": "in_progress",
       "maturity": 92,
       "objective": "保持唯一 canonical Evidence authority，同时增加可回放的协议 Adapter，为后续已授权真实 observations 做准备。",
-      "basis": "Route B replay stack 已包含协议无关 TCP reassembly、Siemens Read Var/ISO-on-TCP、Mitsubishi 0401/0403；当前 PR #337 补 Siemens COTP Class 0 segmented DT TSDU reassembly，并已通过 CI #1262 / Technical Review。",
+      "basis": "Route B replay stack 已包含 TCP reassembly、Siemens Read Var / ISO-on-TCP / COTP segmented DT、Mitsubishi 0401/0403；RDS-1A real recorded dataset substantive production acceptance 也已完成，仅剩 CandidateRun exact-ID 审计记录。",
       "boundary": "Replay / simulation / manual / offline Evidence 不等于真实设备验证。",
       "dimensions": [
         {
@@ -1279,7 +1279,7 @@
           "progress": 75
         }
       ],
-      "next": "如 PO 批准 #337，合并并验证 exact-main CI；随后进入 R2F2 transaction correlation 的增量验证，而不是扩展 live capture。"
+      "next": "先闭环 #279 AUDIT-ID-01：记录现有 20 个 persisted CandidateRun GUID；随后再继续 Route B R2F2 transaction-correlation 增量验证。"
     },
     "realData": {
       "name": "真实 PLC / HMI 数据流控制轨",
@@ -1346,18 +1346,12 @@
     {
       "title": "Siemens COTP Segmentation 合并 Gate",
       "question": "是否允许将 bounded COTP Class 0 segmented DT replay reassembly 合入 main？",
-      "status": "ready",
-      "statusLabel": "技术审查通过 / PR #337 已就绪",
+      "status": "completed",
+      "statusLabel": "已合并 / MAIN CI VERIFIED",
       "trackingIssue": 336,
-      "currentRequirement": "PR #337 head=`8d23e0e0…`，base=main `d6ac89d4…`，4 ahead / 0 behind；CI #1262 SUCCESS，Main Agent Technical Review PASS。现在仅等待 PO 明确合并授权。",
-      "requiredInputs": [
-        "PO 明确合并授权",
-        "合并前重新读取 PR/main，确认 head/base 未漂移",
-        "合并后验证 exact merge-commit main CI"
-      ],
-      "blocks": [
-        "PR #337 合并"
-      ]
+      "currentRequirement": "PR #337 已合并为 `3f8c19a7…`；exact-main CI #1264 SUCCESS。该 Gate 已完成。",
+      "requiredInputs": [],
+      "blocks": []
     },
     {
       "title": "协议无关 TCP Replay Reassembly 合并 Gate",
@@ -1405,18 +1399,17 @@
     {
       "title": "RDS-1A 真实录制数据集 Pilot",
       "question": "第一份有代表性的真实录制数据集是否已经提供并被接受用于 canonical 分析？",
-      "status": "open",
-      "statusLabel": "开放 / Issue #279",
+      "status": "in_progress",
+      "statusLabel": "功能 Pilot 已完成 / AUDIT-ID-01 待闭环",
       "trackingIssue": 279,
-      "currentRequirement": "使用真实录制/去标识化 Evidence，但不得把它升级为 live-device validation。",
+      "currentRequirement": "真实录制数据 Pilot 的 substantive production acceptance 已完成。#338/#339 已让 production Candidate Run Register 显示完整 persisted GUID。唯一剩余 Exit criterion：记录现有 20 个 CandidateIdentificationRun GUID，并核对 count=20；不得重跑或推断。",
       "requiredInputs": [
-        "代表性录制数据集",
-        "来源/溯源/授权",
-        "Canonical 接入",
-        "Identification 分析"
+        "从 authenticated production Identification → Candidate Run 登记册复制现有 20 个完整 GUID",
+        "核对记录数量 = 20",
+        "将 exact GUID 列表写入 Issue #279 closeout"
       ],
       "blocks": [
-        "把录制 Evidence 声称为 live compatibility"
+        "Issue #279 最终关闭"
       ]
     },
     {
@@ -1559,10 +1552,16 @@
   ],
   "recentProgress": [
     {
+      "ref": "PR #339 · Issue #338 · Issue #279",
+      "title": "RDS-1A AUDIT-ID-01 可见性修复已合并并部署 production；main `e3ef71f5…`；CI #1267 SUCCESS；Candidate Run 登记册现显示完整 persisted GUID；待记录现有 20 个 GUID 后关闭 #279",
+      "status": "in_progress",
+      "date": "2026-10-06"
+    },
+    {
       "ref": "PR #337 · Issue #336",
-      "title": "Siemens COTP Class 0 segmented DT replay reassembly 已 Technical PASS / Ready；CI #1262 SUCCESS；1,082 项测试全部通过；等待 PO 合并授权",
-      "status": "ready",
-      "date": "2026-10-05"
+      "title": "Siemens COTP Class 0 segmented DT replay reassembly 已合并；merge `3f8c19a7…`；exact-main CI #1264 SUCCESS；1,082 项测试全部通过；Issue #336 已关闭",
+      "status": "completed",
+      "date": "2026-10-06"
     },
     {
       "ref": "PR #335 · Issue #334",
@@ -1616,30 +1615,22 @@
   "nextActions": [
     {
       "priority": 1,
-      "title": "PO 决策：PR #337 — Siemens COTP segmented DT replay reassembly",
-      "status": "ready",
+      "title": "闭环 RDS-1A #279 AUDIT-ID-01 — 记录 20 个 exact CandidateRun GUID",
+      "status": "open",
       "owner": "PO / 主代理",
-      "issue": 336,
-      "note": "Technical PASS / Ready；CI #1262 SUCCESS；1,082 项测试全部通过。需要 PO 明确合并授权。"
+      "issue": 279,
+      "note": "production 已部署完整 GUID 显示。只复制现有登记册，不重跑 Identification，不生成新 CandidateRun，不推断 ID。"
     },
     {
       "priority": 2,
-      "title": "PR #337 后推进 RDS-1B-R2F2 — Siemens transaction correlation 增量验证",
+      "title": "RDS-1A 审计闭环后推进 RDS-1B-R2F2 — Siemens transaction correlation 增量验证",
       "status": "open",
       "owner": "主代理",
       "issue": 323,
-      "note": "复用现有 S7 PDU reference correlation，重点验证 segmented transport 后的 transaction stability；继续保持 offline/replay。"
+      "note": "复用已存在的 S7 PDU-reference correlation，重点验证 segmented transport 后的 transaction stability；保持 offline/replay。"
     },
     {
       "priority": 3,
-      "title": "推进 RDS-1A 真实录制数据集 Pilot",
-      "status": "open",
-      "owner": "PO / 工程",
-      "issue": 279,
-      "note": "录制/去标识化工业数据可以提高真实性，但仍必须与 live-device validation 区分。"
-    },
-    {
-      "priority": 4,
       "title": "Railway 删除接口可用后，物理删除冗余 gracious-strength 服务",
       "status": "open",
       "owner": "主代理 / PO",
@@ -1647,7 +1638,7 @@
       "note": "已通过 sentinel watch path 停止自动部署，并将 restart policy 设为 NEVER；正常 itdp-app1 仍为 SUCCESS。"
     },
     {
-      "priority": 5,
+      "priority": 4,
       "title": "继续 RP-01 / PDX-001 校准并识别 RP-02/RP-03",
       "status": "in_progress",
       "owner": "PO / 现场工程 / 产品",
