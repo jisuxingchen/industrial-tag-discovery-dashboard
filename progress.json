@@ -1,17 +1,17 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-07T00:16:00+08:00",
+  "updatedAt": "2026-10-07T00:56:00+08:00",
   "dataPolicy": {
     "rule": "看板状态必须服从仓库真实状态。所有百分比仅用于项目控制可视化，不得把文档、仿真、回放或录制证据升级为现场验证，不得视为满足 PDX-001，不得授权真实设备执行，也不得据此开启 Phase 9。"
   },
   "project": {
     "name": "工业 Tag 发现平台（ITDP）",
     "customer": "平台化 / 多项目产品开发",
-    "phase": "Route B 协议泛化 → 被动回放链路 → 有边界的现场准备",
+    "phase": "Route B 离线/回放基线已收口 → 真实 PLC/HMI Passive Field Gate 准备",
     "status": "in_progress",
-    "statusLabel": "ROUTE B 进行中 · 协议泛化",
-    "currentGate": "RDS-1B-R2G1 #342 / PR #343 已按 PO 授权合并并完成 exact-main CI；RDS-1A #279 AUDIT-ID-01 已完成并关闭。当前 Route B replay 可继续研究，但真实 PLC/HMI 被动现场执行仍未授权。",
-    "authoritativeRequirement": "当前 truth：产品仓库 main `e5b5b7c8…`；PR #343 已合并；Issue #342 CLOSED；CI #1275 SUCCESS，1,101 passed / 0 failed / 0 skipped。#279 已记录 final production 20 个 exact CandidateRun IDs 并 CLOSED；Railway production 已恢复 exact current main 且 Online。",
+    "statusLabel": "FIELD GATE PREPARATION · EXECUTION NOT AUTHORIZED",
+    "currentGate": "RDS-1B-FIELD-01 #346 已开启准备 Gate：冻结一个 exact PLC/HMI pair、observation point、授权、时间窗、数据处理与 STOP 条件后，才可请求 PO Field Execution authorization。当前任何 SPAN/TAP/NIC/capture/customer-network execution 均未授权。",
+    "authoritativeRequirement": "产品 main `e5b5b7c8…`；产品仓库只剩 main。PR #243 已作为 superseded 关闭且 stale branch 已删除。当前 offline/replay + Web/UI/项目包 scope 已 main-close；下一未完成核心使命是获得一条明确授权的真实 PLC/HMI passive stream 并进入 canonical Evidence。",
     "repository": "jisuxingchen/industrial-tag-discovery"
   },
   "wbs": [
@@ -1286,15 +1286,18 @@
           "name": "Live Passive Observation Source / 真实 HMI↔PLC Pilot",
           "weight": 10,
           "status": "blocked",
-          "progress": 0,
-          "note": "目前仅规划/回放。Live capture、SPAN/TAP/NIC 访问和客户网络执行均未授权。",
+          "progress": 10,
+          "note": "#346 Field Execution Gate preparation 已开启；execution 仍未授权。优先 customer-provided trace，其次 approved SPAN/TAP。",
           "detail": {
             "objective": "后续把单独授权的真实 passive observations 接入同一套泛化协议 pipeline。",
-            "workDone": [],
-            "result": "尚未开始 / 尚未授权。",
-            "completionNote": "需要单独、明确、有边界的 Field Execution Gate。",
+            "workDone": [
+              "已创建 #346，冻结第一条真实 passive pilot 所需的 target scope、observation point、authorization、window、data handling 与 STOP conditions。"
+            ],
+            "result": "Gate preparation 已开始；尚未选定 exact PLC/HMI pair，也未授权 live capture/customer-network access。",
+            "completionNote": "只有 #346 的精确输入完成并获得 PO 明确 Field Execution authorization 后，才允许进入现场被动观测。",
             "outputs": [],
             "issues": [
+              346,
               323,
               255
             ],
@@ -1309,9 +1312,9 @@
       "name": "产品工作台 / 工作流控制轨",
       "subtitle": "可执行工程师操作流程与持久化项目工作区",
       "status": "completed",
-      "maturity": 95,
+      "maturity": 100,
       "objective": "提供工程师使用 canonical Evidence、Identification、Confirmation、Delivery 与 Knowledge 所需的完整产品工作流。",
-      "basis": "APP1 #252 / PR #254 与下游 UI #267–#272 已合并并完成 truth closeout；V1-C1 #261–#266 也已关闭完成。",
+      "basis": "APP1、V1-UI2 #267–#272、V1-C1 #261–#266 均已 CLOSED / main-close；Evidence→Identification→Confirmation→Delivery→Knowledge 下游 UI、restart-safe Web workspace 与 `.itdproject` package v2 已形成当前 scope 的完整产品工作台基线。",
       "boundary": "产品/UI 完成不等于真实 PLC/HMI 运行兼容性已验证。",
       "dimensions": [
         {
@@ -1324,22 +1327,22 @@
         },
         {
           "name": "Evidence / 下游工作流 UI",
-          "progress": 95
+          "progress": 100
         },
         {
           "name": "持久化 Web / 项目包",
-          "progress": 90
+          "progress": 100
         }
       ],
-      "next": "暂缓大范围 UI 扩展，优先推进 Route B 协议准备度与真实数据 Evidence。"
+      "next": "当前产品工作台 scope 已关闭。除非新的真实数据 Pilot 暴露具体 UX 缺口，否则不再为提高成熟度而扩 UI。"
     },
     "evidence": {
       "name": "Evidence / Identification 基础控制轨",
       "subtitle": "Canonical 离线/回放 Evidence + 协议无关 Route B 输入",
-      "status": "in_progress",
-      "maturity": 98,
+      "status": "completed",
+      "maturity": 100,
       "objective": "保持唯一 canonical Evidence authority，同时增加可回放的协议 Adapter，为后续已授权真实 observations 做准备。",
-      "basis": "Canonical Evidence / replay / 产品化已较成熟；Route B 已包含 TCP reassembly、Siemens Read Var / ISO-on-TCP / COTP segmentation / transaction correlation、Mitsubishi 0401/0403，以及已 main-close 的 R2G1 recorded TCP manifest intake。RDS-1A real recorded dataset Pilot #279 已完整 closeout，包括 exact final production CandidateRun IDs。",
+      "basis": "Canonical Evidence / restart replay / offline source admission 已 main-close；Route B 已完成 protocol-neutral TCP replay、Siemens S7comm/ISO-on-TCP/COTP/correlation、Mitsubishi SLMP 0401/0403，以及 R2G1 recorded TCP manifest intake。当前 scope 已用两个独立厂商家族证明 Adapter seam 可泛化。",
       "boundary": "Replay / simulation / manual / offline Evidence 不等于真实设备验证。",
       "dimensions": [
         {
@@ -1352,31 +1355,31 @@
         },
         {
           "name": "协议无关 passive replay",
-          "progress": 98
+          "progress": 100
         },
         {
-          "name": "跨厂商 Adapter 覆盖",
-          "progress": 75
+          "name": "Siemens + Mitsubishi Adapter 覆盖（当前 scope）",
+          "progress": 100
         }
       ],
-      "next": "RDS-1A 已关闭。Route B #323 继续作为协议研究主线；任何 live passive observation source 仍必须单独申请有边界的 Field Execution Gate。"
+      "next": "当前 offline/replay Evidence + Adapter scope 已关闭。第三/第四厂商属于未来需求驱动扩展，不是当前完成条件；下一步转入 #346 Field Execution Gate。"
     },
     "realData": {
       "name": "真实 PLC / HMI 数据流控制轨",
       "subtitle": "核心使命 — 真实、随时间变化的工业通信",
       "status": "blocked",
-      "maturity": 30,
+      "maturity": 35,
       "objective": "获得一条真实 PLC/HMI 通信流，并把地址/值 observations 送入 canonical Evidence 与 Identification。",
-      "basis": "Route B 已具备受治理 recorded TCP segment manifest → replay/protocol stack 的 main-closed 离线路径，RDS-1A 也已用 genuine recorded industrial dataset 完成 Evidence→Identification closeout；但尚无被接受的 live PLC/HMI stream，live execution 仍未授权。",
+      "basis": "#346 已建立第一条真实 PLC/HMI passive observation 的 Field Execution Gate preparation。Replay/protocol pipeline 已就绪，但 exact target/observation point/customer authorization/window 尚未冻结，live execution 仍未授权。",
       "boundary": "Never Write 绝对约束。Live capture / 客户网络 / Active Read 必须经过独立且明确的 Field Execution Gate。",
       "dimensions": [
         {
           "name": "只读 / 协议安全基础",
-          "progress": 85
+          "progress": 90
         },
         {
           "name": "Passive 协议回放链路",
-          "progress": 90
+          "progress": 100
         },
         {
           "name": "真实数据流授权",
@@ -1391,15 +1394,15 @@
           "progress": 0
         }
       ],
-      "next": "当 replay 覆盖足够后，准备一个精确隔离的 passive observation source，并单独申请 PO 现场执行授权。"
+      "next": "完成 #346 的 exact Gate inputs：选定一个 PLC/HMI pair；优先 customer-provided recorded trace，其次由客户配置 SPAN/mirror；冻结授权、时间窗、数据处理与 STOP 条件。之后再请求明确 PO Field Execution authorization。"
     },
     "calibration": {
       "name": "RP-01 / PDX-001 校准控制轨",
       "subtitle": "真实项目 Acceptance Oracle",
-      "status": "in_progress",
-      "maturity": 30,
+      "status": "on_hold",
+      "maturity": 35,
       "objective": "使用真实项目 Evidence 校准详细工作流假设，同时明确区分现场照片/文档材料与动态 PLC/HMI 数据。",
-      "basis": "#115 仍开放；RP-01 文档与现场照片 Evidence 已较充分；RP-02/RP-03 仍未选定。",
+      "basis": "RP-01 的 bounded product calibration 已通过 #212/D2/D3/D4-A 支撑过产品开发，但旧 #115 broad E1 site-survey acceptance 仍未完成。PDX-001 只在需要冻结跨项目通用 workflow/taxonomy/ranking/planning policy 时才要求 RP-02/RP-03，不是当前真实数据 Pilot 前置。",
       "boundary": "PDX-001 是跨项目冻结 Gate，不是软件开发停止条件，也不是现场执行授权。",
       "dimensions": [
         {
@@ -1419,7 +1422,7 @@
           "progress": 0
         }
       ],
-      "next": "并行继续 RP-01 校准；不得让它阻塞单独 Gate 管理的真实数据流 Pilot 或 V1-C/V1-D 产品化。"
+      "next": "当前建议 defer。若近期不冻结通用跨项目 policy，则无需现在识别 RP-02/RP-03；如未来要冻结通用 policy，再选择两个独立真实项目并重开 cross-project calibration。#115 可由 PO 决定按 superseded/not-planned 关闭，而不是伪装成 E1 完成。"
     }
   },
   "gates": [
@@ -1475,25 +1478,27 @@
     },
     {
       "title": "真实 PLC/HMI 被动现场执行 Gate",
-      "question": "是否已经明确授权一个精确的数据源/网络范围和严格被动的 observation 方法？",
+      "question": "是否已冻结 exact PLC/HMI pair、被动 observation point、客户授权、时间窗、数据处理和 STOP 条件，并获得 PO 明确执行授权？",
       "status": "blocked",
-      "statusLabel": "尚未授权",
-      "trackingIssue": 323,
-      "currentRequirement": "Route B replay/design 工作可以继续。Live capture / SPAN / TAP / NIC / 客户网络执行必须单独获得有边界的 PO 授权。",
+      "statusLabel": "准备中 / EXECUTION NOT AUTHORIZED",
+      "trackingIssue": 346,
+      "currentRequirement": "#346 PREPARATION OPEN。当前仅允许准备；不得执行 SPAN/TAP/NIC capture/customer-network access。先完成 exact scope 与授权输入，再请求 PO Field Execution authorization。",
       "requiredInputs": [
-        "明确 PLC/HMI 数据源",
-        "被动观测点",
-        "网络范围",
-        "停止条件",
-        "Evidence 处理方式",
-        "PO 明确现场授权"
+        "一个 exact PLC/HMI pair",
+        "customer-provided trace 或明确 SPAN/TAP observation point",
+        "客户/现场明确授权",
+        "capture 时间窗与最大数据量",
+        "retention / de-identification / transfer 规则",
+        "STOP conditions",
+        "PO 明确 Field Execution authorization"
       ],
       "blocks": [
         "Live capture",
         "SPAN/mirror 修改",
-        "客户网络上的 NIC/pcap",
-        "真实 Active Read",
-        "任何 Write/Force/Download/Run-Stop/Reset/config 修改"
+        "TAP/NIC 现场接入",
+        "客户网络 execution",
+        "Active Read",
+        "任何 Write/Force/Download/RUN-STOP/Reset/config/network/control 修改"
       ]
     },
     {
@@ -1510,16 +1515,16 @@
       "title": "PDX-001 跨项目冻结 Gate",
       "question": "是否已有 2–3 个真实项目支撑冻结跨项目 workflow / taxonomy / ranking / planning policy？",
       "status": "on_hold",
-      "statusLabel": "尚未满足",
+      "statusLabel": "DEFERRED / 非当前前置",
       "trackingIssue": 115,
-      "currentRequirement": "RP-01 已存在；RP-02/RP-03 与动态真实数据 Evidence 仍不足。",
+      "currentRequirement": "仅当产品准备冻结通用跨项目 workflow / taxonomy / ranking / planning policy 时才需要 RP-02/RP-03。当前 #346 真实数据 Pilot 不依赖 PDX-001 满足。",
       "requiredInputs": [
         "2–3 个真实项目 Evidence 集",
         "工作流差异 Evidence",
         "Knowledge 适用性 Evidence"
       ],
       "blocks": [
-        "通用跨项目冻结",
+        "通用跨项目 policy freeze",
         "Phase 9 准备度"
       ]
     },
@@ -1646,6 +1651,24 @@
   ],
   "recentProgress": [
     {
+      "ref": "Issue #346 · #288 · #323",
+      "title": "已建立第一条真实 PLC/HMI passive observation Field Execution Gate preparation；当前仅冻结 scope/authorization/window/data handling/STOP conditions，live execution 仍未授权",
+      "status": "in_progress",
+      "date": "2026-10-07"
+    },
+    {
+      "ref": "PR #243 · Issue #241",
+      "title": "遗留 V1-B pre-implementation PR #243 已确认被 #244/#245/#247/#248/#249 完整取代，现 CLOSED without merge；最后一个 stale 非-main 分支已删除，产品仓库只剩 main",
+      "status": "completed",
+      "date": "2026-10-07"
+    },
+    {
+      "ref": "V1-C1 #261–#266 · V1-UI2 #267–#272 · Route B replay",
+      "title": "看板成熟度口径收口：Evidence/下游 UI、持久化 Web/项目包、协议无关 passive replay、Siemens+Mitsubishi 当前 Adapter scope 均更新为 100%；不再以无需求扩 UI/扩厂商来凑完成度",
+      "status": "completed",
+      "date": "2026-10-07"
+    },
+    {
       "ref": "Issue #279 · Issue #344 · PR #345",
       "title": "RDS-1A AUDIT-ID-01 已完成：只读提取 R7A register，final production 20 个 exact CandidateRun IDs 已记录；40 条历史 register 中另 20 条为 diagnostic audit history；#279 CLOSED；diagnostic PR #345 未合并并已关闭",
       "status": "completed",
@@ -1701,9 +1724,9 @@
     },
     {
       "ref": "Issue #330",
-      "title": "Railway 冗余 gracious-strength 已停止自动部署，restart policy=NEVER；物理删除等待 connector 能力恢复；正常 itdp-app1 未受影响",
+      "title": "Railway 冗余 service 已不存在；fresh connector 仍显示 `gracious-strength` 空 project shell，因此物理 project 删除尚未独立验证",
       "status": "in_progress",
-      "date": "2026-09-29"
+      "date": "2026-10-07"
     },
     {
       "ref": "V1-C1 #261–#266",
@@ -1721,47 +1744,55 @@
   "nextActions": [
     {
       "priority": 1,
-      "title": "Railway UI 删除 gracious-strength 空项目壳",
+      "title": "完善 #346 — 第一条真实 PLC/HMI Passive Field Execution Gate",
       "status": "open",
-      "owner": "主代理 / PO",
-      "issue": 330,
-      "note": "冗余 service 已不存在；gracious-strength 当前仅剩空 project/environment shell。Railway connector 未暴露 delete-project，需在 Railway UI 的 Project Settings → Danger Zone 删除项目。"
+      "owner": "PO / 现场工程 / 主代理",
+      "issue": 346,
+      "note": "先选一个 exact PLC/HMI pair；优先客户提供已录制 trace，其次客户配置 SPAN/mirror。冻结 observation point、授权、时间窗、数据处理与 STOP 条件后，再请求明确 PO execution approval。"
     },
     {
       "priority": 2,
-      "title": "继续 RP-01 / PDX-001 校准并识别 RP-02/RP-03",
-      "status": "in_progress",
-      "owner": "PO / 现场工程 / 产品",
+      "title": "Railway UI 再确认并删除 gracious-strength 空 project shell",
+      "status": "open",
+      "owner": "PO / 主代理",
+      "issue": 330,
+      "note": "冗余 service 已为 0；但 fresh Railway connector 仍返回 gracious-strength project + production environment，因此 project-container 物理删除尚未验证。"
+    },
+    {
+      "priority": 3,
+      "title": "PDX-001 治理决策 — defer 或为 universal freeze 选择 RP-02/RP-03",
+      "status": "on_hold",
+      "owner": "PO / 产品",
       "issue": 115,
-      "note": "这是并行 Acceptance Oracle 控制轨，不是 Route B replay 开发前置条件。"
+      "note": "默认建议 defer。只有近期要冻结通用跨项目 workflow/taxonomy/ranking/planning policy 时，才值得投入 RP-02/RP-03；否则 #115 可后续按 superseded/not-planned 关闭。"
     }
   ],
   "missionAssessment": {
     "title": "核心目标重校准 — 目标 = 真实 PLC/HMI 数据流分析",
-    "overallProgress": 72,
+    "overallProgress": 74,
     "basis": "仅用于项目控制估算。该数值反映已完成的产品、Evidence 与协议基础，但不得把 replay/录制 Evidence 升级为真实设备验证，也不授权现场执行。",
     "warning": "Route B 协议准备度已经明显提升，但核心缺口仍未改变：尚无被接受的 live PLC/HMI 动态数据流完整穿过 canonical Evidence → Identification 链路。",
     "dimensions": [
       {
         "name": "产品工作台与工作流",
         "weight": 25,
-        "progress": 95,
+        "progress": 100,
         "status": "completed",
-        "note": "APP1 与下游 workflow UI 已合并并完成 truth closeout；V1-C1 离线 Evidence Workspace 也已完成。"
+        "note": "APP1、V1-UI2、V1-C1、restart-safe Web 与 `.itdproject` 项目包已完成当前 scope；后续 UI 仅由真实 Pilot 暴露的具体需求驱动。"
       },
       {
         "name": "离线 Evidence 与协议基础",
         "weight": 25,
-        "progress": 98,
-        "status": "in_progress",
-        "note": "Canonical Evidence / replay / 产品化已较成熟；Siemens/Mitsubishi replay stack 与 R2G1 recorded TCP manifest intake 已 main-close，RDS-1A #279 也已完成 exact CandidateRun 审计闭环。"
+        "progress": 100,
+        "status": "completed",
+        "note": "Canonical Evidence、offline source、protocol-neutral replay 与 Siemens+Mitsubishi 当前 Adapter scope 已 main-close。"
       },
       {
         "name": "真实 PLC/HMI 数据流",
         "weight": 25,
-        "progress": 30,
+        "progress": 35,
         "status": "blocked",
-        "note": "Passive 协议架构已明显增强，但 live capture / 客户网络执行未授权，且尚无被接受的 live stream 穿过完整链路。"
+        "note": "#346 Field Gate preparation 已开启，但 exact target/authorization/observation point 尚未冻结，live execution 仍未授权。"
       },
       {
         "name": "Identification / Confirmation / Delivery / Knowledge",
@@ -1774,8 +1805,8 @@
         "name": "真实项目验证",
         "weight": 10,
         "progress": 35,
-        "status": "in_progress",
-        "note": "RP-01 与录制 runtime 工作提供了真实依据，但动态 live PLC/HMI 验证和 RP-02/RP-03 仍未完成。"
+        "status": "on_hold",
+        "note": "RP-01 bounded calibration 已支撑产品开发；PDX-001 universal freeze 仍 defer，RP-02/RP-03 只在真正需要冻结跨项目 policy 时再启动。"
       }
     ]
   }
