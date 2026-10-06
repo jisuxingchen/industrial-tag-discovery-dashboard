@@ -10,8 +10,8 @@
     "phase": "Route B 协议泛化 → 被动回放链路 → 有边界的现场准备",
     "status": "in_progress",
     "statusLabel": "ROUTE B 进行中 · 协议泛化",
-    "currentGate": "RDS-1A #279 仅剩 AUDIT-ID-01：从 production Candidate Run 登记册记录既有 20 个完整 GUID；#338/#339 已完成并部署。Route B #323 继续开放，但真实现场执行仍未授权。",
-    "authoritativeRequirement": "当前 truth：main `e3ef71f5…`；PR #337 已合并且 CI #1264 验证；PR #339 已合并且 CI #1267 验证，并已部署 production。#279 在 exact 20 CandidateRun GUID 记录完成前保持 OPEN。",
+    "currentGate": "RDS-1B-R2F2 #340 / PR #341 已完成 Technical PASS，等待 PO 明确合并授权；RDS-1A #279 同时仍仅剩 AUDIT-ID-01。真实 PLC/HMI 被动现场执行继续未授权。",
+    "authoritativeRequirement": "当前 truth：产品仓库 main `e3ef71f5…`；PR #341 exact head `a3003d7c…`，4 ahead / 0 behind，CI #1270 SUCCESS，1,089 passed / 0 failed / 0 skipped；PR 尚未合并。#279 在 exact 20 CandidateRun GUID 记录完成前保持 OPEN。",
     "repository": "jisuxingchen/industrial-tag-discovery"
   },
   "wbs": [
@@ -1203,6 +1203,46 @@
         },
         {
           "id": "R8.8",
+          "name": "Siemens Transaction Correlation 稳定性",
+          "weight": 10,
+          "status": "in_progress",
+          "progress": 95,
+          "note": "Issue #340 / PR #341 已 Technical PASS；exact-head CI #1270 SUCCESS；等待 PO-KEY-GATE 合并授权。",
+          "detail": {
+            "objective": "复用现有 conversation + S7 PDU reference correlator，验证 segmented transport 后多 outstanding、乱序响应、conversation 隔离、TCP retransmission 边界与 PDU reference 完成后复用；不建立第二套 correlator。",
+            "workDone": [
+              "确认 #327 已支持同一 conversation 内多个 outstanding PDU reference，并按 PDU reference 而不是响应顺序配对。",
+              "发现完成后的 PDU reference 再次出现时，旧 TransactionKey 缺少 request-event provenance，会与既有 transaction event identity 冲突。",
+              "将 Siemens projected transaction key 收紧为 `s7comm:tx:<conversation>:request-frame=<frame>:pdu=<ref>:item=<item>`；pending correlation key 不变。",
+              "验证 segmented requests + reverse response order、跨 conversation 同 ref 隔离、完成后 ref 复用、duplicate outstanding fail-closed、unmatched/incomplete fail-closed。",
+              "验证 exact TCP retransmission 仍由 #335 upstream 去重；不增加 application-level retry 猜测。",
+              "保持 StableSignalReference 为地址 identity，不引入 frame/PDU/timestamp；不改变 R1 Evidence authority。"
+            ],
+            "result": "PR #341 exact head `a3003d7c…`；Technical PASS；CI #1270 SUCCESS；Build 0 warnings / 0 errors；126 Integration + 925 Unit + 15 Simulator + 23 Bench = 1,089 passed / 0 failed / 0 skipped。",
+            "completionNote": "尚未合并。该能力仍为 offline/replay protocol validation；需要 PO 明确批准 PR #341 后才能进入 main。",
+            "outputs": [
+              {
+                "label": "R2F2 correlation contract",
+                "path": "docs/project/RDS1B_R2F2_SIEMENS_TRANSACTION_CORRELATION.md",
+                "kind": "file"
+              },
+              {
+                "label": "Siemens S7comm replay decoder",
+                "path": "drivers/siemens/SiemensS7CommReadVarReplayDecoder.cs",
+                "kind": "file"
+              }
+            ],
+            "issues": [
+              340,
+              323
+            ],
+            "prs": [
+              341
+            ]
+          }
+        },
+        {
+          "id": "R8.9",
           "name": "Live Passive Observation Source / 真实 HMI↔PLC Pilot",
           "weight": 10,
           "status": "blocked",
@@ -1257,9 +1297,9 @@
       "name": "Evidence / Identification 基础控制轨",
       "subtitle": "Canonical 离线/回放 Evidence + 协议无关 Route B 输入",
       "status": "in_progress",
-      "maturity": 92,
+      "maturity": 94,
       "objective": "保持唯一 canonical Evidence authority，同时增加可回放的协议 Adapter，为后续已授权真实 observations 做准备。",
-      "basis": "Route B replay stack 已包含 TCP reassembly、Siemens Read Var / ISO-on-TCP / COTP segmented DT、Mitsubishi 0401/0403；RDS-1A real recorded dataset substantive production acceptance 也已完成，仅剩 CandidateRun exact-ID 审计记录。",
+      "basis": "Route B replay stack 已包含 TCP reassembly、Siemens Read Var / ISO-on-TCP / COTP segmented DT、Mitsubishi 0401/0403；R2F2 transaction correlation stability 已 Technical PASS 并停在 PO Gate。RDS-1A real recorded dataset substantive production acceptance 也已完成，仅剩 CandidateRun exact-ID 审计记录。",
       "boundary": "Replay / simulation / manual / offline Evidence 不等于真实设备验证。",
       "dimensions": [
         {
@@ -1272,14 +1312,14 @@
         },
         {
           "name": "协议无关 passive replay",
-          "progress": 85
+          "progress": 90
         },
         {
           "name": "跨厂商 Adapter 覆盖",
           "progress": 75
         }
       ],
-      "next": "先闭环 #279 AUDIT-ID-01：记录现有 20 个 persisted CandidateRun GUID；随后再继续 Route B R2F2 transaction-correlation 增量验证。"
+      "next": "当前先处理 PR #341 的 PO-KEY-GATE；#279 AUDIT-ID-01 可并行闭环。PR #341 未明确批准前不得合并。"
     },
     "realData": {
       "name": "真实 PLC / HMI 数据流控制轨",
@@ -1287,7 +1327,7 @@
       "status": "blocked",
       "maturity": 30,
       "objective": "获得一条真实 PLC/HMI 通信流，并把地址/值 observations 送入 canonical Evidence 与 Identification。",
-      "basis": "Route B replay stack 已推进到 Siemens COTP segmentation PO Gate；真实 live PLC/HMI 数据流仍未授权/未接入。",
+      "basis": "Route B replay stack 已推进到 Siemens transaction-correlation stability PO Gate；真实 live PLC/HMI 数据流仍未授权/未接入。",
       "boundary": "Never Write 绝对约束。Live capture / 客户网络 / Active Read 必须经过独立且明确的 Field Execution Gate。",
       "dimensions": [
         {
@@ -1296,7 +1336,7 @@
         },
         {
           "name": "Passive 协议回放链路",
-          "progress": 75
+          "progress": 82
         },
         {
           "name": "真实数据流授权",
@@ -1343,6 +1383,21 @@
     }
   },
   "gates": [
+    {
+      "title": "Siemens Transaction Correlation 合并 Gate",
+      "question": "是否允许将 R2F2 transaction-event identity 修复与 correlation stability 验证合入 main？",
+      "status": "in_progress",
+      "statusLabel": "TECHNICAL PASS / 等待 PO",
+      "trackingIssue": 340,
+      "currentRequirement": "PR #341 exact head `a3003d7c…` 已 Technical PASS；CI #1270 SUCCESS；4 ahead / 0 behind。合并必须获得明确 PO 授权：`批准合并 PR #341`。",
+      "requiredInputs": [
+        "PO 明确批准 PR #341"
+      ],
+      "blocks": [
+        "PR #341 merge",
+        "Issue #340 closeout"
+      ]
+    },
     {
       "title": "Siemens COTP Segmentation 合并 Gate",
       "question": "是否允许将 bounded COTP Class 0 segmented DT replay reassembly 合入 main？",
@@ -1552,6 +1607,12 @@
   ],
   "recentProgress": [
     {
+      "ref": "PR #341 · Issue #340 · Issue #323",
+      "title": "Siemens R2F2 transaction correlation stability 已 Technical PASS；exact head `a3003d7c…`；CI #1270 SUCCESS；1,089 项测试全部通过；发现并修复完成后 PDU-ref 复用的 transaction-event key 冲突；等待 PO 合并授权",
+      "status": "in_progress",
+      "date": "2026-10-06"
+    },
+    {
       "ref": "PR #339 · Issue #338 · Issue #279",
       "title": "RDS-1A AUDIT-ID-01 可见性修复已合并并部署 production；main `e3ef71f5…`；CI #1267 SUCCESS；Candidate Run 登记册现显示完整 persisted GUID；待记录现有 20 个 GUID 后关闭 #279",
       "status": "in_progress",
@@ -1615,19 +1676,19 @@
   "nextActions": [
     {
       "priority": 1,
+      "title": "PO Gate — 审批 PR #341 Siemens Transaction Correlation",
+      "status": "open",
+      "owner": "PO",
+      "issue": 340,
+      "note": "Technical PASS / CI #1270 SUCCESS。只有明确 `批准合并 PR #341` 才构成 merge authorization。"
+    },
+    {
+      "priority": 2,
       "title": "闭环 RDS-1A #279 AUDIT-ID-01 — 记录 20 个 exact CandidateRun GUID",
       "status": "open",
       "owner": "PO / 主代理",
       "issue": 279,
       "note": "production 已部署完整 GUID 显示。只复制现有登记册，不重跑 Identification，不生成新 CandidateRun，不推断 ID。"
-    },
-    {
-      "priority": 2,
-      "title": "RDS-1A 审计闭环后推进 RDS-1B-R2F2 — Siemens transaction correlation 增量验证",
-      "status": "open",
-      "owner": "主代理",
-      "issue": 323,
-      "note": "复用已存在的 S7 PDU-reference correlation，重点验证 segmented transport 后的 transaction stability；保持 offline/replay。"
     },
     {
       "priority": 3,
