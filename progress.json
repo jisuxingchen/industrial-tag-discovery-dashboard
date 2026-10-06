@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-06T23:21:00+08:00",
+  "updatedAt": "2026-10-07T00:16:00+08:00",
   "dataPolicy": {
     "rule": "看板状态必须服从仓库真实状态。所有百分比仅用于项目控制可视化，不得把文档、仿真、回放或录制证据升级为现场验证，不得视为满足 PDX-001，不得授权真实设备执行，也不得据此开启 Phase 9。"
   },
@@ -10,8 +10,8 @@
     "phase": "Route B 协议泛化 → 被动回放链路 → 有边界的现场准备",
     "status": "in_progress",
     "statusLabel": "ROUTE B 进行中 · 协议泛化",
-    "currentGate": "RDS-1B-R2G1 #342 / PR #343 已完成 Technical PASS，等待 PO 明确合并授权；RDS-1A #279 同时仍仅剩 AUDIT-ID-01。真实 PLC/HMI 被动现场执行继续未授权。",
-    "authoritativeRequirement": "当前 truth：产品仓库 main `310e2574…`；PR #343 exact head `e244344a…`，4 ahead / 0 behind，CI #1274 SUCCESS，1,101 passed / 0 failed / 0 skipped；PR 尚未合并。#279 在 exact 20 CandidateRun GUID 记录完成前保持 OPEN。",
+    "currentGate": "RDS-1B-R2G1 #342 / PR #343 已按 PO 授权合并并完成 exact-main CI；RDS-1A #279 AUDIT-ID-01 已完成并关闭。当前 Route B replay 可继续研究，但真实 PLC/HMI 被动现场执行仍未授权。",
+    "authoritativeRequirement": "当前 truth：产品仓库 main `e5b5b7c8…`；PR #343 已合并；Issue #342 CLOSED；CI #1275 SUCCESS，1,101 passed / 0 failed / 0 skipped。#279 已记录 final production 20 个 exact CandidateRun IDs 并 CLOSED；Railway production 已恢复 exact current main 且 Online。",
     "repository": "jisuxingchen/industrial-tag-discovery"
   },
   "wbs": [
@@ -1245,9 +1245,9 @@
           "id": "R8.9",
           "name": "离线真实录制 TCP Segment Manifest 接入",
           "weight": 10,
-          "status": "in_progress",
-          "progress": 95,
-          "note": "Issue #342 / PR #343 已 Technical PASS；exact-head CI #1274 SUCCESS；等待 PO-KEY-GATE 合并授权。",
+          "status": "completed",
+          "progress": 100,
+          "note": "PR #343 已按 PO 授权合并；merge `e5b5b7c8…`；exact-main CI #1275 SUCCESS；Issue #342 CLOSED。",
           "detail": {
             "objective": "为已经录制、已授权、已去标识化的 HMI↔PLC TCP payload segment 建立严格离线 intake，使真实录制 trace 可以复用现有 #335 → #337 → #327/#341 pipeline，而不增加 PCAP/live capture authority。",
             "workDone": [
@@ -1258,8 +1258,8 @@
               "验证 manifest → #335 TCP reassembly → TPKT/COTP → #337 → #327/#341 → 现有 R1 transaction/value 的端到端组合。",
               "结构扫描确认无 System.Net/socket/NIC/PCAP/serial/connect/send/write/File IO surface。"
             ],
-            "result": "PR #343 exact head `e244344a…`；Technical PASS；CI #1274 SUCCESS；Build 0 warnings / 0 errors；126 Integration + 937 Unit + 15 Simulator + 23 Bench = 1,101 passed / 0 failed / 0 skipped。",
-            "completionNote": "尚未合并。当前验证仍为 deterministic manifest-shaped L3 replay；尚未供应真实 HMI↔PLC recorded trace，也不代表 live/real-device compatibility。",
+            "result": "PR #343 reviewed head `e244344a…` 已按 PO 授权合并为 `e5b5b7c8…`；exact-main CI #1275 SUCCESS；Build 0 warnings / 0 errors；126 Integration + 937 Unit + 15 Simulator + 23 Bench = 1,101 passed / 0 failed / 0 skipped。",
+            "completionNote": "R2G1 已 main-close。能力仍限于受治理的 offline L3 recorded-TCP manifest intake；未供应真实 HMI↔PLC trace，不代表 live/real-device compatibility。",
             "outputs": [
               {
                 "label": "Recorded TCP replay manifest loader",
@@ -1337,9 +1337,9 @@
       "name": "Evidence / Identification 基础控制轨",
       "subtitle": "Canonical 离线/回放 Evidence + 协议无关 Route B 输入",
       "status": "in_progress",
-      "maturity": 97,
+      "maturity": 98,
       "objective": "保持唯一 canonical Evidence authority，同时增加可回放的协议 Adapter，为后续已授权真实 observations 做准备。",
-      "basis": "Route B replay stack 已包含 TCP reassembly、Siemens Read Var / ISO-on-TCP / COTP segmented DT / transaction correlation stability、Mitsubishi 0401/0403；R2G1 recorded TCP manifest intake 已 Technical PASS 并停在 PO Gate。RDS-1A real recorded dataset substantive production acceptance 也已完成，仅剩 CandidateRun exact-ID 审计记录。",
+      "basis": "Canonical Evidence / replay / 产品化已较成熟；Route B 已包含 TCP reassembly、Siemens Read Var / ISO-on-TCP / COTP segmentation / transaction correlation、Mitsubishi 0401/0403，以及已 main-close 的 R2G1 recorded TCP manifest intake。RDS-1A real recorded dataset Pilot #279 已完整 closeout，包括 exact final production CandidateRun IDs。",
       "boundary": "Replay / simulation / manual / offline Evidence 不等于真实设备验证。",
       "dimensions": [
         {
@@ -1352,14 +1352,14 @@
         },
         {
           "name": "协议无关 passive replay",
-          "progress": 97
+          "progress": 98
         },
         {
           "name": "跨厂商 Adapter 覆盖",
           "progress": 75
         }
       ],
-      "next": "当前先处理 PR #343 的 PO-KEY-GATE；#279 AUDIT-ID-01 可并行闭环。PR #343 未明确批准前不得合并。"
+      "next": "RDS-1A 已关闭。Route B #323 继续作为协议研究主线；任何 live passive observation source 仍必须单独申请有边界的 Field Execution Gate。"
     },
     "realData": {
       "name": "真实 PLC / HMI 数据流控制轨",
@@ -1367,7 +1367,7 @@
       "status": "blocked",
       "maturity": 30,
       "objective": "获得一条真实 PLC/HMI 通信流，并把地址/值 observations 送入 canonical Evidence 与 Identification。",
-      "basis": "Route B 已具备从受治理 recorded TCP segment manifest 进入现有 replay/protocol stack 的 Technical PASS 路径，但尚未供应真实 HMI↔PLC trace；live PLC/HMI 数据流仍未授权/未接入。",
+      "basis": "Route B 已具备受治理 recorded TCP segment manifest → replay/protocol stack 的 main-closed 离线路径，RDS-1A 也已用 genuine recorded industrial dataset 完成 Evidence→Identification closeout；但尚无被接受的 live PLC/HMI stream，live execution 仍未授权。",
       "boundary": "Never Write 绝对约束。Live capture / 客户网络 / Active Read 必须经过独立且明确的 Field Execution Gate。",
       "dimensions": [
         {
@@ -1426,17 +1426,12 @@
     {
       "title": "Recorded TCP Manifest Intake 合并 Gate",
       "question": "是否允许将 R2G1 offline recorded TCP segment manifest intake contract 合入 main？",
-      "status": "in_progress",
-      "statusLabel": "TECHNICAL PASS / 等待 PO",
+      "status": "completed",
+      "statusLabel": "已合并 / MAIN CI VERIFIED",
       "trackingIssue": 342,
-      "currentRequirement": "PR #343 exact head `e244344a…` 已 Technical PASS；CI #1274 SUCCESS；4 ahead / 0 behind。合并必须获得明确 PO 授权：`批准合并 PR #343`。",
-      "requiredInputs": [
-        "PO 明确批准 PR #343"
-      ],
-      "blocks": [
-        "PR #343 merge",
-        "Issue #342 closeout"
-      ]
+      "currentRequirement": "PR #343 已合并为 `e5b5b7c8…`；exact-main CI #1275 SUCCESS；Issue #342 CLOSED。该 Gate 已完成。",
+      "requiredInputs": [],
+      "blocks": []
     },
     {
       "title": "Siemens Transaction Correlation 合并 Gate",
@@ -1504,18 +1499,12 @@
     {
       "title": "RDS-1A 真实录制数据集 Pilot",
       "question": "第一份有代表性的真实录制数据集是否已经提供并被接受用于 canonical 分析？",
-      "status": "in_progress",
-      "statusLabel": "功能 Pilot 已完成 / AUDIT-ID-01 待闭环",
+      "status": "completed",
+      "statusLabel": "已完成 / CLOSED",
       "trackingIssue": 279,
-      "currentRequirement": "真实录制数据 Pilot 的 substantive production acceptance 已完成。#338/#339 已让 production Candidate Run Register 显示完整 persisted GUID。唯一剩余 Exit criterion：记录现有 20 个 CandidateIdentificationRun GUID，并核对 count=20；不得重跑或推断。",
-      "requiredInputs": [
-        "从 authenticated production Identification → Candidate Run 登记册复制现有 20 个完整 GUID",
-        "核对记录数量 = 20",
-        "将 exact GUID 列表写入 Issue #279 closeout"
-      ],
-      "blocks": [
-        "Issue #279 最终关闭"
-      ]
+      "currentRequirement": "AUDIT-ID-01 已通过 existing R7A metadata-only register 只读闭环：final production 20 个 exact CandidateRun IDs 已记录到 #279，count=20；未重跑 Identification。#279 CLOSED。",
+      "requiredInputs": [],
+      "blocks": []
     },
     {
       "title": "PDX-001 跨项目冻结 Gate",
@@ -1657,21 +1646,21 @@
   ],
   "recentProgress": [
     {
+      "ref": "Issue #279 · Issue #344 · PR #345",
+      "title": "RDS-1A AUDIT-ID-01 已完成：只读提取 R7A register，final production 20 个 exact CandidateRun IDs 已记录；40 条历史 register 中另 20 条为 diagnostic audit history；#279 CLOSED；diagnostic PR #345 未合并并已关闭",
+      "status": "completed",
+      "date": "2026-10-07"
+    },
+    {
       "ref": "PR #343 · Issue #342 · Issue #323",
-      "title": "R2G1 offline recorded TCP segment manifest intake 已 Technical PASS；exact head `e244344a…`；CI #1274 SUCCESS；1,101 项测试全部通过；可将 externally verified/de-identified recorded TCP segments 接入现有 replay stack；等待 PO 合并授权",
-      "status": "in_progress",
-      "date": "2026-10-06"
+      "title": "R2G1 offline recorded TCP segment manifest intake 已按 PO 授权合并；merge `e5b5b7c8…`；exact-main CI #1275 SUCCESS；1,101 项测试全部通过；Issue #342 CLOSED",
+      "status": "completed",
+      "date": "2026-10-07"
     },
     {
       "ref": "PR #341 · Issue #340 · Issue #323",
       "title": "Siemens R2F2 transaction correlation stability 已按 PO 授权合并；merge `310e2574…`；exact-main CI #1271 SUCCESS；1,089 项测试全部通过；Issue #340 已关闭",
       "status": "completed",
-      "date": "2026-10-06"
-    },
-    {
-      "ref": "PR #339 · Issue #338 · Issue #279",
-      "title": "RDS-1A AUDIT-ID-01 可见性修复已合并并部署 production；main `e3ef71f5…`；CI #1267 SUCCESS；Candidate Run 登记册现显示完整 persisted GUID；待记录现有 20 个 GUID 后关闭 #279",
-      "status": "in_progress",
       "date": "2026-10-06"
     },
     {
@@ -1732,22 +1721,6 @@
   "nextActions": [
     {
       "priority": 1,
-      "title": "PO Gate — 审批 PR #343 Recorded TCP Manifest Intake",
-      "status": "open",
-      "owner": "PO",
-      "issue": 342,
-      "note": "Technical PASS / CI #1274 SUCCESS。只有明确 `批准合并 PR #343` 才构成 merge authorization。"
-    },
-    {
-      "priority": 2,
-      "title": "闭环 RDS-1A #279 AUDIT-ID-01 — 记录 20 个 exact CandidateRun GUID",
-      "status": "open",
-      "owner": "PO / 主代理",
-      "issue": 279,
-      "note": "production 已部署完整 GUID 显示。只复制现有登记册，不重跑 Identification，不生成新 CandidateRun，不推断 ID。"
-    },
-    {
-      "priority": 3,
       "title": "Railway UI 删除 gracious-strength 空项目壳",
       "status": "open",
       "owner": "主代理 / PO",
@@ -1755,7 +1728,7 @@
       "note": "冗余 service 已不存在；gracious-strength 当前仅剩空 project/environment shell。Railway connector 未暴露 delete-project，需在 Railway UI 的 Project Settings → Danger Zone 删除项目。"
     },
     {
-      "priority": 4,
+      "priority": 2,
       "title": "继续 RP-01 / PDX-001 校准并识别 RP-02/RP-03",
       "status": "in_progress",
       "owner": "PO / 现场工程 / 产品",
@@ -1765,7 +1738,7 @@
   ],
   "missionAssessment": {
     "title": "核心目标重校准 — 目标 = 真实 PLC/HMI 数据流分析",
-    "overallProgress": 71,
+    "overallProgress": 72,
     "basis": "仅用于项目控制估算。该数值反映已完成的产品、Evidence 与协议基础，但不得把 replay/录制 Evidence 升级为真实设备验证，也不授权现场执行。",
     "warning": "Route B 协议准备度已经明显提升，但核心缺口仍未改变：尚无被接受的 live PLC/HMI 动态数据流完整穿过 canonical Evidence → Identification 链路。",
     "dimensions": [
@@ -1779,9 +1752,9 @@
       {
         "name": "离线 Evidence 与协议基础",
         "weight": 25,
-        "progress": 97,
+        "progress": 98,
         "status": "in_progress",
-        "note": "Canonical Evidence / replay / 产品化已较成熟；Siemens replay stack 已完成 transaction correlation，R2G1 recorded TCP manifest intake 已 Technical PASS 并停在 PO Gate，Mitsubishi 0401/0403 已合并。"
+        "note": "Canonical Evidence / replay / 产品化已较成熟；Siemens/Mitsubishi replay stack 与 R2G1 recorded TCP manifest intake 已 main-close，RDS-1A #279 也已完成 exact CandidateRun 审计闭环。"
       },
       {
         "name": "真实 PLC/HMI 数据流",
