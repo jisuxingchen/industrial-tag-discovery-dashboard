@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-07T00:56:00+08:00",
+  "updatedAt": "2026-10-07T01:06:00+08:00",
   "dataPolicy": {
     "rule": "看板状态必须服从仓库真实状态。所有百分比仅用于项目控制可视化，不得把文档、仿真、回放或录制证据升级为现场验证，不得视为满足 PDX-001，不得授权真实设备执行，也不得据此开启 Phase 9。"
   },
@@ -10,8 +10,8 @@
     "phase": "Route B 离线/回放基线已收口 → 真实 PLC/HMI Passive Field Gate 准备",
     "status": "in_progress",
     "statusLabel": "FIELD GATE PREPARATION · EXECUTION NOT AUTHORIZED",
-    "currentGate": "RDS-1B-FIELD-01 #346 已开启准备 Gate：冻结一个 exact PLC/HMI pair、observation point、授权、时间窗、数据处理与 STOP 条件后，才可请求 PO Field Execution authorization。当前任何 SPAN/TAP/NIC/capture/customer-network execution 均未授权。",
-    "authoritativeRequirement": "产品 main `e5b5b7c8…`；产品仓库只剩 main。PR #243 已作为 superseded 关闭且 stale branch 已删除。当前 offline/replay + Web/UI/项目包 scope 已 main-close；下一未完成核心使命是获得一条明确授权的真实 PLC/HMI passive stream 并进入 canonical Evidence。",
+    "currentGate": "当前唯一优先 Gate：#346 RDS-1B-FIELD-01 preparation。先冻结 exact PLC/HMI pair、observation point、授权、时间窗、数据处理与 STOP 条件；live execution 仍未授权。",
+    "authoritativeRequirement": "产品 main `e5b5b7c8…`；#115 已 CLOSED / not_planned，PDX-001 保持 deferred；#330 已 CLOSED / completed。Railway active itdp-app1 仍 live 且部署 SUCCESS。",
     "repository": "jisuxingchen/industrial-tag-discovery"
   },
   "wbs": [
@@ -1402,7 +1402,7 @@
       "status": "on_hold",
       "maturity": 35,
       "objective": "使用真实项目 Evidence 校准详细工作流假设，同时明确区分现场照片/文档材料与动态 PLC/HMI 数据。",
-      "basis": "RP-01 的 bounded product calibration 已通过 #212/D2/D3/D4-A 支撑过产品开发，但旧 #115 broad E1 site-survey acceptance 仍未完成。PDX-001 只在需要冻结跨项目通用 workflow/taxonomy/ranking/planning policy 时才要求 RP-02/RP-03，不是当前真实数据 Pilot 前置。",
+      "basis": "PO 已明确关闭旧 #115 broad Rudong E1 collection Gate 为 not_planned。该关闭不等于 E1 field acceptance 完成；RP-01 bounded calibration 已完成其产品校准作用，PDX-001 继续 DEFERRED。",
       "boundary": "PDX-001 是跨项目冻结 Gate，不是软件开发停止条件，也不是现场执行授权。",
       "dimensions": [
         {
@@ -1422,7 +1422,7 @@
           "progress": 0
         }
       ],
-      "next": "当前建议 defer。若近期不冻结通用跨项目 policy，则无需现在识别 RP-02/RP-03；如未来要冻结通用 policy，再选择两个独立真实项目并重开 cross-project calibration。#115 可由 PO 决定按 superseded/not-planned 关闭，而不是伪装成 E1 完成。"
+      "next": "无需当前识别 RP-02/RP-03。只有未来准备冻结跨项目通用 workflow/taxonomy/ranking/planning policy 时，再启动新的 cross-project calibration program。"
     }
   },
   "gates": [
@@ -1515,9 +1515,9 @@
       "title": "PDX-001 跨项目冻结 Gate",
       "question": "是否已有 2–3 个真实项目支撑冻结跨项目 workflow / taxonomy / ranking / planning policy？",
       "status": "on_hold",
-      "statusLabel": "DEFERRED / 非当前前置",
-      "trackingIssue": 115,
-      "currentRequirement": "仅当产品准备冻结通用跨项目 workflow / taxonomy / ranking / planning policy 时才需要 RP-02/RP-03。当前 #346 真实数据 Pilot 不依赖 PDX-001 满足。",
+      "statusLabel": "DEFERRED / 旧 #115 已关闭",
+      "trackingIssue": null,
+      "currentRequirement": "Issue #115 已按 PO 决策 CLOSED / not_planned；PDX-001 本身继续 deferred。未来若要冻结通用跨项目 workflow/taxonomy/ranking/planning policy，应新建独立 cross-project Gate 并选择 RP-02/RP-03。",
       "requiredInputs": [
         "2–3 个真实项目 Evidence 集",
         "工作流差异 Evidence",
@@ -1651,6 +1651,18 @@
   ],
   "recentProgress": [
     {
+      "ref": "Issue #115 · PDX-001",
+      "title": "旧 RP-01 broad E1 collection Gate 已按 PO 明确决策 CLOSED / not_planned；未把缺失 field evidence 伪装成完成；PDX-001 保持 DEFERRED，未来 universal freeze 时再新开 RP-02/RP-03 program",
+      "status": "completed",
+      "date": "2026-10-07"
+    },
+    {
+      "ref": "Issue #330 · Railway",
+      "title": "PO 已在 Railway UI 删除 `gracious-strength`；connector project-list 仍有 stale record，但 services=0；active itdp-app1 保持 live / exact main / deployment SUCCESS；#330 CLOSED / completed",
+      "status": "completed",
+      "date": "2026-10-07"
+    },
+    {
       "ref": "Issue #346 · #288 · #323",
       "title": "已建立第一条真实 PLC/HMI passive observation Field Execution Gate preparation；当前仅冻结 scope/authorization/window/data handling/STOP conditions，live execution 仍未授权",
       "status": "in_progress",
@@ -1723,12 +1735,6 @@
       "date": "2026-09-29"
     },
     {
-      "ref": "Issue #330",
-      "title": "Railway 冗余 service 已不存在；fresh connector 仍显示 `gracious-strength` 空 project shell，因此物理 project 删除尚未独立验证",
-      "status": "in_progress",
-      "date": "2026-10-07"
-    },
-    {
       "ref": "V1-C1 #261–#266",
       "title": "Canonical 离线 Evidence 工作区、validated replay、不可变源文件、表格型 Evidence 接入、Web 工作区与 Evidence→Strategy 桥接已关闭完成",
       "status": "completed",
@@ -1748,23 +1754,7 @@
       "status": "open",
       "owner": "PO / 现场工程 / 主代理",
       "issue": 346,
-      "note": "先选一个 exact PLC/HMI pair；优先客户提供已录制 trace，其次客户配置 SPAN/mirror。冻结 observation point、授权、时间窗、数据处理与 STOP 条件后，再请求明确 PO execution approval。"
-    },
-    {
-      "priority": 2,
-      "title": "Railway UI 再确认并删除 gracious-strength 空 project shell",
-      "status": "open",
-      "owner": "PO / 主代理",
-      "issue": 330,
-      "note": "冗余 service 已为 0；但 fresh Railway connector 仍返回 gracious-strength project + production environment，因此 project-container 物理删除尚未验证。"
-    },
-    {
-      "priority": 3,
-      "title": "PDX-001 治理决策 — defer 或为 universal freeze 选择 RP-02/RP-03",
-      "status": "on_hold",
-      "owner": "PO / 产品",
-      "issue": 115,
-      "note": "默认建议 defer。只有近期要冻结通用跨项目 workflow/taxonomy/ranking/planning policy 时，才值得投入 RP-02/RP-03；否则 #115 可后续按 superseded/not-planned 关闭。"
+      "note": "选择一个 exact PLC/HMI pair；优先客户提供已录制 trace，其次客户配置 SPAN/mirror。冻结 observation point、授权、时间窗、数据处理与 STOP 条件后，再请求明确 PO execution approval。"
     }
   ],
   "missionAssessment": {
