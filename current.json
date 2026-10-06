@@ -1,15 +1,15 @@
 {
-  "generated_at": "2026-10-06T11:50:00+08:00",
-  "display_time": "2026-10-06 11:50",
-  "version": "2026-10-06_11-50",
-  "note": "RDS-1B-R2F2 Siemens transaction correlation 已推进到 PO Gate：Issue #340 / PR #341，exact head a3003d7c…，Technical PASS，exact-head CI #1270 SUCCESS，1,089 passed / 0 failed / 0 skipped。现有 correlator 仍以 conversation + S7 PDU reference 为 authority；本次仅修复完成后的 PDU ref 复用造成 transaction-event key 冲突，并补齐 segmented transport / retransmission / conversation isolation 验证。PR #341 尚未获 PO 合并授权。RDS-1A #279 同时仍仅缺既有 20 个 CandidateRun GUID 审计记录；live passive field execution 仍未授权。",
+  "generated_at": "2026-10-06T21:21:00+08:00",
+  "display_time": "2026-10-06 21:21",
+  "version": "2026-10-06_21-21",
+  "note": "RDS-1B-R2F2 Siemens transaction correlation 已按 PO 授权合并：PR #341 merge `310e2574…` 已成为 current main，Issue #340 已关闭；exact-main CI #1271 SUCCESS，1,089 passed / 0 failed / 0 skipped。现有 correlator 仍以 conversation + S7 PDU reference 为 authority；本次仅修复完成后的 PDU ref 复用造成 transaction-event identity 冲突，并验证 segmented transport / retransmission / conversation isolation。RDS-1A #279 仍仅缺既有 20 个 CandidateRun GUID 审计记录；live passive field execution 仍未授权。",
   "dashboard_path": "dashboard.html",
   "data_path": "progress.json",
   "prototype_path": "prototype/workbench/",
   "official_url": "https://industrialtagdiscovery.netlify.app/",
-  "source_main_commit": "e3ef71f53bb3cb10b1dbbd7efbe33d1ad5773569",
+  "source_main_commit": "310e2574dd3b67c9cbf8b1e51ae68d850bff99a7",
   "active_route_b_issue": 323,
-  "active_pr": 341,
-  "active_pr_head": "a3003d7c7578f7d1dc215fd9d7cb966ff0dd8714",
+  "active_pr": null,
+  "active_pr_head": null,
   "active_rds1a_issue": 279
 }
