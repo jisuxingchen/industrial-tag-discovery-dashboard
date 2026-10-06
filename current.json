@@ -1,15 +1,15 @@
 {
-  "generated_at": "2026-10-07T01:59:00+08:00",
-  "display_time": "2026-10-07 01:59",
-  "version": "2026-10-07_01-59",
-  "note": "第一条公开真实录制 PLC/HMI 案例已推进到产品 Gate：选用 gymgit/s7-pcaps 的 WinCC↔S7-400 `wincc_s400_production.pcapng`，exact source SHA-256 `d0bae738…` / 294,072 bytes。独立 tshark 确认 1,658 个 S7comm frames、84 对 Read Var、27 对 Write Var；真实流量暴露 S7-400 DBREAD 0xB0 兼容性缺口。Issue #348 / PR #349 已完成 bounded decoder extension，exact head `caf5f1b1…`，CI #1277 SUCCESS，1,107 passed / 0 failed / 0 skipped。exact #349 code 对整份公开真实 capture 解码 84/84 Read Var → 165 Known DBREAD area observations / 61 stable identities / 0 Unknown；真实 frame 24/25 另已完整走通 R2G1 → #335 TCP → #337 COTP → DBREAD。PR #349 尚未获 PO merge authorization。#350 记录整段长时双向 replay chronology 后续增强，不阻塞 bounded pilot。#346 live Field Execution preparation 仍保持 execution NOT AUTHORIZED。",
+  "generated_at": "2026-10-07T02:20:00+08:00",
+  "display_time": "2026-10-07 02:20",
+  "version": "2026-10-07_02-20",
+  "note": "第一条公开真实录制 WinCC↔S7-400 PCAP Pilot 已 main-close。PR #349 已在 PO 明确批准后合并为 `07c484cc…`；exact-main CI #1278 SUCCESS，Build 0 warnings / 0 errors，126 Integration + 943 Unit + 15 Simulator + 23 Bench = 1,107 passed / 0 failed / 0 skipped。公开真实源 `wincc_s400_production.pcapng`（294,072 bytes；SHA-256 `d0bae738…`）验证结果保持：1,658 S7comm frames、84/84 Read Var、165 Known DBREAD area observations、61 stable identities、0 Unknown；真实 frame 24/25 已完整通过 R2G1 → #335 TCP → #337 COTP/S7 → DBREAD。Issue #347 CLOSED/completed；Issue #348 已随 PR merge CLOSED。#350 继续作为长时双向 replay chronology 的 non-blocking backlog。当前优先级返回 #346 live Field Execution Gate preparation；execution 仍 NOT AUTHORIZED。",
   "dashboard_path": "dashboard.html",
   "data_path": "progress.json",
   "prototype_path": "prototype/workbench/",
   "official_url": "https://industrialtagdiscovery.netlify.app/",
-  "source_main_commit": "e5b5b7c86861d2b24166e8c591d7ec808cb52856",
-  "active_route_b_issue": 348,
-  "active_pr": 349,
-  "active_pr_head": "caf5f1b15ebd1efb826aa84ac8fe229425f90812",
+  "source_main_commit": "07c484cc08cf9ff69716ec3fc7d1a9222ee24de7",
+  "active_route_b_issue": 346,
+  "active_pr": null,
+  "active_pr_head": null,
   "active_rds1a_issue": null
 }
