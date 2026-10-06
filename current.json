@@ -1,15 +1,15 @@
 {
-  "generated_at": "2026-10-07T01:06:00+08:00",
-  "display_time": "2026-10-07 01:06",
-  "version": "2026-10-07_01-06",
-  "note": "PO 已明确批准关闭旧 RP-01 broad E1 Gate：Issue #115 现为 CLOSED / not_planned；这不代表 E1 field acceptance 被补齐，PDX-001 继续 DEFERRED，仅在未来需要冻结跨项目通用 workflow/taxonomy/ranking/planning policy 时再重开独立 RP-02/RP-03 calibration。Railway `gracious-strength` 已由 PO 在 UI 中确认删除；connector 仍返回 stale project-list record，但该 project services=0，active `itdp-app1-preview / itdp-app1` 仍 live，source exact main `e5b5b7c8…`，latest deployment `639d9023…` SUCCESS，故 Issue #330 已 CLOSED / completed。当前唯一优先 Gate 是 #346 RDS-1B-FIELD-01 preparation；任何 SPAN/TAP/NIC/capture/customer-network execution 仍未授权。",
+  "generated_at": "2026-10-07T01:59:00+08:00",
+  "display_time": "2026-10-07 01:59",
+  "version": "2026-10-07_01-59",
+  "note": "第一条公开真实录制 PLC/HMI 案例已推进到产品 Gate：选用 gymgit/s7-pcaps 的 WinCC↔S7-400 `wincc_s400_production.pcapng`，exact source SHA-256 `d0bae738…` / 294,072 bytes。独立 tshark 确认 1,658 个 S7comm frames、84 对 Read Var、27 对 Write Var；真实流量暴露 S7-400 DBREAD 0xB0 兼容性缺口。Issue #348 / PR #349 已完成 bounded decoder extension，exact head `caf5f1b1…`，CI #1277 SUCCESS，1,107 passed / 0 failed / 0 skipped。exact #349 code 对整份公开真实 capture 解码 84/84 Read Var → 165 Known DBREAD area observations / 61 stable identities / 0 Unknown；真实 frame 24/25 另已完整走通 R2G1 → #335 TCP → #337 COTP → DBREAD。PR #349 尚未获 PO merge authorization。#350 记录整段长时双向 replay chronology 后续增强，不阻塞 bounded pilot。#346 live Field Execution preparation 仍保持 execution NOT AUTHORIZED。",
   "dashboard_path": "dashboard.html",
   "data_path": "progress.json",
   "prototype_path": "prototype/workbench/",
   "official_url": "https://industrialtagdiscovery.netlify.app/",
   "source_main_commit": "e5b5b7c86861d2b24166e8c591d7ec808cb52856",
-  "active_route_b_issue": 346,
-  "active_pr": null,
-  "active_pr_head": null,
+  "active_route_b_issue": 348,
+  "active_pr": 349,
+  "active_pr_head": "caf5f1b15ebd1efb826aa84ac8fe229425f90812",
   "active_rds1a_issue": null
 }
