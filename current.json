@@ -1,15 +1,15 @@
 {
-  "generated_at": "2026-10-06T23:21:00+08:00",
-  "display_time": "2026-10-06 23:21",
-  "version": "2026-10-06_23-21",
-  "note": "RDS-1B-R2G1 Offline Recorded TCP Segment Manifest Intake 已推进到 PO Gate：Issue #342 / PR #343，exact head `e244344a…`，Technical PASS，exact-head CI #1274 SUCCESS，1,101 passed / 0 failed / 0 skipped。该阶段只接收已录制、已授权、已去标识化且由外部 retention authority 验证身份的 TCP payload segment manifest；不解析 PCAP、不连接 NIC、不做 live capture，并始终按 L3 Replay 执行。PR #343 尚未获 PO 合并授权。RDS-1A #279 同时仍仅缺既有 20 个 CandidateRun GUID 审计记录；live passive field execution 仍未授权。",
+  "generated_at": "2026-10-07T00:16:00+08:00",
+  "display_time": "2026-10-07 00:16",
+  "version": "2026-10-07_00-16",
+  "note": "RDS-1B-R2G1 已按 PO 授权完成：PR #343 merge `e5b5b7c8…`，exact-main CI #1275 SUCCESS，1,101 passed / 0 failed / 0 skipped，Issue #342 CLOSED。RDS-1A #279 的 AUDIT-ID-01 也已完成：通过只读 R7A register 提取并在 #279 记录 final production 20 个 exact CandidateRun IDs；未重跑 Identification、未生成新 CandidateRun。历史 register 共 40 条，其中早期 20 条为 diagnostic audit history，后 20 条为 final production set。#279 已 CLOSED。Railway 已恢复 exact current main `e5b5b7c8…`，deployment `639d9023…` SUCCESS / Online，同一 `/data/itdp` volume。Live passive field execution 仍未授权。",
   "dashboard_path": "dashboard.html",
   "data_path": "progress.json",
   "prototype_path": "prototype/workbench/",
   "official_url": "https://industrialtagdiscovery.netlify.app/",
-  "source_main_commit": "310e2574dd3b67c9cbf8b1e51ae68d850bff99a7",
+  "source_main_commit": "e5b5b7c86861d2b24166e8c591d7ec808cb52856",
   "active_route_b_issue": 323,
-  "active_pr": 343,
-  "active_pr_head": "e244344a464a46265bbd3a015781636ba0588c51",
-  "active_rds1a_issue": 279
+  "active_pr": null,
+  "active_pr_head": null,
+  "active_rds1a_issue": null
 }
