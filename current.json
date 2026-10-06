@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-10-07T00:56:00+08:00",
-  "display_time": "2026-10-07 00:56",
-  "version": "2026-10-07_00-56",
-  "note": "当前产品 main `e5b5b7c8…`，且产品仓库已清理到只剩 main。遗留 PR #243 已确认被 #244/#245/#247/#248/#249 完整取代，现已 CLOSED without merge，其 stale branch 已删除。V1-C1 Evidence Workspace、V1-UI2 下游 UI、持久化 Web/.itdproject 项目包，以及当前 Siemens+Mitsubishi offline/replay Adapter scope 均已 main-close，因此对应看板成熟度收口到 100%。下一核心 Gate 已创建为 #346 RDS-1B-FIELD-01：真实 PLC/HMI passive observation Field Execution Gate preparation；当前仅准备，不授权 SPAN/TAP/NIC/capture/customer-network execution。PDX-001/RP-01 转为 on-hold cross-project freeze calibration，不再作为当前 live pilot 前置。Railway `gracious-strength` 冗余 service 已不存在，但 fresh connector 仍能看到空 project shell，因此 #330 暂不关闭。",
+  "generated_at": "2026-10-07T01:06:00+08:00",
+  "display_time": "2026-10-07 01:06",
+  "version": "2026-10-07_01-06",
+  "note": "PO 已明确批准关闭旧 RP-01 broad E1 Gate：Issue #115 现为 CLOSED / not_planned；这不代表 E1 field acceptance 被补齐，PDX-001 继续 DEFERRED，仅在未来需要冻结跨项目通用 workflow/taxonomy/ranking/planning policy 时再重开独立 RP-02/RP-03 calibration。Railway `gracious-strength` 已由 PO 在 UI 中确认删除；connector 仍返回 stale project-list record，但该 project services=0，active `itdp-app1-preview / itdp-app1` 仍 live，source exact main `e5b5b7c8…`，latest deployment `639d9023…` SUCCESS，故 Issue #330 已 CLOSED / completed。当前唯一优先 Gate 是 #346 RDS-1B-FIELD-01 preparation；任何 SPAN/TAP/NIC/capture/customer-network execution 仍未授权。",
   "dashboard_path": "dashboard.html",
   "data_path": "progress.json",
   "prototype_path": "prototype/workbench/",
