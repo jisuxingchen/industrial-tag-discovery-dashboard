@@ -1,17 +1,17 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-07T01:59:00+08:00",
+  "updatedAt": "2026-10-07T02:20:00+08:00",
   "dataPolicy": {
     "rule": "看板状态必须服从仓库真实状态。所有百分比仅用于项目控制可视化，不得把文档、仿真、回放或录制证据升级为现场验证，不得视为满足 PDX-001，不得授权真实设备执行，也不得据此开启 Phase 9。"
   },
   "project": {
     "name": "工业 Tag 发现平台（ITDP）",
     "customer": "平台化 / 多项目产品开发",
-    "phase": "Route B — 公开真实录制 WinCC/S7-400 兼容性验证 → DBREAD PO Gate",
+    "phase": "Route B — 第一条公开真实 PLC/HMI PCAP Pilot main-close / Live Field Gate preparation",
     "status": "in_progress",
-    "statusLabel": "PUBLIC REAL RECORDED PILOT · TECHNICAL PASS / PO GATE",
-    "currentGate": "Issue #348 / PR #349 S7-400 DBREAD 已 Technical PASS；exact-head CI #1277 SUCCESS；公开真实 PCAP 84/84 Read Var 已通过 exact #349 decoder。等待 PO 明确 merge authorization。",
-    "authoritativeRequirement": "产品 main 仍为 `e5b5b7c8…`。PR #349 exact head `caf5f1b1…`，3 ahead / 0 behind / mergeable；产品 merge 前必须明确 `批准合并 PR #349`。公开真实录制验证不等于 #346 live field execution。",
+    "statusLabel": "PUBLIC REAL RECORDED PILOT MAIN-CLOSED · LIVE FIELD EXECUTION NOT AUTHORIZED",
+    "currentGate": "#346 真实 PLC/HMI Passive Field Execution Gate preparation；公开真实 WinCC/S7-400 offline pilot 已完成，但不构成现场执行授权。",
+    "authoritativeRequirement": "产品 current main = `07c484cc08cf9ff69716ec3fc7d1a9222ee24de7`。PR #349 已 merge；exact-main CI #1278 SUCCESS。下一关键 Gate 仍是 #346：必须冻结 exact PLC/HMI pair、observation point、客户授权、时间窗、数据处理与 STOP conditions，并获得 PO 明确 Field Execution authorization 后才能执行。",
     "repository": "jisuxingchen/industrial-tag-discovery"
   },
   "wbs": [
@@ -1285,9 +1285,9 @@
           "id": "R8.10",
           "name": "公开真实录制 WinCC↔S7-400 PCAP Pilot / DBREAD",
           "weight": 10,
-          "status": "in_progress",
-          "progress": 95,
-          "note": "Issue #347/#348 / PR #349：公开真实 PCAP 已验证；DBREAD extension Technical PASS；等待 PO-KEY-GATE 合并。",
+          "status": "completed",
+          "progress": 100,
+          "note": "Issue #347 CLOSED；PR #349 已按 PO 授权合并；exact-main CI #1278 SUCCESS；公开真实 WinCC↔S7-400 bounded/offline pilot main-close。",
           "detail": {
             "objective": "用公开可获取的真实录制 WinCC↔S7-400 通信验证 Route B 不只适用于 synthetic fixture，并把真实数据暴露的协议差异转成 bounded product capability。",
             "workDone": [
@@ -1300,8 +1300,8 @@
               "真实 capture frames 24/25 已完整通过 R2G1 manifest → #335 TCP reassembly → #337 COTP/S7 → DBREAD，得到 DB74/DB76/DB81 三个稳定 target。",
               "长时双向 run chronology 的非阻塞 robustness gap 已单独记录为 #350，不混入 DBREAD semantic PR。"
             ],
-            "result": "PR #349 exact head `caf5f1b1…`；Technical PASS；CI #1277 SUCCESS；1,107 passed / 0 failed / 0 skipped。Public-real diagnostic run `37507367233` SUCCESS；derived artifact `11431699903`。",
-            "completionNote": "当前处于 95% / PO Gate。只有 #349 合并并通过 exact-main CI 后，本 bounded public-real pilot 才 main-close。该证据是 external public real-recorded / offline L3 compatibility，不是 ITDP 自采 live field evidence。",
+            "result": "PR #349 reviewed head `caf5f1b1…` 已合并为 `07c484cc…`；exact-main CI #1278 SUCCESS；1,107 passed / 0 failed / 0 skipped。Public-real结果：84/84 Read Var，165 Known DBREAD area records，61 stable identities，0 Unknown。",
+            "completionNote": "MAIN-CLOSED。证据等级仍为 external public real-recorded / offline L3 compatibility；不等于 ITDP 现场自采，不授权 #346 live execution。",
             "outputs": [
               {
                 "label": "S7-400 DBREAD contract",
@@ -1383,10 +1383,10 @@
     "evidence": {
       "name": "Evidence / Identification 基础控制轨",
       "subtitle": "Canonical 离线/回放 Evidence + 协议无关 Route B 输入",
-      "status": "in_progress",
-      "maturity": 99,
+      "status": "completed",
+      "maturity": 100,
       "objective": "保持唯一 canonical Evidence authority，同时增加可回放的协议 Adapter，为后续已授权真实 observations 做准备。",
-      "basis": "原有 offline/replay Evidence + Siemens/Mitsubishi scope 已 main-close；新增第一条 external public real-recorded WinCC/S7-400 capture 暴露 DBREAD 0xB0 真实兼容性缺口，#349 已 Technical PASS 但尚未 merge。",
+      "basis": "Route B offline/replay Evidence 基础已完成，并新增第一条 external public real-recorded WinCC/S7-400 PCAP main-closed compatibility proof：84/84 Read Var、165 Known DBREAD observations、61 stable identities、0 Unknown。",
       "boundary": "Replay / simulation / manual / offline Evidence 不等于真实设备验证。",
       "dimensions": [
         {
@@ -1406,7 +1406,7 @@
           "progress": 100
         }
       ],
-      "next": "先完成 #349 PO-KEY-GATE 与 exact-main closeout；#350 long-trace chronology projection 为 non-blocking backlog；之后回到 #346 live Field Gate preparation。"
+      "next": "后续重点转到 #346 live/customer field Gate；#350 chronology projection 为 non-blocking backlog。"
     },
     "realData": {
       "name": "真实 PLC / HMI 数据流控制轨",
@@ -1414,7 +1414,7 @@
       "status": "blocked",
       "maturity": 35,
       "objective": "获得一条真实 PLC/HMI 通信流，并把地址/值 observations 送入 canonical Evidence 与 Identification。",
-      "basis": "已完成一条 external public real-recorded WinCC/S7-400 capture 的 offline compatibility validation：84/84 Read Var、165 Known DBREAD area observations；但这不是 ITDP 现场自采，也不满足 #346 live Field Execution。",
+      "basis": "第一条 external public real-recorded WinCC/S7-400 PCAP 已 offline main-close；但仍缺 ITDP/customer-specific live passive field stream。#346 execution 尚未授权。",
       "boundary": "Never Write 绝对约束。Live capture / 客户网络 / Active Read 必须经过独立且明确的 Field Execution Gate。",
       "dimensions": [
         {
@@ -1473,18 +1473,12 @@
     {
       "title": "S7-400 DBREAD / Public Real Recorded Pilot 合并 Gate",
       "question": "是否允许将公开真实 WinCC/S7-400 capture 暴露出的 DBREAD 0xB0 bounded read-only decoder extension 合入 main？",
-      "status": "in_progress",
-      "statusLabel": "TECHNICAL PASS / 等待 PO",
+      "status": "completed",
+      "statusLabel": "已合并 / MAIN CI VERIFIED",
       "trackingIssue": 348,
-      "currentRequirement": "PR #349 exact head `caf5f1b1…` 已 Technical PASS；CI #1277 SUCCESS；公开真实 PCAP 84/84 Read Var 已通过 exact implementation。合并必须获得明确 PO 授权：`批准合并 PR #349`。",
-      "requiredInputs": [
-        "PO 明确批准 PR #349"
-      ],
-      "blocks": [
-        "PR #349 merge",
-        "Issue #348 closeout",
-        "#347 bounded pilot main-close"
-      ]
+      "currentRequirement": "PR #349 已按 PO 明确授权合并为 `07c484cc…`；exact-main CI #1278 SUCCESS；Issue #348 CLOSED。该 Gate 已完成。",
+      "requiredInputs": [],
+      "blocks": []
     },
     {
       "title": "Recorded TCP Manifest Intake 合并 Gate",
@@ -1711,6 +1705,12 @@
   ],
   "recentProgress": [
     {
+      "ref": "PR #349 · Issue #348 · Issue #347",
+      "title": "S7-400 DBREAD 0xB0 已按 PO 授权合入 main；exact-main CI #1278 SUCCESS，1,107/0/0；第一条公开真实录制 WinCC↔S7-400 PCAP Pilot main-close",
+      "status": "completed",
+      "date": "2026-10-07"
+    },
+    {
       "ref": "Issue #347 · Issue #348 · PR #349",
       "title": "第一条公开真实录制 WinCC↔S7-400 PCAP 已完成 bounded compatibility proof：1,658 S7comm frames、84/84 Read Var、165 Known DBREAD observations、61 stable identities；PR #349 CI #1277 SUCCESS，等待 PO merge authorization",
       "status": "in_progress",
@@ -1816,32 +1816,24 @@
   "nextActions": [
     {
       "priority": 1,
-      "title": "PO Gate — 审批 PR #349 S7-400 DBREAD",
-      "status": "open",
-      "owner": "PO",
-      "issue": 348,
-      "note": "Technical PASS / CI #1277 SUCCESS；公开真实 PCAP 已在 exact #349 code 上验证 84/84 Read Var。只有明确 `批准合并 PR #349` 才构成 merge authorization。"
-    },
-    {
-      "priority": 2,
-      "title": "完善 #346 — 第一条 ITDP 现场/客户真实 PLC/HMI Passive Field Execution Gate",
+      "title": "完善 #346 — 第一条 ITDP/客户真实 PLC/HMI Passive Field Execution Gate",
       "status": "open",
       "owner": "PO / 现场工程 / 主代理",
       "issue": 346,
-      "note": "公开互联网 PCAP 不能替代客户/现场 Gate。继续选择 exact PLC/HMI pair、observation point、授权、时间窗、数据处理与 STOP 条件。"
+      "note": "公开互联网真实 PCAP 已证明 offline compatibility，但不能替代现场授权。下一步需冻结 exact PLC/HMI pair、observation point、客户授权、时间窗、数据处理和 STOP conditions，再请求 PO 明确 execution approval。"
     },
     {
-      "priority": 3,
+      "priority": 2,
       "title": "#350 — 长时双向 TCP chronology projection（non-blocking backlog）",
       "status": "on_hold",
       "owner": "主代理",
       "issue": 350,
-      "note": "本轮 bounded real transaction 已完整通过 #335，因此 #350 不阻塞 #349/#347；未来处理长时间、fragmented/retransmitted bidirectional trace 时再推进。"
+      "note": "第一条 bounded public-real pilot 已完成，不阻塞当前现场 Gate。未来处理长时间、fragmented/retransmitted bidirectional capture 时再推进。"
     }
   ],
   "missionAssessment": {
     "title": "核心目标重校准 — 目标 = 真实 PLC/HMI 数据流分析",
-    "overallProgress": 76,
+    "overallProgress": 77,
     "basis": "仅用于项目控制估算。该数值反映已完成的产品、Evidence 与协议基础，但不得把 replay/录制 Evidence 升级为真实设备验证，也不授权现场执行。",
     "warning": "Route B 协议准备度已经明显提升，但核心缺口仍未改变：尚无被接受的 live PLC/HMI 动态数据流完整穿过 canonical Evidence → Identification 链路。",
     "dimensions": [
@@ -1855,16 +1847,16 @@
       {
         "name": "离线 Evidence 与协议基础",
         "weight": 25,
-        "progress": 99,
-        "status": "in_progress",
-        "note": "既有离线基础已完成；第一条 external public real-recorded WinCC/S7-400 case 已证明真实兼容性并暴露/修复 DBREAD 0xB0，当前停在 #349 PO Gate。"
+        "progress": 100,
+        "status": "completed",
+        "note": "离线基础与第一条 external public real-recorded WinCC/S7-400 compatibility proof 均 main-close；后续离线 robustness #350 不阻塞当前里程碑。"
       },
       {
         "name": "真实 PLC/HMI 数据流",
         "weight": 25,
         "progress": 40,
         "status": "blocked",
-        "note": "已有 external public real-recorded dynamic PLC/HMI traffic 完成 offline compatibility proof，但尚无 ITDP/customer-specific live passive field stream；#346 execution 仍未授权。"
+        "note": "已完成 external public real-recorded traffic 的 offline proof；仍缺 ITDP/customer-specific live passive field stream，#346 execution NOT AUTHORIZED。"
       },
       {
         "name": "Identification / Confirmation / Delivery / Knowledge",
